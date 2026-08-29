@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "Darśana",
+    "slug": "darshana-library",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#12141c",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.athmeeyatha.darshana"
+    },
+    "android": {
+      "package": "com.athmeeyatha.darshana",
+      "adaptiveIcon": {
+        "backgroundColor": "#12141c",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#12141c",
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain"
+        }
+      ]
+    ]
+  }
+}

@@ -1,0 +1,946 @@
+{
+  "metadata": {
+    "system": "Sāṃkhya & Yoga",
+    "version": "1.0",
+    "description": "Knowledge Graph Ontology of Sāṃkhya and Yoga Philosophies"
+  },
+  "nodes": [
+    {
+      "id": "purusha",
+      "label": "Puruṣa",
+      "type": "Tattva",
+      "properties": {
+        "description": "Pure consciousness, witness, uncaused, non-productive."
+      }
+    },
+    {
+      "id": "prakriti",
+      "label": "Mūla-Prakṛti",
+      "type": "Tattva",
+      "properties": {
+        "description": "Root nature, uncaused cause of the material universe."
+      }
+    },
+    {
+      "id": "sattva",
+      "label": "Sattva",
+      "type": "Guna",
+      "properties": {
+        "description": "Illumination, lightness, pleasure."
+      }
+    },
+    {
+      "id": "rajas",
+      "label": "Rajas",
+      "type": "Guna",
+      "properties": {
+        "description": "Activity, motion, pain."
+      }
+    },
+    {
+      "id": "tamas",
+      "label": "Tamas",
+      "type": "Guna",
+      "properties": {
+        "description": "Restraint, heaviness, indifference."
+      }
+    },
+    {
+      "id": "buddhi",
+      "label": "Buddhi / Mahat",
+      "type": "Tattva",
+      "properties": {
+        "description": "Intellect, determination."
+      }
+    },
+    {
+      "id": "ahamkara",
+      "label": "Ahaṃkāra",
+      "type": "Tattva",
+      "properties": {
+        "description": "Ego-sense, individuation."
+      }
+    },
+    {
+      "id": "manas",
+      "label": "Manas",
+      "type": "Tattva",
+      "properties": {
+        "description": "Mind, internal organ of synthesis."
+      }
+    },
+    {
+      "id": "eye",
+      "label": "Eye",
+      "type": "Tattva",
+      "properties": {
+        "category": "Jñānendriya"
+      }
+    },
+    {
+      "id": "ear",
+      "label": "Ear",
+      "type": "Tattva",
+      "properties": {
+        "category": "Jñānendriya"
+      }
+    },
+    {
+      "id": "nose",
+      "label": "Nose",
+      "type": "Tattva",
+      "properties": {
+        "category": "Jñānendriya"
+      }
+    },
+    {
+      "id": "tongue",
+      "label": "Tongue",
+      "type": "Tattva",
+      "properties": {
+        "category": "Jñānendriya"
+      }
+    },
+    {
+      "id": "skin",
+      "label": "Skin",
+      "type": "Tattva",
+      "properties": {
+        "category": "Jñānendriya"
+      }
+    },
+    {
+      "id": "voice",
+      "label": "Voice",
+      "type": "Tattva",
+      "properties": {
+        "category": "Karmendriya"
+      }
+    },
+    {
+      "id": "hands",
+      "label": "Hands",
+      "type": "Tattva",
+      "properties": {
+        "category": "Karmendriya"
+      }
+    },
+    {
+      "id": "feet",
+      "label": "Feet",
+      "type": "Tattva",
+      "properties": {
+        "category": "Karmendriya"
+      }
+    },
+    {
+      "id": "excretion",
+      "label": "Excretion",
+      "type": "Tattva",
+      "properties": {
+        "category": "Karmendriya"
+      }
+    },
+    {
+      "id": "generation",
+      "label": "Generation",
+      "type": "Tattva",
+      "properties": {
+        "category": "Karmendriya"
+      }
+    },
+    {
+      "id": "sound-tanmatra",
+      "label": "Sound (Śabda)",
+      "type": "Tattva",
+      "properties": {
+        "category": "Tanmātra"
+      }
+    },
+    {
+      "id": "touch-tanmatra",
+      "label": "Touch (Sparśa)",
+      "type": "Tattva",
+      "properties": {
+        "category": "Tanmātra"
+      }
+    },
+    {
+      "id": "form-tanmatra",
+      "label": "Form (Rūpa)",
+      "type": "Tattva",
+      "properties": {
+        "category": "Tanmātra"
+      }
+    },
+    {
+      "id": "taste-tanmatra",
+      "label": "Taste (Rasa)",
+      "type": "Tattva",
+      "properties": {
+        "category": "Tanmātra"
+      }
+    },
+    {
+      "id": "smell-tanmatra",
+      "label": "Smell (Gandha)",
+      "type": "Tattva",
+      "properties": {
+        "category": "Tanmātra"
+      }
+    },
+    {
+      "id": "space",
+      "label": "Space (Ākāśa)",
+      "type": "Tattva",
+      "properties": {
+        "category": "Mahābhūta"
+      }
+    },
+    {
+      "id": "air",
+      "label": "Air (Vāyu)",
+      "type": "Tattva",
+      "properties": {
+        "category": "Mahābhūta"
+      }
+    },
+    {
+      "id": "fire",
+      "label": "Fire (Tejas)",
+      "type": "Tattva",
+      "properties": {
+        "category": "Mahābhūta"
+      }
+    },
+    {
+      "id": "water",
+      "label": "Water (Ap)",
+      "type": "Tattva",
+      "properties": {
+        "category": "Mahābhūta"
+      }
+    },
+    {
+      "id": "earth",
+      "label": "Earth (Pṛthivī)",
+      "type": "Tattva",
+      "properties": {
+        "category": "Mahābhūta"
+      }
+    },
+    {
+      "id": "antahkarana",
+      "label": "Antaḥkaraṇa",
+      "type": "Concept",
+      "properties": {
+        "description": "The Internal Instrument"
+      }
+    },
+    {
+      "id": "linga-sharira",
+      "label": "Liṅga-Śarīra",
+      "type": "Concept",
+      "properties": {
+        "description": "The Subtle Body"
+      }
+    },
+    {
+      "id": "pramanas",
+      "label": "Pramāṇas",
+      "type": "Concept",
+      "properties": {
+        "description": "Means of valid knowledge."
+      }
+    },
+    {
+      "id": "pramana-perception",
+      "label": "Perception (Dṛṣṭa)",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "pramana-inference",
+      "label": "Inference (Anumāna)",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "pramana-testimony",
+      "label": "Testimony (Āptavacana)",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "citta",
+      "label": "Citta",
+      "type": "Tattva",
+      "properties": {
+        "description": "The mind-field (Buddhi, Ahamkara, Manas combined)",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "ishvara",
+      "label": "Īśvara",
+      "type": "Tattva",
+      "properties": {
+        "description": "Special Purusha untouched by afflictions",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "klesas",
+      "label": "The 5 Kleśas",
+      "type": "Concept",
+      "properties": {
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "avidya",
+      "label": "Avidyā",
+      "type": "Concept",
+      "properties": {
+        "category": "Kleśa",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "asmita",
+      "label": "Asmitā",
+      "type": "Concept",
+      "properties": {
+        "category": "Kleśa",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "raga",
+      "label": "Rāga",
+      "type": "Concept",
+      "properties": {
+        "category": "Kleśa",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "dvesa",
+      "label": "Dveṣa",
+      "type": "Concept",
+      "properties": {
+        "category": "Kleśa",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "abhinivesa",
+      "label": "Abhiniveśa",
+      "type": "Concept",
+      "properties": {
+        "category": "Kleśa",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "ashtanga",
+      "label": "Aṣṭāṅga",
+      "type": "Concept",
+      "properties": {
+        "description": "The 8 Limbs of Yoga",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "yama",
+      "label": "Yama",
+      "type": "Concept",
+      "properties": {
+        "category": "Limb",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "niyama",
+      "label": "Niyama",
+      "type": "Concept",
+      "properties": {
+        "category": "Limb",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "asana",
+      "label": "Āsana",
+      "type": "Concept",
+      "properties": {
+        "category": "Limb",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "pranāyāma",
+      "label": "Prāṇāyāma",
+      "type": "Concept",
+      "properties": {
+        "category": "Limb",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "pratyahāra",
+      "label": "Pratyāhāra",
+      "type": "Concept",
+      "properties": {
+        "category": "Limb",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "dharanā",
+      "label": "Dhāraṇā",
+      "type": "Concept",
+      "properties": {
+        "category": "Limb",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "dhyana",
+      "label": "Dhyāna",
+      "type": "Concept",
+      "properties": {
+        "category": "Limb",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "samadhi",
+      "label": "Samādhi",
+      "type": "Concept",
+      "properties": {
+        "category": "Limb",
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "karma",
+      "label": "Karma",
+      "type": "Concept",
+      "properties": {
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "samskara",
+      "label": "Saṃskāra",
+      "type": "Concept",
+      "properties": {
+        "system": "Yoga"
+      }
+    },
+    {
+      "id": "kaivalya",
+      "label": "Kaivalya",
+      "type": "Concept",
+      "properties": {
+        "description": "Absolute Independence",
+        "system": "Both"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "purusha",
+      "target": "prakriti",
+      "relation": "OBSERVES",
+      "properties": {
+        "purpose": "Liberation and Experience"
+      }
+    },
+    {
+      "source": "prakriti",
+      "target": "purusha",
+      "relation": "LIBERATES",
+      "properties": {}
+    },
+    {
+      "source": "prakriti",
+      "target": "sattva",
+      "relation": "COMPOSED_OF",
+      "properties": {}
+    },
+    {
+      "source": "prakriti",
+      "target": "rajas",
+      "relation": "COMPOSED_OF",
+      "properties": {}
+    },
+    {
+      "source": "prakriti",
+      "target": "tamas",
+      "relation": "COMPOSED_OF",
+      "properties": {}
+    },
+    {
+      "source": "buddhi",
+      "target": "prakriti",
+      "relation": "EVOLVES_FROM",
+      "properties": {}
+    },
+    {
+      "source": "ahamkara",
+      "target": "buddhi",
+      "relation": "EVOLVES_FROM",
+      "properties": {}
+    },
+    {
+      "source": "ahamkara",
+      "target": "sattva",
+      "relation": "ACTIVATED_BY",
+      "properties": {
+        "mode": "Vaikṛta"
+      }
+    },
+    {
+      "source": "ahamkara",
+      "target": "rajas",
+      "relation": "ACTIVATED_BY",
+      "properties": {
+        "mode": "Taijasa"
+      }
+    },
+    {
+      "source": "ahamkara",
+      "target": "tamas",
+      "relation": "ACTIVATED_BY",
+      "properties": {
+        "mode": "Bhūtādi"
+      }
+    },
+    {
+      "source": "manas",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "sattva"
+      }
+    },
+    {
+      "source": "eye",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "sattva"
+      }
+    },
+    {
+      "source": "ear",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "sattva"
+      }
+    },
+    {
+      "source": "nose",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "sattva"
+      }
+    },
+    {
+      "source": "tongue",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "sattva"
+      }
+    },
+    {
+      "source": "skin",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "sattva"
+      }
+    },
+    {
+      "source": "voice",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "sattva"
+      }
+    },
+    {
+      "source": "hands",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "sattva"
+      }
+    },
+    {
+      "source": "feet",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "sattva"
+      }
+    },
+    {
+      "source": "excretion",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "sattva"
+      }
+    },
+    {
+      "source": "generation",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "sattva"
+      }
+    },
+    {
+      "source": "sound-tanmatra",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "tamas"
+      }
+    },
+    {
+      "source": "touch-tanmatra",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "tamas"
+      }
+    },
+    {
+      "source": "form-tanmatra",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "tamas"
+      }
+    },
+    {
+      "source": "taste-tanmatra",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "tamas"
+      }
+    },
+    {
+      "source": "smell-tanmatra",
+      "target": "ahamkara",
+      "relation": "EVOLVES_FROM",
+      "properties": {
+        "dominant_guna": "tamas"
+      }
+    },
+    {
+      "source": "space",
+      "target": "sound-tanmatra",
+      "relation": "EVOLVES_FROM",
+      "properties": {}
+    },
+    {
+      "source": "air",
+      "target": "touch-tanmatra",
+      "relation": "EVOLVES_FROM",
+      "properties": {}
+    },
+    {
+      "source": "fire",
+      "target": "form-tanmatra",
+      "relation": "EVOLVES_FROM",
+      "properties": {}
+    },
+    {
+      "source": "water",
+      "target": "taste-tanmatra",
+      "relation": "EVOLVES_FROM",
+      "properties": {}
+    },
+    {
+      "source": "earth",
+      "target": "smell-tanmatra",
+      "relation": "EVOLVES_FROM",
+      "properties": {}
+    },
+    {
+      "source": "antahkarana",
+      "target": "buddhi",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "antahkarana",
+      "target": "ahamkara",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "antahkarana",
+      "target": "manas",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "buddhi",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "ahamkara",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "manas",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "eye",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "ear",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "nose",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "tongue",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "skin",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "voice",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "hands",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "feet",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "excretion",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "generation",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "sound-tanmatra",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "touch-tanmatra",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "form-tanmatra",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "taste-tanmatra",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "linga-sharira",
+      "target": "smell-tanmatra",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "pramanas",
+      "target": "pramana-perception",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "pramanas",
+      "target": "pramana-inference",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "pramanas",
+      "target": "pramana-testimony",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "citta",
+      "target": "buddhi",
+      "relation": "EQUIVALENT_TO",
+      "properties": {
+        "context": "Yoga collapses the Antahkarana into Citta"
+      }
+    },
+    {
+      "source": "ishvara",
+      "target": "purusha",
+      "relation": "SUB_TYPE_OF",
+      "properties": {}
+    },
+    {
+      "source": "klesas",
+      "target": "avidya",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "klesas",
+      "target": "asmita",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "klesas",
+      "target": "raga",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "klesas",
+      "target": "dvesa",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "klesas",
+      "target": "abhinivesa",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "avidya",
+      "target": "citta",
+      "relation": "AFFLICTS",
+      "properties": {}
+    },
+    {
+      "source": "ashtanga",
+      "target": "yama",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "ashtanga",
+      "target": "niyama",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "ashtanga",
+      "target": "asana",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "ashtanga",
+      "target": "pranāyāma",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "ashtanga",
+      "target": "pratyahāra",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "ashtanga",
+      "target": "dharanā",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "ashtanga",
+      "target": "dhyana",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "ashtanga",
+      "target": "samadhi",
+      "relation": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": "klesas",
+      "target": "karma",
+      "relation": "CAUSES",
+      "properties": {}
+    },
+    {
+      "source": "karma",
+      "target": "samskara",
+      "relation": "GENERATES",
+      "properties": {}
+    },
+    {
+      "source": "samskara",
+      "target": "citta",
+      "relation": "STORED_IN",
+      "properties": {}
+    },
+    {
+      "source": "samadhi",
+      "target": "kaivalya",
+      "relation": "LEADS_TO",
+      "properties": {}
+    }
+  ]
+}
