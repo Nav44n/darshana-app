@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Modal, View, Text, Pressable, StyleSheet, ScrollView } from 'react-native';
 import Slider from '@react-native-community/slider';
 import { Verse } from '../types/content';
-import { fonts, ColorPalette } from '../theme/tokens';
+import { ColorPalette } from '../theme/tokens';
 import { useTheme } from '../theme/useTheme';
+import GunaRule from './GunaRule';
 
 export default function JumpToVerseModal({
   visible,
@@ -19,7 +20,7 @@ export default function JumpToVerseModal({
   onJump: (index: number) => void;
 }) {
   const [dragIndex, setDragIndex] = useState(currentIndex);
-  const { colors } = useTheme();
+  const { colors, type, elevation, gunaGradient } = useTheme();
   const s = makeStyles(colors);
 
   React.useEffect(() => {
@@ -30,13 +31,14 @@ export default function JumpToVerseModal({
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
-      <Pressable style={s.backdrop} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close jump-to-verse" />
-      <View style={s.sheet}>
+      <Pressable style={[s.backdrop, { backgroundColor: colors.overlay }]} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close jump-to-verse" />
+      <View style={[s.sheet, elevation(3)]}>
+        <GunaRule weight="bold" style={{ position: 'absolute', top: 0, left: 0, right: 0 }} />
         <View style={s.handle} />
-        <Text style={s.eyebrow}>Jump to verse</Text>
+        <Text style={[type.eyebrow, { color: colors.sattvaDim, marginBottom: 12 }]}>Jump to verse</Text>
         <View style={s.previewBox}>
-          <Text style={s.previewNum}>{dragVerse?.number}</Text>
-          <Text style={s.previewSection} numberOfLines={1}>
+          <Text style={[type.display1, { color: colors.sattva, fontSize: 34 }]}>{dragVerse?.number}</Text>
+          <Text style={[type.subtitle, { color: colors.inkDim, marginTop: 2, fontSize: 13 }]} numberOfLines={1}>
             {dragVerse?.section}
           </Text>
         </View>
@@ -57,30 +59,39 @@ export default function JumpToVerseModal({
           accessibilityValue={{ min: 0, max: Math.max(verses.length - 1, 0), now: dragIndex, text: dragVerse?.number }}
         />
         <View style={s.sliderLabels}>
-          <Text style={s.sliderLabelText}>{verses[0]?.number}</Text>
-          <Text style={s.sliderLabelText}>{verses[verses.length - 1]?.number}</Text>
+          <Text style={[type.sanskritNum, { color: colors.tamas, fontSize: 11 }]}>{verses[0]?.number}</Text>
+          <Text style={[type.sanskritNum, { color: colors.tamas, fontSize: 11 }]}>{verses[verses.length - 1]?.number}</Text>
         </View>
 
-        <Text style={s.gridLabel}>Or tap a verse directly</Text>
+        <Text style={[type.label, { color: colors.inkDim, marginBottom: 8 }]}>Or tap a verse directly</Text>
         <ScrollView style={{ maxHeight: 220 }}>
           <View style={s.grid}>
             {verses.map((v, i) => (
               <Pressable
                 key={v.id}
-                style={[s.chip, i === currentIndex && s.chipActive]}
+                style={({ pressed }) => [
+                  s.chip,
+                  i === currentIndex && s.chipActive,
+                  pressed && { opacity: 0.7, transform: [{ scale: 0.95 }] },
+                ]}
                 onPress={() => onJump(i)}
                 accessibilityRole="button"
                 accessibilityLabel={`Verse ${v.number}`}
                 accessibilityState={{ selected: i === currentIndex }}
               >
-                <Text style={[s.chipText, i === currentIndex && s.chipTextActive]}>{v.number}</Text>
+                <Text style={[type.sanskritNum, s.chipText, i === currentIndex && s.chipTextActive]}>{v.number}</Text>
               </Pressable>
             ))}
           </View>
         </ScrollView>
 
-        <Pressable style={s.closeBtn} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close">
-          <Text style={s.closeBtnText}>Close</Text>
+        <Pressable
+          style={({ pressed }) => [s.closeBtn, pressed && { opacity: 0.7 }]}
+          onPress={onClose}
+          accessibilityRole="button"
+          accessibilityLabel="Close"
+        >
+          <Text style={[type.label, { color: colors.sattvaDim }]}>Close</Text>
         </Pressable>
       </View>
     </Modal>
@@ -88,7 +99,7 @@ export default function JumpToVerseModal({
 }
 
 const makeStyles = (colors: ColorPalette) => StyleSheet.create({
-  backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.6)' },
+  backdrop: { flex: 1 },
   sheet: {
     position: 'absolute',
     bottom: 0,
@@ -99,24 +110,11 @@ const makeStyles = (colors: ColorPalette) => StyleSheet.create({
     borderTopRightRadius: 24,
     padding: 22,
     paddingBottom: 34,
-    borderTopWidth: 1,
-    borderColor: colors.hair,
+    overflow: 'hidden',
   },
-  handle: { width: 40, height: 4, borderRadius: 2, backgroundColor: colors.hair, alignSelf: 'center', marginBottom: 14 },
-  eyebrow: {
-    fontFamily: fonts.sansBold,
-    fontSize: 11,
-    letterSpacing: 1.6,
-    textTransform: 'uppercase',
-    color: colors.sattvaDim,
-    marginBottom: 12,
-  },
+  handle: { width: 40, height: 4, borderRadius: 2, backgroundColor: colors.hair, alignSelf: 'center', marginBottom: 14, marginTop: 4 },
   previewBox: { alignItems: 'center', marginBottom: 6 },
-  previewNum: { fontFamily: fonts.sanskrit, fontSize: 34, color: colors.sattva },
-  previewSection: { fontFamily: fonts.serifItalic, fontSize: 13, color: colors.inkDim, marginTop: 2 },
   sliderLabels: { flexDirection: 'row', justifyContent: 'space-between', marginTop: -6, marginBottom: 12 },
-  sliderLabelText: { fontFamily: fonts.sanskrit, fontSize: 11, color: colors.tamas },
-  gridLabel: { fontFamily: fonts.sansBold, fontSize: 10.5, color: colors.inkDim, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 8 },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, paddingBottom: 6 },
   chip: {
     minWidth: 38,
@@ -126,10 +124,10 @@ const makeStyles = (colors: ColorPalette) => StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.hair,
     alignItems: 'center',
+    backgroundColor: colors.avyakta3,
   },
-  chipActive: { backgroundColor: colors.rajas, borderColor: colors.rajas },
-  chipText: { fontFamily: fonts.sanskrit, fontSize: 12, color: colors.inkDim },
-  chipTextActive: { color: '#fff' },
+  chipActive: { backgroundColor: colors.avyakta4, borderColor: colors.rajas },
+  chipText: { fontSize: 13, color: colors.inkDim },
+  chipTextActive: { color: colors.sattva },
   closeBtn: { marginTop: 16, alignItems: 'center', paddingVertical: 12 },
-  closeBtnText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.sattvaDim, textTransform: 'uppercase', letterSpacing: 1 },
 });

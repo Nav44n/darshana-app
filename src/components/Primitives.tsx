@@ -1,150 +1,141 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
-import { fonts, ColorPalette } from '../theme/tokens';
+import { LinearGradient } from 'expo-linear-gradient';
+import { ColorPalette } from '../theme/tokens';
 import { useTheme } from '../theme/useTheme';
 import { useReadingPrefs } from '../state/ReadingPrefs';
+import GunaRule from './GunaRule';
 
 export function Eyebrow({ children }: { children: React.ReactNode }) {
-  const { colors } = useTheme();
-  return <Text style={makeStyles(colors).eyebrow}>{children}</Text>;
+  const { colors, type } = useTheme();
+  return <Text style={[type.eyebrow, { color: colors.sattvaDim, marginBottom: 6 }]}>{children}</Text>;
 }
 
-export function PageTitle({ children }: { children: React.ReactNode }) {
-  const { colors } = useTheme();
-  return <Text style={makeStyles(colors).pageTitle}>{children}</Text>;
+export function PageTitle({ children, withRule = false }: { children: React.ReactNode; withRule?: boolean }) {
+  const { colors, type } = useTheme();
+  return (
+    <View style={{ marginBottom: 4 }}>
+      <Text style={[type.display1, { color: colors.ink }]}>{children}</Text>
+      {withRule && <GunaRule style={{ marginTop: 8 }} />}
+    </View>
+  );
 }
 
 export function Subtitle({ children }: { children: React.ReactNode }) {
-  const { colors } = useTheme();
-  return <Text style={makeStyles(colors).subtitle}>{children}</Text>;
+  const { colors, type } = useTheme();
+  return <Text style={[type.subtitle, { color: colors.inkDim, marginBottom: 18, marginTop: 4 }]}>{children}</Text>;
 }
 
 export function SectionLabel({ children }: { children: React.ReactNode }) {
-  const { colors } = useTheme();
-  return <Text style={makeStyles(colors).sectionLabel}>{children}</Text>;
+  const { colors, type } = useTheme();
+  return <Text style={[type.label, { color: colors.inkDim, marginTop: 22, marginBottom: 10 }]}>{children}</Text>;
 }
 
 export function Card({
   children,
   onPress,
   accessibilityLabel,
+  withRule = false,
 }: {
   children: React.ReactNode;
   onPress?: () => void;
   accessibilityLabel?: string;
+  withRule?: boolean;
 }) {
-  const { colors } = useTheme();
+  const { colors, elevation } = useTheme();
   const s = makeStyles(colors);
+  
+  const content = (
+    <LinearGradient
+      colors={[colors.avyakta2, colors.avyakta3]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1.5 }}
+      style={[s.card, elevation(1)]}
+    >
+      {withRule && <GunaRule weight="bold" style={{ position: 'absolute', top: 0, left: 0, right: 0 }} />}
+      {children}
+    </LinearGradient>
+  );
+
   if (onPress) {
     return (
-      <Pressable style={s.card} onPress={onPress} accessibilityRole="button" accessibilityLabel={accessibilityLabel}>
-        {children}
+      <Pressable
+        onPress={onPress}
+        accessibilityRole="button"
+        accessibilityLabel={accessibilityLabel}
+        style={({ pressed }) => [pressed && { opacity: 0.85, transform: [{ scale: 0.99 }] }]}
+      >
+        {content}
       </Pressable>
     );
   }
-  return <View style={s.card}>{children}</View>;
+  
+  return <View>{content}</View>;
 }
 
 export function LanguageToggle() {
   const { appLanguage, toggleLanguage } = useReadingPrefs();
-  const { colors } = useTheme();
+  const { colors, type } = useTheme();
   const s = makeStyles(colors);
   return (
     <Pressable
-      style={s.themeToggle}
+      style={({ pressed }) => [s.themeToggle, pressed && s.themeTogglePressed]}
       onPress={toggleLanguage}
       accessibilityRole="button"
       accessibilityLabel={appLanguage === 'en' ? 'Switch to Malayalam' : 'Switch to English'}
     >
-      <Text style={s.themeToggleText}>{appLanguage === 'en' ? 'EN' : 'അ'}</Text>
+      <Text style={[type.caption, { color: colors.sattva }]}>{appLanguage === 'en' ? 'EN' : '?'}</Text>
     </Pressable>
   );
 }
 
-// Dark/light switch — self-contained so every screen can drop it into its
-// own header row without redeclaring the button style. Was previously only
-// on HomeScreen, so it was invisible (not inoperative — theme state is
-// global) from every other screen.
 export function ThemeToggle() {
-  const { colors, mode, toggleThemeMode } = useTheme();
+  const { colors, mode, toggleThemeMode, type } = useTheme();
   const s = makeStyles(colors);
   return (
     <Pressable
-      style={s.themeToggle}
+      style={({ pressed }) => [s.themeToggle, pressed && s.themeTogglePressed]}
       onPress={toggleThemeMode}
       accessibilityRole="button"
       accessibilityLabel={mode === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
     >
-      <Text style={s.themeToggleText}>{mode === 'dark' ? '☾' : '☀'}</Text>
+      <Text style={[type.caption, { color: colors.sattva }]}>{mode === 'dark' ? '?' : '?'}</Text>
     </Pressable>
   );
 }
 
 export function DiagramFrame({ children, caption }: { children: React.ReactNode; caption?: string }) {
-  const { colors } = useTheme();
+  const { colors, elevation, type } = useTheme();
   const s = makeStyles(colors);
   return (
-    <View style={s.diagramFrame}>
+    <LinearGradient
+      colors={[colors.avyakta2, colors.avyakta3]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1.5 }}
+      style={[s.diagramFrame, elevation(1)]}
+    >
       {children}
-      {caption ? <Text style={s.diagramCaption}>{caption}</Text> : null}
-    </View>
+      {caption ? <Text style={[type.caption, { color: colors.inkDim, textAlign: 'center', marginTop: 12 }]}>{caption}</Text> : null}
+    </LinearGradient>
   );
 }
 
 const makeStyles = (colors: ColorPalette) =>
   StyleSheet.create({
-    eyebrow: {
-      fontFamily: fonts.sansBold,
-      fontSize: 10.5,
-      letterSpacing: 2,
-      textTransform: 'uppercase',
-      color: colors.sattvaDim,
-      marginBottom: 6,
-    },
-    pageTitle: {
-      fontFamily: fonts.display,
-      fontSize: 30,
-      color: colors.ink,
-      lineHeight: 34,
-      marginBottom: 4,
-    },
-    subtitle: {
-      fontFamily: fonts.serifItalic,
-      fontSize: 16,
-      color: colors.inkDim,
-      marginBottom: 18,
-    },
-    sectionLabel: {
-      fontFamily: fonts.sansBold,
-      fontSize: 11,
-      letterSpacing: 1.4,
-      textTransform: 'uppercase',
-      color: colors.inkDim,
-      marginTop: 22,
-      marginBottom: 10,
-    },
     card: {
-      backgroundColor: colors.avyakta2,
       borderWidth: 1,
       borderColor: colors.hair,
       borderRadius: 16,
       padding: 16,
       marginBottom: 12,
+      overflow: 'hidden',
     },
     diagramFrame: {
-      backgroundColor: colors.avyakta2,
       borderWidth: 1,
       borderColor: colors.hair,
       borderRadius: 16,
       padding: 16,
       marginVertical: 16,
-    },
-    diagramCaption: {
-      fontFamily: fonts.serifItalic,
-      fontSize: 11,
-      color: colors.inkDim,
-      textAlign: 'center',
-      marginTop: 8,
     },
     themeToggle: {
       width: 34,
@@ -154,6 +145,10 @@ const makeStyles = (colors: ColorPalette) =>
       borderColor: colors.hair,
       alignItems: 'center',
       justifyContent: 'center',
+      backgroundColor: colors.avyakta2,
     },
-    themeToggleText: { fontSize: 16, color: colors.sattva },
+    themeTogglePressed: {
+      opacity: 0.7,
+      backgroundColor: colors.avyakta3,
+    },
   });

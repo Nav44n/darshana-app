@@ -3,9 +3,10 @@ import { ScrollView, View, Text, Pressable, StyleSheet } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Eyebrow, PageTitle, Subtitle, SectionLabel, DiagramFrame, ThemeToggle, LanguageToggle } from '../components/Primitives';
 import { Diagram } from '../components/diagrams';
+import GunaRule from '../components/GunaRule';
 import { systems, getSystem } from '../content';
 import { useReadingPrefs } from '../state/ReadingPrefs';
-import { fonts, ColorPalette } from '../theme/tokens';
+import { fonts, type, ColorPalette } from '../theme/tokens';
 import { useTheme } from '../theme/useTheme';
 
 export default function ConceptsScreen() {
@@ -14,7 +15,7 @@ export default function ConceptsScreen() {
   const { systemId, conceptId } = route.params ?? {};
   const filterSystem = systemId ? getSystem(systemId) : undefined;
   const visibleSystems = filterSystem ? [filterSystem] : systems;
-  const { colors } = useTheme();
+  const { colors, systemAccent } = useTheme();
   const { fontScale, appLanguage } = useReadingPrefs();
   const s = makeStyles(colors);
   const scaledFont = (base: number) => Math.round(base * fontScale);
@@ -32,26 +33,29 @@ export default function ConceptsScreen() {
       <Subtitle>
         {filterSystem ? filterSystem.subtitle : "Philosophy, diagrammed, across every darśana"}
       </Subtitle>
+      <GunaRule style={s.headerRule} />
       {filterSystem && (
         <Pressable style={s.clearFilter} onPress={() => nav.setParams({ systemId: undefined })}>
           <Text style={s.clearFilterText}>Show every system ✕</Text>
         </Pressable>
       )}
 
-      {visibleSystems.map((sys) => (
+      {visibleSystems.map((sys) => {
+        const accent = systemAccent(sys.id);
+        return (
         <View key={sys.id}>
           {!conceptId && sys.thread.length > 0 && (
             <Pressable
-              style={s.threadCta}
+              style={({ pressed }) => [s.threadCta, { borderColor: accent.dim }, pressed && { backgroundColor: colors.avyakta3 }]}
               onPress={() => nav.navigate('Thread', { systemId: sys.id, stepId: sys.thread[0].id })}
             >
               <View style={{ flex: 1 }}>
-                <Text style={s.threadCtaTitle}>Explore threads</Text>
+                <Text style={[s.threadCtaTitle, { color: accent.primary }]}>Explore threads</Text>
                 <Text style={s.threadCtaSub}>
                   {sys.thread.length} steps · the whole of {sys.title}, one idea leading to the next
                 </Text>
               </View>
-              <Text style={s.threadCtaChev}>›</Text>
+              <Text style={[s.threadCtaChev, { color: accent.primary }]}>›</Text>
             </Pressable>
           )}
 
@@ -67,7 +71,7 @@ export default function ConceptsScreen() {
               {filteredConcepts.map((c) => {
                 const threadStep = sys.thread.find((t) => t.textId === text.id && t.conceptId === c.id);
                 return (
-                  <View key={c.id} style={{ marginBottom: 26 }}>
+                  <View key={c.id} style={s.conceptBlock}>
                     <Text style={s.h3}>{c.content[appLanguage]?.title || c.content.en?.title}</Text>
                     <Text style={[s.p, { fontSize: scaledFont(15) }]}>{c.content[appLanguage]?.summary || c.content.en?.summary}</Text>
                     {c.diagramId && (
@@ -81,7 +85,7 @@ export default function ConceptsScreen() {
                           style={s.inThreadBtn}
                           onPress={() => nav.navigate('Thread', { systemId: sys.id, stepId: threadStep.id })}
                         >
-                          <Text style={s.inThreadBtnText}>Read in thread ›</Text>
+                          <Text style={[s.inThreadBtnText, { color: accent.primary }]}>Read in thread ›</Text>
                         </Pressable>
                       )}
                     </View>
@@ -90,7 +94,7 @@ export default function ConceptsScreen() {
                         {(c.relatedVerseIds || []).map((vId) => (
                           <Text
                             key={vId}
-                            style={s.relatedChip}
+                            style={[s.relatedChip, { color: accent.primary, backgroundColor: accent.glow }]}
                             onPress={() =>
                               nav.navigate('VerseDetail', { systemId: sys.id, textId: text.id, verseId: vId })
                             }
@@ -109,15 +113,17 @@ export default function ConceptsScreen() {
             );
           })}
         </View>
-      ))}
+        );
+      })}
     </ScrollView>
   );
 }
 
 const makeStyles = (colors: ColorPalette) => StyleSheet.create({
-  screen: { flex: 1, backgroundColor: colors.avyakta, paddingHorizontal: 22, paddingTop: 8 },
+  screen: { flex: 1, alignSelf: 'center', width: '100%', maxWidth: 800, backgroundColor: colors.avyakta, paddingHorizontal: 22, paddingTop: 8 },
   topRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between' },
-  clearFilter: { alignSelf: 'flex-start', marginBottom: 18, marginTop: -8 },
+  headerRule: { width: 46, marginTop: 12, marginBottom: 14 },
+  clearFilter: { alignSelf: 'flex-start', marginBottom: 18 },
   clearFilterText: { fontFamily: fonts.sansBold, fontSize: 11.5, color: colors.rajas },
   threadCta: {
     flexDirection: 'row',
@@ -133,8 +139,14 @@ const makeStyles = (colors: ColorPalette) => StyleSheet.create({
   threadCtaTitle: { fontFamily: fonts.display, fontSize: 16, color: colors.sattva, marginBottom: 2 },
   threadCtaSub: { fontSize: 11.5, color: colors.inkDim },
   threadCtaChev: { fontSize: 20, color: colors.rajas },
-  h3: { fontFamily: fonts.display, fontSize: 18, color: colors.ink, marginBottom: 4 },
-  p: { fontFamily: fonts.serif, color: colors.inkDim, lineHeight: 21 },
+  conceptBlock: {
+    marginBottom: 26,
+    paddingBottom: 22,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.hair,
+  },
+  h3: { ...type.h3, fontSize: 18, color: colors.ink, marginBottom: 5 },
+  p: { fontFamily: fonts.serif, color: colors.inkDim, lineHeight: 22 },
   actionsRow: { marginTop: 8 },
   inThreadBtn: { alignSelf: 'flex-start' },
   inThreadBtnText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.rajas },
@@ -143,6 +155,7 @@ const makeStyles = (colors: ColorPalette) => StyleSheet.create({
     fontFamily: fonts.sanskrit,
     fontSize: 12,
     color: colors.sattva,
+    backgroundColor: colors.sattvaGlow,
     borderWidth: 1,
     borderColor: colors.hair,
     borderRadius: 14,

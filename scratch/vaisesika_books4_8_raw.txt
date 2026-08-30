@@ -1,0 +1,902 @@
+<USER_REQUEST>
+integrate to vaisesika sutras as a continuing separate file - export interface VaisesikaSutra {
+  id: string;        // Canonical standard ID e.g., "1.1.1"
+  book: number;      // Adhyaya (1-10)
+  chapter: number;   // Ahnika (1-2)
+  sutra: number;     // Canonical Sutra number within the Ahnika
+  sanskrit: string;  // Devanagari root text
+  text: string;      // The English translation
+  topic: string;     // Grouping topic for UI categorization
+  commentary: string; // Synthesized philosophical commentary
+}
+
+export const vaisesikaSutrasBooks4To8: VaisesikaSutra[] = [
+  // ==========================================
+  // BOOK 4: MATTER, ATOMS, AND VISIBILITY
+  // CHAPTER 1 (First Ahnika)
+  // ==========================================
+  {
+    id: "4.1.1",
+    book: 4,
+    chapter: 1,
+    sutra: 1,
+    sanskrit: "सदकारणवन्नित्यम् ॥ १ ॥",
+    text: "That (which is) eternal and uncaused is nitya.",
+    topic: "Nityatā",
+    commentary: "Defines eternality. The ultimate particles of matter (atoms) are existent but have no material cause, making them indestructible and eternal."
+  },
+  {
+    id: "4.1.2",
+    book: 4,
+    chapter: 1,
+    sutra: 2,
+    sanskrit: "तस्य कार्य लिङ्गम् ॥ २ ॥",
+    text: "Its effect is its mark.",
+    topic: "Nityatā",
+    commentary: "The existence of eternal, invisible atoms is logically inferred by observing their visible, composite effects (the physical world)."
+  },
+  {
+    id: "4.1.3",
+    book: 4,
+    chapter: 1,
+    sutra: 3,
+    sanskrit: "कारणभावात् कार्यभावः ॥ ३ ॥",
+    text: "(From) existence of cause is existence of effect.",
+    topic: "Nityatā",
+    commentary: "Reiterates the fundamental rule of causation: an effect can only manifest if its foundational causes (the eternal atoms) already exist."
+  },
+  {
+    id: "4.1.4",
+    book: 4,
+    chapter: 1,
+    sutra: 4,
+    sanskrit: "अनित्य इति विशेषतः प्रतिषेधभावः ॥ ४ ॥",
+    text: "Anitya is the negation of existence of the viśeşa.",
+    topic: "Nityatā",
+    commentary: "To call something 'non-eternal' logically implies the existence of something eternal to serve as its conceptual counterpart."
+  },
+  {
+    id: "4.1.5",
+    book: 4,
+    chapter: 1,
+    sutra: 5,
+    sanskrit: "अविद्या ॥ ५ ॥",
+    text: "(The supposition of anityata only rises out of) ignorance.",
+    topic: "Nityatā",
+    commentary: "The belief that absolutely everything is destructible and impermanent stems from an ignorance (avidya) of the eternal atomic substratum."
+  },
+  {
+    id: "4.1.6",
+    book: 4,
+    chapter: 1,
+    sutra: 6,
+    sanskrit: "महत्यनेकद्रव्यवत्त्वाद् रूपाच्चोपलब्धिः ॥ ६ ॥",
+    text: "Perception is possible only of objects of magnitude (provided) they have more than one dravya and have colour/form.",
+    topic: "Perception of Objects of Magnitude",
+    commentary: "Three conditions must be met for human visual perception: the object must be a composite of parts, have adequate physical size, and possess color."
+  },
+  {
+    id: "4.1.7",
+    book: 4,
+    chapter: 1,
+    sutra: 7,
+    sanskrit: "सत्यपि द्रव्यत्वे महत्त्वे रूपसंस्काराभावाद् वायोरनुपलब्धिः ॥ ७ ॥",
+    text: "Though a compound of many dravyas and being of substantial magnitude, vāyu is not perceptible because of the non-presence of colour.",
+    topic: "Perception of Objects of Magnitude",
+    commentary: "Explains why wind is invisible despite having physical mass and size: it intrinsically lacks the attribute of color."
+  },
+  {
+    id: "4.1.8",
+    book: 4,
+    chapter: 1,
+    sutra: 8,
+    sanskrit: "अनेकद्रव्यसमवायाद् रूपविशेषाच्च रूपोपलब्धिः ॥ ८ ॥",
+    text: "Colour is perceived only when there is a particular colour or there is coinherence of more than one dravya.",
+    topic: "Sensory Apperception as Knowledge",
+    commentary: "Visual perception specifically requires the manifestation of color inhering within a composite physical structure."
+  },
+  {
+    id: "4.1.9",
+    book: 4,
+    chapter: 1,
+    sutra: 9,
+    sanskrit: "तेन रसगन्धस्पर्शेषु ज्ञानं व्याख्यातम् ॥ ९ ॥",
+    text: "By this the cognition of taste, odour and touch, is explained.",
+    topic: "Sensory Apperception as Knowledge",
+    commentary: "The same physical rules of composite magnitude apply to our ability to taste, smell, and physically feel objects."
+  },
+  {
+    id: "4.1.10",
+    book: 4,
+    chapter: 1,
+    sutra: 10,
+    sanskrit: "तस्याभावादव्यभिचारः ॥ १० ॥",
+    text: "(In case of) its (taste, smell and touch) non existence there will be no deviation.",
+    topic: "Sensory Apperception as Knowledge",
+    commentary: "If the necessary magnitude or elemental qualities are absent, the corresponding sensory perception will strictly fail to occur."
+  },
+  {
+    id: "4.1.11",
+    book: 4,
+    chapter: 1,
+    sutra: 11,
+    sanskrit: "संख्याः परिमाणानि पृथकत्वं संयोगविभागौ परत्वापरत्वे कर्म च रूपिद्रव्यसमवायाच्चाक्षुषाणि ॥ ११ ॥",
+    text: "(The gunas) number, measure, separateness, conjunction, disjunction, otherness, non-otherness, and karma are visible to the eye (only if they) possess colour.",
+    topic: "Sensory Apperception as Knowledge",
+    commentary: "Abstract qualities and actions (like motion or numbers) are only visually perceived if the substance they inhere within is visible."
+  },
+  {
+    id: "4.1.12",
+    book: 4,
+    chapter: 1,
+    sutra: 12,
+    sanskrit: "अरूपिष्वचाक्षुषाणि ॥ १२ ॥",
+    text: "In uncoloured (things) they (the gunas mentioned above) are not visible to the eye.",
+    topic: "Sensory Apperception as Knowledge",
+    commentary: "You cannot visually see the 'motion' or 'number' of wind or empty space, because those substances lack color."
+  },
+  {
+    id: "4.1.13",
+    book: 4,
+    chapter: 1,
+    sutra: 13,
+    sanskrit: "एतेन गुणत्वे भावे च सर्वेन्द्रियं ज्ञानं व्याख्याताम् ॥ १३ ॥",
+    text: "By this the existence of the gunas and the cognition of all the senses is explained.",
+    topic: "Sensory Apperception as Knowledge",
+    commentary: "Concludes the chapter by establishing that all sensory cognitions follow these structured physical rules of inherence and magnitude."
+  },
+
+  // ==========================================
+  // BOOK 4: MATTER, ATOMS, AND VISIBILITY
+  // CHAPTER 2 (Second Ahnika)
+  // ==========================================
+  {
+    id: "4.2.1",
+    book: 4,
+    chapter: 2,
+    sutra: 1,
+    sanskrit: "तत् पुनः पृथिव्यादिकायद्रव्यं त्रिविधं शरीरेन्द्रियविषय संज्ञकम् ॥ १ ॥",
+    text: "That again prthivī, etc., dravyas exist in three forms - body, sense and objects.",
+    topic: "Nature, Composition and Types of Bodies",
+    commentary: "All composite elemental matter forms one of three things: physical bodies, the sensory organs within them, or external objects."
+  },
+  {
+    id: "4.2.2",
+    book: 4,
+    chapter: 2,
+    sutra: 2,
+    sanskrit: "प्रत्यक्षाप्रत्यक्षाणां संयोगस्याप्रत्यक्षत्वात् पञ्चात्मकं न विद्यते ॥ २ ॥",
+    text: "(If) the conjunction of perceptible and imperceptible (dravyas) is not visible then it (body) is not the compound of five elements.",
+    topic: "Nature, Composition and Types of Bodies",
+    commentary: "Kanada rejects the idea that biological bodies are equal compounds of all five elements; if they were, the imperceptible ether/air would render the compound unstable or invisible."
+  },
+  {
+    id: "4.2.3",
+    book: 4,
+    chapter: 2,
+    sutra: 3,
+    sanskrit: "गुणान्तराप्रादुर्भावाच्च ॥ ३ ॥",
+    text: "(If) other gunas are unmanifested, then too (prthvi, etc., other effective dravyas cannot be considered as the compound of five).",
+    topic: "Nature, Composition and Types of Bodies",
+    commentary: "If bodies were perfectly mixed from all five elements, they would manifest equal distinct qualities of all five elements simultaneously, which they do not."
+  },
+  {
+    id: "4.2.4",
+    book: 4,
+    chapter: 2,
+    sutra: 4,
+    sanskrit: "न त्र्यात्मकम् ॥ ४ ॥",
+    text: "Not of three elements (prthvī, āpa and teja - is body composed).",
+    topic: "Nature, Composition and Types of Bodies",
+    commentary: "Further restricting the composition, rejecting the theory that the body is an equal tripartite mixture of Earth, Water, and Fire."
+  },
+  {
+    id: "4.2.5",
+    book: 4,
+    chapter: 2,
+    sutra: 5,
+    sanskrit: "अणुसंयोगस्त्वप्रतिषिद्धः ॥ ५ ॥",
+    text: "(Though a) conjunction of atoms is not denied.",
+    topic: "Nature, Composition and Types of Bodies",
+    commentary: "While bodies have a primary dominant element (like Earth for humans), the structural conjunction of atoms from other elements to support it is acknowledged."
+  },
+  {
+    id: "4.2.6",
+    book: 4,
+    chapter: 2,
+    sutra: 6,
+    sanskrit: "तत्र शरीरं द्विविध योनिजमयोनिजं च ॥ ६ ॥",
+    text: "Of these bodies are of two types - yonijas and ayonijas.",
+    topic: "Nature, Composition and Types of Bodies",
+    commentary: "Classifies organic life forms into those born of a womb (mammals) and those not born of a womb."
+  },
+  {
+    id: "4.2.7",
+    book: 4,
+    chapter: 2,
+    sutra: 7,
+    sanskrit: "अनियतदिग्देशपूर्वकत्वात् ॥ ७ ॥",
+    text: "(Because early ayonija bodies) have antecedents in indeterminate time and space.",
+    topic: "Nature, Composition and Types of Bodies",
+    commentary: "Non-womb born forms (like insects from sweat, or primordial beings) do not rely on standard procreative coordinates."
+  },
+  {
+    id: "4.2.8",
+    book: 4,
+    chapter: 2,
+    sutra: 8,
+    sanskrit: "धर्मविशेषाच्च ॥ ८ ॥",
+    text: "And (following) a particular dharma.",
+    topic: "Nature, Composition and Types of Bodies",
+    commentary: "The specific form a body takes is dictated by the specific accumulated merit and demerit (dharma/karma) of the soul inhabiting it."
+  },
+  {
+    id: "4.2.9",
+    book: 4,
+    chapter: 2,
+    sutra: 9,
+    sanskrit: "समाख्याभावाच्च ॥ ९ ॥",
+    text: "Also (because) linguistic evidence have existed.",
+    topic: "Nature, Composition and Types of Bodies",
+    commentary: "Traditional texts and linguistics support the existence of various categories of elemental and non-womb-born lifeforms."
+  },
+  {
+    id: "4.2.10",
+    book: 4,
+    chapter: 2,
+    sutra: 10,
+    sanskrit: "संज्ञाया अनादित्वात् ॥ १० ॥",
+    text: "Since naming (or language) is without a beginning.",
+    topic: "Nature, Composition and Types of Bodies",
+    commentary: "The continuity of names and concepts throughout history points to an eternal cycle of creation, supporting these varied body types."
+  },
+  {
+    id: "4.2.11",
+    book: 4,
+    chapter: 2,
+    sutra: 11,
+    sanskrit: "सन्त्ययोनिजाः ॥ ११ ॥",
+    text: "(Thus) ayonija bodies exist.",
+    topic: "Nature, Composition and Types of Bodies",
+    commentary: "Concludes the argument affirming that non-mammalian, unconventional forms of biological embodiment are real."
+  },
+  {
+    id: "4.2.12",
+    book: 4,
+    chapter: 2,
+    sutra: 12,
+    sanskrit: "वेदलिङ्गाच्च ॥ १२ ॥",
+    text: "Also Vedas are the marker (proof).",
+    topic: "Nature, Composition and Types of Bodies",
+    commentary: "Appeals to the authority of the Vedas, which describe ethereal and primordial beings born without standard wombs."
+  },
+
+  // ==========================================
+  // BOOK 5: ACTION (KARMA) AND PHYSICS
+  // CHAPTER 1 (First Ahnika)
+  // ==========================================
+  {
+    id: "5.1.1",
+    book: 5,
+    chapter: 1,
+    sutra: 1,
+    sanskrit: "आत्मसंयोगप्रयत्नाभ्यां हस्ते कर्म ॥ १ ॥",
+    text: "The conjunction with and the effort of the ātmā results in the karma of the hand.",
+    topic: "Description of Karma",
+    commentary: "Voluntary physical motion begins with the conscious effort (volition) of the Soul, transmitted through its connection to the physical body."
+  },
+  {
+    id: "5.1.2",
+    book: 5,
+    chapter: 1,
+    sutra: 2,
+    sanskrit: "तथा हस्तसंयोगाच्च मुसले कर्म ॥ २ ॥",
+    text: "Similarly, conjunction with the hand (and its being heavy) results in karma in the pestle.",
+    topic: "Description of Karma",
+    commentary: "Tools move because the motion initiated by the soul in the hand is transferred to the tool via physical contact."
+  },
+  {
+    id: "5.1.3",
+    book: 5,
+    chapter: 1,
+    sutra: 3,
+    sanskrit: "अभिघातजे मुसलादी कर्माण व्यतिरेकादकारणं हस्तसंयोगः ॥ ३ ॥",
+    text: "But, the karma (produced) in the pestle is due to the impact and not because of its conjunction with hand but otherwise (is seen even without the conjunction).",
+    topic: "Description of Karma",
+    commentary: "When a pestle strikes a mortar and rebounds, that specific rebounding action is caused by physical impact, not by the conscious effort of the hand."
+  },
+  {
+    id: "5.1.4",
+    book: 5,
+    chapter: 1,
+    sutra: 4,
+    sanskrit: "तथात्मसंयोगो हस्तकर्मण ॥ ४ ॥",
+    text: "Similarly, conjunction of the ātmā (is not the cause of) karma in the hand.",
+    topic: "Description of Karma",
+    commentary: "During a sudden physical impact or reflex, the resulting motion of the hand is mechanical, overriding deliberate volition."
+  },
+  {
+    id: "5.1.5",
+    book: 5,
+    chapter: 1,
+    sutra: 5,
+    sanskrit: "अभिघातान्मुसलसंयोगाद्धस्ते कर्म ॥ ५ ॥",
+    text: "Karma in the hand is due to the impact and conjunction with the pestle.",
+    topic: "Description of Karma",
+    commentary: "The recoil felt in the hand when striking an object demonstrates that mechanical force transfers backward into the body."
+  },
+  {
+    id: "5.1.6",
+    book: 5,
+    chapter: 1,
+    sutra: 6,
+    sanskrit: "आत्मकर्म हस्तसंयोगाच्च ॥ ६ ॥",
+    text: "Karma of ātmā is also due to conjunction with the hand and (motion).",
+    topic: "Description of Karma",
+    commentary: "The Soul moves in tandem with the body because they are conjoined; where the physical vessel goes, the animating Soul must follow."
+  },
+  {
+    id: "5.1.7",
+    book: 5,
+    chapter: 1,
+    sutra: 7,
+    sanskrit: "संयोगाभावे गुरुत्वात् पतनम् ॥ ७ ॥",
+    text: "In the non-presence of contact (the pestle) falls due to its heaviness.",
+    topic: "Description of Karma",
+    commentary: "A direct description of gravity. When physical support (conjunction) is removed, an object falls inherently due to its mass (gurutva)."
+  },
+  {
+    id: "5.1.8",
+    book: 5,
+    chapter: 1,
+    sutra: 8,
+    sanskrit: "नोदनविशेषाभावान्नोवं न तिर्यग्गमनम् ॥ ८ ॥",
+    text: "(In the) absence of a paticular impulse the upward or sideward movement is not possible.",
+    topic: "Description of Karma",
+    commentary: "Motion contrary to gravity (upwards or sideways) requires the application of external force or impulse (nodana)."
+  },
+  {
+    id: "5.1.9",
+    book: 5,
+    chapter: 1,
+    sutra: 9,
+    sanskrit: "प्रयत्नविशेषान्नोदनविशेषः ॥ ९ ॥",
+    text: "From particular effort results particular impulse.",
+    topic: "Description of Karma",
+    commentary: "The magnitude and direction of the physical force generated is directly proportional to the conscious effort applied."
+  },
+  {
+    id: "5.1.10",
+    book: 5,
+    chapter: 1,
+    sutra: 10,
+    sanskrit: "नोदनविशेषादुदसनविशेषः ॥ १० ॥",
+    text: "From particular impulse results the particular jumping (upwards).",
+    topic: "Description of Karma",
+    commentary: "The height and velocity of an object thrown or jumping are determined by the specific strength of the impulse that launched it."
+  },
+  {
+    id: "5.1.11",
+    book: 5,
+    chapter: 1,
+    sutra: 11,
+    sanskrit: "हस्तकर्मणा दारककर्म व्याख्यातम् ॥ ११ ॥",
+    text: "By the karma of the hand the karma of a child is explained.",
+    topic: "Description of Karma",
+    commentary: "The mechanics of volition and movement applied to a hand also explain the complex, erratic movements of a child."
+  },
+  {
+    id: "5.1.12",
+    book: 5,
+    chapter: 1,
+    sutra: 12,
+    sanskrit: "तथा दग्धस्यविस्फोटने ॥ १२ ॥",
+    text: "(And) so too, the bursting open of a burning object.",
+    topic: "Description of Karma",
+    commentary: "The sudden popping or movement of burning seeds is caused by internal forces acting similarly to sudden impulses."
+  },
+  {
+    id: "5.1.13",
+    book: 5,
+    chapter: 1,
+    sutra: 13,
+    sanskrit: "यत्नाभावे प्रसुप्तस्य चलनम् ॥ १३ ॥",
+    text: "In the absence of effort sleep-walking results.",
+    topic: "Description of Karma",
+    commentary: "Movements during sleep occur without conscious, deliberate volition (prayatna), driven by subconscious mental connections."
+  },
+  {
+    id: "5.1.14",
+    book: 5,
+    chapter: 1,
+    sutra: 14,
+    sanskrit: "तृणे कर्म वायुसंयोगात् ॥ १४ ॥",
+    text: "Karma in the grass is due to its contact with vāyu.",
+    topic: "Description of Karma",
+    commentary: "The rustling of grass is an involuntary motion caused by the mechanical contact of wind particles."
+  },
+  {
+    id: "5.1.15",
+    book: 5,
+    chapter: 1,
+    sutra: 15,
+    sanskrit: "मणिगमनं सूच्यभिसर्पणमदृष्टकारणम् ॥ १५ ॥",
+    text: "Movement of the gem (towards the thief), movement of the needle (towards the lodestone) are due to unseen causes.",
+    topic: "Description of Karma",
+    commentary: "Phenomena like magnetism, where motion occurs without any visible physical impulse or contact, are attributed to 'Adrishta' (invisible forces)."
+  },
+  {
+    id: "5.1.16",
+    book: 5,
+    chapter: 1,
+    sutra: 16,
+    sanskrit: "इषावयुगपत् संयोगविशेषाः कर्मान्यत्वे हेतुः ॥ १६ ॥",
+    text: "In an arrow, many a time, particular conjunctions cause different karma.",
+    topic: "Description of Karma",
+    commentary: "The trajectory of an arrow changes as it experiences various physical resistances (conjunctions with air or targets) over time."
+  },
+  {
+    id: "5.1.17",
+    book: 5,
+    chapter: 1,
+    sutra: 17,
+    sanskrit: "नोदनादाद्यमिषोः कर्म तत्कर्मकारिताच्च संस्कारादुत्तरं तथोत्तरमुत्तरञ्च ॥ १७ ॥",
+    text: "From impulse (results) the arrow's first karma the next from the inherent samskāra which the arrow gains (from the first) and so on.",
+    topic: "Description of Karma",
+    commentary: "The foundational principle of Momentum (Samskara). The initial push generates motion, but that motion generates an internal quality that sustains ongoing flight."
+  },
+  {
+    id: "5.1.18",
+    book: 5,
+    chapter: 1,
+    sutra: 18,
+    sanskrit: "संस्काराभावे गुरुत्वात् पतनम् ॥ १८ ॥",
+    text: "The absence of samskāra and (the presence of) heaviness results in its (arrow's) fall (falling).",
+    topic: "Description of Karma",
+    commentary: "Once the momentum (samskara) is completely depleted by air resistance, gravity takes over and pulls the arrow down."
+  },
+
+  // ==========================================
+  // BOOK 5: ACTION (KARMA) AND PHYSICS
+  // CHAPTER 2 (Second Ahnika)
+  // ==========================================
+  {
+    id: "5.2.1",
+    book: 5,
+    chapter: 2,
+    sutra: 1,
+    sanskrit: "नोदनभिघातात् संयुक्तसंयोगाच्च पृथिव्यां कर्म ॥ १ ॥",
+    text: "From the impact of impulse and united contact (of entities) results the karma in prthvī.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "Earth elements move primarily through direct physical impact, pushing, or being dragged by other moving objects."
+  },
+  {
+    id: "5.2.2",
+    book: 5,
+    chapter: 2,
+    sutra: 2,
+    sanskrit: "तद्विशेषेणादृष्टकारितम् ॥ २ ॥",
+    text: "These particulars are caused by unseen causes.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "However, massive earthly events like earthquakes occur without visible push, hence they are driven by unseen cosmic forces (Adrishta)."
+  },
+  {
+    id: "5.2.3",
+    book: 5,
+    chapter: 2,
+    sutra: 3,
+    sanskrit: "अप संयोगाभावे गुरूत्वात् पतनम् ॥ ३ ॥",
+    text: "Water falls due to absence of contact and due to (the presence) its heaviness.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "Rain and water drops fall naturally due to gravity when they lose connection with the clouds holding them."
+  },
+  {
+    id: "5.2.4",
+    book: 5,
+    chapter: 2,
+    sutra: 4,
+    sanskrit: "द्रवत्वात् स्यन्दनम् ॥ ४ ॥",
+    text: "Fluidity (being the nature of liquids) results in flow.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "While gravity makes water fall, its specific attribute of fluidity (dravatva) allows it to spread and flow horizontally."
+  },
+  {
+    id: "5.2.5",
+    book: 5,
+    chapter: 2,
+    sutra: 5,
+    sanskrit: "नोड्योवायुसंयोगादारोहणम् ॥ ५ ॥",
+    text: "The rays of the sun in contact with vāyu (causes the) rise of water.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "Evaporation occurs because heat (sun rays) and air physically interact with water, driving it upwards against gravity."
+  },
+  {
+    id: "5.2.6",
+    book: 5,
+    chapter: 2,
+    sutra: 6,
+    sanskrit: "नोदनपीडनात् संयुक्तसंयोगाच्च ॥ ६ ॥",
+    text: "(Water rises up due to) the united contact, and the impulse of compression.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "Water can also be forced upward (like in a pump) through physical pressure and being squeezed between other materials."
+  },
+  {
+    id: "5.2.7",
+    book: 5,
+    chapter: 2,
+    sutra: 7,
+    sanskrit: "वृक्षाभिसर्पणमित्यदृष्टकारितम् ॥ ७ ॥",
+    text: "Circulation in trees is due to an unseen cause.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "The upward capillary action of sap in plants, defying gravity without visible mechanical pumps, is attributed to Adrishta."
+  },
+  {
+    id: "5.2.8",
+    book: 5,
+    chapter: 2,
+    sutra: 8,
+    sanskrit: "अपां संघातो विलयनं च तेजः संयोगात् ॥ ८ ॥",
+    text: "Freezing and melting of water, too is the result of its contact with teja.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "Phase changes in matter are strictly controlled by the presence or absence of the fire/heat element (tejas)."
+  },
+  {
+    id: "5.2.9",
+    book: 5,
+    chapter: 2,
+    sutra: 9,
+    sanskrit: "तत्र विस्फूर्जयुर्लिङ्गम् ॥ ९ ॥",
+    text: "The mark (of the presence of teja) is the lightning and thunder.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "Atmospheric fire is visibly confirmed by lightning strikes within the water-filled clouds."
+  },
+  {
+    id: "5.2.11",
+    book: 5,
+    chapter: 2,
+    sutra: 11,
+    sanskrit: "अपां संयोगाद विभागच्चस्तनयिनोः ॥ ११ ॥",
+    text: "From the conjunction and disjunction of water (in the form of clouds) results lightning.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "The violent crashing and separating of massive cloud bodies physically generates lightning."
+  },
+  {
+    id: "5.2.13",
+    book: 5,
+    chapter: 2,
+    sutra: 13,
+    sanskrit: "अग्ने र्ध्वज्वलनं वायोस्तिर्यपवनमणूनां मनसश्चाद्यं कर्मादृष्टकारितम् ॥ १३ ॥",
+    text: "The upward flaming of fire, the sideward movement of vāyu, the first karma of atoms and mana are due to unseen causes.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "Fundamental natural behaviors—fire rising, wind blowing sideways, and the initial cosmic motion of atoms—are intrinsic laws assigned to Adrishta."
+  },
+  {
+    id: "5.2.15",
+    book: 5,
+    chapter: 2,
+    sutra: 15,
+    sanskrit: "आत्मेन्द्रियमनोर्थसन्निकर्षात् सुखदुःखे ॥ १५ ॥",
+    text: "From the conjunction of ātmā, senses, mana and the object result sukha and duhkha.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "Psychological experiences of pleasure and pain occur only when the chain of Soul, Mind, Senses, and Object is fully connected."
+  },
+  {
+    id: "5.2.16",
+    book: 5,
+    chapter: 2,
+    sutra: 16,
+    sanskrit: "तदनारम्भ आत्मस्थे मनसि शरीरस्य दुःखाभावः सः योगः ॥ १६ ॥",
+    text: "When mana gets situated in the ātmā there is absense of its beginning (of sukha-duhkha) then there is non-existence of duhkha in the body, that is yoga.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "Yoga is defined as withdrawing the Mind from the senses and resting it purely in the Soul, halting all sensory pain and pleasure."
+  },
+  {
+    id: "5.2.18",
+    book: 5,
+    chapter: 2,
+    sutra: 18,
+    sanskrit: "तदभावे संयोगाभावोऽप्रादुर्भावश्च मोक्षः ॥ १८ ॥",
+    text: "When there is non-existence of this (adrsta), there is non-existence of conjunction and non-existence of manifestation that is mokṣa.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "Liberation (Moksha) is achieved when all unseen karma (Adrishta) is exhausted, permanently preventing the soul from conjoining with a new body."
+  },
+  {
+    id: "5.2.19",
+    book: 5,
+    chapter: 2,
+    sutra: 19,
+    sanskrit: "द्रव्यगुणकर्मनिष्पत्तिवैधदभावस्तमः ॥ १९ ॥",
+    text: "Darkness is a non-presence being dissimilar to the production of dravya, guna and karma.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "Darkness is not an active substance or entity; it is merely the absence of light."
+  },
+  {
+    id: "5.2.20",
+    book: 5,
+    chapter: 2,
+    sutra: 20,
+    sanskrit: "तेजसो द्रव्यान्तरेणावरणाच्च ॥ २० ॥",
+    text: "And because of the obscuring of teja (light) by other dravya.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "Shadows and darkness manifest physically only when solid objects block the path of light."
+  },
+  {
+    id: "5.2.21",
+    book: 5,
+    chapter: 2,
+    sutra: 21,
+    sanskrit: "दिक्कालावकाश च क्रियावधर्म्यात् निष्क्रियाणि ॥ २१ ॥",
+    text: "Diśā, kāla and ākāśa are also opposed to action thus they are non-dynamic.",
+    topic: "Karma in Dravyas due to Particular Impulse",
+    commentary: "Space, Time, and Ether are omnipresent backgrounds; because they are everywhere simultaneously, they cannot logically 'move' from one place to another."
+  },
+
+  // ==========================================
+  // BOOK 6: MERIT, DEMERIT, AND LIBERATION
+  // CHAPTER 1 (First Ahnika)
+  // ==========================================
+  {
+    id: "6.1.1",
+    book: 6,
+    chapter: 1,
+    sutra: 1,
+    sanskrit: "बुद्धिपूर्वा वाक्यकृतिवेदे ॥ १ ॥",
+    text: "The statements of Vedas are created knowledgeably.",
+    topic: "Concepts of Dāna, Pratigraha and Tyāga",
+    commentary: "Affirms that Vedic injunctions regarding morality and duty were composed with deliberate, supreme intelligence, not randomly."
+  },
+  {
+    id: "6.1.3",
+    book: 6,
+    chapter: 1,
+    sutra: 3,
+    sanskrit: "बुद्धिपूर्वो ददातिः ॥ ३ ॥",
+    text: "Giving is wise.",
+    topic: "Concepts of Dāna, Pratigraha and Tyāga",
+    commentary: "Charity (Dana) creates merit (dharma) when executed with intention, awareness, and correct understanding."
+  },
+  {
+    id: "6.1.4",
+    book: 6,
+    chapter: 1,
+    sutra: 4,
+    sanskrit: "तथा प्रतिग्रहः ॥ ४ ॥",
+    text: "And so is receiving.",
+    topic: "Concepts of Dāna, Pratigraha and Tyāga",
+    commentary: "Accepting gifts must also be done with ethical awareness to avoid accruing demerit."
+  },
+  {
+    id: "6.1.6",
+    book: 6,
+    chapter: 1,
+    sutra: 6,
+    sanskrit: "तद् दुष्टभोजने न विद्यते ॥ ६ ॥",
+    text: "That (wisdom) is not present in impure food.",
+    topic: "Concepts of Dāna, Pratigraha and Tyāga",
+    commentary: "Merit cannot be generated from actions involving impure sources or unethical consumption."
+  },
+  {
+    id: "6.1.7",
+    book: 6,
+    chapter: 1,
+    sutra: 7,
+    sanskrit: "दुष्टं हिंसायाम् ॥ ७ ॥",
+    text: "In impurity is himsā.",
+    topic: "Concepts of Dāna, Pratigraha and Tyāga",
+    commentary: "The root of impurity and demerit fundamentally lies in violence (himsa) toward other living beings."
+  },
+
+  // ==========================================
+  // BOOK 6: MERIT, DEMERIT, AND LIBERATION
+  // CHAPTER 2 (Second Ahnika)
+  // ==========================================
+  {
+    id: "6.2.1",
+    book: 6,
+    chapter: 2,
+    sutra: 1,
+    sanskrit: "दृष्टदृष्टप्रयोजनानां दृष्टाभावे प्रयोजनमभ्युदाय ॥ १ ॥",
+    text: "Actions of motives are seen or unseen, where it is unseen tends to abhyudaya.",
+    topic: "On Seen and Unseen Deeds Which Produce Merit",
+    commentary: "Virtuous actions performed without an immediate, visible worldly reward generate unseen spiritual merit (exaltation)."
+  },
+  {
+    id: "6.2.2",
+    book: 6,
+    chapter: 2,
+    sutra: 2,
+    sanskrit: "अभिषेचनोपवासब्रह्मचर्यगुरुक्कुलवासवान प्रस्थयज्ञदानप्रोक्षणदि नक्षत्र मन्त्रकालनियमाश्चादृष्टाय ॥ २ ॥",
+    text: "Fasting, continence, residence in the gurukula, life in the forest, giving, oblation... conduce to invisible result.",
+    topic: "On Seen and Unseen Deeds Which Produce Merit",
+    commentary: "Lists specific traditional austerities and practices that build spiritual merit rather than material wealth."
+  },
+  {
+    id: "6.2.11",
+    book: 6,
+    chapter: 2,
+    sutra: 11,
+    sanskrit: "सुखाद रागः ॥ ११ ॥",
+    text: "From pleasure arises desire.",
+    topic: "Activities of Anupadha that Produce Merit",
+    commentary: "Experiencing pleasure inevitably breeds a clinging attachment and a desire for its repetition, driving the cycle of karma."
+  },
+  {
+    id: "6.2.15",
+    book: 6,
+    chapter: 2,
+    sutra: 15,
+    sanskrit: "इच्छाद्वेषपूर्विका धर्माधर्मप्रवृत्तिः ॥ १५ ॥",
+    text: "Due to desire or aversion man performs dharma or adharma.",
+    topic: "Activities of Anupadha that Produce Merit",
+    commentary: "All moral and immoral actions are ultimately motivated by the psychological drive to attain what we like or destroy what we hate."
+  },
+  {
+    id: "6.2.17",
+    book: 6,
+    chapter: 2,
+    sutra: 17,
+    sanskrit: "आत्मकर्मसु मोक्षो व्याख्यातः ॥ १७ ॥",
+    text: "Mokṣa is explained as being dependent on the karma of the ātmā.",
+    topic: "Activities of Anupadha that Produce Merit",
+    commentary: "Final liberation relies entirely on the soul's own disciplined actions to eliminate desires and transcend the material cycle."
+  },
+
+  // ==========================================
+  // BOOK 7: QUALITIES AND CAUSATION
+  // CHAPTER 1 (First Ahnika)
+  // ==========================================
+  {
+    id: "7.1.2",
+    book: 7,
+    chapter: 1,
+    sutra: 2,
+    sanskrit: "पृथिव्यादिरूपरसगन्धस्पर्शा द्रव्यनित्यत्वादनित्याश्च ॥ २ ॥",
+    text: "The colour, taste, odour and touch of prthivī, etc., are anitya (since they are) anitya dravyas.",
+    topic: "Nitya and Anitya Guņas",
+    commentary: "When elements exist in their composite, visible forms (like a pot), their qualities are temporary, just as the pot is temporary."
+  },
+  {
+    id: "7.1.4",
+    book: 7,
+    chapter: 1,
+    sutra: 4,
+    sanskrit: "अप्स तेजसि वायौ च नित्या द्रव्यनित्यत्वात् ॥ ४ ॥",
+    text: "They (the gunas) are nitya in āp, teja and vāyu as they (the dravyas) are nitya.",
+    topic: "Nitya and Anitya Guņas",
+    commentary: "However, the inherent qualities of elements at their atomic, uncaused level remain eternal along with the atoms themselves."
+  },
+  {
+    id: "7.1.6",
+    book: 7,
+    chapter: 1,
+    sutra: 6,
+    sanskrit: "कारणगुणपूर्वकाः पृथिव्यां पाकजाः ॥ ६ ॥",
+    text: "The change of gunas produced by heat in prthivī has its beginning in the cause.",
+    topic: "Nitya and Anitya Guņas",
+    commentary: "Chemical changes in earth elements (like baking a clay pot) occur because the heat alters the qualities at the fundamental causal/atomic level first."
+  },
+  {
+    id: "7.1.8",
+    book: 7,
+    chapter: 1,
+    sutra: 8,
+    sanskrit: "अणोर्महतश्चोपलध्यनुपलब्धी नित्ये व्याख्याते ॥ ८ ॥",
+    text: "The perception and non-perception of anu and mahat has been explained to be nitya.",
+    topic: "Aṇutva and Mahattva",
+    commentary: "The rules governing what magnitudes (atomic vs massive) can and cannot be perceived are absolute and eternal laws."
+  },
+  {
+    id: "7.1.20",
+    book: 7,
+    chapter: 1,
+    sutra: 20,
+    sanskrit: "नित्यं परिमण्डलम् ॥ २० ॥",
+    text: "The roundness (of atom) is nitya.",
+    topic: "Aṇutva and Mahattva",
+    commentary: "Kanada asserts that atoms possess an eternal, perfect spherical shape (parimandala)."
+  },
+  {
+    id: "7.1.22",
+    book: 7,
+    chapter: 1,
+    sutra: 22,
+    sanskrit: "विभावान्महानाकशस्तथा चात्मा ॥ २२ ॥",
+    text: "Ākāśa and ātmā by merit of their size are called pervasive.",
+    topic: "Size of Ākāśa, Mana, Diśā and Kala",
+    commentary: "Ether and Soul are infinite in magnitude, meaning they exist everywhere simultaneously without boundaries."
+  },
+  {
+    id: "7.1.23",
+    book: 7,
+    chapter: 1,
+    sutra: 23,
+    sanskrit: "तदभावादणुमनः ॥ २३ ॥",
+    text: "In (consequence of) non-presence of that (pervasiveness) mana is small.",
+    topic: "Size of Ākāśa, Mana, Diśā and Kala",
+    commentary: "Because the Mind processes thoughts sequentially and selectively, it cannot be infinite; it must be atomic (point-sized) to connect with only one sense at a time."
+  },
+
+  // ==========================================
+  // BOOK 7: QUALITIES AND CAUSATION
+  // CHAPTER 2 (Second Ahnika)
+  // ==========================================
+  {
+    id: "7.2.9",
+    book: 7,
+    chapter: 2,
+    sutra: 9,
+    sanskrit: "अन्यतरकर्मजः उभयकर्मजः संयोगश्चसंयोगः ॥ ९ ॥",
+    text: "A conjunct is produced by the karma of one of the two, by the karma of both or by conjunction.",
+    topic: "Conjunction and Disjunction",
+    commentary: "Physical contact happens when one object hits a stationary one, when two moving objects collide, or when secondary contact is forced."
+  },
+  {
+    id: "7.2.13",
+    book: 7,
+    chapter: 2,
+    sutra: 13,
+    sanskrit: "युतसिद्धयभावात् कार्यकारणयोः संयोगविभागौ न विद्येते ॥ १३ ॥",
+    text: "There is neither conjunction or disjunction in cause and effect since they do not exist independently.",
+    topic: "Conjunction and Disjunction",
+    commentary: "A thread and the cloth it weaves cannot 'collide' or 'separate' like two independent objects, because the effect inherently relies on the cause."
+  },
+  {
+    id: "7.2.20",
+    book: 7,
+    chapter: 2,
+    sutra: 20,
+    sanskrit: "सामयिकः शब्दार्थप्रत्ययः ॥ २० ॥",
+    text: "Relation between the śabda and its meaning is significatory.",
+    topic: "Conjunction and Disjunction",
+    commentary: "Language is conventional. There is no natural, physical connection between a spoken word and the object it describes; it is based on human agreement."
+  },
+  {
+    id: "7.2.26",
+    book: 7,
+    chapter: 2,
+    sutra: 26,
+    sanskrit: "इहेदमिति यतः कार्यकारणयोः स समवायः ॥ २६ ॥",
+    text: "Samavāya is that by the virtue of which cause and effect may be said to be in one another.",
+    topic: "Samavāyah as a Dravya",
+    commentary: "Defines the sixth category: Inherence (Samavaya). It is the invisible glue that intimately binds a whole to its parts, or an attribute to its substance."
+  },
+
+  // ==========================================
+  // BOOK 8: COGNITION AND PERCEPTION
+  // CHAPTER 1 & 2 
+  // ==========================================
+  {
+    id: "8.1.2",
+    book: 8,
+    chapter: 1,
+    sutra: 2,
+    sanskrit: "तत्रात्मा मनश्चाप्रत्यक्षे ॥ २ ॥",
+    text: "In them ātmā and mana are not visible.",
+    topic: "Examination of Cognition",
+    commentary: "While we can perceive external matter, the Soul and the Mind are internal mechanisms that cannot be perceived by the outward-facing senses."
+  },
+  {
+    id: "8.1.11",
+    book: 8,
+    chapter: 1,
+    sutra: 11,
+    sanskrit: "कारणाऽयोगपद्यात् कारणाक्रमाच्च घटपटादि बुद्धीनां क्रमो न हेत्फलभावात् ॥ ११ ॥",
+    text: "The non-simultaneous coming into being of cause and the causes being sequential in nature give rise to in the sequence of cognition of pot, cloth, etc., not just as (direct) result of a cause.",
+    topic: "Examination of Cognition",
+    commentary: "We perceive the world sequentially (one thought after another) because our atomic mind connects with causes sequentially, not simultaneously."
+  },
+  {
+    id: "8.2.5",
+    book: 8,
+    chapter: 2,
+    sutra: 5,
+    sanskrit: "भूयस्त्वाद् गन्धवत्त्वाच्च पृथिवी गन्धज्ञाने प्रकृतिः ॥ ५ ॥",
+    text: "Being plural and having odour prthvī is the (material cause for the) cognition of odour (by the nose).",
+    topic: "Types of Jñāna",
+    commentary: "The olfactory sense (nose) is structurally made of the Earth element, allowing it to chemically interact with and perceive odors."
+  }
+];
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-08-30T12:33:33+05:30.
+</ADDITIONAL_METADATA>

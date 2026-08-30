@@ -1,15 +1,17 @@
 import React, { useRef, useState, useCallback } from 'react';
-import { Animated, ScrollView, View, Text, Pressable, StyleSheet, Share } from 'react-native';
+import { Animated, ScrollView, View, Text, Pressable, StyleSheet, Share, Platform } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { DiagramFrame, SectionLabel, ThemeToggle, LanguageToggle } from '../components/Primitives';
 import { Diagram } from '../components/diagrams';
 import JumpToVerseModal from '../components/JumpToVerseModal';
 import LinkedText from '../components/LinkedText';
 import NotFoundState from '../components/NotFoundState';
+import AuroraGlow from '../components/AuroraGlow';
 import { getText } from '../content';
 import { useReadingPrefs } from '../state/ReadingPrefs';
 import { useSwipeNav, webNoSelect } from '../utils/useSwipeNav';
-import { fonts, ColorPalette } from '../theme/tokens';
+import { fonts, type, ColorPalette } from '../theme/tokens';
 import { useTheme } from '../theme/useTheme';
 
 export default function VerseDetailScreen() {
@@ -21,7 +23,8 @@ export default function VerseDetailScreen() {
   const verse = text?.verses[index];
   const [jumpVisible, setJumpVisible] = useState(false);
   const { isBookmarked, toggleBookmark, fontScale, setFontScale, recordLastRead, appLanguage } = useReadingPrefs();
-  const { colors } = useTheme();
+  const { colors, elevation, systemAccent, glowText } = useTheme();
+  const accent = systemAccent(systemId);
   const s = makeStyles(colors);
   const scrollRef = useRef<ScrollView>(null);
 
@@ -38,6 +41,22 @@ export default function VerseDetailScreen() {
     },
     [nav, text]
   );
+
+  React.useEffect(() => {
+    if (Platform.OS !== 'web') return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Allow default behavior (like scrolling) for everything else
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        goTo(index + 1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goTo(index - 1);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [goTo, index]);
 
   const hasPrev = index > 0;
   const hasNext = !!text && index < text.verses.length - 1;
@@ -61,6 +80,8 @@ export default function VerseDetailScreen() {
 
   if (!text || !verse) return <NotFoundState label="That verse" />;
 
+  const progress = (index + 1) / text.verses.length;
+
   return (
     <View style={{ flex: 1, backgroundColor: colors.avyakta }}>
       <Animated.View style={[{ flex: 1, transform: [{ translateX }] }, webNoSelect]} {...panHandlers}>
@@ -70,12 +91,17 @@ export default function VerseDetailScreen() {
             <Text style={s.crumbText} numberOfLines={1}>‹  {text.transliteratedTitle}</Text>
           </Pressable>
           <View style={s.topActions}>
-            <Pressable onPress={onShare} style={s.iconBtn} accessibilityRole="button" accessibilityLabel="Share this verse">
+            <Pressable
+              onPress={onShare}
+              style={({ pressed }) => [s.iconBtn, pressed && s.iconBtnPressed]}
+              accessibilityRole="button"
+              accessibilityLabel="Share this verse"
+            >
               <Text style={s.iconBtnText}>⇪</Text>
             </Pressable>
             <Pressable
               onPress={() => toggleBookmark(systemId, textId, verseId)}
-              style={s.iconBtn}
+              style={({ pressed }) => [s.iconBtn, bookmarked && s.iconBtnActive, pressed && s.iconBtnPressed]}
               accessibilityRole="button"
               accessibilityLabel={bookmarked ? 'Remove bookmark' : 'Add bookmark'}
               accessibilityState={{ selected: bookmarked }}
@@ -91,7 +117,7 @@ export default function VerseDetailScreen() {
           <Text style={s.fontRowLabel}>Text size</Text>
           <View style={{ flexDirection: 'row', gap: 8 }}>
             <Pressable
-              style={s.fontBtn}
+              style={({ pressed }) => [s.fontBtn, pressed && s.fontBtnPressed]}
               onPress={() => setFontScale(Math.max(0.85, fontScale - 0.1))}
               accessibilityRole="button"
               accessibilityLabel="Decrease text size"
@@ -99,7 +125,7 @@ export default function VerseDetailScreen() {
               <Text style={s.fontBtnText}>A-</Text>
             </Pressable>
             <Pressable
-              style={s.fontBtn}
+              style={({ pressed }) => [s.fontBtn, pressed && s.fontBtnPressed]}
               onPress={() => setFontScale(1)}
               accessibilityRole="button"
               accessibilityLabel="Reset text size"
@@ -107,7 +133,7 @@ export default function VerseDetailScreen() {
               <Text style={s.fontBtnText}>A</Text>
             </Pressable>
             <Pressable
-              style={s.fontBtn}
+              style={({ pressed }) => [s.fontBtn, pressed && s.fontBtnPressed]}
               onPress={() => setFontScale(Math.min(1.4, fontScale + 0.1))}
               accessibilityRole="button"
               accessibilityLabel="Increase text size"
@@ -117,20 +143,19 @@ export default function VerseDetailScreen() {
           </View>
         </View>
 
-        <Text style={s.detailNum}>{verse.number}</Text>
-        <Text style={s.title}>{verse.section}</Text>
+        <Text style={[s.detailNum, { color: accent.primary }]}>{verse.number}</Text>
+        <Text style={[s.title, glowText(accent.glow, 14)]}>{verse.section}</Text>
 
-        {verse.devanagari ? (
-          <View style={s.devaBlock}>
+        <View style={[s.devaBlock, elevation(1), { borderLeftColor: accent.primary }]}>
+          <AuroraGlow colors={accent.pair} intensity={0.35} />
+          {verse.devanagari ? (
             <Text style={[s.deva, { fontSize: scaledFont(20) }]}>{verse.devanagari}</Text>
-          </View>
-        ) : (
-          <View style={s.devaBlock}>
+          ) : (
             <Text style={[s.iastPrimary, { fontSize: scaledFont(19) }]}>{verse.iast}</Text>
-          </View>
-        )}
-        {verse.devanagari && <Text style={[s.iast, { fontSize: scaledFont(15) }]}>{verse.iast}</Text>}
-        
+          )}
+          {verse.devanagari && <Text style={[s.iast, { fontSize: scaledFont(15) }]}>{verse.iast}</Text>}
+        </View>
+
         <View style={s.sideBySideBlock}>
           {appLanguage === 'ml' && verse.content.ml?.translation ? (
             <Text style={[s.transMl, { fontSize: scaledFont(18), marginTop: 12 }]}>{verse.content.ml.translation}</Text>
@@ -151,8 +176,8 @@ export default function VerseDetailScreen() {
           <>
             <SectionLabel>Where sources add or differ</SectionLabel>
             {verse.interpretiveNotes.map((n, i) => (
-              <View key={i} style={s.noteBlock}>
-                <Text style={s.noteSource}>{n.source}</Text>
+              <View key={i} style={[s.noteBlock, { borderLeftColor: colors.purushaDim }]}>
+                <Text style={[s.noteSource, { color: colors.purushaDim }]}>{n.source}</Text>
                 <LinkedText style={[s.noteText, { fontSize: scaledFont(15) }]}>{n.note ?? ''}</LinkedText>
               </View>
             ))}
@@ -164,7 +189,7 @@ export default function VerseDetailScreen() {
             <SectionLabel>Key points</SectionLabel>
             {verse.content.en.keyPoints.map((p, i) => (
               <View key={i} style={s.keyRow}>
-                <Text style={s.keyDash}>—</Text>
+                <Text style={[s.keyDash, { color: accent.primary }]}>—</Text>
                 <LinkedText style={[s.keyText, { fontSize: scaledFont(13.5) }]}>{p ?? ''}</LinkedText>
               </View>
             ))}
@@ -183,9 +208,9 @@ export default function VerseDetailScreen() {
       </ScrollView>
       </Animated.View>
 
-      <View style={s.bottomBar}>
+      <View style={[s.bottomBar, elevation(2)]}>
         <Pressable
-          style={[s.navBtn, !hasPrev && s.navBtnDisabled]}
+          style={({ pressed }) => [s.navBtn, !hasPrev && s.navBtnDisabled, pressed && hasPrev && s.navBtnPressed]}
           disabled={!hasPrev}
           onPress={() => goTo(index - 1)}
           accessibilityRole="button"
@@ -205,12 +230,17 @@ export default function VerseDetailScreen() {
             {index + 1} / {text.verses.length}
           </Text>
           <View style={s.miniTrack}>
-            <View style={[s.miniFill, { width: `${((index + 1) / text.verses.length) * 100}%` }]} />
+            <LinearGradient
+              colors={accent.pair as any}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={[s.miniFill, { width: `${progress * 100}%` }]}
+            />
           </View>
         </Pressable>
 
         <Pressable
-          style={[s.navBtn, !hasNext && s.navBtnDisabled]}
+          style={({ pressed }) => [s.navBtn, !hasNext && s.navBtnDisabled, pressed && hasNext && s.navBtnPressed]}
           disabled={!hasNext}
           onPress={() => goTo(index + 1)}
           accessibilityRole="button"
@@ -236,7 +266,7 @@ export default function VerseDetailScreen() {
 }
 
 const makeStyles = (colors: ColorPalette) => StyleSheet.create({
-  screen: { flex: 1, backgroundColor: colors.avyakta, paddingHorizontal: 22, paddingTop: 8 },
+  screen: { flex: 1, alignSelf: 'center', width: '100%', maxWidth: 800, backgroundColor: colors.avyakta, paddingHorizontal: 22, paddingTop: 8 },
   topRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 },
   crumb: { flex: 1 },
   crumbText: { color: colors.inkDim, fontSize: 13 },
@@ -250,39 +280,38 @@ const makeStyles = (colors: ColorPalette) => StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  iconBtnActive: { borderColor: colors.sattva, backgroundColor: colors.sattvaGlow },
+  iconBtnPressed: { backgroundColor: colors.avyakta3 },
   iconBtnText: { fontSize: 16, color: colors.inkDim },
-  detailNum: { fontFamily: fonts.sanskrit, fontSize: 14, color: colors.rajasDim, letterSpacing: 1.4 },
+  detailNum: { ...type.sanskritNum },
   title: { fontFamily: fonts.display, fontSize: 26, color: colors.ink, marginTop: 2, marginBottom: 10 },
   devaBlock: {
     backgroundColor: colors.avyakta2,
     borderWidth: 1,
     borderColor: colors.hair,
     borderLeftWidth: 3,
-    borderLeftColor: colors.rajas,
     borderRadius: 4,
     padding: 18,
     marginBottom: 14,
+    overflow: 'hidden',
+    position: 'relative',
   },
   deva: { fontFamily: fonts.sanskrit, lineHeight: 34, color: colors.sattva },
   iastPrimary: { fontFamily: fonts.serifItalic, lineHeight: 28, color: colors.sattva },
-  iast: { fontFamily: fonts.serifItalic, lineHeight: 22, color: colors.inkDim, marginBottom: 16 },
+  iast: { fontFamily: fonts.serifItalic, lineHeight: 22, color: colors.inkDim, marginTop: 8 },
   trans: { fontFamily: fonts.serif, lineHeight: 26, color: colors.ink, marginBottom: 8 },
   transMl: { fontFamily: fonts.sans, lineHeight: 26, color: colors.inkDim },
   sideBySideBlock: { marginBottom: 8 },
   commentary: { fontFamily: fonts.serif, lineHeight: 24, color: colors.ink },
   commentaryMl: { fontFamily: fonts.sans, lineHeight: 24, color: colors.inkDim },
-  noteBlock: { marginBottom: 12 },
+  noteBlock: { marginBottom: 12, paddingLeft: 10, borderLeftWidth: 2 },
   noteSource: {
-    fontFamily: fonts.sansBold,
-    fontSize: 10.5,
-    color: colors.sattvaDim,
-    textTransform: 'uppercase',
-    letterSpacing: 1,
+    ...type.label,
     marginBottom: 4,
   },
   noteText: { fontFamily: fonts.serif, lineHeight: 21, color: colors.ink },
   keyRow: { flexDirection: 'row', gap: 8, paddingVertical: 9, borderBottomWidth: 1, borderBottomColor: colors.hair },
-  keyDash: { color: colors.rajas, fontSize: 13 },
+  keyDash: { fontSize: 13 },
   keyText: { flex: 1, lineHeight: 19, color: colors.inkDim },
   fontRow: {
     flexDirection: 'row',
@@ -293,10 +322,14 @@ const makeStyles = (colors: ColorPalette) => StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: colors.hair,
   },
-  fontRowLabel: { fontSize: 11, color: colors.tamas, textTransform: 'uppercase', letterSpacing: 1 },
+  fontRowLabel: { ...type.label, color: colors.tamas },
   fontBtn: { borderWidth: 1, borderColor: colors.hair, borderRadius: 8, paddingHorizontal: 10, paddingVertical: 5 },
+  fontBtnPressed: { backgroundColor: colors.avyakta3 },
   fontBtnText: { fontFamily: fonts.sansBold, fontSize: 12, color: colors.inkDim },
   bottomBar: {
+    alignSelf: 'center',
+    width: '100%',
+    maxWidth: 800,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
@@ -308,11 +341,12 @@ const makeStyles = (colors: ColorPalette) => StyleSheet.create({
     backgroundColor: colors.avyakta,
   },
   navBtn: { paddingVertical: 10, paddingHorizontal: 14, borderRadius: 10, backgroundColor: colors.avyakta2, borderWidth: 1, borderColor: colors.hair },
+  navBtnPressed: { backgroundColor: colors.avyakta3 },
   navBtnDisabled: { opacity: 0.35 },
   navBtnText: { fontFamily: fonts.sansBold, fontSize: 13, color: colors.sattva },
   navBtnTextDisabled: { color: colors.tamas },
   positionBtn: { flex: 1, alignItems: 'center' },
-  positionText: { fontFamily: fonts.sanskrit, fontSize: 13, color: colors.ink, marginBottom: 4 },
+  positionText: { ...type.sanskritNum, color: colors.ink, marginBottom: 4 },
   miniTrack: { height: 4, width: '80%', backgroundColor: colors.avyakta3, borderRadius: 2, overflow: 'hidden' },
-  miniFill: { height: '100%', backgroundColor: colors.rajas },
+  miniFill: { height: '100%' },
 });

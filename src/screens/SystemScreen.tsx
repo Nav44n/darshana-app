@@ -4,8 +4,10 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { Eyebrow, PageTitle, Subtitle, SectionLabel, Card, ThemeToggle, LanguageToggle } from '../components/Primitives';
 import { SystemHero } from '../components/diagrams';
 import NotFoundState from '../components/NotFoundState';
+import GunaRule from '../components/GunaRule';
+import AuroraGlow from '../components/AuroraGlow';
 import { getSystem } from '../content';
-import { fonts, ColorPalette } from '../theme/tokens';
+import { fonts, type, ColorPalette } from '../theme/tokens';
 import { useTheme } from '../theme/useTheme';
 
 export default function SystemScreen() {
@@ -13,7 +15,8 @@ export default function SystemScreen() {
   const route = useRoute<any>();
   const { systemId } = route.params ?? {};
   const system = getSystem(systemId);
-  const { colors } = useTheme();
+  const { colors, systemAccent, glowText } = useTheme();
+  const accent = systemAccent(systemId);
   const s = makeStyles(colors);
 
   if (!system) return <NotFoundState label="That system" />;
@@ -27,35 +30,41 @@ export default function SystemScreen() {
         </View>
         <View style={s.topActions}>
           <Pressable
-            style={s.conceptsBtn}
+            style={[s.conceptsBtn, { borderColor: accent.primary }]}
             onPress={() => nav.navigate('Concepts', { screen: 'ConceptsMain', params: { systemId: system.id } })}
             accessibilityRole="button"
             accessibilityLabel={`Explore ${system.title} concept by concept`}
           >
-            <Text style={s.conceptsBtnIcon}>◈</Text>
+            <Text style={[s.conceptsBtnIcon, { color: accent.primary }]}>◈</Text>
           </Pressable>
           <LanguageToggle />
           <ThemeToggle />
         </View>
       </View>
       <Subtitle>{system.subtitle}</Subtitle>
+      <GunaRule colors={accent.pair} style={s.headerRule} />
 
-      <View style={s.hero}>
+      <View style={[s.hero, { borderColor: accent.dim }]}>
+        <AuroraGlow colors={accent.pair} intensity={0.9} />
         <SystemHero systemId={system.id} />
       </View>
 
       {system.thread.length > 0 && (
         <Pressable
-          style={s.threadCta}
+          style={({ pressed }) => [
+            s.threadCta,
+            { borderColor: accent.dim },
+            pressed && { backgroundColor: colors.avyakta3 },
+          ]}
           onPress={() => nav.navigate('Thread', { systemId: system.id, stepId: system.thread[0].id })}
         >
           <View style={{ flex: 1 }}>
-            <Text style={s.threadCtaTitle}>Explore threads</Text>
+            <Text style={[s.threadCtaTitle, { color: accent.primary }, glowText(accent.glow, 10)]}>Explore threads</Text>
             <Text style={s.threadCtaSub}>
               {system.thread.length} steps · the whole of {system.title}, concept by concept, start to end
             </Text>
           </View>
-          <Text style={s.threadCtaChev}>›</Text>
+          <Text style={[s.threadCtaChev, { color: accent.primary }]}>›</Text>
         </Pressable>
       )}
 
@@ -66,9 +75,17 @@ export default function SystemScreen() {
           onPress={() => nav.navigate('TextIndex', { systemId: system.id, textId: text.id })}
           accessibilityLabel={`Browse ${text.transliteratedTitle} by ${text.author}, ${text.verses.length} verses`}
         >
-          <Text style={s.textTitle}>{text.transliteratedTitle}</Text>
-          <Text style={s.textAuthor}>{text.author}</Text>
-          <Text style={s.textCount}>{text.verses.length} verses transcribed</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+            <View style={[s.folio, { borderColor: accent.dim }]}>
+              <Text style={[s.folioText, { color: accent.primary }]}>{text.transliteratedTitle.charAt(0)}</Text>
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={s.textTitle}>{text.transliteratedTitle}</Text>
+              <Text style={s.textAuthor}>{text.author}</Text>
+              <Text style={[s.textCount, { color: accent.dim }]}>{text.verses.length} verses transcribed</Text>
+            </View>
+            <Text style={s.chev}>›</Text>
+          </View>
         </Card>
       ))}
     </ScrollView>
@@ -77,28 +94,28 @@ export default function SystemScreen() {
 
 const makeStyles = (colors: ColorPalette) =>
   StyleSheet.create({
-    screen: { flex: 1, backgroundColor: colors.avyakta, paddingHorizontal: 22, paddingTop: 8 },
+    screen: { flex: 1, alignSelf: 'center', width: '100%', maxWidth: 800, backgroundColor: colors.avyakta, paddingHorizontal: 22, paddingTop: 8 },
     topRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between' },
+    headerRule: { width: 46, marginTop: 12, marginBottom: 18 },
     topActions: { flexDirection: 'row', gap: 8 },
     conceptsBtn: {
       width: 34,
       height: 34,
       borderRadius: 17,
       borderWidth: 1,
-      borderColor: colors.hair,
       alignItems: 'center',
       justifyContent: 'center',
     },
-    conceptsBtnIcon: { fontSize: 15, color: colors.sattva },
+    conceptsBtnIcon: { fontSize: 15 },
     hero: {
-      height: 130,
+      height: 150,
       borderRadius: 16,
       overflow: 'hidden',
       backgroundColor: colors.avyakta2,
       borderWidth: 1,
-      borderColor: colors.hair,
-      marginBottom: 14,
+      marginBottom: 16,
       justifyContent: 'center',
+      position: 'relative',
     },
     threadCta: {
       flexDirection: 'row',
@@ -106,15 +123,25 @@ const makeStyles = (colors: ColorPalette) =>
       gap: 10,
       backgroundColor: colors.avyakta2,
       borderWidth: 1,
-      borderColor: colors.rajasDim,
       borderRadius: 16,
       padding: 16,
       marginBottom: 14,
     },
-    threadCtaTitle: { fontFamily: fonts.display, fontSize: 15, color: colors.sattva, marginBottom: 2 },
-    threadCtaSub: { fontSize: 11, color: colors.inkDim },
-    threadCtaChev: { fontSize: 20, color: colors.rajas },
-    textTitle: { fontFamily: fonts.display, fontSize: 17, color: colors.ink, marginBottom: 2 },
+    threadCtaTitle: { fontFamily: fonts.display, fontSize: 16, marginBottom: 2 },
+    threadCtaSub: { fontSize: 11.5, color: colors.inkDim },
+    threadCtaChev: { fontSize: 20 },
+    folio: {
+      width: 32,
+      height: 32,
+      borderRadius: 8,
+      borderWidth: 1,
+      backgroundColor: colors.avyakta3,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    folioText: { fontFamily: fonts.sanskrit, fontSize: 14 },
+    textTitle: { ...type.h3, color: colors.ink, marginBottom: 2 },
     textAuthor: { fontFamily: fonts.serifItalic, fontSize: 13, color: colors.inkDim },
-    textCount: { fontSize: 11, color: colors.sattvaDim, marginTop: 4 },
+    textCount: { fontSize: 11, marginTop: 4 },
+    chev: { color: colors.tamas, fontSize: 18 },
   });

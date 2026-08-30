@@ -1,0 +1,477 @@
+<USER_REQUEST>
+remaining sutras as a separate file - export interface VaisesikaSutra {
+  id: string;        // Canonical standard ID e.g., "1.1.1"
+  book: number;      // Adhyaya (1-10)
+  chapter: number;   // Ahnika (1-2)
+  sutra: number;     // Canonical Sutra number within the Ahnika
+  sanskrit: string;  // Devanagari root text
+  text: string;      // The English translation
+  topic: string;     // Grouping topic for UI categorization
+  commentary: string; // Synthesized philosophical commentary
+}
+
+export const vaisesikaSutrasBooks9And10: VaisesikaSutra[] = [
+  // ==========================================
+  // BOOK 9: NON-EXISTENCE, INFERENCE, AND COGNITION
+  // CHAPTER 1 (First Ahnika)
+  // ==========================================
+  {
+    id: "9.1.1",
+    book: 9,
+    chapter: 1,
+    sutra: 1,
+    sanskrit: "क्रियागुणव्यवदेशाऽभावात् प्रागऽसत् ॥ १ ॥",
+    text: "In the absence of the interaction of kriya and gunas, before coming into being (an effect is said to be) non-existent.",
+    topic: "Types of Non-Existence (Abhava)",
+    commentary: "Defines 'Pragabhava' or antecedent non-existence. Before an object (like a pot) is created, it is non-existent. This type of non-existence has no beginning, but it comes to an end the moment the object is created."
+  },
+  {
+    id: "9.1.2",
+    book: 9,
+    chapter: 1,
+    sutra: 2,
+    sanskrit: "सदसत् ॥ २ ॥",
+    text: "Existent (becomes) non-existent.",
+    topic: "Types of Non-Existence (Abhava)",
+    commentary: "Defines 'Dhvamsabhava' or posterior non-existence (destruction). When an existing object is destroyed, it becomes non-existent. This type of non-existence has a definite beginning (the moment of destruction) but never ends."
+  },
+  {
+    id: "9.1.3",
+    book: 9,
+    chapter: 1,
+    sutra: 3,
+    sanskrit: "असतः क्रियागुणव्यपदेशाभावादर्थान्तरम् ॥ ३ ॥",
+    text: "In the absence of interaction of kriyä and guna it (existence) is distinct from non-existence.",
+    topic: "Types of Non-Existence (Abhava)",
+    commentary: "Existence is fundamentally different from non-existence because a non-existent entity cannot possess actions (kriya) or qualities (guna)."
+  },
+  {
+    id: "9.1.4",
+    book: 9,
+    chapter: 1,
+    sutra: 4,
+    sanskrit: "सच्चासत् ॥ ४ ॥",
+    text: "Existent also (is) non-existent.",
+    topic: "Types of Non-Existence (Abhava)",
+    commentary: "Defines 'Anyonyabhava' or mutual non-existence (difference). A cow is non-existent as a horse, and a horse is non-existent as a cow. It denotes the fundamental separateness between two existing entities."
+  },
+  {
+    id: "9.1.5",
+    book: 9,
+    chapter: 1,
+    sutra: 5,
+    sanskrit: "यच्चान्यदसदतस्तदसत् ॥ ५ ॥",
+    text: "And that which is different (from both existence and non-existence) is a non-existence (which will never be in existence).",
+    topic: "Types of Non-Existence (Abhava)",
+    commentary: "Defines 'Atyantabhava' or absolute non-existence. This refers to things that never existed, do not exist now, and will never exist (e.g., 'the horn of a hare' or 'color in the wind')."
+  },
+  {
+    id: "9.1.6",
+    book: 9,
+    chapter: 1,
+    sutra: 6,
+    sanskrit: "असदिति भूतप्रत्यक्षाभावात् भूतस्मृतेर्विरोधिप्रत्यक्षवत् ॥ ६ ॥",
+    text: "Perception of a non-existent thing may also result from non-existence of a past perception and a memory of the past, like the perception of an opposing object.",
+    topic: "Perception of Non-Existence",
+    commentary: "How do we perceive that something is missing? It arises from remembering the object that should be there and perceiving the empty space (the opposing object/locus) where it is currently absent."
+  },
+  {
+    id: "9.1.7",
+    book: 9,
+    chapter: 1,
+    sutra: 7,
+    sanskrit: "तथाऽभावे भावप्रत्यक्षत्वाच्च ॥ ७ ॥",
+    text: "Likewise too from perception of existence is non-existence.",
+    topic: "Perception of Non-Existence",
+    commentary: "The realization of non-existence relies fundamentally on the perception of the existent background or locus (e.g., seeing the empty floor to realize the pot is absent)."
+  },
+  {
+    id: "9.1.8",
+    book: 9,
+    chapter: 1,
+    sutra: 8,
+    sanskrit: "एतेनाघटोऽगौरधर्मश्च व्याख्यातः ॥ ८ ॥",
+    text: "Hereby the non-pot, non-cow and adharma is explained.",
+    topic: "Perception of Non-Existence",
+    commentary: "Negative concepts—such as 'not a pot', 'not a cow', or 'adharma' (non-merit)—are understood through these very principles of mutual and absolute non-existence."
+  },
+  {
+    id: "9.1.9",
+    book: 9,
+    chapter: 1,
+    sutra: 9,
+    sanskrit: "अभूतं नास्तीत्यनर्थान्तरम् ॥ ९ ॥",
+    text: "There is no difference of meaning between that which has not been and that which is not.",
+    topic: "Perception of Non-Existence",
+    commentary: "Linguistically and logically, referring to something that 'has never occurred' is essentially the same as stating its absolute non-existence."
+  },
+  {
+    id: "9.1.10",
+    book: 9,
+    chapter: 1,
+    sutra: 10,
+    sanskrit: "नास्ति घटोगेहे इति सतो घटस्य गेहसंसर्ग प्रतिषेधः ॥ १० ॥",
+    text: "There is no pot in the house is a negation of connection between an existent water-pot and the house.",
+    topic: "Perception of Non-Existence",
+    commentary: "When we say 'there is no pot in the house', we are not denying the existence of pots in the universe; we are specifically negating the conjunction (samsarga) between a pot and this specific house."
+  },
+  {
+    id: "9.1.11",
+    book: 9,
+    chapter: 1,
+    sutra: 11,
+    sanskrit: "आत्मन्यात्ममनसोः संयोगविशेषादात्म प्रत्यक्षम् ॥ ११ ॥",
+    text: "Perceptual knowledge of atma is made possible by a particular conjunction between the atma and the mana.",
+    topic: "Perception of Self and Other Substances",
+    commentary: "The Soul (Atma) can perceive itself directly. This internal perception occurs when the Mind (Manas) makes a specific, focused conjunction with the Soul."
+  },
+  {
+    id: "9.1.12",
+    book: 9,
+    chapter: 1,
+    sutra: 12,
+    sanskrit: "तथा द्रव्यान्तरेषु प्रत्यक्षम् ॥ १२ ॥",
+    text: "Like perception of the different dravyas.",
+    topic: "Perception of Self and Other Substances",
+    commentary: "Just as we can directly perceive external physical substances (dravyas) through our sensory organs, the Soul can be directly perceived internally."
+  },
+  {
+    id: "9.1.13",
+    book: 9,
+    chapter: 1,
+    sutra: 13,
+    sanskrit: "असमाहितान्तः करणा उपसहृतसमाध्यस्तेषाञ्च ॥ १३ ॥",
+    text: "In those whose mana is not always meditative and in those whose samadhi is consummated there is the perception of atmа.",
+    topic: "Perception of Self and Other Substances",
+    commentary: "Yogis who have perfected their meditation (samadhi) have constant, direct perception of the Soul, whereas ordinary people may only catch fleeting glimpses when their mind turns inward."
+  },
+  {
+    id: "9.1.14",
+    book: 9,
+    chapter: 1,
+    sutra: 14,
+    sanskrit: "तत् समवायात्कर्मगुणेषु ॥ १४ ॥",
+    text: "(They also perceive) karma and guna from the coinherence of things.",
+    topic: "Perception of Self and Other Substances",
+    commentary: "Through heightened yogic perception, one can also directly perceive the subtle attributes (gunas) and actions (karmas) inherent within substances."
+  },
+  {
+    id: "9.1.15",
+    book: 9,
+    chapter: 1,
+    sutra: 15,
+    sanskrit: "आत्मसमवायादात्मगुणेषु ॥ १५ ॥",
+    text: "Atmā being in a form of co-inherence there is also perception of the guna of atmă.",
+    topic: "Perception of Self and Other Substances",
+    commentary: "Because the Soul is the substratum for psychological qualities (like desire, pleasure, pain), yogic perception allows one to directly observe these qualities inhering within the Soul."
+  },
+
+  // ==========================================
+  // BOOK 9: NON-EXISTENCE, INFERENCE, AND COGNITION
+  // CHAPTER 2 (Second Ahnika)
+  // ==========================================
+  {
+    id: "9.2.1",
+    book: 9,
+    chapter: 2,
+    sutra: 1,
+    sanskrit: "अस्येदं कार्य कारण संयोगि विरोधि समवायि चेति लैंगिकम् ॥ १ ॥",
+    text: "Anything connected with any other thing as effect, cause, in contact, as contrary or as inseparably connected will serve as a mark.",
+    topic: "Examination of Anumana (Inference)",
+    commentary: "Outlines the foundational relationships used in logical inference. We can infer the unseen based on its relation to the seen: whether it is a cause, an effect, physically conjoined, diametrically opposed, or inherently connected."
+  },
+  {
+    id: "9.2.2",
+    book: 9,
+    chapter: 2,
+    sutra: 2,
+    sanskrit: "अस्येदं कार्यकारणसम्बन्धश्चावयवाद् भवति ॥ २ ॥",
+    text: "That this is associated to this and the cause and effect are connected such is known by examples.",
+    topic: "Examination of Anumana (Inference)",
+    commentary: "Inference requires a known universal concomitance (vyapti), which is established through observing prior examples (drishtanta) of cause and effect occurring together."
+  },
+  {
+    id: "9.2.3",
+    book: 9,
+    chapter: 2,
+    sutra: 3,
+    sanskrit: "एतेन शब्द व्याख्यातम् ॥ ३ ॥",
+    text: "By this is śabda explained.",
+    topic: "Examination of Anumana (Inference)",
+    commentary: "Kanada asserts that Verbal Testimony (Shabda) is not a separate, independent means of knowledge (pramana), but is actually a form of Inference (Anumana), as we infer the truth based on the reliability of the speaker."
+  },
+  {
+    id: "9.2.4",
+    book: 9,
+    chapter: 2,
+    sutra: 4,
+    sanskrit: "हेतुरपदेशोलिंग प्रमाणं करणमित्यनर्थान्तरम् ॥ ४ ॥",
+    text: "There is no difference of meaning in argument, reason, mark, evidence and instrument.",
+    topic: "Examination of Anumana (Inference)",
+    commentary: "Lists synonyms used in logic. Words like 'hetu' (reason), 'linga' (mark), and 'pramana' (evidence) all refer to the same logical mechanism: the middle term that proves the conclusion."
+  },
+  {
+    id: "9.2.5",
+    book: 9,
+    chapter: 2,
+    sutra: 5,
+    sanskrit: "अस्येमिति बुद्ध्यपेक्षितत्वात् ॥ ५ ॥",
+    text: "(Because) they are implicated in the notion of belonging to that (sabda).",
+    topic: "Examination of Anumana (Inference)",
+    commentary: "The meaning of a word relies entirely on the intellect recognizing the conventional relationship established between the word and its object."
+  },
+  {
+    id: "9.2.6",
+    book: 9,
+    chapter: 2,
+    sutra: 6,
+    sanskrit: "आत्ममनसोः संयोगविशेषात् संस्काराच्च स्मृतिः ॥ ६ ॥",
+    text: "Smrti results from the particular conjunction of the atmā with the mana and from samskāra.",
+    topic: "Examination of Smrti (Memory)",
+    commentary: "Memory (Smriti) requires three elements: the Soul, the Mind's focused attention (conjunction), and the subliminal impressions (samskaras) left on the Soul by past experiences."
+  },
+  {
+    id: "9.2.7",
+    book: 9,
+    chapter: 2,
+    sutra: 7,
+    sanskrit: "तथा स्वप्नः ॥ ७ ॥",
+    text: "So too, dreams (result from conjunction of atma and manа).",
+    topic: "Examination of Smrti (Memory)",
+    commentary: "Dreams are a psychological phenomenon operating on the same mechanics as memory. They occur when the Mind interacts with past impressions (samskaras) during sleep."
+  },
+  {
+    id: "9.2.8",
+    book: 9,
+    chapter: 2,
+    sutra: 8,
+    sanskrit: "स्वप्नान्तिकम् ॥ ८ ॥",
+    text: "So too, consciousness in dreams.",
+    topic: "Examination of Smrti (Memory)",
+    commentary: "The subjective awareness and vivid consciousness experienced within a dream state are also manifestations of this mind-soul-impression interaction."
+  },
+  {
+    id: "9.2.9",
+    book: 9,
+    chapter: 2,
+    sutra: 9,
+    sanskrit: "धर्माच्च ॥ ९ ॥",
+    text: "And also from dharma.",
+    topic: "Examination of Smrti (Memory)",
+    commentary: "Sometimes memories or prophetic dreams arise not just from worldly impressions, but are prompted by an individual's accumulated spiritual merit (dharma)."
+  },
+  {
+    id: "9.2.10",
+    book: 9,
+    chapter: 2,
+    sutra: 10,
+    sanskrit: "इन्द्रियदोषात् संस्कारदोषाच्चाऽ विद्या ॥ १० ॥",
+    text: "Ignorance results from the dosa of the organs of sense and from the dosa of samskāra.",
+    topic: "Enumeration of Avidya (Ignorance)",
+    commentary: "Ignorance or false knowledge (Avidya) has two primary causes: physical defects in our sensory organs (like a diseased eye seeing two moons) or flaws in our mental impressions/memory."
+  },
+  {
+    id: "9.2.11",
+    book: 9,
+    chapter: 2,
+    sutra: 11,
+    sanskrit: "तद् दुष्टज्ञानम् ॥ ११ ॥",
+    text: "That (avidya) is imperfect cognition.",
+    topic: "Enumeration of Avidya (Ignorance)",
+    commentary: "Avidya is definitively characterized as flawed, corrupted, or imperfect knowledge that does not align with reality."
+  },
+  {
+    id: "9.2.12",
+    book: 9,
+    chapter: 2,
+    sutra: 12,
+    sanskrit: "अदुष्टं विद्या ॥ १२ ॥",
+    text: "Free from imperfection is knowledge.",
+    topic: "Enumeration of Avidya (Ignorance)",
+    commentary: "True knowledge (Vidya) is cognition that is entirely free from sensory or psychological defects, perfectly reflecting the true nature of categories."
+  },
+  {
+    id: "9.2.13",
+    book: 9,
+    chapter: 2,
+    sutra: 13,
+    sanskrit: "आर्ष सिद्धदर्शनञ्च धर्मेभ्यः ॥ १३ ॥",
+    text: "Knowledge of seers and the perfect vision results from dharma.",
+    topic: "Enumeration of Avidya (Ignorance)",
+    commentary: "The infallible, intuitive wisdom (Arsha Jnana) possessed by ancient seers is not derived through ordinary senses, but is a direct result of their immense accumulated spiritual merit (Dharma)."
+  },
+
+  // ==========================================
+  // BOOK 10: THE SOUL'S QUALITIES AND FINAL CAUSALITY
+  // CHAPTER 1 (First Ahnika)
+  // ==========================================
+  {
+    id: "10.1.1",
+    book: 10,
+    chapter: 1,
+    sutra: 1,
+    sanskrit: "इष्टनिष्टकारणविशेषाद् विरोधाच्च मिथः सुख दुःखयोरर्थान्तरभावः ॥ १ ॥",
+    text: "Due to the difference between desirable and undesirable causes and by opposition sukha and duhkha are different in their being.",
+    topic: "Examination of Sukha and Duhkha (Pleasure and Pain)",
+    commentary: "Pleasure (Sukha) and Pain (Duhkha) are established as two completely distinct psychological qualities. They have opposing causes (desirable vs undesirable objects) and are mutually exclusive in their experience."
+  },
+  {
+    id: "10.1.2",
+    book: 10,
+    chapter: 1,
+    sutra: 2,
+    sanskrit: "संशयनिर्णयान्तराभावश्चज्ञानान्तरत्वे ॥ २ ॥",
+    text: "By their non-inclusion of doubt and assurance they are different from cognition.",
+    topic: "Examination of Sukha and Duhkha (Pleasure and Pain)",
+    commentary: "Pleasure and pain are not mere 'cognitions' or thoughts. Cognitions involve doubt or certainty, whereas pleasure and pain are pure subjective experiences/feelings, categorically distinct from knowledge."
+  },
+  {
+    id: "10.1.3",
+    book: 10,
+    chapter: 1,
+    sutra: 3,
+    sanskrit: "तयोर्निष्पत्तिः प्रत्यक्षलैंगिकाभ्याम् ॥ ३ ॥",
+    text: "The production of them (doubt and assurance) is by means of perception and inference.",
+    topic: "Examination of Sukha and Duhkha (Pleasure and Pain)",
+    commentary: "Doubt and certainty (which belong to cognition, not feeling) are produced through the standard epistemic mechanisms of direct perception and logical inference."
+  },
+  {
+    id: "10.1.4",
+    book: 10,
+    chapter: 1,
+    sutra: 4,
+    sanskrit: "अभूदित्यपि ॥ ४ ॥",
+    text: "The notion of the past too (is a difference between the cognition of sukha and duhkha).",
+    topic: "Examination of Sukha and Duhkha (Pleasure and Pain)",
+    commentary: "We can have a cognition about a past event, but we cannot 'feel' a past pleasure or pain in the present moment in the exact same way; feelings are immediate."
+  },
+  {
+    id: "10.1.5",
+    book: 10,
+    chapter: 1,
+    sutra: 5,
+    sanskrit: "सति च कार्यदर्शनात् ॥ ५ ॥",
+    text: "And the effect (of such cognition) is not always observed.",
+    topic: "Examination of Sukha and Duhkha (Pleasure and Pain)",
+    commentary: "Knowing something (cognition) does not always automatically result in a corresponding feeling (pleasure or pain), proving they are separate processes."
+  },
+  {
+    id: "10.1.6",
+    book: 10,
+    chapter: 1,
+    sutra: 6,
+    sanskrit: "एकार्थसमवायिकारणान्तरेषु दृष्टत्वात् ॥ ६ ॥",
+    text: "(Because sukha and duhkha) are observed to coinhere with the same object.",
+    topic: "Examination of Sukha and Duhkha (Pleasure and Pain)",
+    commentary: "The exact same object can be a source of pleasure at one time and pain at another, meaning the feeling is not an intrinsic property of the object, but a subjective quality arising in the Soul."
+  },
+  {
+    id: "10.1.7",
+    book: 10,
+    chapter: 1,
+    sutra: 7,
+    sanskrit: "एकदेशे इत्येकस्मिन् शिरः पृष्ठमुदरं मर्माणि तद्विशेषस्तद्विशेषेभ्यः ॥ ७ ॥",
+    text: "The head, the back, the stomach and the vitals are in one (body) but their particularity results from the particularity (of their causes).",
+    topic: "Examination of Sukha and Duhkha (Pleasure and Pain)",
+    commentary: "Just as different parts of one body have distinct characteristics based on their specific causes, different feelings (pleasure/pain) arise in one Soul based on the specific varying causes affecting it."
+  },
+
+  // ==========================================
+  // BOOK 10: THE SOUL'S QUALITIES AND FINAL CAUSALITY
+  // CHAPTER 2 (Second Ahnika)
+  // ==========================================
+  {
+    id: "10.2.1",
+    book: 10,
+    chapter: 2,
+    sutra: 1,
+    sanskrit: "कारणमिति द्रव्ये कार्यसमवायात् ॥ १ ॥",
+    text: "That it is a cause, (this position) with regard to dravya (results) from the co-inherence of effects.",
+    topic: "Examination of Cause",
+    commentary: "Reiterates the fundamental rule of material causality. A substance (like clay) is identified as the inherent cause because the effect (the pot) structurally coinheres within it."
+  },
+  {
+    id: "10.2.2",
+    book: 10,
+    chapter: 2,
+    sutra: 2,
+    sanskrit: "संयोगाद वा ॥ २ ॥",
+    text: "Or from conjunction.",
+    topic: "Examination of Cause",
+    commentary: "Conjunction (Samyoga) acts as the non-inherent cause. Without the physical bringing together of parts, the inherent material cannot manifest into a composite effect."
+  },
+  {
+    id: "10.2.3",
+    book: 10,
+    chapter: 2,
+    sutra: 3,
+    sanskrit: "कारणे समवायात् कर्माणि ॥ ३ ॥",
+    text: "Co-inherence in cause results in (non-coinherence in) karma.",
+    topic: "Examination of Cause",
+    commentary: "Actions (karma) are non-inherent causes. They reside in the material cause (the moving object) and bring about conjunction, which then creates the new effect."
+  },
+  {
+    id: "10.2.4",
+    book: 10,
+    chapter: 2,
+    sutra: 4,
+    sanskrit: "तथा रूपे कारणैकार्थसमवायाच्च ॥ ४ ॥",
+    text: "Similarly colour (results from) co-inherence of the cause in the object.",
+    topic: "Examination of Cause",
+    commentary: "The attributes of the effect are derived from the cause. The color of the cloth exists because the color inherent in the threads transfers into the final composite object."
+  },
+  {
+    id: "10.2.5",
+    book: 10,
+    chapter: 2,
+    sutra: 5,
+    sanskrit: "कारणसमवायात् संयोगः पटस्य ॥ ५ ॥",
+    text: "Conjunction of cloth due to the co-inherence of cause (is a non-coinherent cause).",
+    topic: "Examination of Cause",
+    commentary: "The structural connection (conjunction) between the individual threads acts as the non-inherent cause that holds the resulting cloth together."
+  },
+  {
+    id: "10.2.6",
+    book: 10,
+    chapter: 2,
+    sutra: 6,
+    sanskrit: "कारणकारणसमवायाच्च ॥ ६ ॥",
+    text: "Causation of contact also results from the co-inherence of cause in cause.",
+    topic: "Examination of Cause",
+    commentary: "Causality can chain backward. The ultimate conjunctions tracing back through molecules and dyads ultimately rest on the foundational properties inherent within the eternal atoms."
+  },
+  {
+    id: "10.2.7",
+    book: 10,
+    chapter: 2,
+    sutra: 7,
+    sanskrit: "संयुक्तसमवायादग्नेर्वैशेषिकम् ॥ ७ ॥",
+    text: "(Because of) conjunct co-inherence there is a special feature of fire (heat).",
+    topic: "Examination of Cause",
+    commentary: "When we feel heat from a fire, we are perceiving it through a chain: our skin conjoins with the fire (substance), and the heat (attribute) is inherent in that fire."
+  },
+  {
+    id: "10.2.8",
+    book: 10,
+    chapter: 2,
+    sutra: 8,
+    sanskrit: "दृष्टानां दृष्टप्रयोजनानां दृष्टाभावे प्रयोगोभ्युदयाय ॥ ८ ॥",
+    text: "Observances (according to the injunction of the scriptures) and those (karmas) that are seen since they have no visible effects are the cause of prosperity.",
+    topic: "Authoritativeness of the Vedas",
+    commentary: "Kanada returns to the theme of Dharma from Book 1. Vedic rituals and moral duties often produce no immediate, visible worldly results. Therefore, they must generate an unseen spiritual merit (Adrishta) that leads to ultimate exaltation (Abhyudaya)."
+  },
+  {
+    id: "10.2.9",
+    book: 10,
+    chapter: 2,
+    sutra: 9,
+    sanskrit: "तद्वचनादाम्नायस्य प्रामाण्यमिति ॥ ९ ॥",
+    text: "Authoritativeness pertains to the teaching/tradition/collection since it is a declaration of that.",
+    topic: "Authoritativeness of the Vedas",
+    commentary: "The final sutra of the Vaisheshika system echoes the third sutra of the first book perfectly. The Vedas are an infallible source of knowledge precisely because they accurately declare the truths of Dharma and the mechanics of the universe, leading to ultimate liberation."
+  }
+];
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-08-30T12:35:49+05:30.
+</ADDITIONAL_METADATA>

@@ -1,6 +1,6 @@
 export interface NyayaSutra {
   id: string;
-  number: number;
+  number: string;
   section: string;
   devanagari: string;
   iast: string;
@@ -11,6 +11,10 @@ export interface NyayaSutra {
   keyPoints?: string[];
 }
 
+import { nyayaSutrasBook1En } from './nyaya-sutras-book1-en';
+import { nyayaSutrasBook2En } from './nyaya-sutras-book2-en';
+
 export const nyayaSutrasEn: NyayaSutra[] = [
-  // User will provide content here
+  ...nyayaSutrasBook1En,
+  ...nyayaSutrasBook2En
 ];

@@ -4,9 +4,10 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { Eyebrow, PageTitle, Subtitle, SectionLabel, Card, ThemeToggle, LanguageToggle } from '../components/Primitives';
 import VerseRow from '../components/VerseRow';
 import NotFoundState from '../components/NotFoundState';
+import GunaRule from '../components/GunaRule';
 import { getText } from '../content';
 import { useReadingPrefs } from '../state/ReadingPrefs';
-import { fonts, ColorPalette } from '../theme/tokens';
+import { fonts, type, ColorPalette } from '../theme/tokens';
 import { useTheme } from '../theme/useTheme';
 
 export default function TextIndexScreen() {
@@ -15,9 +16,11 @@ export default function TextIndexScreen() {
   const { systemId, textId } = route.params ?? {};
   const text = getText(systemId, textId);
   const { isBookmarked } = useReadingPrefs();
-  const { colors } = useTheme();
+  const { colors, systemAccent } = useTheme();
+  const accent = systemAccent(systemId);
   const s = makeStyles(colors);
   const [query, setQuery] = useState('');
+  const [searchFocused, setSearchFocused] = useState(false);
 
   if (!text) return <NotFoundState label="That text" />;
 
@@ -60,25 +63,28 @@ export default function TextIndexScreen() {
           <ThemeToggle />
       </View>
       <Subtitle>{text.verses.length} verses transcribed</Subtitle>
+      <GunaRule colors={accent.pair} style={s.headerRule} />
 
       <Card>
-        <Text style={s.sourceLabel}>Active commentary</Text>
+        <Text style={[s.sourceLabel, { color: accent.primary }]}>Active commentary</Text>
         <Text style={s.sourceText}>
           {text.sources.map((src) => `${src.name}${src.year ? ` (${src.year})` : ''}`).join(', ')}
         </Text>
       </Card>
 
-      <View style={s.searchBar}>
+      <View style={[s.searchBar, searchFocused && { borderColor: accent.dim, backgroundColor: colors.avyakta3 }]}>
         <Text style={s.searchIcon}>⌕</Text>
         <TextInput
           value={query}
           onChangeText={setQuery}
+          onFocus={() => setSearchFocused(true)}
+          onBlur={() => setSearchFocused(false)}
           placeholder="Search a verse, word, or concept…"
           placeholderTextColor={colors.tamas}
           style={s.searchInput}
         />
         {query.length > 0 && (
-          <Pressable onPress={() => setQuery('')}>
+          <Pressable onPress={() => setQuery('')} accessibilityRole="button" accessibilityLabel="Clear search">
             <Text style={s.searchClear}>✕</Text>
           </Pressable>
         )}
@@ -93,7 +99,7 @@ export default function TextIndexScreen() {
       {!q && bookmarkedInText.length > 0 && (
         <View>
           <View style={s.chapterHead}>
-            <Text style={s.chapterN}>★</Text>
+            <Text style={[s.chapterN, { color: colors.sattva }]}>★</Text>
             <Text style={s.chapterT}>Bookmarked</Text>
           </View>
           {bookmarkedInText.map((v) => (
@@ -110,7 +116,7 @@ export default function TextIndexScreen() {
       {grouped.map(([section, verses]) => (
         <View key={section}>
           <View style={s.chapterHead}>
-            <Text style={s.chapterN}>§</Text>
+            <Text style={[s.chapterN, { color: accent.primary }]}>§</Text>
             <Text style={s.chapterT}>{section}</Text>
           </View>
           {verses.map((v) => (
@@ -146,16 +152,10 @@ export default function TextIndexScreen() {
 }
 
 const makeStyles = (colors: ColorPalette) => StyleSheet.create({
-  screen: { flex: 1, backgroundColor: colors.avyakta, paddingHorizontal: 22, paddingTop: 8 },
+  screen: { flex: 1, alignSelf: 'center', width: '100%', maxWidth: 800, backgroundColor: colors.avyakta, paddingHorizontal: 22, paddingTop: 8 },
   topRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between' },
-  sourceLabel: {
-    fontFamily: fonts.sansBold,
-    fontSize: 10,
-    color: colors.sattvaDim,
-    textTransform: 'uppercase',
-    letterSpacing: 1,
-    marginBottom: 4,
-  },
+  headerRule: { width: 46, marginTop: 12, marginBottom: 18 },
+  sourceLabel: { ...type.label, color: colors.sattvaDim, marginBottom: 4 },
   sourceText: { fontFamily: fonts.serif, fontSize: 14, color: colors.ink },
   searchBar: {
     flexDirection: 'row',
@@ -166,16 +166,18 @@ const makeStyles = (colors: ColorPalette) => StyleSheet.create({
     borderColor: colors.hair,
     borderRadius: 12,
     paddingHorizontal: 14,
+    marginTop: 4,
     marginBottom: 8,
   },
+  searchBarFocused: { borderColor: colors.rajasDim, backgroundColor: colors.avyakta3 },
   searchIcon: { color: colors.inkDim, fontSize: 14 },
   searchInput: { flex: 1, color: colors.ink, fontSize: 14, paddingVertical: 12 },
   searchClear: { color: colors.inkDim, fontSize: 14, paddingLeft: 6 },
   resultsCount: { fontSize: 12, color: colors.inkDim, marginBottom: 8 },
   noResults: { fontSize: 13, color: colors.tamas, fontStyle: 'italic', paddingVertical: 20, textAlign: 'center' },
-  chapterHead: { flexDirection: 'row', alignItems: 'baseline', gap: 8, marginTop: 20, marginBottom: 8 },
+  chapterHead: { flexDirection: 'row', alignItems: 'baseline', gap: 8, marginTop: 22, marginBottom: 10 },
   chapterN: { fontFamily: fonts.display, fontSize: 14, color: colors.rajas },
-  chapterT: { fontFamily: fonts.sansBold, fontSize: 11, color: colors.inkDim, textTransform: 'uppercase', letterSpacing: 1.4 },
-  conceptTitle: { fontFamily: fonts.display, fontSize: 15, color: colors.ink, marginBottom: 2 },
+  chapterT: { ...type.label, color: colors.inkDim, letterSpacing: 1.4 },
+  conceptTitle: { ...type.h3, fontSize: 15, color: colors.ink, marginBottom: 2 },
   conceptSummary: { fontFamily: fonts.serif, fontSize: 13, color: colors.inkDim },
 });

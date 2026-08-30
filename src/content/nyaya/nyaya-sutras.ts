@@ -1,13 +1,13 @@
 import { ClassicalText, Verse, Concept, ThreadStep } from '../../types/content';
 import { nyayaSutrasEn } from './nyaya-sutras-en';
 import { nyayaSutrasMalayalam } from './nyaya-sutras-ml';
-import { nyayaSutrasConceptsEn } from './nyaya-sutras-concepts-en';
+import { nyayaConceptsEn } from './nyaya-sutras-concepts-en';
 import { nyayaSutrasConceptsMl } from './nyaya-sutras-concepts-ml';
 import { nyayaSutrasThreadEn } from './nyaya-sutras-thread-en';
 import { nyayaSutrasThreadMl } from './nyaya-sutras-thread-ml';
 
 export const nyayaVerses: Verse[] = nyayaSutrasEn.map(v => {
-  const mlSutra = nyayaSutrasMalayalam.find(m => `${m.id}` === v.id);
+  const mlSutra = nyayaSutrasMalayalam.find((m: any) => `${m.id}` === v.id);
   
   return {
     id: v.id,
@@ -32,14 +32,13 @@ export const nyayaVerses: Verse[] = nyayaSutrasEn.map(v => {
   };
 });
 
-export const nyayaConcepts: Concept[] = nyayaSutrasConceptsEn.map((c: any) => ({
+export const nyayaConcepts: Concept[] = nyayaConceptsEn.map((c: any) => ({
   id: c.id,
-  diagramId: c.diagramId,
-  relatedVerseIds: c.relatedVerseIds,
+  relatedVerseIds: c.relatedConcepts,
   content: {
     en: {
-      title: c.title,
-      summary: c.summary
+      title: `${c.sanskrit} (${c.iast}) - ${c.english}`,
+      summary: `**Category**: ${c.category}\n\n**Definition**: ${c.definition}\n\n**Significance**: ${c.significance}`
     },
     ml: nyayaSutrasConceptsMl[c.id]
   }

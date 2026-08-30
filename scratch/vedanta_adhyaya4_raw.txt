@@ -1,0 +1,641 @@
+<USER_REQUEST>
+next adhyaya full file - import { BrahmaSutraWithSanskrit } from './Brahma-sutras-en-adhyaya3-part1';
+
+export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
+  // ADHYAYA 4: PHALA ADHYAYA (The Chapter on Fruits/Results)
+  // PADA 1: Meditation and its Results
+  {
+    id: "4.1.1",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 1,
+    sanskrit: "आवृत्तिरसकृदुपदेशात् ॥ १ ॥",
+    translation: "Repetition (of hearing, reflection, and meditation on Brahman is necessary) on account of the repeated instruction by the scriptures."
+  },
+  {
+    id: "4.1.2",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 2,
+    sanskrit: "लिङ्गाच्च ॥ २ ॥",
+    translation: "And on account of the indicatory mark (in the Sruti)."
+  },
+  {
+    id: "4.1.3",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 3,
+    sanskrit: "आत्मेति तूपगच्छन्ति ग्राहयन्ति च ॥ ३ ॥",
+    translation: "But (the Sruti texts) acknowledge (Brahman) as the Self (of the meditator) and also teach others (to comprehend It as such)."
+  },
+  {
+    id: "4.1.4",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 4,
+    sanskrit: "न प्रतीके न हि सः ॥ ४ ॥",
+    translation: "(The meditator is) not (to see the Self) in the symbol, for he is not (that)."
+  },
+  {
+    id: "4.1.5",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 5,
+    sanskrit: "ब्रह्मदृष्टिरुत्कर्षात् ॥ ५ ॥",
+    translation: "The view of Brahman (is to be superimposed on the symbol) on account of the superiority (of Brahman)."
+  },
+  {
+    id: "4.1.6",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 6,
+    sanskrit: "आदित्यादिमतयश्चाङ्ग उपपत्तेः ॥ ६ ॥",
+    translation: "And the ideas of the sun etc. (are to be superimposed) on the subordinate members (of sacrificial acts), because (that is) appropriate."
+  },
+  {
+    id: "4.1.7",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 7,
+    sanskrit: "आसीनः सम्भवात् ॥ ७ ॥",
+    translation: "Sitting (a man is to meditate) on account of the possibility (of concentration)."
+  },
+  {
+    id: "4.1.8",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 8,
+    sanskrit: "ध्यानाच्च ॥ ८ ॥",
+    translation: "And on account of meditation (requiring a sitting posture)."
+  },
+  {
+    id: "4.1.9",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 9,
+    sanskrit: "अचलत्वं चापेक्ष्य ॥ ९ ॥",
+    translation: "And with reference to immobility (the scriptures ascribe thought to the earth etc.)."
+  },
+  {
+    id: "4.1.10",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 10,
+    sanskrit: "स्मरन्ति च ॥ १० ॥",
+    translation: "And the Smritis also declare (this)."
+  },
+  {
+    id: "4.1.11",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 11,
+    sanskrit: "यत्रैकाग्रता तत्राविशेषात् ॥ ११ ॥",
+    translation: "Wherever concentration of mind (is attained), there (meditation is to be performed), there being no specification (as to place or time)."
+  },
+  {
+    id: "4.1.12",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 12,
+    sanskrit: "आ प्रायणात्तत्रापि हि दृष्टम् ॥ १२ ॥",
+    translation: "Up to the moment of death (meditations are to be continued); for then also it is seen (in scripture that meditation is to be done)."
+  },
+  {
+    id: "4.1.13",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 13,
+    sanskrit: "तदधिगम उत्तरपूर्वाघयोरश्लेषविनाशौ तद्व्यपदेशात् ॥ १३ ॥",
+    translation: "On the attainment of that (Brahman), there is the non-clinging and the destruction of the later and earlier sins; because it is so declared (by scripture)."
+  },
+  {
+    id: "4.1.14",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 14,
+    sanskrit: "इतरस्याप्येवमसंश्लेषः पाते तु ॥ १४ ॥",
+    translation: "Of the other (i.e., good works) also there is thus non-clinging; but at death (liberation is certain)."
+  },
+  {
+    id: "4.1.15",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 15,
+    sanskrit: "अनारब्धकार्ये एव तु पूर्वे तदवधेः ॥ १५ ॥",
+    translation: "But only those former (works) whose effects have not yet begun (are destroyed); for (the text states) that (death) as the limit."
+  },
+  {
+    id: "4.1.16",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 16,
+    sanskrit: "अग्निहोत्रादि तु तत्कार्यायैव तद्दर्शनात् ॥ १६ ॥",
+    translation: "But the Agnihotra and the like (tend) to the same effect (viz., knowledge), for that is seen (from the scripture)."
+  },
+  {
+    id: "4.1.17",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 17,
+    sanskrit: "अतोऽन्यापि ह्येकेषामुभयोः ॥ १७ ॥",
+    translation: "For (there is) also (a class of good works) other than this, according to some. (There is agreement) of both (teachers) (as to the result of works)."
+  },
+  {
+    id: "4.1.18",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 18,
+    sanskrit: "यदेव विद्ययेति हि ॥ १८ ॥",
+    translation: "For (the text) 'Whatever he does with knowledge' (indicates this)."
+  },
+  {
+    id: "4.1.19",
+    adhyaya: 4,
+    pada: 1,
+    sutraNumber: 19,
+    sanskrit: "भोगेन त्वितरे क्षपयित्वा सम्पद्यते ॥ १९ ॥",
+    translation: "But having exhausted by enjoyment the other two (i.e., good and evil works whose effects have begun), he becomes one with (Brahman)."
+  },
+
+  // PADA 2: The Path of the Soul after Death
+  {
+    id: "4.2.1",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 1,
+    sanskrit: "वाङ्मनसि दर्शनाच्छब्दाच्च ॥ १ ॥",
+    translation: "Speech (is merged) in mind, because it is so seen, and there are scriptural statements (to that effect)."
+  },
+  {
+    id: "4.2.2",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 2,
+    sanskrit: "अत एव च सर्वाण्यनु ॥ २ ॥",
+    translation: "And for the same reason all (organs) follow (the mind)."
+  },
+  {
+    id: "4.2.3",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 3,
+    sanskrit: "तन्मनः प्राण उत्तरात् ॥ ३ ॥",
+    translation: "That mind (is merged) in Prana (the vital air), owing to the subsequent (statement)."
+  },
+  {
+    id: "4.2.4",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 4,
+    sanskrit: "सोऽध्यक्षे तदुपगमादिभ्यः ॥ ४ ॥",
+    translation: "(That Prana is merged) in the ruler (individual soul), on account of the (statements as to the Prana) coming to it and so on."
+  },
+  {
+    id: "4.2.5",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 5,
+    sanskrit: "भूतेषु तच्छ्रुतेः ॥ ५ ॥",
+    translation: "(The soul is merged) in the elements, on account of the scriptural declaration."
+  },
+  {
+    id: "4.2.6",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 6,
+    sanskrit: "नैकस्मिन्दर्शयतो हि ॥ ६ ॥",
+    translation: "Not in one (element alone), for both (Sruti and Smriti) show (this)."
+  },
+  {
+    id: "4.2.7",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 7,
+    sanskrit: "समाना चामृत्युपक्रमादमृतत्वं चानुपोष्य ॥ ७ ॥",
+    translation: "And common (is the mode of departure for both the knower and the ignorant) up to the beginning of their ways; and the immortality (of the knower of the Saguna Brahman is relative) without burning (ignorance)."
+  },
+  {
+    id: "4.2.8",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 8,
+    sanskrit: "तदापीतेः संसारव्यपदेशात् ॥ ८ ॥",
+    translation: "That (subtle body lasts) up to the attainment of Brahman (through knowledge), on account of the declarations of Samsara (state of relative existence)."
+  },
+  {
+    id: "4.2.9",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 9,
+    sanskrit: "सूक्ष्मं प्रमाणतश्च तथोपलब्धेः ॥ ९ ॥",
+    translation: "(This fine body) is subtle (by nature) and size, because it is so observed."
+  },
+  {
+    id: "4.2.10",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 10,
+    sanskrit: "नोपमर्देनातः ॥ १० ॥",
+    translation: "Therefore (this subtle body is) not (destroyed) by the destruction (of the gross body)."
+  },
+  {
+    id: "4.2.11",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 11,
+    sanskrit: "अस्यैव चोपपत्तेरूष्मा ॥ ११ ॥",
+    translation: "And to this (subtle body alone) does the bodily heat belong, on account of appropriateness."
+  },
+  {
+    id: "4.2.12",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 12,
+    sanskrit: "प्रतिषेधादिति चेन्न शारीरात् ॥ १२ ॥",
+    translation: "If it be said (that the Pranas of a knower do not depart) on account of the denial; (we say) no, (the denial is of the departure of the Pranas) from the individual soul."
+  },
+  {
+    id: "4.2.13",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 13,
+    sanskrit: "स्पष्टो ह्येकेषाम् ॥ १३ ॥",
+    translation: "For in the case of some, (this is) clear."
+  },
+  {
+    id: "4.2.14",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 14,
+    sanskrit: "स्मर्यते च ॥ १४ ॥",
+    translation: "And the Smriti also says that."
+  },
+  {
+    id: "4.2.15",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 15,
+    sanskrit: "तानि परे तथा ह्याह ॥ १५ ॥",
+    translation: "Those (Pranas and elements) (are merged) in the Supreme Brahman, for thus (scripture) says."
+  },
+  {
+    id: "4.2.16",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 16,
+    sanskrit: "अविभागो वचनात् ॥ १६ ॥",
+    translation: "(There is) absolute non-distinction, according to the statement."
+  },
+  {
+    id: "4.2.17",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 17,
+    sanskrit: "तदोकोऽग्रज्वलनं तत्प्रकाशितद्वारो विद्यासामर्थ्यात्तच्छेषगत्यनुस्मृतियोगाच्च हार्दानुगृहीतः शताधिकया ॥ १७ ॥",
+    translation: "(When the soul of a knower of the Saguna Brahman is about to depart) there is the lighting up of the point of its abode (the heart); the door (of its egress) being illumined thereby; owing to the power of knowledge and the application of meditation to the way which is part of that (knowledge), the soul favored by Him who dwells in the heart (departs) by the one that exceeds a hundred (i.e., the hundred and first Nadi)."
+  },
+  {
+    id: "4.2.18",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 18,
+    sanskrit: "रश्म्यनुसारी ॥ १८ ॥",
+    translation: "(The soul of a knower) follows the rays (of the sun)."
+  },
+  {
+    id: "4.2.19",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 19,
+    sanskrit: "निशि नेति चेन्न सम्बन्धस्य यावद्देहभावित्वाच्छ्रुतयश्च ॥ १९ ॥",
+    translation: "If it be said (that the soul does) not (depart) in the night; (we say) no, because the connection (of the Nadi and the rays) exists as long as the body lasts; and (this is declared) by the Sruti."
+  },
+  {
+    id: "4.2.20",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 20,
+    sanskrit: "अतश्चायनेऽपि दक्षिणे ॥ २० ॥",
+    translation: "And for the same reason (a knower departs to the sphere of the sun) even during the sun's southern course."
+  },
+  {
+    id: "4.2.21",
+    adhyaya: 4,
+    pada: 2,
+    sutraNumber: 21,
+    sanskrit: "योगिनः प्रति च स्मर्यते स्मार्ते चैते ॥ २१ ॥",
+    translation: "And (these times) are stated by Smriti with reference to the Yogis; and these two (Yoga and Sankhya) are Smritis (and not Srutis)."
+  },
+
+  // PADA 3: The Path of the Gods (Devayana)
+  {
+    id: "4.3.1",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 1,
+    sanskrit: "अर्चिरादिना तत्प्रथितेः ॥ १ ॥",
+    translation: "(The soul goes) by the path of light etc., that being well-known (from the Sruti)."
+  },
+  {
+    id: "4.3.2",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 2,
+    sanskrit: "वायुमब्दादविशेषविशेषाभ्याम् ॥ २ ॥",
+    translation: "(The soul passes) to the deity of the year, and then to the deity of the air, on account of the absence and presence of specification."
+  },
+  {
+    id: "4.3.3",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 3,
+    sanskrit: "तटितोऽधि वरुणः सम्बन्धात् ॥ ३ ॥",
+    translation: "After lightning (comes) Varuna, on account of the connection (between the two)."
+  },
+  {
+    id: "4.3.4",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 4,
+    sanskrit: "आतिवाहिकास्तल्लिङ्गात् ॥ ४ ॥",
+    translation: "(These are) deities conducting the soul (on the path of the gods), on account of indicatory marks to that effect."
+  },
+  {
+    id: "4.3.5",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 5,
+    sanskrit: "उभयव्यामोहात्तत्सिद्धेः ॥ ५ ॥",
+    translation: "(That deities are meant in those texts) is established, because both (i.e. the traveller and the path) are unconscious."
+  },
+  {
+    id: "4.3.6",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 6,
+    sanskrit: "वैद्युतेनैव ततस्तच्छ्रुतेः ॥ ६ ॥",
+    translation: "From thence (the souls are guided) by the very same (superhuman) person who comes to lightning, that being known from the Sruti."
+  },
+  {
+    id: "4.3.7",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 7,
+    sanskrit: "कार्यं बादरिरस्य गत्युपपत्तेः ॥ ७ ॥",
+    translation: "The relative (Brahman) (is attained by the soul going by the path of the gods), (so says) Badari, on account of the possibility of its being the goal (of a journey)."
+  },
+  {
+    id: "4.3.8",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 8,
+    sanskrit: "विशेषितत्वाच्च ॥ ८ ॥",
+    translation: "And on account of the qualification (with respect to this Brahman in another text)."
+  },
+  {
+    id: "4.3.9",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 9,
+    sanskrit: "सामीप्यात्तु तद्व्यपदेशः ॥ ९ ॥",
+    translation: "But on account of the nearness (of the Saguna Brahman to the Supreme Brahman, it is) designated as that (Supreme Brahman)."
+  },
+  {
+    id: "4.3.10",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 10,
+    sanskrit: "कार्यात्यये तदध्यक्षेण सहातः परमभिधानात् ॥ १० ॥",
+    translation: "On the dissolution of the Brahmaloka (the souls attain), along with the ruler of that world, what is higher than that (i.e. the Supreme Brahman), on account of the declaration of the Sruti."
+  },
+  {
+    id: "4.3.11",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 11,
+    sanskrit: "स्मृतेश्च ॥ ११ ॥",
+    translation: "And on account of the Smriti (texts supporting this view)."
+  },
+  {
+    id: "4.3.12",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 12,
+    sanskrit: "परं जैमिनिर्मुख्यत्वात् ॥ १२ ॥",
+    translation: "The Supreme (Brahman is attained), (so says) Jaimini, on account of that being the primary meaning (of the word 'Brahman')."
+  },
+  {
+    id: "4.3.13",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 13,
+    sanskrit: "दर्शनाच्च ॥ १३ ॥",
+    translation: "And because the Sruti declares that."
+  },
+  {
+    id: "4.3.14",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 14,
+    sanskrit: "न च कार्ये प्रतिपत्त्यभिसन्धिः ॥ १४ ॥",
+    translation: "And the desire to attain (Brahman) is not with respect to the Saguna Brahman."
+  },
+  {
+    id: "4.3.15",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 15,
+    sanskrit: "अप्रतीकालम्बनान्नयतीति बादरायण उभयथा च दोषात्तत्क्रतुश्च ॥ १५ ॥",
+    translation: "Badarayana holds that (the superhuman being) leads (to Brahmaloka only) those who do not take their stand on symbols, as there is a defect in both the other cases; and as the resolve (dictates the result)."
+  },
+  {
+    id: "4.3.16",
+    adhyaya: 4,
+    pada: 3,
+    sutraNumber: 16,
+    sanskrit: "विशेषं च दर्शयति ॥ १६ ॥",
+    translation: "And the scripture declares a difference (with respect to meditations on symbols)."
+  },
+
+  // PADA 4: The State of the Liberated Soul
+  {
+    id: "4.4.1",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 1,
+    sanskrit: "सम्पद्याविर्भावः स्वेन शब्दात् ॥ १ ॥",
+    translation: "(On the soul's) attaining (the highest light), there is manifestation (of its own real nature), as we infer from the word 'own'."
+  },
+  {
+    id: "4.4.2",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 2,
+    sanskrit: "मुक्तः प्रतिज्ञानार्थात् ॥ २ ॥",
+    translation: "(The soul is) liberated (in that state), because of the promissory statements."
+  },
+  {
+    id: "4.4.3",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 3,
+    sanskrit: "आत्मा प्रकरणात् ॥ ३ ॥",
+    translation: "(The light into which the soul merges is) the Supreme Self, on account of the subject-matter."
+  },
+  {
+    id: "4.4.4",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 4,
+    sanskrit: "अविभागेन दृष्टत्वात् ॥ ४ ॥",
+    translation: "(The liberated soul exists) in non-separation (from the Supreme Self), because it is so seen."
+  },
+  {
+    id: "4.4.5",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 5,
+    sanskrit: "ब्राह्मेण जैमिनिरुपन्यासादिभ्यः ॥ ५ ॥",
+    translation: "(The liberated soul exists) with the attributes of Brahman (such as omniscience etc.), so Jaimini thinks, on account of the reference etc."
+  },
+  {
+    id: "4.4.6",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 6,
+    sanskrit: "चितितन्मात्रेण तदात्मकत्वादित्युडुलोमिः ॥ ६ ॥",
+    translation: "(The liberated soul exists) solely as pure intelligence, because that is its true nature, so Audulomi thinks."
+  },
+  {
+    id: "4.4.7",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 7,
+    sanskrit: "एवमप्युपन्यासात्पूर्वभावादविरोधं बादरायणः ॥ ७ ॥",
+    translation: "Even so (i.e. even though it is pure intelligence), on account of the former qualities being mentioned (in the scriptures), there is no contradiction, so Badarayana thinks."
+  },
+  {
+    id: "4.4.8",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 8,
+    sanskrit: "सङ्कल्पादेव तच्छ्रुतेः ॥ ८ ॥",
+    translation: "But by mere will (the released souls attain their purpose), because the scriptures state so."
+  },
+  {
+    id: "4.4.9",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 9,
+    sanskrit: "अत एव चानन्याधिपतिः ॥ ९ ॥",
+    translation: "And for this very reason (the released soul) is without a lord (i.e. is independent)."
+  },
+  {
+    id: "4.4.10",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 10,
+    sanskrit: "अभावं बादरिराह ह्येवम् ॥ १० ॥",
+    translation: "There is absence (of a body and organs in the case of the liberated soul), so Badari says; for thus (the scripture) declares."
+  },
+  {
+    id: "4.4.11",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 11,
+    sanskrit: "भावं जैमिनिर्विकल्पामननात् ॥ ११ ॥",
+    translation: "(There is) presence (of a body and organs), Jaimini says, because the scripture declares (the soul's) capacity to assume various forms."
+  },
+  {
+    id: "4.4.12",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 12,
+    sanskrit: "द्वादशाहवदुभयविधं बादरायणोऽतः ॥ १२ ॥",
+    translation: "For this reason Badarayana says (the liberated soul) is of both kinds, like the twelve days' sacrifice."
+  },
+  {
+    id: "4.4.13",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 13,
+    sanskrit: "तन्वभावे सन्ध्यवदुपपत्तेः ॥ १३ ॥",
+    translation: "In the absence of a body (the fulfillment of desires is possible) as in dreams, as it is reasonable."
+  },
+  {
+    id: "4.4.14",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 14,
+    sanskrit: "भावे जाग्रद्वत् ॥ १४ ॥",
+    translation: "When there is a body (the fulfillment of desires is) as in the waking state."
+  },
+  {
+    id: "4.4.15",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 15,
+    sanskrit: "प्रदीपवदावेशस्तथा हि दर्शयति ॥ १५ ॥",
+    translation: "The entering (into many bodies) is like a lamp (which can light other lamps); for thus the scripture shows."
+  },
+  {
+    id: "4.4.16",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 16,
+    sanskrit: "स्वाप्ययसम्पत्त्योरन्यतरापेक्षमाविष्कृतं हि ॥ १६ ॥",
+    translation: "(The declaration of absolute unconsciousness is) with reference to either of the two states of deep sleep and complete merging (death), for this is made clear (by the Sruti)."
+  },
+  {
+    id: "4.4.17",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 17,
+    sanskrit: "जगद्व्यापारवर्जं प्रकरणादसन्निहितत्वाच्च ॥ १७ ॥",
+    translation: "(The liberated soul attains all lordly powers) except the power of creation etc., on account of the context and of non-proximity (to such powers being mentioned)."
+  },
+  {
+    id: "4.4.18",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 18,
+    sanskrit: "प्रत्यक्षोपदेशादिति चेन्नाधिकारिकमण्डलस्थोक्तेः ॥ १८ ॥",
+    translation: "If it be said that (the liberated soul attains absolute powers) on account of direct teaching, (we say) no; for the scriptures declare (that the soul attains Him) who resides in those spheres and entrusts the sun etc. (with their offices)."
+  },
+  {
+    id: "4.4.19",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 19,
+    sanskrit: "विकारावर्ति च तथा हि स्थितिमाह ॥ १९ ॥",
+    translation: "And (there is a form of the Supreme Lord) which is beyond all created things; for thus the scripture declares (His) existence."
+  },
+  {
+    id: "4.4.20",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 20,
+    sanskrit: "दर्शयतश्चैवं प्रत्यक्षानुमाने ॥ २० ॥",
+    translation: "And thus perception and inference (Sruti and Smriti) show."
+  },
+  {
+    id: "4.4.21",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 21,
+    sanskrit: "भोगमात्रसाम्यलिङ्गाच्च ॥ २१ ॥",
+    translation: "And because of the indications of equality (with the Lord) only with respect to enjoyment."
+  },
+  {
+    id: "4.4.22",
+    adhyaya: 4,
+    pada: 4,
+    sutraNumber: 22,
+    sanskrit: "अनावृत्तिः शब्दादनावृत्तिः शब्दात् ॥ २२ ॥",
+    translation: "(There is) no return (for these released souls), on account of the scriptural declaration; (there is) no return, on account of the scriptural declaration."
+  }
+];
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-08-30T12:06:25+05:30.
+</ADDITIONAL_METADATA>

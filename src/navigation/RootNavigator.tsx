@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -86,11 +86,30 @@ export default function RootNavigator() {
       <Tab.Navigator
         screenOptions={({ route }) => ({
           headerShown: false,
-          tabBarStyle: { backgroundColor: colors.avyakta, borderTopColor: colors.hair },
+          tabBarStyle: {
+            backgroundColor: colors.avyakta,
+            borderTopColor: colors.hair,
+            height: 62,
+            paddingTop: 6,
+            paddingBottom: 8,
+          },
           tabBarActiveTintColor: colors.sattva,
           tabBarInactiveTintColor: colors.tamas,
-          tabBarLabelStyle: { fontSize: 10, fontWeight: '600' },
-          tabBarIcon: () => <Text style={{ fontSize: 16, color: colors.sattva }}>{icons[route.name]}</Text>,
+          tabBarLabelStyle: { fontSize: 10, fontWeight: '600', marginTop: 2 },
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                width: 30,
+                height: 30,
+                borderRadius: 15,
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: focused ? colors.sattvaGlow : 'transparent',
+              }}
+            >
+              <Text style={{ fontSize: 16, color: focused ? colors.sattva : colors.tamas }}>{icons[route.name]}</Text>
+            </View>
+          ),
         })}
       >
         <Tab.Screen name="Home" component={HomeStack} />

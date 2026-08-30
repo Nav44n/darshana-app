@@ -1,0 +1,197 @@
+<USER_REQUEST>
+integrate skipped chapter 8 sutras - export interface VaisesikaSutra {
+  id: string;        // Canonical standard ID e.g., "1.1.1"
+  book: number;      // Adhyaya (1-10)
+  chapter: number;   // Ahnika (1-2)
+  sutra: number;     // Canonical Sutra number within the Ahnika
+  sanskrit: string;  // Devanagari root text
+  text: string;      // The English translation
+  topic: string;     // Grouping topic for UI categorization
+  commentary: string; // Synthesized philosophical commentary
+}
+
+export const vaisesikaSutrasBook8: VaisesikaSutra[] = [
+  // ==========================================
+  // BOOK 8: COGNITION AND PERCEPTION
+  // CHAPTER 1 (First Ahnika) - The Mechanics of Cognition
+  // ==========================================
+  {
+    id: "8.1.1",
+    book: 8,
+    chapter: 1,
+    sutra: 1,
+    sanskrit: "द्रव्येषु ज्ञानं व्याख्यातम् ॥ १ ॥",
+    text: "Cognition (Jnana) has been explained by the prior explanation of substances.",
+    topic: "Examination of Cognition",
+    commentary: "Kanada opens Book 8 by linking epistemology back to ontology. Cognition is not a floating, abstract phenomenon; it is a specific attribute that fundamentally inheres within a specific substance (the Soul/Atman), just as previously explained."
+  },
+  {
+    id: "8.1.2",
+    book: 8,
+    chapter: 1,
+    sutra: 2,
+    sanskrit: "तत्रात्मा मनश्चाप्रत्यक्षे ॥ २ ॥",
+    text: "In them (among the substances), ātmā (Soul) and mana (Mind) are not visible.",
+    topic: "Examination of Cognition",
+    commentary: "While we can perceive external matter (like Earth or Fire), the Soul and the Mind are internal mechanisms. They lack the physical magnitude and color required for external visual perception."
+  },
+  {
+    id: "8.1.3",
+    book: 8,
+    chapter: 1,
+    sutra: 3,
+    sanskrit: "ज्ञाननिर्देशे ज्ञाननिष्पत्तिर्विद्यते ॥ ३ ॥",
+    text: "The production of cognition occurs when there is a specific direction (contact).",
+    topic: "Examination of Cognition",
+    commentary: "Knowledge doesn't just happen passively. It requires a highly coordinated, directed chain of contact (sannikarsha): the Soul must connect to the Mind, the Mind to a sensory organ, and the sensory organ to the external object."
+  },
+  {
+    id: "8.1.4",
+    book: 8,
+    chapter: 1,
+    sutra: 4,
+    sanskrit: "गुणकर्मसु सन्निकृष्टेषु ज्ञानमुत्पद्यते ॥ ४ ॥",
+    text: "Cognition arises when attributes and actions are in contact (with the senses).",
+    topic: "Objects of Cognition",
+    commentary: "We do not merely perceive raw substances. We perceive the universe through the attributes (color, taste, temperature) and actions (motion) that reside within those substances."
+  },
+  {
+    id: "8.1.5",
+    book: 8,
+    chapter: 1,
+    sutra: 5,
+    sanskrit: "द्रव्यं कारणं गुणकर्मणाम् ॥ ५ ॥",
+    text: "Substance is the cause (of the cognition) of attributes and actions.",
+    topic: "Objects of Cognition",
+    commentary: "Because attributes and actions cannot exist independently, they must inhere in a substance. Therefore, the physical substance acts as the underlying material cause that allows us to perceive those attributes."
+  },
+  {
+    id: "8.1.6",
+    book: 8,
+    chapter: 1,
+    sutra: 6,
+    sanskrit: "सामान्याद्विशेषाच्च ॥ ६ ॥",
+    text: "And (cognition arises) from Generality (Samanya) and Particularity (Vishesha).",
+    topic: "Objects of Cognition",
+    commentary: "Our brain processes reality by recognizing patterns. We perceive an object both by what category it belongs to (generality - e.g., 'this is a cow') and what makes it unique (particularity - e.g., 'this cow is black')."
+  },
+  {
+    id: "8.1.7",
+    book: 8,
+    chapter: 1,
+    sutra: 7,
+    sanskrit: "द्रव्ये द्रव्यगुणकर्मणामुपलब्धिः ॥ ७ ॥",
+    text: "The apprehension of substance, attribute, and action is dependent upon the substance.",
+    topic: "Objects of Cognition",
+    commentary: "Reiterates the primacy of the Dravya (Substance). Without the physical object serving as a foundational anchor, our senses would have nothing to interact with to perceive color, motion, or universals."
+  },
+  {
+    id: "8.1.8",
+    book: 8,
+    chapter: 1,
+    sutra: 8,
+    sanskrit: "तदभावे संयोगाभावः ॥ ८ ॥",
+    text: "In the absence of that (contact), there is an absence of conjunction.",
+    topic: "Mechanics of Perception",
+    commentary: "If the chain of perception is broken anywhere—if the mind is distracted, if the eye is closed, or if the object is hidden—the necessary physical and psychological conjunction fails, and cognition does not occur."
+  },
+  {
+    id: "8.1.9",
+    book: 8,
+    chapter: 1,
+    sutra: 9,
+    sanskrit: "आत्मेन्द्रियमनोर्थसन्निकर्षाद् यन्निष्पद्यते तदन्यत् ॥ ९ ॥",
+    text: "That which is produced from the contact of the soul, sense, mind, and object is distinct (true perception).",
+    topic: "Mechanics of Perception",
+    commentary: "True, direct perceptual knowledge (Pratyaksha) is defined precisely as the successful, unbroken four-point connection between the Atma, Manas, Indriya, and Artha."
+  },
+  {
+    id: "8.1.10",
+    book: 8,
+    chapter: 1,
+    sutra: 10,
+    sanskrit: "ज्ञानयौगपद्यादेकं मनः ॥ १० ॥",
+    text: "The Mind (Manas) is one, because of the non-simultaneity of cognitions.",
+    topic: "Examination of Cognition",
+    commentary: "A profound psychological observation. We cannot truly think two distinct thoughts or process two distinct sensory inputs at the exact same micro-second. This proves the Mind is a singular, atomic-sized gatekeeper."
+  },
+  {
+    id: "8.1.11",
+    book: 8,
+    chapter: 1,
+    sutra: 11,
+    sanskrit: "कारणाऽयोगपद्यात् कारणाक्रमाच्च घटपटादि बुद्धीनां क्रमो न हेत्फलभावात् ॥ ११ ॥",
+    text: "The non-simultaneous coming into being of causes, and the causes being sequential in nature, give rise to the sequence of cognition of pot, cloth, etc., not just as a direct result of a cause.",
+    topic: "Examination of Cognition",
+    commentary: "We perceive the world sequentially (experiencing a pot, then a cloth) because our point-sized mind must physically shift its connection from one sensory input to another. The sequence of our thoughts is dictated by the mechanical sequence of the Mind's movements."
+  },
+
+  // ==========================================
+  // BOOK 8: COGNITION AND PERCEPTION
+  // CHAPTER 2 (Second Ahnika) - Elemental Nature of Senses
+  // ==========================================
+  {
+    id: "8.2.1",
+    book: 8,
+    chapter: 2,
+    sutra: 1,
+    sanskrit: "इन्द्रियदोषात् संस्कारदोषाच्चाविद्या ॥ १ ॥",
+    text: "False knowledge (Avidya) arises from defects in the sense organs and defects in the impressions (memory).",
+    topic: "Types of Jñāna",
+    commentary: "Before detailing how senses work correctly, Kanada explains how they fail. Illusions or false perceptions happen when a sense organ is damaged (e.g., jaundice affecting vision) or when our memory misapplies past data to a current object."
+  },
+  {
+    id: "8.2.2",
+    book: 8,
+    chapter: 2,
+    sutra: 2,
+    sanskrit: "अदुष्टं विद्या ॥ २ ॥",
+    text: "That which is free from defects is true knowledge (Vidya).",
+    topic: "Types of Jñāna",
+    commentary: "Pramana (valid cognition) is simply the result of a sensory and mental apparatus functioning perfectly, without any physical or psychological obstructions."
+  },
+  {
+    id: "8.2.3",
+    book: 8,
+    chapter: 2,
+    sutra: 3,
+    sanskrit: "तत्र गन्धवती पृथिवी ॥ ३ ॥",
+    text: "Among the elements, Earth possesses odor.",
+    topic: "Types of Jñāna (Elemental Sense Organs)",
+    commentary: "Establishing the foundational rule of elemental perception: specific physical elements uniquely possess specific physical attributes. Earth's defining attribute is smell."
+  },
+  {
+    id: "8.2.4",
+    book: 8,
+    chapter: 2,
+    sutra: 4,
+    sanskrit: "रूपरसगन्धस्पर्शेषु ज्ञानं व्याख्यातम् ॥ ४ ॥",
+    text: "Cognition regarding color, taste, odor, and touch is hereby explained.",
+    topic: "Types of Jñāna (Elemental Sense Organs)",
+    commentary: "Our ability to perceive the external world is strictly limited to the elemental properties that our own sensory organs are composed of. Like perceives like."
+  },
+  {
+    id: "8.2.5",
+    book: 8,
+    chapter: 2,
+    sutra: 5,
+    sanskrit: "भूयस्त्वाद् गन्धवत्त्वाच्च पृथिवी गन्धज्ञाने प्रकृतिः ॥ ५ ॥",
+    text: "Being plural and having odour, prthivī (Earth) is the natural material cause for the cognition of odour (by the nose).",
+    topic: "Types of Jñāna (Elemental Sense Organs)",
+    commentary: "The olfactory sense (the nose) can perceive smell precisely because it is structurally composed of the Earth element. The Earth atoms in the nose chemically interact with the Earth atoms of external objects."
+  },
+  {
+    id: "8.2.6",
+    book: 8,
+    chapter: 2,
+    sutra: 6,
+    sanskrit: "तथापस्तेजो वायुश्च रसूपस्पर्शज्ञानेषु ॥ ६ ॥",
+    text: "Likewise, Water, Fire, and Air are the material causes for the cognition of taste, color, and touch, respectively.",
+    topic: "Types of Jñāna (Elemental Sense Organs)",
+    commentary: "Completes the physiological mapping of the Vaisheshika system. The tongue perceives taste because it is made of Water atoms; the eye perceives light/color because it is made of Fire atoms; the skin perceives touch/pressure because it is made of Air atoms."
+  }
+];
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-08-30T12:38:30+05:30.
+</ADDITIONAL_METADATA>

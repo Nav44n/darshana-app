@@ -2,7 +2,8 @@ import React, { useMemo, useState, useRef } from 'react';
 import { View, PanResponder, StyleSheet, Dimensions } from 'react-native';
 import Svg, { Circle, Line, Text as SvgText, G } from 'react-native-svg';
 import { forceSimulation, forceLink, forceManyBody, forceCenter, forceCollide, SimulationNodeDatum, SimulationLinkDatum } from 'd3-force';
-import { colors } from '../../theme/tokens';
+import { useTheme } from '../../theme/useTheme';
+import { ColorPalette } from '../../theme/tokens';
 // Import the knowledge graph JSON
 const graphData = require('../../knowledge/darshana-knowledge-graph.json');
 
@@ -28,6 +29,8 @@ export default function KnowledgeGraphView({
   onNodePress?: (node: NodeData) => void;
   selectedNodeId?: string | null;
 }) {
+  const { colors, type } = useTheme();
+  const s = makeStyles(colors);
   const [zoom, setZoom] = useState({ scale: 1, translateX: 0, translateY: 0 });
 
   const { nodes, links } = useMemo(() => {
@@ -60,7 +63,7 @@ export default function KnowledgeGraphView({
       onPanResponderMove: (evt, gestureState) => {
         setZoom(prev => ({
           ...prev,
-          translateX: prev.translateX + gestureState.dx / 20, // slow down pan slightly
+          translateX: prev.translateX + gestureState.dx / 20,
           translateY: prev.translateY + gestureState.dy / 20,
         }));
       },
@@ -75,7 +78,7 @@ export default function KnowledgeGraphView({
     if (node.type === 'Tattva') return colors.sattva;
     if (node.type === 'Concept') return colors.rajas;
     if (node.type === 'Guna') return colors.tamas;
-    return colors.ink;
+    return colors.inkDim;
   };
 
   const isHighlighted = (nodeId: string) => {
@@ -88,7 +91,7 @@ export default function KnowledgeGraphView({
   };
 
   return (
-    <View style={styles.container} {...panResponder.panHandlers}>
+    <View style={s.container} {...panResponder.panHandlers}>
       <Svg width="100%" height="100%">
         <G transform={`translate(${zoom.translateX}, ${zoom.translateY}) scale(${zoom.scale})`}>
           
@@ -124,8 +127,8 @@ export default function KnowledgeGraphView({
                 />
                 <SvgText
                   y={35}
-                  fontSize={10}
-                  fontWeight="600"
+                  fontFamily={type.caption.fontFamily}
+                  fontSize={type.caption.fontSize}
                   fill={colors.ink}
                   textAnchor="middle"
                   opacity={active ? 1 : 0.3}
@@ -141,7 +144,7 @@ export default function KnowledgeGraphView({
   );
 }
 
-const styles = StyleSheet.create({
+const makeStyles = (colors: ColorPalette) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.avyakta2,

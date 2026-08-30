@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import KnowledgeGraphView from '../components/graph/KnowledgeGraphView';
-import { colors as staticColors, fonts } from '../theme/tokens';
+import { fonts, type, ColorPalette } from '../theme/tokens';
 import { useTheme } from '../theme/useTheme';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { SearchService } from '../services/SearchService';
-import { ScrollView } from 'react-native';
 
 export default function GraphScreen() {
-  const { colors: themeColors } = useTheme();
+  const { colors, elevation, systemAccent } = useTheme();
   const navigation = useNavigation<any>();
   const route = useRoute<any>();
   const [selectedNode, setSelectedNode] = useState<any>(null);
   const [activeTab, setActiveTab] = useState<'verses' | 'concepts'>('verses');
   const [system, setSystem] = useState<'Sāṃkhya' | 'Yoga' | 'Both'>('Sāṃkhya');
+  const s = makeStyles(colors);
 
   React.useEffect(() => {
     if (route.params?.highlightNodeId) {
@@ -27,54 +27,61 @@ export default function GraphScreen() {
   }, [route.params?.highlightNodeId]);
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: themeColors.avyakta }]}>
-      <View style={styles.header}>
-        <Text style={[styles.title, { color: themeColors.ink }]}>Ontology</Text>
-        <View style={styles.toggleRow}>
-          {['Sāṃkhya', 'Yoga', 'Both'].map((sys) => (
-            <TouchableOpacity 
-              key={sys} 
-              style={[
-                styles.toggleBtn, 
-                system === sys && { borderColor: 'transparent', backgroundColor: themeColors.sattva }
-              ]}
-              onPress={() => setSystem(sys as any)}
-            >
-              <Text style={[styles.toggleText, system === sys && { color: themeColors.avyakta }]}>{sys}</Text>
-            </TouchableOpacity>
-          ))}
+    <SafeAreaView style={s.container}>
+      <View style={s.header}>
+        <View>
+          <Text style={s.eyebrow}>Knowledge graph</Text>
+          <Text style={s.title}>Ontology</Text>
+        </View>
+        <View style={s.toggleRow}>
+          {(['Sāṃkhya', 'Yoga', 'Both'] as const).map((sys) => {
+            const active = system === sys;
+            const accent =
+              sys === 'Sāṃkhya' ? systemAccent('samkhya') : sys === 'Yoga' ? systemAccent('yoga') : { primary: colors.purusha };
+            return (
+              <TouchableOpacity
+                key={sys}
+                style={[s.toggleBtn, active && { borderColor: 'transparent', backgroundColor: accent.primary }]}
+                onPress={() => setSystem(sys)}
+                accessibilityRole="button"
+                accessibilityState={{ selected: active }}
+              >
+                <Text style={[s.toggleText, active && s.toggleTextActive]}>{sys}</Text>
+              </TouchableOpacity>
+            );
+          })}
         </View>
       </View>
 
-      <View style={[styles.graphContainer, { borderColor: themeColors.hair }]}>
-        <KnowledgeGraphView 
+      <View style={s.graphContainer}>
+        <KnowledgeGraphView
           systemFilter={system}
           selectedNodeId={selectedNode?.id}
           onNodePress={(node) => {
             setSelectedNode(node.id === selectedNode?.id ? null : node);
             setActiveTab('verses');
-          }} 
+          }}
         />
       </View>
 
       {selectedNode && (
-        <View style={[styles.infoCard, { backgroundColor: themeColors.avyakta3, borderColor: themeColors.hair }]}>
-          <Text style={[styles.nodeTitle, { color: themeColors.ink }]}>{selectedNode.label}</Text>
-          <Text style={[styles.nodeSubtitle, { color: themeColors.inkDim }]}>
+        <View style={[s.infoCard, elevation(3)]}>
+          <Text style={s.nodeTitle}>{selectedNode.label}</Text>
+          <Text style={s.nodeSubtitle}>
             Type: {selectedNode.type} | System: {selectedNode.properties.system || 'Core'}
           </Text>
           {selectedNode.properties.description && (
-            <Text style={[styles.nodeDesc, { color: themeColors.ink, marginBottom: 12 }]}>
-              {selectedNode.properties.description}
-            </Text>
+            <Text style={[s.nodeDesc, { marginBottom: 12 }]}>{selectedNode.properties.description}</Text>
           )}
 
-          <View style={{ flexDirection: 'row', gap: 16, marginTop: 8, marginBottom: 8, borderBottomWidth: 1, borderBottomColor: themeColors.hair, paddingBottom: 8 }}>
-            <TouchableOpacity onPress={() => setActiveTab('verses')}>
-              <Text style={[styles.nodeSubtitle, { color: activeTab === 'verses' ? themeColors.sattva : themeColors.inkDim, marginBottom: 0 }]}>Related Verses</Text>
+          <View style={s.tabRow}>
+            <TouchableOpacity onPress={() => setActiveTab('verses')} style={s.tabBtn}>
+              <Text style={[s.tabLabel, activeTab === 'verses' && s.tabLabelActive]}>Related Verses</Text>
+              {activeTab === 'verses' && <View style={s.tabUnderline} />}
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => setActiveTab('concepts')}>
-              <Text style={[styles.nodeSubtitle, { color: activeTab === 'concepts' ? themeColors.sattva : themeColors.inkDim, marginBottom: 0 }]}>Related Concepts</Text>
+            <TouchableOpacity onPress={() => setActiveTab('concepts')} style={s.tabBtn}>
+              <Text style={[s.tabLabel, activeTab === 'concepts' && s.tabLabelActive]}>Related Concepts</Text>
+              {activeTab === 'concepts' && <View style={s.tabUnderline} />}
             </TouchableOpacity>
           </View>
 
@@ -82,19 +89,17 @@ export default function GraphScreen() {
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row' }}>
               {(() => {
                 const searchResults = SearchService.search(selectedNode.label);
-                const matches = searchResults.filter(r => r.type === 'verse');
-                
-                if (matches.length === 0) return <Text style={{ color: themeColors.inkDim, fontSize: 12 }}>No explicit verse links found.</Text>;
+                const matches = searchResults.filter((r) => r.type === 'verse');
+
+                if (matches.length === 0) return <Text style={s.emptyNote}>No explicit verse links found.</Text>;
 
                 return matches.map((m, i) => (
-                  <TouchableOpacity 
-                    key={i} 
-                    style={[styles.verseChip, { backgroundColor: themeColors.avyakta, borderColor: themeColors.hair }]}
+                  <TouchableOpacity
+                    key={i}
+                    style={s.verseChip}
                     onPress={() => navigation.navigate('VerseDetail', { systemId: m.systemId, textId: m.textId, verseId: m.id })}
                   >
-                    <Text style={{ color: themeColors.sattva, fontSize: 12, fontWeight: '600' }}>
-                      {m.title}
-                    </Text>
+                    <Text style={s.verseChipText}>{m.title}</Text>
                   </TouchableOpacity>
                 ));
               })()}
@@ -102,23 +107,21 @@ export default function GraphScreen() {
           )}
 
           {activeTab === 'concepts' && (
-             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row' }}>
-               {(() => {
-                  if (selectedNode.type === 'Concept') {
-                    return (
-                      <TouchableOpacity 
-                        style={[styles.verseChip, { backgroundColor: themeColors.avyakta, borderColor: themeColors.hair }]}
-                        onPress={() => navigation.navigate('ConceptsMain', { conceptId: selectedNode.id })}
-                      >
-                        <Text style={{ color: themeColors.rajas, fontSize: 12, fontWeight: '600' }}>
-                          Open Concept & Diagram
-                        </Text>
-                      </TouchableOpacity>
-                    );
-                  }
-                  return <Text style={{ color: themeColors.inkDim, fontSize: 12 }}>This node is a {selectedNode.type}. See Verses tab for usage.</Text>;
-               })()}
-             </ScrollView>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexDirection: 'row' }}>
+              {(() => {
+                if (selectedNode.type === 'Concept') {
+                  return (
+                    <TouchableOpacity
+                      style={s.verseChip}
+                      onPress={() => navigation.navigate('ConceptsMain', { conceptId: selectedNode.id })}
+                    >
+                      <Text style={s.conceptChipText}>Open Concept & Diagram</Text>
+                    </TouchableOpacity>
+                  );
+                }
+                return <Text style={s.emptyNote}>This node is a {selectedNode.type}. See Verses tab for usage.</Text>;
+              })()}
+            </ScrollView>
           )}
         </View>
       )}
@@ -126,70 +129,95 @@ export default function GraphScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: { flex: 1 },
-  header: {
-    padding: 16,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  title: {
-    fontFamily: fonts.display,
-    fontSize: 24,
-  },
-  toggleRow: { flexDirection: 'row', gap: 8 },
-  toggleBtn: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 16,
-    borderWidth: 1,
-    borderColor: staticColors.hair,
-  },
-  toggleText: {
-    fontFamily: fonts.sansMedium,
-    fontSize: 12,
-    color: staticColors.inkDim,
-  },
-  graphContainer: {
-    flex: 1,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-  },
-  infoCard: {
-    position: 'absolute',
-    bottom: 24,
-    left: 16,
-    right: 16,
-    padding: 16,
-    borderRadius: 12,
-    borderWidth: 1,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 12,
-    elevation: 5,
-  },
-  nodeTitle: {
-    fontFamily: fonts.sansBold,
-    fontSize: 18,
-    marginBottom: 4,
-  },
-  nodeSubtitle: {
-    fontFamily: fonts.sansMedium,
-    fontSize: 12,
-    marginBottom: 8,
-  },
-  nodeDesc: {
-    fontFamily: fonts.serif,
-    fontSize: 16,
-    lineHeight: 22,
-  },
-  verseChip: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 8,
-    borderWidth: 1,
-    marginRight: 8,
-  }
-});
+const makeStyles = (colors: ColorPalette) =>
+  StyleSheet.create({
+    container: { flex: 1, backgroundColor: colors.avyakta },
+    header: {
+      padding: 16,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    eyebrow: { ...type.eyebrow, color: colors.sattvaDim, marginBottom: 2 },
+    title: {
+      fontFamily: fonts.display,
+      fontSize: 24,
+      color: colors.ink,
+    },
+    toggleRow: { flexDirection: 'row', gap: 8 },
+    toggleBtn: {
+      paddingHorizontal: 12,
+      paddingVertical: 6,
+      borderRadius: 16,
+      borderWidth: 1,
+      borderColor: colors.hair,
+      backgroundColor: colors.avyakta2,
+    },
+    toggleBtnActive: { borderColor: 'transparent', backgroundColor: colors.sattva },
+    toggleText: {
+      fontFamily: fonts.sansMedium,
+      fontSize: 12,
+      color: colors.inkDim,
+    },
+    toggleTextActive: { color: colors.avyakta, fontFamily: fonts.sansBold },
+    graphContainer: {
+      flex: 1,
+      borderTopWidth: 1,
+      borderBottomWidth: 1,
+      borderColor: colors.hair,
+    },
+    infoCard: {
+      position: 'absolute',
+      bottom: 24,
+      left: 16,
+      right: 16,
+      padding: 16,
+      borderRadius: 14,
+      borderWidth: 1,
+      backgroundColor: colors.avyakta3,
+      borderColor: colors.hair,
+    },
+    nodeTitle: {
+      fontFamily: fonts.sansBold,
+      fontSize: 18,
+      color: colors.ink,
+      marginBottom: 4,
+    },
+    nodeSubtitle: {
+      fontFamily: fonts.sansMedium,
+      fontSize: 12,
+      color: colors.inkDim,
+      marginBottom: 8,
+    },
+    nodeDesc: {
+      fontFamily: fonts.serif,
+      fontSize: 16,
+      lineHeight: 22,
+      color: colors.ink,
+    },
+    tabRow: {
+      flexDirection: 'row',
+      gap: 20,
+      marginTop: 8,
+      marginBottom: 10,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.hair,
+      paddingBottom: 10,
+    },
+    tabBtn: { alignItems: 'center' },
+    tabLabel: { fontFamily: fonts.sansMedium, fontSize: 12, color: colors.inkDim },
+    tabLabelActive: { color: colors.sattva, fontFamily: fonts.sansBold },
+    tabUnderline: { height: 2, width: '100%', backgroundColor: colors.sattva, marginTop: 6, borderRadius: 1 },
+    emptyNote: { color: colors.inkDim, fontSize: 12 },
+    verseChip: {
+      paddingHorizontal: 12,
+      paddingVertical: 6,
+      borderRadius: 8,
+      borderWidth: 1,
+      marginRight: 8,
+      backgroundColor: colors.avyakta,
+      borderColor: colors.hair,
+    },
+    verseChipText: { color: colors.sattva, fontSize: 12, fontFamily: fonts.sansBold },
+    conceptChipText: { color: colors.purusha, fontSize: 12, fontFamily: fonts.sansBold },
+  });
