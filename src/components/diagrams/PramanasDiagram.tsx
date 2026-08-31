@@ -1,8 +1,9 @@
 import React from 'react';
 import Svg, { Circle, Line, Text as SvgText, Rect } from 'react-native-svg';
-import { colors } from '../../theme/tokens';
+import { useTheme } from '../../theme/useTheme';
 
 export default function PramanasDiagram() {
+  const { colors } = useTheme();
   return (
     <Svg viewBox="0 0 320 220" width="100%" height={220}>
       <Line x1="160" y1="40" x2="60" y2="100" stroke={colors.hair} strokeWidth={1.5} />

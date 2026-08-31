@@ -73,17 +73,20 @@ export function ReadingPrefsProvider({ children }: { children: React.ReactNode }
 
   useEffect(() => {
     if (!loaded) return;
-    AsyncStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify({ 
-        bookmarks: Array.from(bookmarks), 
-        fontScale, 
-        lastRead, 
-        themeMode,
-        appLanguage,
-        completedThreadSteps: Array.from(completedThreadSteps)
-      })
-    ).catch(() => {});
+    const timer = setTimeout(() => {
+      AsyncStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({ 
+          bookmarks: Array.from(bookmarks), 
+          fontScale, 
+          lastRead, 
+          themeMode,
+          appLanguage,
+          completedThreadSteps: Array.from(completedThreadSteps)
+        })
+      ).catch(() => {});
+    }, 1000);
+    return () => clearTimeout(timer);
   }, [bookmarks, fontScale, lastRead, themeMode, appLanguage, completedThreadSteps, loaded]);
 
   const toggleBookmark = useCallback((systemId: string, textId: string, verseId: string) => {
@@ -125,38 +128,43 @@ export function ReadingPrefsProvider({ children }: { children: React.ReactNode }
 
   const isThreadStepCompleted = useCallback((stepId: string) => completedThreadSteps.has(stepId), [completedThreadSteps]);
 
-  const bookmarkList = Array.from(bookmarks).map((key) => {
+  const bookmarkList = React.useMemo(() => Array.from(bookmarks).map((key) => {
     const [systemId, textId, verseId] = key.split(':');
     return { systemId, textId, verseId };
-  });
+  }), [bookmarks]);
 
-  const lastReadList = Object.values(lastRead)
+  const lastReadList = React.useMemo(() => Object.values(lastRead)
     .sort((a, b) => b.at - a.at)
     .map(({ key }) => {
       const [systemId, textId, verseId] = key.split(':');
       return { systemId, textId, verseId };
-    });
+    }), [lastRead]);
+
+  const providerValue = React.useMemo(() => ({
+    bookmarks,
+    fontScale,
+    themeMode,
+    toggleBookmark,
+    isBookmarked,
+    setFontScale: setFontScaleState,
+    recordLastRead,
+    toggleThemeMode,
+    appLanguage,
+    toggleLanguage,
+    bookmarkList,
+    lastReadList,
+    completedThreadSteps,
+    toggleThreadStepCompletion,
+    isThreadStepCompleted,
+  }), [
+    bookmarks, fontScale, themeMode, appLanguage, 
+    completedThreadSteps, bookmarkList, lastReadList,
+    toggleBookmark, isBookmarked, recordLastRead, toggleThemeMode, 
+    toggleLanguage, toggleThreadStepCompletion, isThreadStepCompleted
+  ]);
 
   return (
-    <ReadingPrefsContext.Provider
-      value={{
-        bookmarks,
-        fontScale,
-        themeMode,
-        toggleBookmark,
-        isBookmarked,
-        setFontScale: setFontScaleState,
-        recordLastRead,
-        toggleThemeMode,
-        appLanguage,
-        toggleLanguage,
-        bookmarkList,
-        lastReadList,
-        completedThreadSteps,
-        toggleThreadStepCompletion,
-        isThreadStepCompleted,
-      }}
-    >
+    <ReadingPrefsContext.Provider value={providerValue}>
       {children}
     </ReadingPrefsContext.Provider>
   );

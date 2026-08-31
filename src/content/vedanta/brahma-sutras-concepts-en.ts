@@ -11,6 +11,7 @@ export interface BrahmaSutraConcept {
   term: string;
   sanskrit: string;
   category: BrahmaSutraConceptCategory;
+  diagramId?: string;
   basicDefinition: string;
   advancedExplanation: string;
   relatedConcepts?: string[];
@@ -25,6 +26,7 @@ export const brahmaSutrasConceptsEn: BrahmaSutraConcept[] = [
     term: "Brahman (The Absolute)",
     sanskrit: "ब्रह्मन्",
     category: "1. Metaphysics & Foundations",
+    diagramId: "brahman-jiva-ishvara",
     basicDefinition: "The ultimate, unchanging, infinite, immanent, and transcendent reality which is the divine ground of all existence.",
     advancedExplanation: "Brahman is the central theme of the Brahma Sutras. Establishing its nature as both the intelligent and material cause of the universe is the primary goal of Adhyaya 1 (Samanvaya). In Advaita, it is pure consciousness (Sat-Chit-Ananda).",
     relatedConcepts: ["concept_atman", "concept_ishvara", "concept_abhinna_nimitta_upadana"]
@@ -45,7 +47,7 @@ export const brahmaSutrasConceptsEn: BrahmaSutraConcept[] = [
     category: "1. Metaphysics & Foundations",
     basicDefinition: "The empirical self; pure consciousness (Atman) associated with a limiting adjunct (Upadhi) such as the mind and ignorance.",
     advancedExplanation: "The Brahma Sutras (especially Adhyaya 2, Pada 3) extensively debate the size, origin, and agency of the Jiva, concluding it is a reflection or apparent limitation of the infinite Brahman.",
-    relatedConcepts: ["concept_atman", "concept_upadhi", "concept_avidya"]
+    relatedConcepts: ["concept_atman", "concept_antahkarana"]
   },
   {
     id: "concept_ishvara",
@@ -54,7 +56,7 @@ export const brahmaSutrasConceptsEn: BrahmaSutraConcept[] = [
     category: "1. Metaphysics & Foundations",
     basicDefinition: "Saguna Brahman; Brahman associated with the power of Maya, acting as the creator, preserver, and destroyer of the universe.",
     advancedExplanation: "While Nirguna Brahman is the ultimate reality, Ishvara is the highest reading of the Absolute from the empirical (Vyavaharika) standpoint, acting as the dispenser of the fruits of Karma (Adhyaya 3, Pada 2).",
-    relatedConcepts: ["concept_brahman", "concept_maya", "concept_karma"]
+    relatedConcepts: ["concept_brahman", "concept_maya", "concept_karma_traya"]
   },
 
   // ==========================================
@@ -65,15 +67,17 @@ export const brahmaSutrasConceptsEn: BrahmaSutraConcept[] = [
     term: "Māyā (Cosmic Illusion)",
     sanskrit: "माया",
     category: "2. Causality & Cosmology",
+    diagramId: "maya-powers",
     basicDefinition: "The mysterious power of Brahman that conceals the true nature of reality and projects the multiplicity of the universe.",
     advancedExplanation: "Maya explains how the changeless, non-dual Brahman appears as the changing, manifold universe without undergoing any real transformation. It possesses both veiling (Avarana) and projecting (Vikshepa) powers.",
-    relatedConcepts: ["concept_avidya", "concept_vivartavada", "concept_adhyasa"]
+    relatedConcepts: ["concept_vivartavada", "concept_adhyasa"]
   },
   {
     id: "concept_abhinna_nimitta_upadana",
     term: "Abhinna-nimitta-upādāna (Undifferentiated Cause)",
     sanskrit: "अभिन्ननिमित्तोपादान",
     category: "2. Causality & Cosmology",
+    diagramId: "abhinna-nimitta-upadana",
     basicDefinition: "The doctrine that Brahman is simultaneously both the intelligent designer (Nimitta) and the raw material (Upadana) of the universe.",
     advancedExplanation: "Established in Sutra 1.4.23 ('Prakritischa...'). This refutes the Samkhya view (which posits an independent material cause, Prakriti) and the Nyaya view (which posits God only as an intelligent designer).",
     relatedConcepts: ["concept_brahman", "concept_vivartavada"]
@@ -83,6 +87,7 @@ export const brahmaSutrasConceptsEn: BrahmaSutraConcept[] = [
     term: "Vivartavāda (Apparent Manifestation)",
     sanskrit: "विवर्तवाद",
     category: "2. Causality & Cosmology",
+    diagramId: "vivarta-vs-parinama",
     basicDefinition: "The theory that the cause (Brahman) appears as the effect (the universe) without undergoing any actual, substantive change.",
     advancedExplanation: "This maintains the strict immutability and perfection of Brahman while accounting for the empirical world, much like a rope appearing as a snake in the twilight.",
     relatedConcepts: ["concept_maya", "concept_satkaryavada"]
@@ -165,7 +170,7 @@ export const brahmaSutrasConceptsEn: BrahmaSutraConcept[] = [
     category: "4. Psychology & Anatomy of the Soul",
     basicDefinition: "The subtle cognitive apparatus consisting of mind, intellect, memory, and ego.",
     advancedExplanation: "It is the primary Upadhi (limiting adjunct) of the Jiva. Liberation involves purifying the Antahkarana so it can perfectly reflect the light of Atman without distortion.",
-    relatedConcepts: ["concept_jiva", "concept_upadhi"]
+    relatedConcepts: ["concept_jiva"]
   },
   {
     id: "concept_pancha_kosha",
@@ -187,7 +192,7 @@ export const brahmaSutrasConceptsEn: BrahmaSutraConcept[] = [
     category: "5. Soteriology (Liberation & Path)",
     basicDefinition: "The prerequisites for studying Vedanta: Discrimination, Dispassion, Six Virtues, and Desire for Liberation.",
     advancedExplanation: "Sutra 1.1.1 ('Atha...') uses the word 'Atha' (Now, therefore) to imply that one must first acquire these four qualifications before beginning the inquiry into Brahman.",
-    relatedConcepts: ["concept_brahman", "concept_moksha"]
+    relatedConcepts: ["concept_brahman", "concept_jivanmukti"]
   },
   {
     id: "concept_karma_traya",
@@ -205,7 +210,7 @@ export const brahmaSutrasConceptsEn: BrahmaSutraConcept[] = [
     category: "5. Soteriology (Liberation & Path)",
     basicDefinition: "The state of attaining liberation from ignorance and the cycle of rebirth while still residing in the physical body.",
     advancedExplanation: "A central tenet of Advaita Vedanta. The Jivanmukta perceives the world as a mere appearance and operates without ego, waiting only for Prarabdha Karma to exhaust.",
-    relatedConcepts: ["concept_karma_traya", "concept_videhamukti"]
+    relatedConcepts: ["concept_karma_traya"]
   },
   {
     id: "concept_krama_mukti",
@@ -284,3 +289,6 @@ export const brahmaSutrasConceptsEn: BrahmaSutraConcept[] = [
     relatedConcepts: []
   }
 ];
+
+
+

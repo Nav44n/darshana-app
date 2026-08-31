@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { ScrollView, View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
+import { FlatList, View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Eyebrow, PageTitle, Subtitle, SectionLabel, Card, ThemeToggle, LanguageToggle } from '../components/Primitives';
 import VerseRow from '../components/VerseRow';
@@ -18,12 +18,12 @@ export default function TextIndexScreen() {
   const { isBookmarked } = useReadingPrefs();
   const { colors, systemAccent } = useTheme();
   const accent = systemAccent(systemId);
-  const s = makeStyles(colors);
+  // Memoize makeStyles
+  const s = React.useMemo(() => makeStyles(colors), [colors]);
   const [query, setQuery] = useState('');
   const [searchFocused, setSearchFocused] = useState(false);
 
   if (!text) return <NotFoundState label="That text" />;
-
 
   const q = query.trim().toLowerCase();
 
@@ -40,27 +40,58 @@ export default function TextIndexScreen() {
     });
   }, [q, text.verses]);
 
-  const grouped = useMemo(() => {
+  const listData = useMemo(() => {
+    const data: any[] = [];
+    
+    // Bookmarked section
+    const bookmarkedInText = text.verses.filter((v) => isBookmarked(systemId, textId, v.id));
+    if (!q && bookmarkedInText.length > 0) {
+      data.push({ type: 'bookmark-header', id: 'bookmark-header' });
+      bookmarkedInText.forEach(v => {
+        data.push({ type: 'verse', id: `bookmark-${v.id}`, verse: v });
+      });
+    }
+
+    // Grouped verses
     const map = new Map<string, typeof text.verses>();
     filteredVerses.forEach((v) => {
       const list = map.get(v.section) ?? [];
       list.push(v);
       map.set(v.section, list);
     });
-    return Array.from(map.entries());
-  }, [filteredVerses]);
+    
+    Array.from(map.entries()).forEach(([section, verses]) => {
+      data.push({ type: 'section-header', id: `section-${section}`, section });
+      verses.forEach(v => {
+        data.push({ type: 'verse', id: `verse-${v.id}`, verse: v });
+      });
+    });
 
-  const bookmarkedInText = text.verses.filter((v) => isBookmarked(systemId, textId, v.id));
+    // Empty state
+    if (q.length > 0 && filteredVerses.length === 0) {
+      data.push({ type: 'empty', id: 'empty' });
+    }
 
-  return (
-    <ScrollView style={s.screen} contentContainerStyle={{ paddingBottom: 40 }}>
+    // Concepts footer
+    if (!q && text.concepts.length > 0) {
+      data.push({ type: 'concepts-header', id: 'concepts-header' });
+      text.concepts.forEach(c => {
+        data.push({ type: 'concept', id: `concept-${c.id}`, c });
+      });
+    }
+
+    return data;
+  }, [q, filteredVerses, text.verses, text.concepts, isBookmarked, systemId, textId]);
+
+  const renderHeader = () => (
+    <View style={s.topContainer}>
       <View style={s.topRow}>
         <View style={{ flex: 1 }}>
           <Eyebrow>{text.author}</Eyebrow>
           <PageTitle>{text.transliteratedTitle}</PageTitle>
         </View>
         <LanguageToggle />
-          <ThemeToggle />
+        <ThemeToggle />
       </View>
       <Subtitle>{text.verses.length} verses transcribed</Subtitle>
       <GunaRule colors={accent.pair} style={s.headerRule} />
@@ -95,64 +126,70 @@ export default function TextIndexScreen() {
           {filteredVerses.length} result{filteredVerses.length === 1 ? '' : 's'}
         </Text>
       )}
+    </View>
+  );
 
-      {!q && bookmarkedInText.length > 0 && (
-        <View>
+  const renderItem = ({ item }: { item: any }) => {
+    switch (item.type) {
+      case 'bookmark-header':
+        return (
           <View style={s.chapterHead}>
             <Text style={[s.chapterN, { color: colors.sattva }]}>★</Text>
             <Text style={s.chapterT}>Bookmarked</Text>
           </View>
-          {bookmarkedInText.map((v) => (
-            <VerseRow
-              key={v.id}
-              verse={v}
-              bookmarked
-              onPress={() => nav.navigate('VerseDetail', { systemId, textId, verseId: v.id })}
-            />
-          ))}
-        </View>
-      )}
-
-      {grouped.map(([section, verses]) => (
-        <View key={section}>
+        );
+      case 'section-header':
+        return (
           <View style={s.chapterHead}>
             <Text style={[s.chapterN, { color: accent.primary }]}>§</Text>
-            <Text style={s.chapterT}>{section}</Text>
+            <Text style={s.chapterT}>{item.section}</Text>
           </View>
-          {verses.map((v) => (
-            <VerseRow
-              key={v.id}
-              verse={v}
-              bookmarked={isBookmarked(systemId, textId, v.id)}
-              onPress={() => nav.navigate('VerseDetail', { systemId, textId, verseId: v.id })}
-            />
-          ))}
-        </View>
-      ))}
+        );
+      case 'verse':
+        return (
+          <VerseRow
+            verse={item.verse}
+            bookmarked={isBookmarked(systemId, textId, item.verse.id)}
+            onPress={() => nav.navigate('VerseDetail', { systemId, textId, verseId: item.verse.id })}
+          />
+        );
+      case 'empty':
+        return <Text style={s.noResults}>No verses match "{query}"</Text>;
+      case 'concepts-header':
+        return <SectionLabel>Concepts in this text</SectionLabel>;
+      case 'concept':
+        return (
+          <Card>
+            <Text style={s.conceptTitle}>{item.c.content.en?.title}</Text>
+            <Text style={s.conceptSummary} numberOfLines={2}>
+              {item.c.content.en?.summary}
+            </Text>
+          </Card>
+        );
+      default:
+        return null;
+    }
+  };
 
-      {q.length > 0 && filteredVerses.length === 0 && (
-        <Text style={s.noResults}>No verses match "{query}"</Text>
-      )}
-
-      {!q && (
-        <>
-          <SectionLabel>Concepts in this text</SectionLabel>
-          {text.concepts.map((c) => (
-            <Card key={c.id}>
-              <Text style={s.conceptTitle}>{c.content.en?.title}</Text>
-              <Text style={s.conceptSummary} numberOfLines={2}>
-                {c.content.en?.summary}
-              </Text>
-            </Card>
-          ))}
-        </>
-      )}
-    </ScrollView>
+  return (
+    <FlatList 
+      style={s.screen} 
+      contentContainerStyle={{ paddingBottom: 40 }}
+      data={listData}
+      keyExtractor={(item) => item.id}
+      renderItem={renderItem}
+      ListHeaderComponent={renderHeader}
+      initialNumToRender={15}
+      maxToRenderPerBatch={10}
+      windowSize={5}
+      removeClippedSubviews={true}
+    />
   );
 }
 
 const makeStyles = (colors: ColorPalette) => StyleSheet.create({
   screen: { flex: 1, alignSelf: 'center', width: '100%', maxWidth: 800, backgroundColor: colors.avyakta, paddingHorizontal: 22, paddingTop: 8 },
+  topContainer: { paddingBottom: 8 },
   topRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between' },
   headerRule: { width: 46, marginTop: 12, marginBottom: 18 },
   sourceLabel: { ...type.label, color: colors.sattvaDim, marginBottom: 4 },
@@ -169,7 +206,6 @@ const makeStyles = (colors: ColorPalette) => StyleSheet.create({
     marginTop: 4,
     marginBottom: 8,
   },
-  searchBarFocused: { borderColor: colors.rajasDim, backgroundColor: colors.avyakta3 },
   searchIcon: { color: colors.inkDim, fontSize: 14 },
   searchInput: { flex: 1, color: colors.ink, fontSize: 14, paddingVertical: 12 },
   searchClear: { color: colors.inkDim, fontSize: 14, paddingLeft: 6 },

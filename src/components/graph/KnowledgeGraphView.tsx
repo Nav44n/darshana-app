@@ -1,13 +1,10 @@
-import React, { useMemo, useState, useRef } from 'react';
-import { View, PanResponder, StyleSheet, Dimensions } from 'react-native';
+import React, { useEffect, useState, useRef } from 'react';
+import { View, PanResponder, StyleSheet, Animated } from 'react-native';
 import Svg, { Circle, Line, Text as SvgText, G } from 'react-native-svg';
 import { forceSimulation, forceLink, forceManyBody, forceCenter, forceCollide, SimulationNodeDatum, SimulationLinkDatum } from 'd3-force';
 import { useTheme } from '../../theme/useTheme';
 import { ColorPalette } from '../../theme/tokens';
-// Import the knowledge graph JSON
 const graphData = require('../../knowledge/darshana-knowledge-graph.json');
-
-const { width, height } = Dimensions.get('window');
 
 interface NodeData extends SimulationNodeDatum {
   id: string;
@@ -30,43 +27,51 @@ export default function KnowledgeGraphView({
   selectedNodeId?: string | null;
 }) {
   const { colors, type } = useTheme();
-  const s = makeStyles(colors);
-  const [zoom, setZoom] = useState({ scale: 1, translateX: 0, translateY: 0 });
+  const s = React.useMemo(() => makeStyles(colors), [colors]);
 
-  const { nodes, links } = useMemo(() => {
-    let rawNodes = graphData.nodes as any[];
-    if (systemFilter !== 'Both') {
-       rawNodes = rawNodes.filter((n: any) => !n.properties.system || n.properties.system === systemFilter || n.properties.system === 'Both');
-    }
-    const nodeIds = new Set(rawNodes.map(n => n.id));
+  const pan = useRef(new Animated.ValueXY()).current;
+  const [layout, setLayout] = useState({ width: 0, height: 0 });
+  const [graph, setGraph] = useState<{ nodes: NodeData[], links: LinkData[] }>({ nodes: [], links: [] });
 
-    const rawEdges = (graphData.edges as any[]).filter((e: any) => nodeIds.has(e.source) && nodeIds.has(e.target));
+  useEffect(() => {
+    if (layout.width === 0 || layout.height === 0) return;
 
-    const nodesData: NodeData[] = rawNodes.map(n => ({ ...n }));
-    const linksData: LinkData[] = rawEdges.map(e => ({ ...e, source: e.source, target: e.target }));
+    const timer = setTimeout(() => {
+      let rawNodes = graphData.nodes as any[];
+      if (systemFilter !== 'Both') {
+         rawNodes = rawNodes.filter((n: any) => !n.properties.system || n.properties.system === systemFilter || n.properties.system === 'Both');
+      }
+      const nodeIds = new Set(rawNodes.map(n => n.id));
+      const rawEdges = (graphData.edges as any[]).filter((e: any) => nodeIds.has(e.source) && nodeIds.has(e.target));
 
-    const simulation = forceSimulation(nodesData)
-      .force('charge', forceManyBody().strength(-300))
-      .force('link', forceLink(linksData).id((d: any) => d.id).distance(100))
-      .force('center', forceCenter(width / 2, height / 3))
-      .force('collide', forceCollide().radius(40))
-      .stop();
+      const nodesData: NodeData[] = rawNodes.map(n => ({ ...n }));
+      const linksData: LinkData[] = rawEdges.map(e => ({ ...e, source: e.source, target: e.target }));
 
-    for (let i = 0; i < 300; i++) simulation.tick();
+      const simulation = forceSimulation(nodesData)
+        .force('charge', forceManyBody().strength(-300))
+        .force('link', forceLink(linksData).id((d: any) => d.id).distance(100))
+        .force('center', forceCenter(layout.width / 2, layout.height / 3))
+        .force('collide', forceCollide().radius(40))
+        .stop();
 
-    return { nodes: nodesData, links: linksData };
-  }, [systemFilter]);
+      for (let i = 0; i < 300; i++) simulation.tick();
+
+      setGraph({ nodes: nodesData, links: linksData });
+    }, 10);
+
+    return () => clearTimeout(timer);
+  }, [systemFilter, layout.width, layout.height]);
 
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
-      onPanResponderMove: (evt, gestureState) => {
-        setZoom(prev => ({
-          ...prev,
-          translateX: prev.translateX + gestureState.dx / 20,
-          translateY: prev.translateY + gestureState.dy / 20,
-        }));
-      },
+      onPanResponderMove: Animated.event(
+        [null, { dx: pan.x, dy: pan.y }],
+        { useNativeDriver: false }
+      ),
+      onPanResponderRelease: () => {
+        pan.extractOffset();
+      }
     })
   ).current;
 
@@ -84,18 +89,21 @@ export default function KnowledgeGraphView({
   const isHighlighted = (nodeId: string) => {
     if (!selectedNodeId) return true;
     if (nodeId === selectedNodeId) return true;
-    return links.some(l => 
+    return graph.links.some(l => 
       ((l.source as any).id === selectedNodeId && (l.target as any).id === nodeId) ||
       ((l.target as any).id === selectedNodeId && (l.source as any).id === nodeId)
     );
   };
 
   return (
-    <View style={s.container} {...panResponder.panHandlers}>
-      <Svg width="100%" height="100%">
-        <G transform={`translate(${zoom.translateX}, ${zoom.translateY}) scale(${zoom.scale})`}>
-          
-          {links.map((link, i) => {
+    <View 
+      style={s.container} 
+      onLayout={(e) => setLayout({ width: e.nativeEvent.layout.width, height: e.nativeEvent.layout.height })}
+      {...panResponder.panHandlers}
+    >
+      <Animated.View style={[StyleSheet.absoluteFill, { transform: pan.getTranslateTransform() }]}>
+        <Svg width="100%" height="100%">
+          {graph.links.map((link, i) => {
             const source = link.source as unknown as NodeData;
             const target = link.target as unknown as NodeData;
             const active = isHighlighted(source.id) && isHighlighted(target.id);
@@ -114,7 +122,7 @@ export default function KnowledgeGraphView({
             );
           })}
 
-          {nodes.map(node => {
+          {graph.nodes.map(node => {
             const active = isHighlighted(node.id);
             return (
               <G key={node.id} x={node.x} y={node.y} onPress={() => handleNodePress(node)}>
@@ -138,8 +146,8 @@ export default function KnowledgeGraphView({
               </G>
             );
           })}
-        </G>
-      </Svg>
+        </Svg>
+      </Animated.View>
     </View>
   );
 }
@@ -148,5 +156,6 @@ const makeStyles = (colors: ColorPalette) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.avyakta2,
+    overflow: 'hidden'
   }
 });

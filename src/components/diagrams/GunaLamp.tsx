@@ -1,8 +1,9 @@
 import React from 'react';
 import Svg, { Circle, Polygon, Text as SvgText } from 'react-native-svg';
-import { colors } from '../../theme/tokens';
+import { useTheme } from '../../theme/useTheme';
 
 export default function GunaLamp() {
+  const { colors } = useTheme();
   return (
     <Svg viewBox="0 0 320 200" width="100%" height={190}>
       <Polygon points="160,30 260,175 60,175" fill="none" stroke={colors.hair} strokeWidth={1.5} />

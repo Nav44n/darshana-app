@@ -1,6 +1,6 @@
 import React from 'react';
 import Svg, { Circle, Line, Text as SvgText } from 'react-native-svg';
-import { colors } from '../../theme/tokens';
+import { useTheme } from '../../theme/useTheme';
 
 const nodes = [
   { x: 80, y: 165, top: 'ādhyātmika', bottom: 'body / mind' },
@@ -9,6 +9,7 @@ const nodes = [
 ];
 
 export default function DuhkhaTraya() {
+  const { colors } = useTheme();
   return (
     <Svg viewBox="0 0 320 200" width="100%" height={190}>
       <Circle cx={160} cy={70} r={30} fill="none" stroke={colors.rajas} strokeWidth={1.5} />

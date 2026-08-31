@@ -57,7 +57,7 @@ export const yogaSutrasThread: Omit<ThreadStep, 'textId'>[] = yogaSutrasThreadEn
   conceptId: t.conceptId,
   verseIds: t.verseIds,
   content: {
-    en: { title: t.title, narrative: t.narrative },
+    en: t.content.en,
     ml: yogaSutrasThreadMl[t.id]
   }
 }));

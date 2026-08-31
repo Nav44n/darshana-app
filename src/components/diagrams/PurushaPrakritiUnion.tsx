@@ -1,8 +1,9 @@
 import React from 'react';
 import Svg, { Circle, Line, Text as SvgText } from 'react-native-svg';
-import { colors } from '../../theme/tokens';
+import { useTheme } from '../../theme/useTheme';
 
 export default function PurushaPrakritiUnion() {
+  const { colors } = useTheme();
   return (
     <Svg viewBox="0 0 320 170" width="100%" height={160}>
       <Circle cx={110} cy={60} r={20} fill={colors.sattva} />

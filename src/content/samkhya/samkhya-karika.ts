@@ -3,7 +3,7 @@ import { samkhyaKarikaEn } from './samkhya-karika-en';
 import { samkhyaKarikaMl } from './samkhya-karika-ml';
 import { samkhyaKarikaConceptsEn } from './samkhya-karika-concepts-en';
 import { samkhyaKarikaConceptsMl } from './samkhya-karika-concepts-ml';
-import { samkhyaKarikaThreadMl } from './samkhya-karika-thread-ml';
+import { samkhyaKarikaThread } from './samkhya-karika-thread';
 
 export const samkhyaVerses: Verse[] = samkhyaKarikaEn.map(v => ({
   id: v.id,
@@ -36,27 +36,6 @@ export const samkhyaConcepts: Concept[] = samkhyaKarikaConceptsEn.map(c => ({
     ml: samkhyaKarikaConceptsMl[c.id]
   }
 }));
-
-export const samkhyaKarikaThread: ThreadStep[] = [
-  {
-    id: 'step-1',
-    conceptId: 'duhkha-traya',
-    textId: 'samkhya-karika',
-    content: {
-      en: { title: 'The Problem of Suffering', narrative: 'The system begins by identifying the fundamental problem.' },
-      ml: samkhyaKarikaThreadMl['step-1']
-    }
-  },
-  {
-    id: 'step-2',
-    conceptId: 'vyakta-avyakta-jna',
-    textId: 'samkhya-karika',
-    content: {
-      en: { title: 'The Tripartite Solution', narrative: 'The solution lies in knowing the three fundamental categories.' },
-      ml: samkhyaKarikaThreadMl['step-2']
-    }
-  }
-];
 
 export const samkhyaKarika: ClassicalText = {
   id: 'samkhya-karika',

@@ -32,7 +32,7 @@ export default function VerseRow({
           {verse.devanagari ? verse.devanagari.split('\n')[0] : verse.iast.split('\n')[0]}
         </Text>
       </View>
-      {bookmarked && <Text style={[type.caption, s.star]}>?</Text>}
+      {bookmarked && <Text style={[type.caption, s.star]}>★</Text>}
     </Pressable>
   );
 }

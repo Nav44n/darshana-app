@@ -1,16 +1,8 @@
 import React from 'react';
 import Svg, { Circle, Line, Text as SvgText } from 'react-native-svg';
-import { colors } from '../../theme/tokens';
+import { useTheme } from '../../theme/useTheme';
 
-const nodes = [
-  { x: 160, y: 16, r: 14, label: 'Puruṣa', c: colors.sattva },
-  { x: 160, y: 60, r: 15, label: 'Mūla-prakṛti', c: colors.tamas },
-  { x: 160, y: 104, r: 12, label: 'Mahat / Buddhi', c: colors.rajas },
-  { x: 160, y: 140, r: 11, label: 'Ahaṃkāra', c: colors.rajas },
-  { x: 70, y: 172, r: 11, label: '5 Tanmātras', c: colors.rajas },
-  { x: 250, y: 172, r: 11, label: '11 (manas + senses)', c: '#c9986e' },
-  { x: 70, y: 205, r: 10, label: '5 Mahābhūtas', c: '#c9986e' },
-];
+
 
 const links: [number, number][] = [
   [0, 1],
@@ -22,6 +14,17 @@ const links: [number, number][] = [
 ];
 
 export default function TattvaTree() {
+  const { colors } = useTheme();
+  
+  const nodes = [
+  { x: 160, y: 16, r: 14, label: 'Puruṣa', c: colors.sattva },
+  { x: 160, y: 60, r: 15, label: 'Mūla-prakṛti', c: colors.tamas },
+  { x: 160, y: 104, r: 12, label: 'Mahat / Buddhi', c: colors.rajas },
+  { x: 160, y: 140, r: 11, label: 'Ahaṃkāra', c: colors.rajas },
+  { x: 70, y: 172, r: 11, label: '5 Tanmātras', c: colors.rajas },
+  { x: 250, y: 172, r: 11, label: '11 (manas + senses)', c: '#c9986e' },
+  { x: 70, y: 205, r: 10, label: '5 Mahābhūtas', c: '#c9986e' },
+];
   return (
     <Svg viewBox="0 0 320 230" width="100%" height={220}>
       {links.map(([a, b], i) => (

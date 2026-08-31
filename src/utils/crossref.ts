@@ -4,6 +4,15 @@ export type TextSegment = { text: string; link?: { systemId: string; textId: str
 
 const YOGA_REF = /\b([IVXLC]+\.\d+)\b/g;
 const SAMKHYA_REF = /\bK[aā]rik[aā](?:s)?\s+(\d+(?:-\d+)?)\b/ig;
+const GENERIC_SUTRA_REF = /\b(NS|VS|BS|PMS|YS)\s+(\d+(?:\.\d+)*)\b/ig;
+
+const prefixMap: Record<string, { systemId: string, textId: string }> = {
+  'NS': { systemId: 'nyaya', textId: 'nyaya-sutras' },
+  'VS': { systemId: 'vaisesika', textId: 'vaisesika-sutras' },
+  'BS': { systemId: 'vedanta', textId: 'brahma-sutras' },
+  'PMS': { systemId: 'mimamsa', textId: 'purva-mimamsa-sutras' },
+  'YS': { systemId: 'yoga', textId: 'yoga-sutras' }
+};
 
 function verseExists(systemId: string, textId: string, verseId: string): boolean {
   const text = getText(systemId, textId);
@@ -24,8 +33,11 @@ export function linkifyReferences(raw: string): TextSegment[] {
   let m: RegExpExecArray | null;
   YOGA_REF.lastIndex = 0;
   while ((m = YOGA_REF.exec(raw))) {
+    // avoid double matching if "YS I.2" was caught by generic matcher
+    if (raw.substring(Math.max(0, m.index - 3), m.index).includes('YS ')) continue;
     matches.push({ start: m.index, end: m.index + m[0].length, verseId: m[1], systemId: 'yoga', textId: 'yoga-sutras' });
   }
+  
   SAMKHYA_REF.lastIndex = 0;
   while ((m = SAMKHYA_REF.exec(raw))) {
     // link only the roman-numeral portion, not the word "Kārikā" itself
@@ -37,6 +49,22 @@ export function linkifyReferences(raw: string): TextSegment[] {
       systemId: 'samkhya',
       textId: 'samkhya-karika',
     });
+  }
+
+  GENERIC_SUTRA_REF.lastIndex = 0;
+  while ((m = GENERIC_SUTRA_REF.exec(raw))) {
+    const prefix = m[1].toUpperCase();
+    const config = prefixMap[prefix];
+    if (config) {
+      const numStart = m.index + m[0].indexOf(m[2]);
+      matches.push({
+        start: numStart,
+        end: numStart + m[2].length,
+        verseId: m[2], // The numbers 1.1.1
+        systemId: config.systemId,
+        textId: config.textId
+      });
+    }
   }
 
   matches.sort((a, b) => a.start - b.start);

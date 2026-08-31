@@ -58,11 +58,21 @@ class SearchServiceEngine {
       const textEn = v.content?.en;
       const textMl = v.content?.ml;
       const content = `${textEn?.translation || ''} ${textEn?.commentary || ''} ${textEn?.keyPoints?.join(' ') || ''} ${textMl?.translation || ''} ${v.iast} ${v.devanagari || ''}`.toLowerCase();
+      
+      const textAbbreviations: Record<string, string> = {
+        'samkhya-karika': 'SK',
+        'yoga-sutras': 'YS',
+        'nyaya-sutras': 'NS',
+        'vaisesika-sutras': 'VS',
+        'purva-mimamsa-sutras': 'PMS',
+        'brahma-sutras': 'BS'
+      };
+      
       if (terms.every(term => content.includes(term))) {
         results.push({
           type: 'verse',
           id: v.id,
-          title: `${v.textId === 'samkhya-karika' ? 'SK' : 'YS'} ${v.number}`,
+          title: `${textAbbreviations[v.textId] || v.textId} ${v.number}`,
           subtitle: (textEn?.translation || '').substring(0, 100) + '...',
           textId: v.textId,
           systemId: v.systemId,

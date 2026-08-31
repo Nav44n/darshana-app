@@ -27,17 +27,12 @@ export default function AuroraGlow({
 }) {
   const { colors, auroraGradient } = useTheme();
   const stops = customColors && customColors.length > 0 ? customColors : auroraGradient;
-  const pulse = useRef(new Animated.Value(0)).current;
+  const pulse = useRef(new Animated.Value(0.5)).current; // Default to mid-breathe
 
+  // Animation disabled to prevent battery drain and layout thrashing
+  // on the Home Screen for large list views.
   useEffect(() => {
-    const loop = Animated.loop(
-      Animated.sequence([
-        Animated.timing(pulse, { toValue: 1, duration: 5200, useNativeDriver: true }),
-        Animated.timing(pulse, { toValue: 0, duration: 5200, useNativeDriver: true }),
-      ])
-    );
-    loop.start();
-    return () => loop.stop();
+    pulse.setValue(0.5); // Set to middle of the "breath"
   }, [pulse]);
 
   const breathe = pulse.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1.08] });

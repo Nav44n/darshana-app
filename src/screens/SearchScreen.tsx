@@ -1,32 +1,78 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, StyleSheet, FlatList, TouchableOpacity, ScrollView, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { SearchService, SearchResult } from '../services/SearchService';
+import { SearchService, SearchResult, SearchResultType } from '../services/SearchService';
 import { useTheme } from '../theme/useTheme';
 import { fonts, type, ColorPalette } from '../theme/tokens';
 import { useNavigation } from '@react-navigation/native';
 
-// One accent per result type, drawn from the same guṇa vocabulary used
-// throughout the app, so a glance at the badge colour tells you what kind
-// of thing you're looking at before you read the label.
 const typeAccent = (colors: ColorPalette, t: SearchResult['type']) =>
   t === 'verse' ? colors.sattva : t === 'concept' ? colors.amber : colors.purusha;
+
+const TYPES: { label: string; value: SearchResultType | 'all' }[] = [
+  { label: 'All Types', value: 'all' },
+  { label: 'Verses', value: 'verse' },
+  { label: 'Concepts', value: 'concept' },
+  { label: 'Ontology', value: 'node' },
+];
+
+const SYSTEMS = [
+  { label: 'All Systems', value: 'all' },
+  { label: 'Sāṃkhya', value: 'samkhya' },
+  { label: 'Yoga', value: 'yoga' },
+  { label: 'Nyāya', value: 'nyaya' },
+  { label: 'Vaiśeṣika', value: 'vaisesika' },
+  { label: 'Mīmāṃsā', value: 'mimamsa' },
+  { label: 'Vedānta', value: 'vedanta' },
+];
 
 export default function SearchScreen() {
   const { colors } = useTheme();
   const navigation = useNavigation<any>();
   const [query, setQuery] = useState('');
   const [focused, setFocused] = useState(false);
+  const [activeType, setActiveType] = useState<SearchResultType | 'all'>('all');
+  const [activeSystem, setActiveSystem] = useState<string>('all');
   const [results, setResults] = useState<SearchResult[]>([]);
   const s = makeStyles(colors);
 
-  const handleSearch = (text: string) => {
-    setQuery(text);
+  const runSearch = (text: string, tFilter: string, sFilter: string) => {
     if (text.length > 2) {
-      setResults(SearchService.search(text));
+      let r = SearchService.search(text);
+      if (tFilter !== 'all') {
+        r = r.filter(i => i.type === tFilter);
+      }
+      if (sFilter !== 'all') {
+        // ontology nodes don't necessarily have systemId, or maybe we just skip system filter for them
+        r = r.filter(i => {
+          if (i.type === 'node') return true; 
+          return i.systemId === sFilter;
+        });
+      }
+      setResults(r);
     } else {
       setResults([]);
     }
+  };
+
+  const handleSearch = (text: string) => {
+    setQuery(text);
+    runSearch(text, activeType, activeSystem);
+  };
+
+  const handleClear = () => {
+    setQuery('');
+    setResults([]);
+  };
+
+  const handleTypeSelect = (val: SearchResultType | 'all') => {
+    setActiveType(val);
+    runSearch(query, val, activeSystem);
+  };
+
+  const handleSystemSelect = (val: string) => {
+    setActiveSystem(val);
+    runSearch(query, activeType, val);
   };
 
   const renderItem = ({ item }: { item: SearchResult }) => {
@@ -57,7 +103,7 @@ export default function SearchScreen() {
           <Text style={[s.resultType, { color: accent, borderColor: accent }]}>{item.type.toUpperCase()}</Text>
           <Text style={s.resultTitle} numberOfLines={1}>{item.title}</Text>
         </View>
-        {item.subtitle && (
+        {!!item.subtitle && (
           <Text style={s.resultSubtitle} numberOfLines={2}>
             {item.subtitle}
           </Text>
@@ -83,6 +129,39 @@ export default function SearchScreen() {
             autoCapitalize="none"
             autoCorrect={false}
           />
+          {query.length > 0 && (
+            <Pressable onPress={handleClear} style={s.clearBtn}>
+              <Text style={s.clearBtnText}>✕</Text>
+            </Pressable>
+          )}
+        </View>
+
+        <View style={s.filterContainer}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.filterRow} style={s.filterScroll}>
+            {TYPES.map(t => (
+              <Pressable 
+                key={t.value} 
+                style={[s.filterChip, activeType === t.value && s.filterChipActive]}
+                onPress={() => handleTypeSelect(t.value)}
+              >
+                <Text style={[s.filterChipText, activeType === t.value && s.filterChipTextActive]}>{t.label}</Text>
+              </Pressable>
+            ))}
+          </ScrollView>
+
+          {activeType !== 'node' && (
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.filterRow} style={s.filterScroll}>
+              {SYSTEMS.map(sys => (
+                <Pressable 
+                  key={sys.value} 
+                  style={[s.filterChip, activeSystem === sys.value && s.filterChipActive]}
+                  onPress={() => handleSystemSelect(sys.value)}
+                >
+                  <Text style={[s.filterChipText, activeSystem === sys.value && s.filterChipTextActive]}>{sys.label}</Text>
+                </Pressable>
+              ))}
+            </ScrollView>
+          )}
         </View>
       </View>
       <FlatList
@@ -93,8 +172,8 @@ export default function SearchScreen() {
         ListEmptyComponent={
           query.length > 2 ? (
             <View style={s.emptyState}>
-              <Text style={s.emptyTitle}>Nothing matches "{query}"</Text>
-              <Text style={s.emptySub}>Try a shorter word, a Sanskrit term, or a concept name.</Text>
+              <Text style={s.emptyTitle}>Nothing matches "${query}"</Text>
+              <Text style={s.emptySub}>Try a shorter word, a Sanskrit term, or adjusting your filters.</Text>
             </View>
           ) : (
             <View style={s.emptyState}>
@@ -131,7 +210,46 @@ const makeStyles = (colors: ColorPalette) =>
       color: colors.ink,
       paddingVertical: 12,
     },
-    list: { padding: 16 },
+    clearBtn: {
+      padding: 6,
+    },
+    clearBtnText: {
+      color: colors.tamas,
+      fontSize: 14,
+    },
+    filterContainer: {
+      marginTop: 12,
+      gap: 10,
+    },
+    filterScroll: {
+      flexGrow: 0,
+    },
+    filterRow: {
+      gap: 8,
+      paddingRight: 16,
+    },
+    filterChip: {
+      paddingHorizontal: 12,
+      paddingVertical: 6,
+      borderRadius: 16,
+      borderWidth: 1,
+      borderColor: colors.hair,
+      backgroundColor: colors.avyakta2,
+    },
+    filterChipActive: {
+      borderColor: colors.sattva,
+      backgroundColor: colors.sattvaGlow,
+    },
+    filterChipText: {
+      fontFamily: fonts.sans,
+      fontSize: 12,
+      color: colors.inkDim,
+    },
+    filterChipTextActive: {
+      color: colors.sattva,
+      fontFamily: fonts.sansBold,
+    },
+    list: { padding: 16, paddingBottom: 60 },
     resultCard: {
       padding: 14,
       borderRadius: 10,

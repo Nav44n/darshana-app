@@ -194,5 +194,239 @@ export const nyayaConceptsEn: NyayaConcept[] = [
     definition: "The eternal, all-pervading substance that causes our cognitions of past, present, and future, and acts as the universal container for all actions.",
     significance: "Gautama staunchly defends the reality of the 'Present' moment as the continuous duration of action, countering skeptical claims that time is merely an illusion of past and future.",
     relatedConcepts: ["pratyaksha"]
+  },
+  {
+    id: "samsaya",
+    sanskrit: "????",
+    iast: "sa?saya",
+    english: "Doubt",
+    category: "Dialectics",
+    definition: "A conflicting judgment regarding the exact character of an object, arising from the perception of properties common to many objects.",
+    significance: "Doubt is the starting point of all philosophical inquiry and debate in Nyaya. Without doubt, there is no need for investigation or the application of Pramanas."
+  },
+  {
+    id: "shodasha-padartha",
+    sanskrit: "??? ?? ????????",
+    iast: "?o?a?a-padartha",
+    english: "The Sixteen Categories",
+    category: "Epistemology",
+    definition: "The sixteen topics of inquiry outlined by Gautama: means of knowledge, objects of knowledge, doubt, purpose, familiar instance, established tenet, members of a syllogism, confutation, ascertainment, discussion, wrangling, cavil, fallacies, quibbling, futile rejoinders, and clinchers.",
+    significance: "Nyaya states that true knowledge of these sixteen categories leads to the attainment of the highest good (liberation)."
+  },
+  {
+    id: "pariksha",
+    sanskrit: "???????",
+    iast: "parik?a",
+    english: "Examination",
+    category: "Dialectics",
+    definition: "The critical investigation and testing of a subject that has been defined.",
+    significance: "Once a concept is defined (lakshana), it must undergo rigorous logical examination to ascertain its validity."
+  },
+  {
+    id: "duhkha-chain-nyaya",
+    sanskrit: "????-???????",
+    iast: "du?kha-nirodha",
+    english: "The Chain of Suffering",
+    category: "Metaphysics",
+    definition: "The causal chain leading from false knowledge to suffering, and its reversal leading to liberation.",
+    significance: "Gautama posits that false knowledge causes defects, which cause activity, which cause birth, which causes suffering. Destroying false knowledge unravels the whole chain."
+  },
+  {
+    id: "jnana",
+    sanskrit: "????",
+    iast: "jñana",
+    english: "Knowledge / Cognition",
+    category: "Cognition",
+    definition: "The apprehension or apprehension-producing activity that illuminates objects.",
+    significance: "In Nyaya, cognition is not the essence of the soul, but an adventitious quality that arises when the soul, mind, sense-organ, and object come into contact."
+  },
+  {
+    id: "vipratipatti",
+    sanskrit: "???????????",
+    iast: "vipratipatti",
+    english: "Contradiction / Conflicting Opinion",
+    category: "Dialectics",
+    definition: "Mutually exclusive statements about the same object, leading to doubt.",
+    significance: "It is one of the causes of doubt, forcing the need for critical examination."
+  },
+  {
+    id: "avyavastha",
+    sanskrit: "????????",
+    iast: "avyavastha",
+    english: "Irregularity / Lack of Uniformity",
+    category: "Dialectics",
+    definition: "Irregularity in apprehension or non-apprehension, leading to doubt.",
+    significance: "Another cause of doubt in the Nyaya system. When there is no uniform rule about whether something should be perceived or not, doubt arises."
+  },
+  {
+    id: "vada",
+    sanskrit: "????",
+    iast: "vada",
+    english: "Discussion",
+    category: "Dialectics",
+    definition: "A debate where both parties sincerely aim to discover the truth, establishing their own position using pramāṇas and logic.",
+    significance: "Unlike wrangling (jalpa) or cavil (vitaṇḍa) which aim only at defeating an opponent, vāda aims at ascertaining the truth."
+  },
+  {
+    id: "prameya",
+    sanskrit: "??????",
+    iast: "prameya",
+    english: "Object of Valid Knowledge",
+    category: "Epistemology",
+    definition: "That which is to be known through pramāṇas. The objects of knowledge.",
+    significance: "While everything is technically knowable, Nyaya restricts prameya to the specific objects (soul, body, senses, etc.) whose knowledge leads to liberation."
+  },
+  {
+    id: "dvadasha-prameya",
+    sanskrit: "?????? ??????",
+    iast: "dvada?a prameya",
+    english: "The Twelve Objects of Knowledge",
+    category: "Metaphysics",
+    definition: "The twelve specific objects of knowledge: Soul, Body, Senses, Objects of Senses, Intellect, Mind, Activity, Fault, Transmigration, Fruit, Pain, and Liberation.",
+    significance: "These twelve constitute the essential reality that must be rightly understood to break the chain of suffering and achieve liberation."
+  },
+  {
+    id: "buddhi",
+    sanskrit: "?????",
+    iast: "buddhi",
+    english: "Intellect / Apprehension",
+    category: "Cognition",
+    definition: "Synonymous with knowledge and apprehension in the Nyaya system.",
+    significance: "Nyaya distinguishes buddhi (knowledge) from the eternal soul, viewing it as a transitory property."
+  },
+  {
+    id: "tarka",
+    sanskrit: "????",
+    iast: "tarka",
+    english: "Confutation / Hypothetical Reasoning",
+    category: "Dialectics",
+    definition: "A process of reasoning that assists in knowing the true nature of a thing by revealing the absurdities of contrary suppositions.",
+    significance: "While not a pramāṇa itself, tarka acts as an essential auxiliary to pramāṇas by clearing away doubts."
+  },
+  {
+    id: "sharira-indriya-bhuta",
+    sanskrit: "?????-???????-???",
+    iast: "?arira-indriya-bhuta",
+    english: "Body, Senses, and Elements",
+    category: "Metaphysics",
+    definition: "The physical architecture of interaction: the body is the site of experience, the senses are the instruments, and the material elements are their objects.",
+    significance: "Nyaya provides a rigorous physicalist mapping of how consciousness interacts with the material world."
+  },
+  {
+    id: "drishtanta",
+    sanskrit: "????????",
+    iast: "d???anta",
+    english: "Familiar Instance / Example",
+    category: "Dialectics",
+    definition: "An undisputed example that both ordinary people and experts agree upon.",
+    significance: "Crucial for inference. A logical argument (syllogism) must point to a real-world example (like a kitchen with fire and smoke) to ground its logic in reality."
+  },
+  {
+    id: "anavastha",
+    sanskrit: "????????",
+    iast: "anavastha",
+    english: "Infinite Regress",
+    category: "Dialectics",
+    definition: "A logical fallacy where a proposition requires an infinite series of justifications, without ever reaching a foundational grounding.",
+    significance: "Nyaya frequently uses the threat of infinite regress to disprove opposing theories, arguing that valid knowledge must eventually rest on self-evident perception."
+  },
+  {
+    id: "pravritti-dosha-phala",
+    sanskrit: "????????-???-??",
+    iast: "prav?tti-do?a-phala",
+    english: "Activity, Fault, and Fruit",
+    category: "Metaphysics",
+    definition: "The core components of the karmic cycle: Faults (attachment, aversion) drive Activity (speech, mind, body), which inevitably produce a Fruit (experience of pleasure or pain).",
+    significance: "This explains the mechanism of rebirth. By eliminating faults through right knowledge, activity ceases to bind the soul, preventing future fruits (rebirth)."
+  },
+  {
+    id: "hetvabhasa",
+    sanskrit: "?????????",
+    iast: "hetvabhasa",
+    english: "Fallacy of the Reason",
+    category: "Dialectics",
+    definition: "A 'pseudo-probans'. A reason (hetu) that appears to be valid but is actually defective and fails to establish the conclusion.",
+    significance: "Nyaya rigorously classifies logical fallacies to ensure that inference remains a reliable means of knowledge."
+  },
+  {
+    id: "apavarga",
+    sanskrit: "??????",
+    iast: "apavarga",
+    english: "Liberation / Final Release",
+    category: "Metaphysics",
+    definition: "Absolute deliverance from pain. The state of the soul freed from the cycle of birth, activity, and fault.",
+    significance: "In Nyaya, liberation is not a state of blissful joy, but an absolutely negative state of total cessation of suffering and consciousness."
+  },
+  {
+    id: "vyabhicara",
+    sanskrit: "????????",
+    iast: "vyabhicara",
+    english: "Inconstancy / Deviation",
+    category: "Dialectics",
+    definition: "A logical fallacy where the reason (hetu) exists both where the probandum (sadhya) exists and where it does not.",
+    significance: "If smoke existed in both kitchens (where there is fire) and lakes (where there is no fire), smoke would be an inconstant reason for inferring fire."
+  },
+  {
+    id: "prayojana",
+    sanskrit: "??????",
+    iast: "prayojana",
+    english: "Purpose / Motive",
+    category: "Dialectics",
+    definition: "The objective or motive that induces someone to act or engage in a discussion.",
+    significance: "Without a purpose (either to attain good or avoid evil), no philosophical inquiry or action occurs."
+  },
+  {
+    id: "vakya",
+    sanskrit: "?????",
+    iast: "vakya",
+    english: "Sentence / Statement",
+    category: "Hermeneutics",
+    definition: "A meaningful arrangement of words. In Nyaya, it refers specifically to the statements of an authoritative person (apta).",
+    significance: "Crucial for understanding how verbal testimony (shabda) conveys valid knowledge."
+  },
+  {
+    id: "avayava",
+    sanskrit: "????",
+    iast: "avayava",
+    english: "Members of a Syllogism / Parts",
+    category: "Dialectics",
+    definition: "The five members of a formal inference used to convince others: Proposition, Reason, Example, Application, and Conclusion.",
+    significance: "While one can infer something internally in three steps, convincing another person in debate strictly requires these five members to avoid rhetorical flaws."
+  },
+  {
+    id: "chhala",
+    sanskrit: "???",
+    iast: "chhala",
+    english: "Quibble / Casuistry",
+    category: "Dialectics",
+    definition: "The opposition to a statement by assigning to it an unintended meaning.",
+    significance: "A common tactic in wrangling (jalpa). Nyaya identifies it to protect truth-seekers from falling prey to verbal tricks."
+  },
+  {
+    id: "jati",
+    sanskrit: "????",
+    iast: "jati",
+    english: "Futile Rejoinder",
+    category: "Dialectics",
+    definition: "An objection based on mere similarity or dissimilarity, without addressing the underlying logical connection.",
+    significance: "A sophistical rebuttal that fails to actually counter the opponent's argument."
+  },
+  {
+    id: "nigrahasthana",
+    sanskrit: "???????????",
+    iast: "nigrahasthana",
+    english: "Ground of Defeat",
+    category: "Dialectics",
+    definition: "The point in a debate where a participant is defeated due to a contradiction, evasion, or inability to grasp the opponent's point.",
+    significance: "The formal conclusion of a philosophical dispute, marking the failure of one party's reasoning."
+  },
+  {
+    id: "pradipa-prakasha",
+    sanskrit: "???????-??????",
+    iast: "pradipa-prakasa",
+    english: "Illumination of a Lamp",
+    category: "Epistemology",
+    definition: "An analogy explaining how a means of knowledge (pramāṇa) validates itself while validating an object, just as a lamp illuminates itself while illuminating a room.",
+    significance: "Used to solve the paradox of infinite regress in epistemology, showing that not everything requires an external validator."
   }
 ];

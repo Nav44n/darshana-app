@@ -84,7 +84,7 @@ export function LanguageToggle() {
       accessibilityRole="button"
       accessibilityLabel={appLanguage === 'en' ? 'Switch to Malayalam' : 'Switch to English'}
     >
-      <Text style={[type.caption, { color: colors.sattva }]}>{appLanguage === 'en' ? 'EN' : '?'}</Text>
+      <Text style={[type.caption, { color: colors.sattva }]}>{appLanguage === 'en' ? 'EN' : 'മല'}</Text>
     </Pressable>
   );
 }
@@ -99,7 +99,7 @@ export function ThemeToggle() {
       accessibilityRole="button"
       accessibilityLabel={mode === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
     >
-      <Text style={[type.caption, { color: colors.sattva }]}>{mode === 'dark' ? '?' : '?'}</Text>
+      <Text style={[type.caption, { color: colors.sattva }]}>{mode === 'dark' ? '☀' : '☾'}</Text>
     </Pressable>
   );
 }

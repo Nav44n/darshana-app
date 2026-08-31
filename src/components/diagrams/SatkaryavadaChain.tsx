@@ -1,6 +1,6 @@
 import React from 'react';
 import Svg, { Circle, Line, Path, Text as SvgText } from 'react-native-svg';
-import { colors } from '../../theme/tokens';
+import { useTheme } from '../../theme/useTheme';
 
 const chain = [
   { x: 40, label: 'seed' },
@@ -10,6 +10,7 @@ const chain = [
 ];
 
 export default function SatkaryavadaChain() {
+  const { colors } = useTheme();
   return (
     <Svg viewBox="0 0 320 160" width="100%" height={150}>
       <Line x1={30} y1={70} x2={290} y2={70} stroke={colors.hair} strokeWidth={1} />

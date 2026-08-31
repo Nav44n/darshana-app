@@ -1,9 +1,11 @@
 import { System, ThreadStep, ClassicalText } from '../types/content';
-import { samkhyaKarika, samkhyaKarikaThread } from './samkhya/samkhya-karika';
+import { samkhyaKarika } from './samkhya/samkhya-karika';
+import { samkhyaKarikaThread } from './samkhya/samkhya-karika-thread';
 import { yogaSutras, yogaSutrasThread } from './yoga/yoga-sutras';
 import { nyayaSutras, nyayaSutrasThread } from './nyaya/nyaya-sutras';
 import { vaisesikaSutrasText } from './vaisesika/vaisesika-sutras';
 import { vaisesikaThreadEn } from './vaisesika/vaisesika-sutras-thread-en';
+import { mimamsaSystem } from './mimamsa';
 import { vedantaSystem } from './vedanta';
 
 // Stitches a text's authored thread steps into full ThreadStep objects,
@@ -42,6 +44,7 @@ export const systems: System[] = [
     texts: [vaisesikaSutrasText],
     thread: threadFor(vaisesikaSutrasText, vaisesikaThreadEn),
   },
+  mimamsaSystem,
   vedantaSystem
 ];
 

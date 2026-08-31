@@ -25,8 +25,9 @@ export const nyayaVerses: Verse[] = nyayaSutrasEn.map(v => {
         keyPoints: v.keyPoints
       },
       ml: mlSutra ? {
-        translation: mlSutra.malayalamSutra,
-        commentary: mlSutra.malayalamCommentary
+        translation: mlSutra.translation,
+        commentary: mlSutra.commentary,
+        keyPoints: mlSutra.keyPoints
       } : undefined
     }
   };
@@ -34,25 +35,28 @@ export const nyayaVerses: Verse[] = nyayaSutrasEn.map(v => {
 
 export const nyayaConcepts: Concept[] = nyayaConceptsEn.map((c: any) => ({
   id: c.id,
-  relatedVerseIds: c.relatedConcepts,
+  relatedVerseIds: [],
   content: {
     en: {
       title: `${c.sanskrit} (${c.iast}) - ${c.english}`,
       summary: `**Category**: ${c.category}\n\n**Definition**: ${c.definition}\n\n**Significance**: ${c.significance}`
     },
-    ml: nyayaSutrasConceptsMl[c.id]
+    ml: nyayaSutrasConceptsMl.find((m: any) => m.id === c.id)
   }
 }));
 
-export const nyayaSutrasThread: Omit<ThreadStep, 'textId'>[] = nyayaSutrasThreadEn.map((t: any) => ({
-  id: t.id,
-  conceptId: t.conceptId,
-  verseIds: t.verseIds,
-  content: {
-    en: { title: t.title, narrative: t.narrative },
-    ml: nyayaSutrasThreadMl[t.id]
-  }
-}));
+export const nyayaSutrasThread: Omit<ThreadStep, 'textId'>[] = nyayaSutrasThreadEn.map((t: any, index: number) => {
+  const mlThread = nyayaSutrasThreadMl.find((m: any) => m.id === t.id) || nyayaSutrasThreadMl[index];
+  return {
+    id: t.id,
+    conceptId: t.conceptId,
+    verseIds: t.verseIds,
+    content: {
+      en: { title: t.title, narrative: t.narrative },
+      ml: mlThread ? { title: mlThread.title, narrative: mlThread.narrative } : undefined
+    }
+  };
+});
 
 export const nyayaSutras: ClassicalText = {
   id: 'nyaya-sutras',

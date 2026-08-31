@@ -1,8 +1,9 @@
 import React from 'react';
 import Svg, { Rect, Text as SvgText, Circle } from 'react-native-svg';
-import { colors } from '../../theme/tokens';
+import { useTheme } from '../../theme/useTheme';
 
 export default function LingaSharira() {
+  const { colors } = useTheme();
   return (
     <Svg viewBox="0 0 320 220" width="100%" height={220}>
       <Rect x="40" y="20" width="240" height="180" rx="20" fill="none" stroke={colors.sattva} strokeWidth="2" strokeDasharray="6,6" />

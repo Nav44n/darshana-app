@@ -1,32 +1,37 @@
 import React from 'react';
-import Svg, { Rect, Text as SvgText, Line, Circle } from 'react-native-svg';
-import { colors } from '../../theme/tokens';
+import Svg, { Rect, Line, Path, Defs, Marker, Text as SvgText } from 'react-native-svg';
+import { useTheme } from '../../theme/useTheme';
 
 export default function AbhyasaVairagya() {
+  const { colors } = useTheme();
+
   return (
-    <Svg viewBox="0 0 320 200" width="100%" height={200}>
-      {/* Central Fulcrum */}
-      <Line x1="160" y1="160" x2="160" y2="80" stroke={colors.inkDim} strokeWidth={2} />
-      <Circle cx="160" cy="80" r="4" fill={colors.ink} />
-      
-      {/* Balance Beam */}
-      <Line x1="80" y1="80" x2="240" y2="80" stroke={colors.ink} strokeWidth={2} />
-      
-      {/* Abhyasa Side */}
-      <Line x1="80" y1="80" x2="80" y2="120" stroke={colors.inkDim} strokeWidth={1.5} />
-      <Circle cx="80" cy="120" r="20" fill={colors.rajas} />
-      <SvgText x="80" y="160" fontSize="12" fontWeight="600" fill={colors.ink} textAnchor="middle">ABHYĀSA</SvgText>
-      <SvgText x="80" y="175" fontSize="10" fill={colors.inkDim} textAnchor="middle">Practice (Effort)</SvgText>
+    <Svg width="100%" viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" role="img">
+      <Defs>
+        <Marker id="arrowAV" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <Path d="M2 1L8 5L2 9" fill="none" stroke={colors.purusha} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </Marker>
+      </Defs>
 
-      {/* Vairagya Side */}
-      <Line x1="240" y1="80" x2="240" y2="120" stroke={colors.inkDim} strokeWidth={1.5} />
-      <Circle cx="240" cy="120" r="20" fill={colors.sattva} />
-      <SvgText x="240" y="160" fontSize="12" fontWeight="600" fill={colors.ink} textAnchor="middle">VAIRĀGYA</SvgText>
-      <SvgText x="240" y="175" fontSize="10" fill={colors.inkDim} textAnchor="middle">Dispassion (Letting go)</SvgText>
+      <Rect x="260" y="20" width="160" height="56" rx="8" fill={colors.avyakta2} stroke={colors.purusha} strokeWidth="0.5"/>
+      <SvgText x="340" y="42" textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="14" fontWeight="500" fill={colors.ink}>Citta-vṛtti-nirodha</SvgText>
+      <SvgText x="340" y="62" textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="11" fill={colors.purushaDim}>the mind steadied</SvgText>
 
-      <SvgText x="160" y="30" fontSize="11" fontStyle="italic" fill={colors.inkDim} textAnchor="middle">
-        The two wings of Yoga
-      </SvgText>
+      <Line x1="200" y1="120" x2="300" y2="78" stroke={colors.purusha} strokeWidth="1" markerEnd="url(#arrowAV)"/>
+      <Line x1="480" y1="120" x2="380" y2="78" stroke={colors.purusha} strokeWidth="1" markerEnd="url(#arrowAV)"/>
+
+      <Rect x="80" y="120" width="160" height="100" rx="8" fill={colors.avyakta2} stroke={colors.amber} strokeWidth="0.5"/>
+      <SvgText x="160" y="150" textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="14" fontWeight="500" fill={colors.ink}>Abhyāsa</SvgText>
+      <SvgText x="160" y="172" textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="12" fill={colors.amberDim}>sustained, devoted</SvgText>
+      <SvgText x="160" y="190" textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="12" fill={colors.amberDim}>practice</SvgText>
+
+      <Rect x="440" y="120" width="160" height="100" rx="8" fill={colors.avyakta2} stroke={colors.teal} strokeWidth="0.5"/>
+      <SvgText x="520" y="150" textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="14" fontWeight="500" fill={colors.ink}>Vairāgya</SvgText>
+      <SvgText x="520" y="172" textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="12" fill={colors.tealDim}>freedom from</SvgText>
+      <SvgText x="520" y="190" textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="12" fill={colors.tealDim}>craving</SvgText>
+
+      <SvgText x="340" y="245" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fill={colors.tamas}>Practice without dispassion breeds new attachment; either alone is not enough</SvgText>
     </Svg>
   );
 }
+

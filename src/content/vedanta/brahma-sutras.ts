@@ -6,6 +6,7 @@ import { brahmaSutrasEnAdhyaya3Part2 } from './brahma-sutras-en-adhyaya3-2';
 import { brahmaSutrasEnAdhyaya4 } from './brahma-sutras-en-adhyaya4';
 import { brahmaSutrasMl } from './brahma-sutras-ml';
 import { brahmaSutrasConceptsEn } from './brahma-sutras-concepts-en';
+import { brahmaSutrasConceptsMl } from './brahma-sutras-concepts-ml';
 
 export const brahmaSutrasText: ClassicalText = {
   id: 'brahma-sutras',
@@ -34,14 +35,24 @@ export const brahmaSutrasText: ClassicalText = {
       }
     };
   }),
-  concepts: brahmaSutrasConceptsEn.map((c: any) => ({
-    id: c.id,
-    relatedVerseIds: [],
-    content: {
-      en: {
-        title: `${c.sanskrit} - ${c.term}`,
-        summary: `**Category**: ${c.category}\n\n**Definition**: ${c.basicDefinition}\n\n**Explanation**: ${c.advancedExplanation}`
+  concepts: brahmaSutrasConceptsEn.map((c: any) => {
+    const mlConcept = brahmaSutrasConceptsMl.find(m => m.id === c.id);
+    return {
+      id: c.id,
+      diagramId: c.diagramId,
+      relatedVerseIds: [],
+      content: {
+        en: {
+          title: `${c.sanskrit} - ${c.term}`,
+          summary: `**Category**: ${c.category}\n\n**Definition**: ${c.basicDefinition}\n\n**Explanation**: ${c.advancedExplanation}`
+        },
+        ...(mlConcept && {
+          ml: {
+            title: `${mlConcept.sanskrit} - ${mlConcept.term}`,
+            summary: `**Category**: ${mlConcept.category}\n\n**Definition**: ${mlConcept.basicDefinition}\n\n**Explanation**: ${mlConcept.advancedExplanation}`
+          }
+        })
       }
-    }
-  }))
+    };
+  })
 };

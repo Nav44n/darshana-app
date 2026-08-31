@@ -1,32 +1,40 @@
 import React from 'react';
-import Svg, { Rect, Text as SvgText, Polygon } from 'react-native-svg';
-import { colors } from '../../theme/tokens';
+import Svg, { Rect, Line, Path, Defs, Marker, Text as SvgText } from 'react-native-svg';
+import { useTheme } from '../../theme/useTheme';
 
 export default function Samprajnata() {
+  const { colors } = useTheme();
+
+  const stages = [
+    { title: 'Vitarka', sub: 'gross inquiry', stroke: colors.rajas, dim: colors.rajasDim },
+    { title: 'Vicāra', sub: 'subtle inquiry', stroke: colors.amber, dim: colors.amberDim },
+    { title: 'Ānanda', sub: 'bliss', stroke: colors.teal, dim: colors.tealDim },
+    { title: 'Asmitā', sub: 'pure I-am-ness', stroke: colors.purusha, dim: colors.purushaDim },
+  ];
+
   return (
-    <Svg viewBox="0 0 320 280" width="100%" height={260}>
-      <SvgText x="160" y="30" fontSize="11" fontWeight="600" fill={colors.ink} textAnchor="middle">
-        SAMPRAJÑĀTA SAMĀDHI
-      </SvgText>
+    <Svg width="100%" viewBox="0 0 420 400" xmlns="http://www.w3.org/2000/svg" role="img">
+      <Defs>
+        <Marker id="arrowSP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <Path d="M2 1L8 5L2 9" fill="none" stroke={colors.tamas} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </Marker>
+      </Defs>
 
-      {/* Downward Funnel/Arrow background */}
-      <Polygon points="80,50 240,50 200,230 120,230" fill={colors.avyakta3} opacity={0.5} />
-
-      <Rect x="100" y="60" width="120" height="30" rx="4" fill={colors.tamas} />
-      <SvgText x="160" y="79" fontSize="10" fontWeight="600" fill="#fff" textAnchor="middle">VITARKA (Gross)</SvgText>
-
-      <Rect x="110" y="110" width="100" height="30" rx="4" fill={colors.rajas} />
-      <SvgText x="160" y="129" fontSize="10" fontWeight="600" fill="#fff" textAnchor="middle">VICĀRA (Subtle)</SvgText>
-
-      <Rect x="120" y="160" width="80" height="30" rx="4" fill={colors.sattvaDim} />
-      <SvgText x="160" y="179" fontSize="10" fontWeight="600" fill={colors.ink} textAnchor="middle">ĀNANDA (Bliss)</SvgText>
-
-      <Rect x="130" y="210" width="60" height="30" rx="4" fill={colors.sattva} />
-      <SvgText x="160" y="229" fontSize="10" fontWeight="600" fill={colors.avyakta} textAnchor="middle">ASMITĀ</SvgText>
-
-      <SvgText x="160" y="255" fontSize="9" fontStyle="italic" fill={colors.inkDim} textAnchor="middle">
-        (Pure 'I-am-ness')
-      </SvgText>
+      {stages.map((s, i) => {
+        const y = 20 + i * 90;
+        return (
+          <React.Fragment key={s.title}>
+            <Rect x="110" y={y} width="200" height="60" rx="8" fill={colors.avyakta2} stroke={s.stroke} strokeWidth="0.6"/>
+            <SvgText x="210" y={y + 24} textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="14" fontWeight="500" fill={colors.ink}>{s.title}</SvgText>
+            <SvgText x="210" y={y + 42} textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="11" fill={s.dim}>{s.sub}</SvgText>
+            {i < stages.length - 1 && (
+              <Line x1="210" y1={y + 60} x2="210" y2={y + 88} stroke={colors.tamas} strokeWidth="1" markerEnd="url(#arrowSP)"/>
+            )}
+          </React.Fragment>
+        );
+      })}
+      <SvgText x="210" y="380" textAnchor="middle" fontFamily="sans-serif" fontSize="12" fill={colors.tamas}>Each stage drops a layer, moving toward the bare sense of "I am"</SvgText>
     </Svg>
   );
 }
+

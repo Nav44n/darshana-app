@@ -1,8 +1,9 @@
 import React from 'react';
 import Svg, { Rect, Text as SvgText } from 'react-native-svg';
-import { colors } from '../../theme/tokens';
+import { useTheme } from '../../theme/useTheme';
 
 export default function ThreeWorlds() {
+  const { colors } = useTheme();
   return (
     <Svg viewBox="0 0 320 200" width="100%" height={200}>
       <Rect x="80" y="10" width="160" height="50" rx="8" fill={colors.sattva} />

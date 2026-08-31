@@ -128,7 +128,7 @@ export default function ThreadScreen() {
             {(step.content[appLanguage]?.narrative || step.content.en?.narrative) ?? ''}
           </LinkedText>
 
-          {concept?.diagramId && (
+          {!!concept?.diagramId && (
             <DiagramFrame>
               <Diagram id={concept.diagramId} />
             </DiagramFrame>

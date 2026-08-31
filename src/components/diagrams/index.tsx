@@ -32,7 +32,40 @@ import NyayaPramanasDiagram from './NyayaPramanasDiagram';
 import NyayaBondageChain from './NyayaBondageChain';
 import ShodashaPadarthaTree from './ShodashaPadarthaTree';
 
+import VaisesikaDharma from './VaisesikaDharma';
+import VaisesikaPadartha from './VaisesikaPadartha';
+import VaisesikaDravya from './VaisesikaDravya';
+import VaisesikaGunaKarma from './VaisesikaGunaKarma';
+import VaisesikaParamanu from './VaisesikaParamanu';
+import VaisesikaSamanyaVisesa from './VaisesikaSamanyaVisesa';
+import VaisesikaSamavaya from './VaisesikaSamavaya';
+import VaisesikaAbhava from './VaisesikaAbhava';
+import VaisesikaManas from './VaisesikaManas';
+import VaisesikaAsatkaryavada from './VaisesikaAsatkaryavada';
+import VaisesikaAtman from './VaisesikaAtman';
+import VaisesikaMoksha from './VaisesikaMoksha';
+import BrahmanJivaIshvara from './BrahmanJivaIshvara';
+import AbhinnaNimittaUpadana from './AbhinnaNimittaUpadana';
+import MayaPowers from './MayaPowers';
+import VivartaVsParinama from './VivartaVsParinama';
+
 export const diagramRegistry: Record<string, React.FC> = {
+  'brahman-jiva-ishvara': BrahmanJivaIshvara,
+  'abhinna-nimitta-upadana': AbhinnaNimittaUpadana,
+  'maya-powers': MayaPowers,
+  'vivarta-vs-parinama': VivartaVsParinama,
+  'dharma': VaisesikaDharma,
+  'padartha': VaisesikaPadartha,
+  'dravya': VaisesikaDravya,
+  'guna-karma': VaisesikaGunaKarma,
+  'paramanu': VaisesikaParamanu,
+  'samanya-visesa': VaisesikaSamanyaVisesa,
+  'samavaya': VaisesikaSamavaya,
+  'abhava': VaisesikaAbhava,
+  'manas': VaisesikaManas,
+  'asatkaryavada': VaisesikaAsatkaryavada,
+  'atman': VaisesikaAtman,
+  'moksha': VaisesikaMoksha,
   'duhkha-traya': DuhkhaTraya,
   'guna-lamp': GunaLamp,
   'tattva-tree': TattvaTree,
@@ -79,6 +112,8 @@ export const systemHeroRegistry: Record<string, React.FC> = {
   samkhya: TattvaTree,
   yoga: CittaVritti,
   nyaya: ShodashaPadarthaTree,
+  vaisesika: VaisesikaPadartha,
+  vedanta: BrahmanJivaIshvara,
 };
 
 export function SystemHero({ systemId }: { systemId: string }) {

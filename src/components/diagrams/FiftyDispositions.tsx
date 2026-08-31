@@ -1,8 +1,9 @@
 import React from 'react';
 import Svg, { Rect, Text as SvgText, Line, Circle } from 'react-native-svg';
-import { colors } from '../../theme/tokens';
+import { useTheme } from '../../theme/useTheme';
 
 export default function FiftyDispositions() {
+  const { colors } = useTheme();
   return (
     <Svg viewBox="0 0 320 180" width="100%" height={180}>
       <Rect x="80" y="10" width="160" height="30" rx="15" fill={colors.sattva} />

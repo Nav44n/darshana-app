@@ -153,7 +153,7 @@ export default function VerseDetailScreen() {
           ) : (
             <Text style={[s.iastPrimary, { fontSize: scaledFont(19) }]}>{verse.iast}</Text>
           )}
-          {verse.devanagari && <Text style={[s.iast, { fontSize: scaledFont(15) }]}>{verse.iast}</Text>}
+          {!!verse.devanagari && <Text style={[s.iast, { fontSize: scaledFont(15) }]}>{verse.iast}</Text>}
         </View>
 
         <View style={s.sideBySideBlock}>
@@ -196,7 +196,7 @@ export default function VerseDetailScreen() {
           </>
         )}
 
-        {verse.diagramId && (
+        {!!verse.diagramId && (
           <>
             <SectionLabel>Concept diagram</SectionLabel>
             <DiagramFrame>

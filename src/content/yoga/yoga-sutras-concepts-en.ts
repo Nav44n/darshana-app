@@ -84,5 +84,28 @@ export const yogaSutrasConceptsEn: any[] = [
     "diagramId": "parinamas",
     "title": "Pariṇāma — the three transformations of mind",
     "summary": "The mind's relation to time transforms in three ways: Nirodha-pariṇāma (the moment of restriction), Samādhi-pariṇāma (the shrinking of distraction and rise of focus), and Ekāgratā-pariṇāma (the continuous flow of identical one-pointed states)."
+  },
+  {
+    "id": "pancha-vritti",
+    "diagramId": "citta-vritti",
+    "title": "Pañca Vṛtti — the five states of mind",
+    "summary": "The mind always operates through five types of thought patterns: pramāṇa (right knowledge), viparyaya (misconception), vikalpa (imagination), nidrā (sleep), and smṛti (memory). They can be afflicted or non-afflicted."
+  },
+  {
+    "id": "nava-antaraya",
+    "diagramId": "antarayas",
+    "title": "Nava Antarāya — the nine obstacles",
+    "summary": "Nine physical and mental turbulences that distract the mind: disease, dullness, doubt, carelessness, laziness, worldly attachment, false perception, failure to concentrate, and inability to maintain it."
+  },
+  {
+    "id": "chitta-prasadana",
+    "title": "Citta Prasadana - calming the mind",
+    "summary": "The deliberate cultivation of four attitudes to maintain mental serenity: friendliness toward the happy, compassion for the suffering, gladness for the virtuous, and indifference toward the wicked."
+  },
+  {
+    "id": "samadhi-types",
+    "diagramId": "samprajnata",
+    "title": "Samādhi — stages of absorption",
+    "summary": "The culmination of meditation, progressing from Samprajñāta (absorption with an object and cognition) to Asamprajñāta or Nirbīja Samādhi (objectless, seedless absorption where all vṛttis cease)."
   }
 ];
