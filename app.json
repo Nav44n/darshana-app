@@ -39,6 +39,9 @@
       "eas": {
         "projectId": "cb049543-9959-4414-af9d-f739c5ad76d8"
       }
+    },
+    "experiments": {
+      "baseUrl": "/darshana-app"
     }
   }
 }
