@@ -1,4 +1,5 @@
 import React from 'react';
+import { View, Text } from 'react-native';
 import DuhkhaTraya from './DuhkhaTraya';
 import GunaLamp from './GunaLamp';
 import TattvaTree from './TattvaTree';
@@ -118,5 +119,11 @@ export const systemHeroRegistry: Record<string, React.FC> = {
 
 export function SystemHero({ systemId }: { systemId: string }) {
   const C = systemHeroRegistry[systemId];
-  return C ? <C /> : null;
+  if (C) return <C />;
+  
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', opacity: 0.3 }}>
+      <Text style={{ fontFamily: 'NotoSerifDevanagari_700Bold', fontSize: 48, color: '#fff' }}>ॐ</Text>
+    </View>
+  );
 }
