@@ -1484,5 +1484,465 @@ export const tantralokaConceptsEn: TantralokaConcept[] = [
     definition: "The ultimate realization concluding Śāmbhavopāya: the undeniable, lived experience that 'I am the universe' and that all 36 Tattvas and all phonemes are synthesized within my own body and consciousness.",
     significance: "This brings the teachings of Volume 2 full circle. The Anuttara (Absolute) discussed in Anupāya is finally realized in Śāmbhavopāya not as a distant goal, but as the very fabric of one's own embodied existence.",
     relatedConcepts: ["aham", "pratibimba", "purnata"]
+  },
+
+// --- ŚĀKTOPĀYA & THE PURIFICATION OF THOUGHT ---
+  {
+    id: "saktopaya-vol3",
+    sanskrit: "शाक्तोपाय",
+    iast: "śāktopāya",
+    english: "The Empowered Means",
+    category: "Soteriology",
+    definition: "The category of spiritual practice (upāya) based on the power of knowledge/perception (Jñāna-śakti). It involves the penetration of consciousness using the mind alone, without relying on outer physical supports like rituals or breath control.",
+    significance: "Unlike Śāmbhavopāya (which operates in the thought-free realm), Śāktopāya works directly with the flux of discursive thoughts (vikalpa). By refining and purifying these thoughts, the yogi uses the mind to eventually transcend the mind, leading to thought-free (nirvikalpa) realization.",
+    relatedConcepts: ["vikalpa-samskara", "sattarka", "jñāna-sakti"]
+  },
+  {
+    id: "vikalpa-samskara-vol3",
+    sanskrit: "विकल्पसंस्कार",
+    iast: "vikalpa-saṃskāra",
+    english: "The Purification / Refinement of Thought",
+    category: "Epistemology",
+    definition: "The cognitive process wherein an initially unclear notion of reality (e.g., 'I am Śiva') is repeatedly contemplated and refined until it becomes supremely clear (sphuṭatama) and transforms into direct, thought-free insight.",
+    significance: "Abhinavagupta teaches that thought is not merely an obstacle to be destroyed, but a vehicle that can be purified. A slightly purified thought generates a purer one, forming a progressive chain that ultimately dissolves the dualizing nature of the mind, merging it with pure consciousness.",
+    relatedConcepts: ["saktopaya", "sattarka", "vikalpa"]
+  },
+  {
+    id: "vikalpa-vol3",
+    sanskrit: "विकल्प",
+    iast: "vikalpa",
+    english: "Discursive Thought / Differentiated Perception",
+    category: "Epistemology",
+    definition: "The dualistic, conceptual representation of reality where things are perceived as distinct from one another and from the perceiver. It is the 'unclear' indirect perception typical of daily life.",
+    significance: "While binding in its ordinary state, vikalpa is the primary working material of Śāktopāya. The goal is not instant eradication, but progressive clarification until the thought construct aligns perfectly with absolute reality and tapers off into non-dual awareness.",
+    relatedConcepts: ["nirvikalpa", "vikalpa-samskara", "bheda"]
+  },
+
+  // --- REASONING, INSIGHT & CONTEMPLATION ---
+  {
+    id: "sattarka-vol3",
+    sanskrit: "सत्तर्क",
+    iast: "sattarka",
+    english: "Sound Discriminative Reasoning / True Intuitive Logic",
+    category: "Epistemology",
+    definition: "The highest form of reasoning, defined as the capacity to discern what should be adopted (truth/non-duality) and what should be abandoned (ignorance/duality). It is metaphorically described as the fully sharpened axe that severs the tree of harmful duality.",
+    significance: "In the context of the Empowered Means, Sattarka is considered the most excellent, and indeed the *only* necessary, ancillary of Yoga (yogānga). It is distinct from dry, formal logic (śuṣkatarka); it is an intuitive, spiritually charged insight that matures into Pure Knowledge.",
+    relatedConcepts: ["śuddhavidya", "bhavana", "yoganga"]
+  },
+  {
+    id: "bhavana-vol3",
+    sanskrit: "भावना",
+    iast: "bhāvanā",
+    english: "Creative Contemplation",
+    category: "Soteriology",
+    definition: "The state of intense, creative concentration that results when Sound Reasoning (sattarka) reaches its supreme summit. It is the capacity to render ultimate reality vividly evident and directly apparent.",
+    significance: "Abhinavagupta likens Bhāvanā to 'the cow who grants all wishes' (Kāmadhenu). It takes abstract philosophical truths and, through intense contemplation, transforms them into living, experiential reality that is beyond mere wishful imagination.",
+    relatedConcepts: ["sattarka", "dhyana", "vikalpa-samskara"]
+  },
+  {
+    id: "suddhavidya",
+    sanskrit: "शुद्धविद्या",
+    iast: "śuddhavidyā",
+    english: "Pure Knowledge",
+    category: "Absolute Reality",
+    definition: "The stage of consciousness where the duality of subject and object is bridged by the unifying awareness that 'I am all this universe and all this universe is me'.",
+    significance: "Sound Reasoning (sattarka) is equated directly with Śuddhavidyā. It is the divine will of the Supreme Lord operating within the yogi as the pure, thoughtless insight that recognizes the innate unity of existence.",
+    relatedConcepts: ["sattarka", "aham-idam", "vikalpana"]
+  },
+
+  // --- DIVINE CONCEALMENT & LOWER PATHS ---
+  {
+    id: "svatmapracchadana-krida",
+    sanskrit: "स्वात्मप्रच्छादनक्रीडा",
+    iast: "svātmapracchādana-krīḍā",
+    english: "The Game of Self-Concealment",
+    category: "Cosmology",
+    definition: "The playful, autonomous act of the Supreme Lord hiding His own unconditioned, infinite nature to manifest as limited subjects and objects.",
+    significance: "This concept explains the existence of duality and ignorance without compromising Śiva's absolute perfection. Concealment is not a flaw or an external force, but a manifestation of Śiva's omnipotent freedom (svātantrya) to accomplish the impossible.",
+    relatedConcepts: ["maya", "svatantrya", "lila"]
+  },
+  {
+    id: "raga-niyati",
+    sanskrit: "राग-नियति",
+    iast: "rāga-niyati",
+    english: "Attachment and Necessity (Constraint)",
+    category: "Cosmology",
+    definition: "Two of the obscuring coverings (Kañcukas) of Māyā. Rāga is the general craving for objects, while Niyati is the restrictive law of cause and effect that focuses this craving onto specific, limited goals.",
+    significance: "Abhinavagupta explains that it is the combination of Rāga and Niyati that binds ignorant souls to lower, incomplete spiritual paths and false philosophies, preventing them from recognizing the supreme Śaiva non-duality.",
+    relatedConcepts: ["kancuka", "maya", "vama-sakti"]
+  },
+  {
+    id: "pralayakala",
+    sanskrit: "प्रलयाकल",
+    iast: "pralayākala",
+    english: "The Dissolution Deconditioned Perceiver",
+    category: "Subtle Physiology",
+    definition: "A state of the individual soul where it is temporarily free from the active forces of limitation (kalā) but remains in a state of deep sleep or suspended animation, retaining the impurities of Māyā and Karma.",
+    significance: "In a radical critique, Abhinavagupta equates the ultimate liberation goals of rival schools (like the Vaiṣṇava 'union' or Buddhist 'extinction') to merely this suspended, deep-sleep state. He argues they have not truly transcended Māyā, and will inevitably be reborn.",
+    relatedConcepts: ["sakala", "vijnanakala", "maya-mala"]
+  },
+  {
+    id: "yoganga",
+    sanskrit: "योगाङ्ग",
+    iast: "yogānga",
+    english: "Ancillaries / Limbs of Yoga",
+    category: "Soteriology",
+    definition: "The traditional stages or practices of Yoga (like breath control, posture, withdrawal of senses).",
+    significance: "In the context of Śāktopāya, Abhinavagupta radically devalues the physical and restrictive limbs of Yoga, declaring them useless external artificial constructs. He asserts that Sound Discriminative Reasoning (Tarka) is the only true and excellent ancillary of Yoga.",
+    relatedConcepts: ["sattarka", "pranayama", "dhyana"]
+  },
+
+// --- PURIFICATION OF THOUGHT & REASONING ---
+  {
+    id: "sattarka-vol3-p2",
+    sanskrit: "सत्तर्क",
+    iast: "sattarka",
+    english: "Pure Reasoning / Sound Logic",
+    category: "Epistemology",
+    definition: "Not mere intellectual debate or dry logic, but reasoning that is perfectly aligned with the non-dual truth (Āgama) and directed toward liberation. It is the clearest and most elevated function of the intellect (Buddhi).",
+    significance: "In Śāktopāya, Sattarka is considered the highest limb of Yoga. It is the mental instrument that cuts through ignorance and leads the mind to realize its own divine nature, serving as the bridge between limited thought and pure awareness.",
+    relatedConcepts: ["agama", "pramana", "vikalpa-samskara"]
+  },
+  {
+    id: "vikalpa-samskara-vol3-p2",
+    sanskrit: "विकल्पसंस्कार",
+    iast: "vikalpa-saṃskāra",
+    english: "Purification / Refinement of Thought",
+    category: "Soteriology",
+    definition: "The methodical process in Śāktopāya of replacing limiting, dualistic thoughts ('I am bound', 'I am imperfect') with expansive, non-dual thoughts ('I am Śiva', 'The universe is my expression').",
+    significance: "Unlike Śāmbhavopāya (which instantly drops thought), Śāktopāya uses thought to conquer thought. By constantly refining vikalpas through Sattarka and Āgama, the mind eventually exhausts its dualizing tendency and dissolves into non-discursive reality (Nirvikalpa).",
+    relatedConcepts: ["sattarka", "bhavana", "nirvikalpa"]
+  },
+  {
+    id: "bhavana-vol3-p2",
+    sanskrit: "भावना",
+    iast: "bhāvanā",
+    english: "Creative Contemplation / Absorptive Meditation",
+    category: "Soteriology",
+    definition: "The intense, repeated, and focused contemplation of a spiritual truth until it ceases to be a mere intellectual concept and becomes a vividly experienced reality.",
+    significance: "Through Bhāvanā, the practitioner digests the teachings of the Guru and Āgama. It is the energetic engine of Śāktopāya that transforms the pure thought (Sattarka) into the actual state of divine consciousness.",
+    relatedConcepts: ["vikalpa-samskara", "sattarka"]
+  },
+
+  // --- THE ROLE OF THE MASTER (GURU) ---
+  {
+    id: "guru-tattva",
+    sanskrit: "गुरुतत्त्व",
+    iast: "guru-tattva",
+    english: "The Principle of the Master",
+    category: "Soteriology",
+    definition: "The Guru is not merely a human teacher, but the very embodiment of Śiva's grace (Anugraha). In Chapter 4, the Guru is described as the ultimate Pramāṇa (authority/proof) because they possess direct, living experience of the Absolute.",
+    significance: "Sattarka (pure reasoning) cannot be cultivated in a vacuum; it is ignited through contact with a genuine Guru. The Guru's transmission validates the scriptures and awakens the disciple's own inner intuitive wisdom (Pratibhā).",
+    relatedConcepts: ["pratibha", "agama", "saktipata"]
+  },
+  {
+    id: "sadguru",
+    sanskrit: "सद्गुरु",
+    iast: "sadguru",
+    english: "The True / Authentic Master",
+    category: "Soteriology",
+    definition: "A master who has fully realized the non-dual state and is capable of transmitting this realization to others. Abhinavagupta contrasts the Sadguru with false teachers who are merely learned in texts but lack experiential realization.",
+    significance: "The Tantrāloka asserts that taking refuge in a Sadguru is the most reliable way to awaken Sattarka. A true master cuts through the disciple's doubts instantly, whereas solitary study of texts may lead to further mental entanglement.",
+    relatedConcepts: ["guru-tattva", "diksha"]
+  },
+  {
+    id: "diksha",
+    sanskrit: "दीक्षा",
+    iast: "dīkṣā",
+    english: "Initiation",
+    category: "Ritual & Mantra",
+    definition: "The spiritual transmission and ritual act performed by the Guru that destroys the disciple's limiting bonds (pāśa) and awakens their innate divine consciousness.",
+    significance: "In the context of Chapter 4, Dīkṣā is intimately tied to the transmission of pure knowledge. It is not just a physical ritual, but the profound transfer of awakened awareness from the Guru to the disciple, sparking the process of Vikalpa-saṃskāra.",
+    relatedConcepts: ["guru-tattva", "pasa", "saktipata"]
+  },
+
+  // --- TRANSITION TO THE COGNITIVE CYCLE ---
+  {
+    id: "krama-cakra",
+    sanskrit: "क्रमचक्र",
+    iast: "krama-cakra",
+    english: "The Wheel of Sequence (Cognitive Cycle)",
+    category: "Epistemology",
+    definition: "The cyclical sequence of consciousness as it projects, maintains, and withdraws the objective world through the act of perception. Every single cognition goes through a micro-cycle of creation, persistence, and dissolution.",
+    significance: "This concept bridges the purification of thought with the esoteric practices of Śāktopāya. By observing the Krama of their own thoughts and perceptions, the yogi realizes that they themselves are the creator and destroyer of all cognitive universes.",
+    relatedConcepts: ["dvadasakali", "srishti", "samhara"]
+  },
+  {
+    id: "dvadasakali",
+    sanskrit: "द्वादशकाली",
+    iast: "dvādaśakālī",
+    english: "The Twelve Kālīs",
+    category: "Cosmology",
+    definition: "The esoteric sequence of twelve goddesses representing the twelve stages of cognitive movement (from the initial impulse to perceive an object, to its perception, to its dissolution back into pure awareness).",
+    significance: "This is one of the most profound and secret teachings in Chapter 4, drawn from the Krama lineage. Contemplating the cycle of the Twelve Kālīs allows the practitioner of Śāktopāya to find the eternal, unchanging Absolute (Śiva) hidden within the constant flux of time and mental activity.",
+    relatedConcepts: ["krama-cakra", "samvid", "vikalpa-samskara"]
+  },
+
+// --- THE COGNITIVE CYCLE OF KĀLĪ (KRAMA) ---
+  {
+    id: "kalanakarana",
+    sanskrit: "कलनकरण",
+    iast: "kalanakaraṇa",
+    english: "The Act of Devouring / Generating Time",
+    category: "Epistemology",
+    definition: "The dual function of the Supreme Power (Kālī): she generates the illusion of sequential time (krama) to project the universe, and she devours or assimilates this time back into the eternal present of consciousness.",
+    significance: "In Śāktopāya, recognizing this function allows the yogi to realize that every passing second and every fleeting thought is actually the Goddess actively projecting and withdrawing reality. Time is not an external cage, but the play of awareness.",
+    relatedConcepts: ["krama-cakra", "dvadasakali", "samvit-devi"]
+  },
+  {
+    id: "samvit-devi",
+    sanskrit: "संवित् देवी",
+    iast: "saṃvit devī",
+    english: "The Goddess of Pure Awareness",
+    category: "Absolute Reality",
+    definition: "The ultimate, dynamic, and pulsating essence of consciousness, personified in the Krama system as the Supreme Kālī. She is the background upon which the twelve phases of cognition occur.",
+    significance: "She is not an object to be worshipped externally, but the very faculty of perception within the yogi. By tracing the birth and death of thoughts, the yogi is actually tracking the footprints of Saṃvit Devī.",
+    relatedConcepts: ["dvadasakali", "bhairava", "pratibha"]
+  },
+
+  // --- PHASES OF THE CYCLE (REPRESENTATIVE KĀLĪS) ---
+  {
+    id: "srishti-kali",
+    sanskrit: "सृष्टिकाली",
+    iast: "sṛṣṭikālī",
+    english: "The Kālī of Emanation",
+    category: "Epistemology",
+    definition: "The specific cognitive phase (and its presiding energy) where the initial impulse to perceive an object arises out of pure consciousness. It is the spontaneous externalization of awareness.",
+    significance: "This marks the moment the non-dual subject first allows a 'this' (an object or a thought) to appear distinct from 'I'. Recognizing Sṛṣṭikālī allows the yogi to catch the genesis of duality before it solidifies.",
+    relatedConcepts: ["srishti", "rakta-kali"]
+  },
+  {
+    id: "rakta-kali",
+    sanskrit: "रक्तकाली",
+    iast: "raktakālī",
+    english: "The Kālī of Passion / Persistence",
+    category: "Epistemology",
+    definition: "Also known as Sthitikālī, she represents the phase where the subject becomes 'attached' or 'colored' (rakta) by the perceived object, sustaining its existence in awareness.",
+    significance: "This is the phase of active, dualistic experience. The mind holds onto the thought or sensory input, believing it to be a separate reality. In Śāktopāya, the yogi learns to witness this grasping without being bound by it.",
+    relatedConcepts: ["srishti-kali", "samhara-kali"]
+  },
+  {
+    id: "samhara-kali",
+    sanskrit: "संहारकाली",
+    iast: "saṃhārakālī",
+    english: "The Kālī of Withdrawal",
+    category: "Epistemology",
+    definition: "The phase where the perception of the object begins to dissolve, receding from external manifestation back into the internal subjective memory or void.",
+    significance: "Every perception naturally dies. By focusing on Saṃhārakālī, the yogi rides the fading of a thought back to the source, using the death of the object to reveal the immortal subject.",
+    relatedConcepts: ["rakta-kali", "yama-kali"]
+  },
+  {
+    id: "yama-kali",
+    sanskrit: "यमकाली",
+    iast: "yamakālī",
+    english: "The Kālī of Restraint / Death",
+    category: "Epistemology",
+    definition: "The phase where the object is entirely withdrawn and rests as a latent impression (saṃskāra) within the mind. She 'binds' the dissolved universe within the subject.",
+    significance: "She represents the darkness of unmanifest potential. If the yogi stops here, they fall into the void of deep sleep (śūnya). The cycle must continue to completely burn the latent impressions.",
+    relatedConcepts: ["samhara-kali", "bhadrākali"]
+  },
+  
+  // --- THE CLIMAX OF THE CYCLE ---
+  {
+    id: "anakhya",
+    sanskrit: "अनाख्य",
+    iast: "anākhya",
+    english: "The Ineffable / The Unnamable State",
+    category: "Absolute Reality",
+    definition: "The supreme phase of the Krama cycle, transcending creation, persistence, and withdrawal. It is the state where both the object and the subject's limited ego are completely devoured.",
+    significance: "In Anākhya, consciousness does not just withdraw the object; it devours its own previous states of devouring. All traces of sequence and time are annihilated, leaving only the pure, unspeakable Absolute.",
+    relatedConcepts: ["mahabhairavacandograghorakali", "nirvikalpa"]
+  },
+  {
+    id: "mahabhairavacandograghorakali",
+    sanskrit: "महाभैरवचण्डोग्रघोरकाली",
+    iast: "mahābhairavacaṇḍograghorakālī",
+    english: "The Supreme, Terrifying, Fierce Kālī of Great Bhairava",
+    category: "Absolute Reality",
+    definition: "The ultimate, transcendent 13th Goddess (often synthesized into the 12th in Trika). She represents the absolute culmination of the Krama cycle—the ultimate Light that has consumed all darkness, all time, and all dualities.",
+    significance: "She is the ultimate goal of Śāktopāya. Realizing her means recognizing one's own consciousness as the supreme sovereign power that effortlessly projects and annihilates the entire cosmos in the fraction of a second of cognition.",
+    relatedConcepts: ["anakhya", "bhairava", "anuttara"]
+  },
+  {
+    id: "pitha-sthana",
+    sanskrit: "पीठस्थान",
+    iast: "pīṭhasthāna",
+    english: "The Sacred Seats (of the Goddesses)",
+    category: "Subtle Physiology",
+    definition: "In the esoteric practice of Chapter 4, the yogi visualizes these cognitive goddesses not in external temples, but at specific 'seats' (pīṭhas) within their own subtle body and sensory organs.",
+    significance: "This internalizes the entire Tantric ritual. The eyes, ears, mind, and the void of the heart become the sacred geometry where the cosmic drama of projection and withdrawal is worshipped continuously.",
+    relatedConcepts: ["samvit-devi", "hridaya"]
+  },
+
+// --- THE ALCHEMY OF DIGESTING DUALITY ---
+  {
+    id: "hatha-paka",
+    sanskrit: "हठपाक",
+    iast: "hāṭha-pāka",
+    english: "Violent / Forceful Digestion",
+    category: "Soteriology",
+    definition: "The aggressive, intense, and immediate assimilation of dualistic thoughts and objective reality into the fire of pure consciousness. It is the refusal to let a limiting thought persist.",
+    significance: "In Śāktopāya, the yogi does not passively watch thoughts, but actively 'cooks' them in the fire of awareness. By recognizing an object or emotion as an expression of Śiva, its limited, binding nature is forcefully destroyed.",
+    relatedConcepts: ["alamgrasa", "vimarśa", "vikalpa-samskara"]
+  },
+  {
+    id: "alamgrasa",
+    sanskrit: "अलं ग्रास",
+    iast: "alaṃ-grāsa",
+    english: "Total Devouring / Complete Assimilation",
+    category: "Soteriology",
+    definition: "The culmination of hāṭhapāka. It is the state where the objective universe has been completely 'eaten' by the supreme consciousness, leaving absolutely no residue (saṃskāra) of duality behind.",
+    significance: "When total devouring occurs, the yogi realizes that the universe is not something external to be feared or desired, but is simply the fuel that makes the fire of their own 'I-consciousness' blaze brighter.",
+    relatedConcepts: ["hatha-paka", "anakhya", "bhairava"]
+  },
+
+  // --- INTERNALIZATION OF RITUAL (ŚĀKTOPĀYA) ---
+  {
+    id: "antaryaga",
+    sanskrit: "अन्तर्याग",
+    iast: "antaryāga",
+    english: "Internal Sacrifice / Inner Worship",
+    category: "Ritual & Mantra",
+    definition: "The true, esoteric sacrifice where the offerings are not physical flowers or incense, but the practitioner's own thoughts, breath, sensory perceptions, and ego.",
+    significance: "Abhinavagupta asserts that external rituals belong to Āṇavopāya (the lowest means). In Śāktopāya, the supreme sacrifice is continuously offering the illusion of duality into the blazing fire of non-dual awareness.",
+    relatedConcepts: ["sakticakra", "hatha-paka"]
+  },
+  {
+    id: "sakticakra-vol3",
+    sanskrit: "शक्तिचक्र",
+    iast: "śakticakra",
+    english: "The Wheel of Energies",
+    category: "Subtle Physiology",
+    definition: "The host of divine energies operating within the individual, specifically referring to the sensory organs, mental faculties, and vital breaths.",
+    significance: "In Antaryāga, the yogi recognizes their own senses not as mere biological functions, but as a host of goddesses (Śaktis) radiating from the Heart, eagerly consuming sensory objects as offerings for the Supreme Lord (Śiva) at the center.",
+    relatedConcepts: ["antaryaga", "bhairava", "indriya"]
+  },
+  {
+    id: "esoteric-snana",
+    sanskrit: "स्नान",
+    iast: "snāna",
+    english: "Esoteric Bathing / Purification",
+    category: "Ritual & Mantra",
+    definition: "True purification is not washing the physical body with water. In Śāktopāya, Snāna is immersing the mind in the uninterrupted, radiant light of one's own pure consciousness.",
+    significance: "A yogi who has 'bathed' in non-dual awareness is eternally pure, regardless of physical circumstances. Abhinavagupta rejects orthodox concepts of physical purity and impurity as mere mental constructs (vikalpas).",
+    relatedConcepts: ["vrata", "vikalpa-samskara"]
+  },
+  {
+    id: "esoteric-vrata",
+    sanskrit: "व्रत",
+    iast: "vrata",
+    english: "Esoteric Vow / Observance",
+    category: "Ritual & Mantra",
+    definition: "Instead of orthodox vows like fasting or celibacy, the supreme Vrata in Śāktopāya is the unbroken, unshakeable conviction and continuous realization that 'I am Śiva' and 'Everything is my expression.'",
+    significance: "Maintaining this non-dual perspective in the midst of daily life, amidst both pain and pleasure, is considered the most difficult and highest of all spiritual vows.",
+    relatedConcepts: ["esoteric-snana", "bhavana", "sarva-svarupatva"]
+  },
+  {
+    id: "esoteric-japa",
+    sanskrit: "जप",
+    iast: "japa",
+    english: "Esoteric Recitation / The Unstruck Sound",
+    category: "Ritual & Mantra",
+    definition: "True Japa is not the mechanical muttering of syllables with the lips. It is the continuous, spontaneous, and silent reverberation (Vimarśa) of the Supreme 'I' awareness within the Heart.",
+    significance: "This connects back to Mantra-vīrya. The highest recitation happens automatically with every breath (the natural 'So'ham' or 'Haṃsa' mantra) when the yogi is anchored in self-awareness.",
+    relatedConcepts: ["mantra-virya", "uccara", "hamsa"]
+  },
+
+  // --- SEED AND MANIFESTATION ---
+  {
+    id: "bija",
+    sanskrit: "बीज",
+    iast: "bīja",
+    english: "The Seed (Syllable / Consciousness)",
+    category: "Philosophy of Language",
+    definition: "In the context of Śāktopāya mantric science, Bīja refers to the vowels (representing pure Śiva/subjectivity). It is the intensely concentrated point of consciousness containing the potential of the entire universe.",
+    significance: "Just as a massive banyan tree is hidden within a tiny seed, the entire cosmos is held within the pure 'I-consciousness'. Realizing the Bīja state is to return to the source before manifestation.",
+    relatedConcepts: ["pinda", "svara", "bindu"]
+  },
+  {
+    id: "pinda",
+    sanskrit: "पिण्ड",
+    iast: "piṇḍa",
+    english: "The Corporeal / The Mass",
+    category: "Philosophy of Language",
+    definition: "Corresponding to the consonants in mantric science, Piṇḍa represents the manifest, objective, and dense universe.",
+    significance: "The practice involves dissolving the Piṇḍa (the heavy, objective reality) back into the Bīja (the subtle seed of pure awareness) through the process of Hāṭhapāka.",
+    relatedConcepts: ["bija", "vyanjana", "samhara"]
+  },
+
+// --- THE PRACTITIONER OF ŚĀKTOPĀYA ---
+  {
+    id: "vira",
+    sanskrit: "वीर",
+    iast: "vīra",
+    english: "The Tantric Hero",
+    category: "Soteriology",
+    definition: "The fearless practitioner of Śāktopāya who does not flee from the terrifying, dualistic, or intense experiences of the world, but confronts them to digest them into pure consciousness.",
+    significance: "Unlike the bound soul (Paśu) who is terrified of impurity and bound by orthodox rules, the Vīra uses the intense energies of life (passion, fear, sensory input) as fuel for the fire of non-dual realization (Hāṭhapāka).",
+    relatedConcepts: ["pasu", "hatha-paka", "cakresvara"]
+  },
+  {
+    id: "cakresvara",
+    sanskrit: "चक्रेश्वर",
+    iast: "cakreśvara",
+    english: "The Lord of the Wheel (of Energies)",
+    category: "Soteriology",
+    definition: "The supreme state achieved by the Vīra, where the yogi sits immovable in the Heart (the center) while perfectly commanding the peripheral 'wheel' of sensory and mental energies (Śakticakra).",
+    significance: "Instead of the senses dragging the yogi outward into illusion, the Cakreśvara directs the senses to gather the nectar of objective reality and offer it back into the central fire of 'I-consciousness'.",
+    relatedConcepts: ["sakticakra", "vira", "bhairava"]
+  },
+
+  // --- MANTRA VS VIDYĀ ---
+  {
+    id: "vidya",
+    sanskrit: "विद्या",
+    iast: "vidyā",
+    english: "Feminine Mantric Power / Pure Knowledge",
+    category: "Ritual & Mantra",
+    definition: "In the specific context of Chapter 4, Vidyā refers to the sonic embodiments of the Goddess (Śakti), just as Mantra typically refers to the masculine deity (Śiva). It is the unconditioned knowledge that 'I am all this.'",
+    significance: "Śāktopāya is primarily the domain of Vidyā, as it relies on the cognitive power of the Goddess to purify thought (Vikalpa) and dissolve the illusion of sequence (Krama) back into the Absolute.",
+    relatedConcepts: ["mantra-virya", "samvit-devi"]
+  },
+
+  // --- STABILIZATION OF TRANSCENDENCE ---
+  {
+    id: "turya",
+    sanskrit: "तुर्य",
+    iast: "turya",
+    english: "The Fourth State",
+    category: "Aesthetics & Experience",
+    definition: "The state of pure, witnessing consciousness that underlies and transcends the three ordinary states of waking (jāgrat), dreaming (svapna), and deep sleep (suṣupti).",
+    significance: "In Śāktopāya, the goal is not just to glimpse Turya in deep meditation, but to actively infuse the waking, dreaming, and deep sleep states with the unbroken awareness of the Fourth.",
+    relatedConcepts: ["turyatita", "samavesa"]
+  },
+  {
+    id: "turyatita",
+    sanskrit: "तुर्यातीत",
+    iast: "turyātīta",
+    english: "Beyond the Fourth State",
+    category: "Absolute Reality",
+    definition: "The absolute, ultimate condition where even the distinction between the 'witnessing consciousness' (Turya) and the 'states witnessed' collapses. The universe and the self become completely indistinguishable.",
+    significance: "This is the final culmination of Alaṃgrāsa (total devouring). The yogi no longer steps 'back' into Turya to observe the world; the world itself is realized as the blazing manifestation of their own supreme body.",
+    relatedConcepts: ["turya", "alamgrasa", "anakhya"]
+  },
+  {
+    id: "jnanadiksha-vol3",
+    sanskrit: "ज्ञानदीक्षा",
+    iast: "jñānadīkṣā",
+    english: "Initiation through Pure Knowledge",
+    category: "Ritual & Mantra",
+    definition: "An initiation that occurs purely through the transmission of non-dual wisdom from the Guru, independent of any external fire rituals, maṇḍalas, or physical materials.",
+    significance: "Abhinavagupta concludes that for the qualified disciple on the path of Śāktopāya, this intellectual/spiritual transmission of Sattarka (pure reasoning) is entirely sufficient to burn the bonds of karma and grant liberation.",
+    relatedConcepts: ["diksha", "sadguru", "sattarka"]
+  },
+  {
+    id: "svikalpa-nirvikalpa-samarasya",
+    sanskrit: "सविकल्प-निर्विकल्प-सामरस्य",
+    iast: "savikalpa-nirvikalpa-sāmarasya",
+    english: "The Perfect Harmony of Thought and Thoughtlessness",
+    category: "Epistemology",
+    definition: "The culminating realization of Śāktopāya where the presence of thoughts (savikalpa) no longer disturbs the underlying thought-free awareness (nirvikalpa). Both are recognized as the exact same fluid energy of Śiva.",
+    significance: "The yogi realizes they do not need to forcibly stop their mind to be free. The very movement of thought is experienced as the blissful pulsation (Spanda) of the Absolute.",
+    relatedConcepts: ["vikalpa-samskara", "nirvikalpa", "spanda"]
   }
 ];
