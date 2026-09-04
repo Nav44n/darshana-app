@@ -1092,5 +1092,107 @@ export const tantralokaConceptsEn: TantralokaConcept[] = [
     definition: "The third of Śiva's primary powers. It is the capacity to actually execute, construct, and physically manifest the universe in time and space.",
     significance: "Kriyā-śakti is the domain of Āṇavopāya (the lowest means). It represents the grossest level of manifestation, where physical rituals, breath control (prāṇāyāma), and bodily yogas are required to reverse the outward flow of energy.",
     relatedConcepts: ["icchashakti", "jnanashakti", "anavopaya"]
+  },
+
+// --- ŚĀKTOPĀYA: THE MEANS OF ENERGY / COGNITION ---
+  {
+    id: "saktopaya",
+    sanskrit: "शाक्तोपाय",
+    iast: "śāktopāya",
+    english: "The Means of Śakti / The Cognitive Method",
+    category: "Soteriology",
+    definition: "The intermediate method of realization in Trika, operating at the level of Knowledge (Jñāna-śakti). It involves using purified, non-dual thought (vikalpa) to destroy binding, dualistic thoughts, eventually leading the mind to a thought-free state.",
+    significance: "Detailed in Chapter 4. It is designed for practitioners who cannot instantly stop their thoughts (as in Śāmbhavopāya). Instead of violently suppressing the mind, the yogi uses the mind to repeatedly contemplate non-dual truths until the mind dissolves into that truth.",
+    relatedConcepts: ["jnanashakti", "sattarka", "vikalpa-samskara", "sambhavopaya"]
+  },
+  {
+    id: "vikalpa-samskara",
+    sanskrit: "विकल्पसंस्कार",
+    iast: "vikalpa-saṃskāra",
+    english: "The Purification of Thought",
+    category: "Soteriology",
+    definition: "The deliberate process of replacing contracted, limiting beliefs (e.g., 'I am weak', 'I am the body') with expansive, non-dual convictions (e.g., 'I am Śiva', 'All this is my own play').",
+    significance: "The core mechanism of Śāktopāya. A thorn is used to remove a thorn. A pure thought (Śuddha-vikalpa) is used to extract an impure thought (Aśuddha-vikalpa). Once the impurity is removed, the pure thought also drops away, leaving raw awareness.",
+    relatedConcepts: ["saktopaya", "sattarka", "vikalpa"]
+  },
+  {
+    id: "sattarka-saktopaya", // Specific contextualization of Sattarka for Saktopaya
+    sanskrit: "सत्तर्क",
+    iast: "sattarka",
+    english: "Pure, Illuminating Logic",
+    category: "Epistemology",
+    definition: "In the context of Śāktopāya, Sattarka is not dry academic debate, but an intensely focused, scripture-guided stream of reasoning that cuts through illusions and firmly establishes non-dual awareness.",
+    significance: "Abhinavagupta elevates Sattarka above all traditional yogic limbs (like breath control or posture). He asserts that without pure reasoning, mechanical yoga is useless; with pure reasoning, mechanical yoga is unnecessary.",
+    relatedConcepts: ["saktopaya", "vikalpa-samskara", "agama"]
+  },
+  {
+    id: "mantra-virya",
+    sanskrit: "मन्त्रवीर्य",
+    iast: "mantra-vīrya",
+    english: "The Virility / Potency of Mantra",
+    category: "Ritual & Mantra",
+    definition: "The living, vibrating awareness (Vimarśa) of the practitioner that gives a mantra its power. Without it, a mantra is just dead, mechanical sound.",
+    significance: "In Śāktopāya, mantra practice is entirely internal and cognitive. The repetition of the mantra is not for acquiring merit, but for repeatedly infusing the mind with the realization that the practitioner is identical to the deity of the mantra.",
+    relatedConcepts: ["saktopaya", "vimarsa", "uccara"]
+  },
+  {
+    id: "bhavana-saktopaya",
+    sanskrit: "भावना",
+    iast: "bhāvanā",
+    english: "Creative Contemplation / Meditative Assimilation",
+    category: "Soteriology",
+    definition: "The active, intense, and imaginative dwelling upon a spiritual truth until it is no longer just an intellectual concept, but a direct, visceral experience.",
+    significance: "Bhāvanā transforms the 'thought' of Śiva into the 'experience' of Śiva. It bridges the gap between the intellectual logic of Sattarka and the thought-free immersion of Śāmbhavopāya.",
+    relatedConcepts: ["saktopaya", "vikalpa-samskara", "camatkara"]
+  },
+  {
+    id: "suddha-vikalpa",
+    sanskrit: "शुद्धविकल्प",
+    iast: "śuddha-vikalpa",
+    english: "Pure Thought / Non-dual Concept",
+    category: "Epistemology",
+    definition: "A concept or thought that, although inherently dualistic (because all language and thought is dualistic), points directly toward non-duality and expansiveness.",
+    significance: "Examples include 'I am the universe' or 'Śiva alone exists.' These thoughts are the essential tools of Śāktopāya, cultivated through studying Āgamas and listening to the Guru.",
+    relatedConcepts: ["asuddha-vikalpa", "vikalpa-samskara"]
+  },
+  {
+    id: "asuddha-vikalpa",
+    sanskrit: "अशुद्धविकल्प",
+    iast: "aśuddha-vikalpa",
+    english: "Impure Thought / Binding Concept",
+    category: "Epistemology",
+    definition: "Thoughts and beliefs rooted in limitation, lack, separation, and bodily identification. They are the actual 'bonds' (pāśa) that tie the soul to saṃsāra.",
+    significance: "In Trika, bondage is purely cognitive. You are not bound by your past actions (karma) directly, but by the aśuddha-vikalpas (binding beliefs) that those actions have ingrained in your mind.",
+    relatedConcepts: ["suddha-vikalpa", "pasa", "mala"]
+  },
+  {
+    id: "jnana-diksha",
+    sanskrit: "ज्ञानदीक्षा",
+    iast: "jñāna-dīkṣā",
+    english: "Initiation through Knowledge",
+    category: "Soteriology",
+    definition: "A subtle form of spiritual initiation where the Guru transmits the non-dual truth to the disciple not through physical rituals, but through profound philosophical instruction that triggers an inner awakening.",
+    significance: "Aligned with Śāktopāya, this dīkṣā relies on the disciple's intellectual and intuitive readiness to grasp the absolute truth, destroying Bauddha-ajñāna (intellectual ignorance).",
+    relatedConcepts: ["diksa", "sattarka", "bauddha-ajnana"]
+  },
+  {
+    id: "bauddha-ajnana",
+    sanskrit: "बौद्ध अज्ञान",
+    iast: "bauddha-ajñāna",
+    english: "Intellectual Ignorance",
+    category: "Epistemology",
+    definition: "Ignorance residing in the intellect (buddhi). It is the possession of false philosophical views, incorrect logic, and the belief that the body/mind is the Self.",
+    significance: "According to Abhinavagupta, this must be destroyed first through Sattarka (pure logic). If intellectual ignorance remains, even profound spiritual experiences (which remove Pauruṣa-ajñāna) will be misinterpreted or lost when the yogi returns to waking consciousness.",
+    relatedConcepts: ["paurusa-ajnana", "sattarka", "saktopaya"]
+  },
+  {
+    id: "paurusa-ajnana",
+    sanskrit: "पौरुष अज्ञान",
+    iast: "pauruṣa-ajñāna",
+    english: "Spiritual / Innate Ignorance",
+    category: "Epistemology",
+    definition: "The deep-seated, intuitive, non-verbal sense of limitation and separation that affects the very core of the soul (Puruṣa). It is the innate feeling of 'I am incomplete'.",
+    significance: "This ignorance cannot be removed by reading books or studying logic. It is only removed through spiritual initiation (dīkṣā) and direct yogic immersion (Samāveśa). Complete liberation requires the removal of both Bauddha and Pauruṣa ignorance.",
+    relatedConcepts: ["bauddha-ajnana", "samavesa", "diksa"]
   }
 ];
