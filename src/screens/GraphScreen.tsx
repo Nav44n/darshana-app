@@ -24,7 +24,12 @@ export default function GraphScreen() {
         setActiveTab('verses');
       }
     }
-  }, [route.params?.highlightNodeId]);
+    if (route.params?.systemId) {
+      if (route.params.systemId === 'samkhya') setSystem('Sāṃkhya');
+      if (route.params.systemId === 'yoga') setSystem('Yoga');
+      if (route.params.systemId === 'nyaya') setSystem('Nyāya');
+    }
+  }, [route.params?.highlightNodeId, route.params?.systemId]);
 
   return (
     <SafeAreaView style={s.container}>
@@ -34,15 +39,18 @@ export default function GraphScreen() {
           <Text style={s.title}>Ontology</Text>
         </View>
         <View style={s.toggleRow}>
-          {(['Sāṃkhya', 'Yoga', 'Both'] as const).map((sys) => {
+          {(['Sāṃkhya', 'Yoga', 'Nyāya', 'Both'] as const).map((sys) => {
             const active = system === sys;
             const accent =
-              sys === 'Sāṃkhya' ? systemAccent('samkhya') : sys === 'Yoga' ? systemAccent('yoga') : { primary: colors.purusha };
+              sys === 'Sāṃkhya' ? systemAccent('samkhya') 
+              : sys === 'Yoga' ? systemAccent('yoga') 
+              : sys === 'Nyāya' ? systemAccent('nyaya') 
+              : { primary: colors.purusha };
             return (
               <TouchableOpacity
                 key={sys}
                 style={[s.toggleBtn, active && { borderColor: 'transparent', backgroundColor: accent.primary }]}
-                onPress={() => setSystem(sys)}
+                onPress={() => setSystem(sys as any)}
                 accessibilityRole="button"
                 accessibilityState={{ selected: active }}
               >

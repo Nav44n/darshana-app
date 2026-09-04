@@ -49,24 +49,55 @@ export default function SystemScreen() {
         <SystemHero systemId={system.id} />
       </View>
 
-      {system.thread.length > 0 && (
+      <SectionLabel>Learning Paths</SectionLabel>
+      <View style={{ gap: 12, marginBottom: 24 }}>
+        {system.thread.length > 0 && (
+          <Pressable
+            style={({ pressed }) => [
+              s.ctaCard,
+              { borderColor: accent.dim },
+              pressed && { backgroundColor: colors.avyakta3 },
+            ]}
+            onPress={() => nav.navigate('Thread', { systemId: system.id, stepId: system.thread[0].id })}
+          >
+            <View style={{ flex: 1 }}>
+              <Text style={[s.ctaTitle, { color: accent.primary }, glowText(accent.glow, 10)]}>Guided Thread (Syllabus)</Text>
+              <Text style={s.ctaDesc}>A curated, step-by-step narrative journey through {system.title}, connecting the most important concepts in logical order.</Text>
+            </View>
+            <Text style={[s.chev, { color: accent.primary }]}>›</Text>
+          </Pressable>
+        )}
+
         <Pressable
           style={({ pressed }) => [
-            s.threadCta,
+            s.ctaCard,
             { borderColor: accent.dim },
             pressed && { backgroundColor: colors.avyakta3 },
           ]}
-          onPress={() => nav.navigate('Thread', { systemId: system.id, stepId: system.thread[0].id })}
+          onPress={() => nav.navigate('Concepts', { screen: 'ConceptsMain', params: { systemId: system.id } })}
         >
           <View style={{ flex: 1 }}>
-            <Text style={[s.threadCtaTitle, { color: accent.primary }, glowText(accent.glow, 10)]}>Explore threads</Text>
-            <Text style={s.threadCtaSub}>
-              {system.thread.length} steps · the whole of {system.title}, concept by concept, start to end
-            </Text>
+            <Text style={[s.ctaTitle, { color: accent.primary }, glowText(accent.glow, 10)]}>Concept Dictionary (Ontology)</Text>
+            <Text style={s.ctaDesc}>An exhaustive dictionary of all technical terms, categories, and philosophical building blocks defined in {system.title}.</Text>
           </View>
-          <Text style={[s.threadCtaChev, { color: accent.primary }]}>›</Text>
+          <Text style={[s.chev, { color: accent.primary }]}>›</Text>
         </Pressable>
-      )}
+
+        <Pressable
+          style={({ pressed }) => [
+            s.ctaCard,
+            { borderColor: accent.dim },
+            pressed && { backgroundColor: colors.avyakta3 },
+          ]}
+          onPress={() => nav.navigate('Graph', { screen: 'GraphMain', params: { systemId: system.id } })}
+        >
+          <View style={{ flex: 1 }}>
+            <Text style={[s.ctaTitle, { color: accent.primary }, glowText(accent.glow, 10)]}>Knowledge Graph</Text>
+            <Text style={s.ctaDesc}>An interactive visualization showing how every concept and sutra mathematically connects to each other.</Text>
+          </View>
+          <Text style={[s.chev, { color: accent.primary }]}>›</Text>
+        </Pressable>
+      </View>
 
       <SectionLabel>Texts in this system</SectionLabel>
       {system.texts.map((text) => (
@@ -117,7 +148,7 @@ const makeStyles = (colors: ColorPalette) =>
       justifyContent: 'center',
       position: 'relative',
     },
-    threadCta: {
+    ctaCard: {
       flexDirection: 'row',
       alignItems: 'center',
       gap: 10,
@@ -125,11 +156,9 @@ const makeStyles = (colors: ColorPalette) =>
       borderWidth: 1,
       borderRadius: 16,
       padding: 16,
-      marginBottom: 14,
     },
-    threadCtaTitle: { fontFamily: fonts.display, fontSize: 16, marginBottom: 2 },
-    threadCtaSub: { fontSize: 11.5, color: colors.inkDim },
-    threadCtaChev: { fontSize: 20 },
+    ctaTitle: { fontFamily: fonts.display, fontSize: 16, marginBottom: 4 },
+    ctaDesc: { fontSize: 12, color: colors.inkDim, lineHeight: 16 },
     folio: {
       width: 32,
       height: 32,

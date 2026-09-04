@@ -447,6 +447,744 @@
         "description": "Absolute Independence",
         "system": "Both"
       }
+    },
+    {
+      "id": "concept:pramana",
+      "label": "प्रमाण",
+      "type": "Concept",
+      "properties": {
+        "description": "The fundamental instruments or sources through which accurate, valid knowledge (pramā) of the world is acquired. Nyaya accepts four: Perception, Inference, Analogy, and Verbal Testimony.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:pratyaksha",
+      "label": "प्रत्यक्ष",
+      "type": "Concept",
+      "properties": {
+        "description": "Direct, unmediated knowledge arising from the contact (sannikarsha) of a sense organ with its object. It must be non-erroneous, determinate, and not dependent on verbal cognition.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:anumana",
+      "label": "अनुमान",
+      "type": "Concept",
+      "properties": {
+        "description": "Cognition that follows a prior perception. It is the logical deduction of an unperceived object (like fire) based on the perception of a logical sign or mark (like smoke), relying on the memory of their invariable concomitance (vyapti).",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:upamana",
+      "label": "उपमान",
+      "type": "Concept",
+      "properties": {
+        "description": "Knowledge of the relationship between a name and the object it denotes, based on a recognized similarity to a familiar object (e.g., identifying a wild gavaya because one was told it looks like a cow).",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:shabda",
+      "label": "शब्द",
+      "type": "Concept",
+      "properties": {
+        "description": "The instructive assertion of a reliable, trustworthy authority (Apta). It provides valid knowledge regarding both perceptible things (worldly facts) and imperceptible things (spiritual realms).",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:apta",
+      "label": "आप्त",
+      "type": "Concept",
+      "properties": {
+        "description": "A person who has direct, accurate knowledge of a subject, is devoid of prejudices or motives to deceive, and communicates clearly out of compassion or a sense of duty.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:samaya",
+      "label": "समय",
+      "type": "Concept",
+      "properties": {
+        "description": "The established, historical agreement within a community that a specific word denotes a specific object or meaning.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:veda",
+      "label": "वेद",
+      "type": "Concept",
+      "properties": {
+        "description": "The ultimate corpus of spiritual and ritual knowledge in Indian philosophy, considered valid because they are the testimony of supreme Aptas (ancient seers or God).",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:vidhi",
+      "label": "विधि",
+      "type": "Concept",
+      "properties": {
+        "description": "A direct prescriptive statement or command in a text urging the listener to perform a specific action to achieve a specific result.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:arthavada",
+      "label": "अर्थवाद",
+      "type": "Concept",
+      "properties": {
+        "description": "Sentences that provide praise, blame, historical context, or mythological backing to support and motivate the performance of a primary Injunction (Vidhi).",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:anuvada",
+      "label": "अनुवाद",
+      "type": "Concept",
+      "properties": {
+        "description": "The repetition of a previously stated command or concept for the sake of emphasis, clarification, or instructional continuity.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:purvapaksha",
+      "label": "पूर्वपक्ष",
+      "type": "Concept",
+      "properties": {
+        "description": "The initial argument, counter-claim, or skeptical objection presented against an established doctrine.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:siddhanta",
+      "label": "सिद्धान्त",
+      "type": "Concept",
+      "properties": {
+        "description": "The final, proven doctrinal truth established after thoroughly refuting the opponent",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:atman",
+      "label": "आत्मन्",
+      "type": "Concept",
+      "properties": {
+        "description": "The eternal, immaterial substance that is the substratum of consciousness, desire, aversion, effort, pleasure, and pain.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:manas",
+      "label": "मनस्",
+      "type": "Concept",
+      "properties": {
+        "description": "The atomic, internal sense organ that mediates between the eternal soul and the external senses. It can only process one cognition at a time.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:sannikarsha",
+      "label": "सन्निकर्ष",
+      "type": "Concept",
+      "properties": {
+        "description": "The physical and cognitive connection between a sense organ (like the eye) and its corresponding object (like color) that triggers direct perception.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:avayavin",
+      "label": "अवयविन्",
+      "type": "Concept",
+      "properties": {
+        "description": "A distinct, unified substance that comes into existence when its parts (avayava) combine. A pot is not just a pile of clay atoms; it is a new entity: ",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:kala",
+      "label": "काल",
+      "type": "Concept",
+      "properties": {
+        "description": "The eternal, all-pervading substance that causes our cognitions of past, present, and future, and acts as the universal container for all actions.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:samsaya",
+      "label": "????",
+      "type": "Concept",
+      "properties": {
+        "description": "A conflicting judgment regarding the exact character of an object, arising from the perception of properties common to many objects.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:shodasha-padartha",
+      "label": "??? ?? ????????",
+      "type": "Concept",
+      "properties": {
+        "description": "The sixteen topics of inquiry outlined by Gautama: means of knowledge, objects of knowledge, doubt, purpose, familiar instance, established tenet, members of a syllogism, confutation, ascertainment, discussion, wrangling, cavil, fallacies, quibbling, futile rejoinders, and clinchers.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:pariksha",
+      "label": "???????",
+      "type": "Concept",
+      "properties": {
+        "description": "The critical investigation and testing of a subject that has been defined.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:duhkha-chain-nyaya",
+      "label": "????-???????",
+      "type": "Concept",
+      "properties": {
+        "description": "The causal chain leading from false knowledge to suffering, and its reversal leading to liberation.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:jnana",
+      "label": "????",
+      "type": "Concept",
+      "properties": {
+        "description": "The apprehension or apprehension-producing activity that illuminates objects.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:vipratipatti",
+      "label": "???????????",
+      "type": "Concept",
+      "properties": {
+        "description": "Mutually exclusive statements about the same object, leading to doubt.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:avyavastha",
+      "label": "????????",
+      "type": "Concept",
+      "properties": {
+        "description": "Irregularity in apprehension or non-apprehension, leading to doubt.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:vada",
+      "label": "????",
+      "type": "Concept",
+      "properties": {
+        "description": "A debate where both parties sincerely aim to discover the truth, establishing their own position using pramāṇas and logic.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:prameya",
+      "label": "??????",
+      "type": "Concept",
+      "properties": {
+        "description": "That which is to be known through pramāṇas. The objects of knowledge.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:dvadasha-prameya",
+      "label": "?????? ??????",
+      "type": "Concept",
+      "properties": {
+        "description": "The twelve specific objects of knowledge: Soul, Body, Senses, Objects of Senses, Intellect, Mind, Activity, Fault, Transmigration, Fruit, Pain, and Liberation.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:buddhi",
+      "label": "?????",
+      "type": "Concept",
+      "properties": {
+        "description": "Synonymous with knowledge and apprehension in the Nyaya system.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:tarka",
+      "label": "????",
+      "type": "Concept",
+      "properties": {
+        "description": "A process of reasoning that assists in knowing the true nature of a thing by revealing the absurdities of contrary suppositions.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:sharira-indriya-bhuta",
+      "label": "?????-???????-???",
+      "type": "Concept",
+      "properties": {
+        "description": "The physical architecture of interaction: the body is the site of experience, the senses are the instruments, and the material elements are their objects.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:drishtanta",
+      "label": "????????",
+      "type": "Concept",
+      "properties": {
+        "description": "An undisputed example that both ordinary people and experts agree upon.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:anavastha",
+      "label": "????????",
+      "type": "Concept",
+      "properties": {
+        "description": "A logical fallacy where a proposition requires an infinite series of justifications, without ever reaching a foundational grounding.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:pravritti-dosha-phala",
+      "label": "????????-???-??",
+      "type": "Concept",
+      "properties": {
+        "description": "The core components of the karmic cycle: Faults (attachment, aversion) drive Activity (speech, mind, body), which inevitably produce a Fruit (experience of pleasure or pain).",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:hetvabhasa",
+      "label": "?????????",
+      "type": "Concept",
+      "properties": {
+        "description": "A ",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:apavarga",
+      "label": "??????",
+      "type": "Concept",
+      "properties": {
+        "description": "Absolute deliverance from pain. The state of the soul freed from the cycle of birth, activity, and fault.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:vyabhicara",
+      "label": "????????",
+      "type": "Concept",
+      "properties": {
+        "description": "A logical fallacy where the reason (hetu) exists both where the probandum (sadhya) exists and where it does not.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:prayojana",
+      "label": "??????",
+      "type": "Concept",
+      "properties": {
+        "description": "The objective or motive that induces someone to act or engage in a discussion.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:vakya",
+      "label": "?????",
+      "type": "Concept",
+      "properties": {
+        "description": "A meaningful arrangement of words. In Nyaya, it refers specifically to the statements of an authoritative person (apta).",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:avayava",
+      "label": "????",
+      "type": "Concept",
+      "properties": {
+        "description": "The five members of a formal inference used to convince others: Proposition, Reason, Example, Application, and Conclusion.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:chhala",
+      "label": "???",
+      "type": "Concept",
+      "properties": {
+        "description": "The opposition to a statement by assigning to it an unintended meaning.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:jati",
+      "label": "????",
+      "type": "Concept",
+      "properties": {
+        "description": "An objection based on mere similarity or dissimilarity, without addressing the underlying logical connection.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:nigrahasthana",
+      "label": "???????????",
+      "type": "Concept",
+      "properties": {
+        "description": "The point in a debate where a participant is defeated due to a contradiction, evasion, or inability to grasp the opponent",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:pradipa-prakasha",
+      "label": "???????-??????",
+      "type": "Concept",
+      "properties": {
+        "description": "An analogy explaining how a means of knowledge (pramāṇa) validates itself while validating an object, just as a lamp illuminates itself while illuminating a room.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:atma-pariksha",
+      "label": "आत्मपरीक्षा",
+      "type": "Concept",
+      "properties": {
+        "description": "The critical investigation into the existence, nature, and eternal status of the self (ātman) as distinct from the body, senses, and mind.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:atma-nityatva",
+      "label": "आत्मनित्यत्व",
+      "type": "Concept",
+      "properties": {
+        "description": "The doctrine that the soul (ātman) is uncreated and indestructible, existing continuously across different bodies through transmigration.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:prapyakaritva",
+      "label": "प्राप्यकारित्व",
+      "type": "Concept",
+      "properties": {
+        "description": "The principle that senses operate by physically reaching or coming into direct contact with their objects (e.g., visual rays traveling to the object).",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:buddhi-pariksha",
+      "label": "बुद्धिपरीक्षा",
+      "type": "Concept",
+      "properties": {
+        "description": "The critical investigation of cognition or intellect (buddhi), establishing it as a temporary quality of the soul rather than an eternal substance.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:kshanabhangavada",
+      "label": "क्षणभङ्गवाद",
+      "type": "Concept",
+      "properties": {
+        "description": "The Buddhist doctrine that all entities exist only for a single instant before ceasing to be, completely replaced by a new entity in the next instant.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:adrshta",
+      "label": "अदृष्ट",
+      "type": "Concept",
+      "properties": {
+        "description": "The invisible moral force or latent potential generated by past actions (karma) that determines future experiences and the initial formation of the universe.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:pravrtti",
+      "label": "प्रवृत्ति",
+      "type": "Concept",
+      "properties": {
+        "description": "The operation of speech, mind, and body, driven by desire or aversion, which initiates the cycle of karma and rebirth.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:dosha",
+      "label": "दोष",
+      "type": "Concept",
+      "properties": {
+        "description": "The underlying psychological flaws—attachment (rāga), aversion (dveṣa), and delusion (moha)—that compel a person to act.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:raga",
+      "label": "राग",
+      "type": "Concept",
+      "properties": {
+        "description": "The strong attraction or desire for objects that yield pleasure, leading to continued bondage and repeated activity.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:dvesha",
+      "label": "द्वेष",
+      "type": "Concept",
+      "properties": {
+        "description": "The strong repulsion or hatred toward objects or situations that yield pain, driving aggressive or avoidance behaviors.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:moha",
+      "label": "मोह",
+      "type": "Concept",
+      "properties": {
+        "description": "The fundamental ignorance or misconception of reality, primarily mistaking the non-self (body/mind) for the self.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:pretyabhava",
+      "label": "प्रेत्यभाव",
+      "type": "Concept",
+      "properties": {
+        "description": "The cycle of dying and being born again in a new physical body, driven by the accumulated merit and demerit of past actions.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:karma",
+      "label": "कर्म",
+      "type": "Concept",
+      "properties": {
+        "description": "Any physical, verbal, or mental action that generates an unseen moral consequence (adṛṣṭa) affecting the agent",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:shunyavada",
+      "label": "शून्यवाद",
+      "type": "Concept",
+      "properties": {
+        "description": "The Buddhist Madhyamaka theory that all things are fundamentally empty (śūnya) of intrinsic nature or independent existence.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:ishvara",
+      "label": "ईश्वर",
+      "type": "Concept",
+      "properties": {
+        "description": "The supreme, eternal soul who creates, sustains, and destroys the universe, and who dispenses the fruits of karma to individual souls.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:yadrccha-vada",
+      "label": "यदृच्छावाद",
+      "type": "Concept",
+      "properties": {
+        "description": "The materialist view that the universe and living beings emerge purely by random chance without any intelligent cause or moral design.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:sarva-anityatva",
+      "label": "सर्वानित्यत्व",
+      "type": "Concept",
+      "properties": {
+        "description": "The assertion that absolutely everything in existence is temporary and subject to destruction.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:nitya",
+      "label": "नित्य",
+      "type": "Concept",
+      "properties": {
+        "description": "That which is uncreated, indestructible, and exists forever without modification (e.g., souls, atoms, ether).",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:anitya",
+      "label": "अनित्य",
+      "type": "Concept",
+      "properties": {
+        "description": "That which is produced and eventually destroyed; any composite object made of parts.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:sarva-nityatva",
+      "label": "सर्वनित्यत्व",
+      "type": "Concept",
+      "properties": {
+        "description": "The view that everything that exists is permanent, and change is merely an illusion or a shift in manifestation (often associated with strict Advaita or Sāmkhya).",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:sarva-prthaktva",
+      "label": "सर्वपृथक्त्व",
+      "type": "Concept",
+      "properties": {
+        "description": "The extreme pluralist view that every entity is entirely isolated and distinct, denying any real unifying categories or universals.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:sarva-abhava",
+      "label": "सर्वाभाव",
+      "type": "Concept",
+      "properties": {
+        "description": "The extreme nihilist view that nothing truly exists at all.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:phala",
+      "label": "फल",
+      "type": "Concept",
+      "properties": {
+        "description": "The experiential result (pleasure or pain) of one",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:apūrva",
+      "label": "अपूर्व",
+      "type": "Concept",
+      "properties": {
+        "description": "A concept primarily from Mīmāṃsā, representing the unseen intermediary force generated by a ritual that brings about a future result.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:duhkha",
+      "label": "दुःख",
+      "type": "Concept",
+      "properties": {
+        "description": "The fundamental nature of worldly existence; the physical and psychological pain inevitably linked to birth and attachment.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:moksha",
+      "label": "मोक्ष",
+      "type": "Concept",
+      "properties": {
+        "description": "The ultimate release from the cycle of rebirth and suffering, synonymous with Apavarga.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:tatva-jnana",
+      "label": "तत्त्वज्ञान",
+      "type": "Concept",
+      "properties": {
+        "description": "The accurate, direct realization of the true nature of the sixteen categories (padārthas) and the distinction between the soul and non-soul.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:ahankara",
+      "label": "अहङ्कार",
+      "type": "Concept",
+      "properties": {
+        "description": "The false identification of the true self (ātman) with the physical body, mind, or senses.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:sankalpa",
+      "label": "सङ्कल्प",
+      "type": "Concept",
+      "properties": {
+        "description": "The mental resolve or intentionality that precedes physical or verbal action.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:paramanu",
+      "label": "परमाणु",
+      "type": "Concept",
+      "properties": {
+        "description": "The eternal, indivisible, infinitesimal building block of the physical universe in Nyāya-Vaiśeṣika ontology.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:samadhi",
+      "label": "समाधि",
+      "type": "Concept",
+      "properties": {
+        "description": "The state of deep, undisturbed concentration on the true nature of the soul.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:abhyasa",
+      "label": "अभ्यास",
+      "type": "Concept",
+      "properties": {
+        "description": "The continuous, disciplined repetition of philosophical reflection and meditation.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:yoga",
+      "label": "योग",
+      "type": "Concept",
+      "properties": {
+        "description": "The practical methods of mental and physical control used to focus the mind.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:yama",
+      "label": "यम",
+      "type": "Concept",
+      "properties": {
+        "description": "The foundational ethical disciplines (like non-violence and truthfulness) required to purify the mind.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:niyama",
+      "label": "नियम",
+      "type": "Concept",
+      "properties": {
+        "description": "The constructive personal disciplines (like study and purity) that support spiritual growth.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:samvada",
+      "label": "संवाद",
+      "type": "Concept",
+      "properties": {
+        "description": "A sincere discussion with teachers or peers aimed purely at discovering the truth, without the desire to defeat the other.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:jalpa",
+      "label": "जल्प",
+      "type": "Concept",
+      "properties": {
+        "description": "A debate where the primary goal is victory over the opponent rather than the discovery of truth, using any logical means necessary.",
+        "system": "Nyāya"
+      }
+    },
+    {
+      "id": "concept:vitanda",
+      "label": "वितण्डा",
+      "type": "Concept",
+      "properties": {
+        "description": "A form of debate where the participant only attacks the opponent",
+        "system": "Nyāya"
+      }
     }
   ],
   "edges": [
