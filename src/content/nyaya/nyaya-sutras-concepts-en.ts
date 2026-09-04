@@ -1,3 +1,29 @@
+/**
+ * ============================================================================
+ * NYĀYA SŪTRAS: MASTER ONTOLOGY & CONCEPTS DIRECTORY
+ * ============================================================================
+ * 
+ * This file is the complete, canonical representation of all philosophical 
+ * concepts (Padārthas, Pramāṇas, Siddhāntas, etc.) across the ENTIRE Nyāya system.
+ * 
+ * ARCHITECTURAL LAW:
+ * As new Books (e.g., Book 5) or new commentaries (e.g., Vātsyāyana Bhāṣya) 
+ * are integrated into the app, ANY new `conceptIds` referenced in those sutra 
+ * files MUST be defined here. 
+ * 
+ * FUTURE INTEGRATION PROTOCOL:
+ * 1. When adding a new Book (e.g. `nyaya-sutras-book5-en.ts`), run the 
+ *    `identify-missing-concepts.js` script located in this directory.
+ * 2. The script will statically analyze the new sutra payloads and output a 
+ *    list of `conceptIds` that are referenced but missing from this file.
+ * 3. Append the missing concepts to this array, ensuring they conform strictly 
+ *    to the `NyayaConcept` interface, with accurate Devanagari, IAST, and 
+ *    semantic `relatedConcepts` linkages.
+ * 
+ * This ensures the `nyaya-graph-data.ts` Knowledge Graph never encounters 
+ * orphaned nodes and remains a perfectly mapped, high-dimensional web.
+ * ============================================================================
+ */
 export interface NyayaConcept {
   id: string;
   sanskrit: string;
