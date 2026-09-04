@@ -1,109 +1,121 @@
 import { 
-  NyayaKnowledgeGraph, 
-  NyayaNode, 
-  NyayaEdge, 
-  NyayaNodeType, 
-  NyayaEdgeType 
-} from '../../types/nyaya-graph';
+  NyayaGraphBuilder, 
+  SutraId, 
+  ConceptId,
+  NyayaGraphData,
+  PADARTHA_KINDS,
+  PRAMANA_KINDS,
+  PRAMEYA_KINDS,
+  SutraNode,
+  ConceptNode,
+  PadarthaNode,
+  PramanaNode,
+  PrameyaNode
+} from '../../knowledge/nyaya_graph';
 import { nyayaSutrasEn } from './nyaya-sutras-en';
 import { nyayaConceptsEn } from './nyaya-sutras-concepts-en';
 
-const nodes: Record<string, NyayaNode> = {};
-const edges: Record<string, NyayaEdge> = {};
-
-// Helper to deterministically map concept categories to our advanced graph types
-const mapCategoryToType = (category: string): NyayaNodeType => {
-  switch (category) {
-    case 'Epistemology': return 'PRAMANA';
-    case 'Metaphysics': return 'PRAMEYA';
-    case 'Dialectics': return 'VADA';
-    case 'Hermeneutics': return 'SIDDHANTA';
-    case 'Cognition': return 'PRAMEYA';
-    default: return 'SIDDHANTA';
-  }
-};
+const builder = new NyayaGraphBuilder();
 
 // 1. Process all Concepts into Nodes
 nyayaConceptsEn.forEach(concept => {
-  const nodeId = `concept:${concept.id}`;
-  nodes[nodeId] = {
-    id: nodeId,
-    type: mapCategoryToType(concept.category),
-    label: {
-      sanskrit: concept.sanskrit,
-      iast: concept.iast,
-      english: concept.english
-    },
-    description: concept.definition,
-    axiomatic: ['pramana', 'prameya'].includes(concept.id), // Basic heuristics for axioms
-  };
-
-  // Create semantic edges for related concepts
-  if (concept.relatedConcepts) {
-    concept.relatedConcepts.forEach(relatedId => {
-      const targetId = `concept:${relatedId}`;
-      const edgeId = `edge:related:${concept.id}->${relatedId}`;
-      edges[edgeId] = {
-        id: edgeId,
-        sourceNodeId: nodeId,
-        targetNodeId: targetId,
-        relation: 'IS_A', // Defaulting relation, can be specialized later
-        weight: 0.8, // Semantic proximity score
-        isBidirectional: true,
-        provenance: [] 
-      };
+  const cId = concept.id as ConceptId;
+  const label = `${concept.sanskrit} (${concept.iast}) - ${concept.english}`;
+  
+  if (PADARTHA_KINDS.includes(concept.id as any)) {
+    builder.addNode<PadarthaNode>({
+      kind: 'Padartha',
+      id: cId as any,
+      label,
+      padarthaKind: concept.id as any,
+      provenance: { sutraRefs: [], confidence: 'confirmed' },
+      properties: {
+        description: concept.definition
+      }
+    });
+  } else if (PRAMANA_KINDS.includes(concept.id as any)) {
+    builder.addNode<PramanaNode>({
+      kind: 'Pramana',
+      id: cId as any,
+      label,
+      pramanaKind: concept.id as any,
+      provenance: { sutraRefs: [], confidence: 'confirmed' },
+      properties: {
+        description: concept.definition
+      }
+    });
+  } else if (PRAMEYA_KINDS.includes(concept.id as any)) {
+    builder.addNode<PrameyaNode>({
+      kind: 'Prameya',
+      id: cId as any,
+      label,
+      prameyaKind: concept.id as any,
+      provenance: { sutraRefs: [], confidence: 'confirmed' },
+      properties: {
+        description: concept.definition
+      }
+    });
+  } else {
+    builder.addNode<ConceptNode>({
+      kind: 'Concept',
+      id: cId,
+      label,
+      domain: concept.category,
+      provenance: { sutraRefs: [], confidence: 'confirmed' },
+      properties: {
+        description: concept.definition
+      }
     });
   }
 });
 
-// 2. Process all Sutras into Nodes and create PROVES/HAS_PART edges
-nyayaSutrasEn.forEach(sutra => {
-  const sutraNodeId = `sutra:${sutra.id}`;
-  
-  nodes[sutraNodeId] = {
-    id: sutraNodeId,
-    type: 'SUTRA',
-    label: {
-      sanskrit: sutra.devanagari,
-      iast: sutra.iast,
-      english: sutra.number
-    },
-    description: sutra.translation,
-    axiomatic: true, // Sutras are foundational axioms of the system
-  };
+// Create semantic edges for related concepts
+nyayaConceptsEn.forEach(concept => {
+  if (concept.relatedConcepts) {
+    concept.relatedConcepts.forEach(relatedId => {
+      builder.addEdge({
+        source: concept.id as ConceptId,
+        target: relatedId as ConceptId,
+        relation: 'SUBTYPE_OF',
+        provenance: { sutraRefs: [], confidence: 'inferred' }
+      });
+    });
+  }
+});
 
-  // If the sutra mentions concepts, it PROVES or SUBSTRATUM_OF those concepts
+// 2. Process all Sutras into Nodes and create DEFINES edges
+nyayaSutrasEn.forEach(sutra => {
+  const sutraNodeId = `sutra:${sutra.id}` as SutraId;
+  
+  builder.addNode<SutraNode>({
+    kind: 'Sutra',
+    id: sutraNodeId,
+    ahnika: '1.1' as any, // Dummy for now since we don't parse ahnika easily from flat list
+    devanagari: sutra.devanagari || '',
+    iast: sutra.iast,
+    label: `Sutra ${sutra.number}`,
+    provenance: { sutraRefs: [sutraNodeId], confidence: 'confirmed' },
+    properties: {
+      description: sutra.translation
+    }
+  });
+
+  // If the sutra mentions concepts, it DEFINES or ESTABLISHES them
   if (sutra.conceptIds) {
     sutra.conceptIds.forEach(conceptId => {
-      const targetConceptId = `concept:${conceptId}`;
-      
-      const edgeId = `edge:proves:${sutra.id}->${conceptId}`;
-      edges[edgeId] = {
-        id: edgeId,
-        sourceNodeId: sutraNodeId,
-        targetNodeId: targetConceptId,
-        relation: 'PROVES',
-        weight: 1.0, // Absolute textual proof
-        isBidirectional: false,
-        provenance: [{
-          sutraId: sutra.id,
-          confidence: 1.0
-        }]
-      };
+      builder.addEdge({
+        source: sutraNodeId,
+        target: conceptId as ConceptId,
+        relation: 'DEFINES',
+        provenance: { sutraRefs: [sutraNodeId], confidence: 'confirmed' }
+      });
     });
   }
 });
 
 // 3. Assemble the maxed-out Knowledge Graph
-export const nyayaKnowledgeGraph: NyayaKnowledgeGraph = {
-  schemaVersion: '1.0.0',
-  ontologyUri: 'http://darshana.app/ontology/nyaya',
-  nodes,
-  edges,
-  hyperparameters: {
-    embeddingDimension: 1536,
-    graphDensity: Object.keys(edges).length / (Object.keys(nodes).length * Object.keys(nodes).length || 1),
-    modularity: 0.85, // Estimated high clustering based on sutra chapters
-    totalInferences: Object.keys(edges).length
-  }
-};
+export const nyayaKnowledgeGraph: NyayaGraphData = builder.buildData({
+  version: '2.0.0',
+  generatedAt: new Date().toISOString(),
+  sourceFiles: ['nyaya-sutras-en.ts', 'nyaya-sutras-concepts-en.ts']
+});

@@ -22,7 +22,7 @@ export default function KnowledgeGraphView({
   onNodePress,
   selectedNodeId,
 }: { 
-  systemFilter?: 'Sāṃkhya' | 'Yoga' | 'Both';
+  systemFilter?: 'Sāṃkhya' | 'Yoga' | 'Nyāya' | 'Both';
   onNodePress?: (node: NodeData) => void;
   selectedNodeId?: string | null;
 }) {

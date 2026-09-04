@@ -13,7 +13,7 @@ export default function GraphScreen() {
   const route = useRoute<any>();
   const [selectedNode, setSelectedNode] = useState<any>(null);
   const [activeTab, setActiveTab] = useState<'verses' | 'concepts'>('verses');
-  const [system, setSystem] = useState<'Sāṃkhya' | 'Yoga' | 'Both'>('Sāṃkhya');
+  const [system, setSystem] = useState<'Sāṃkhya' | 'Yoga' | 'Nyāya' | 'Both'>('Sāṃkhya');
   const s = makeStyles(colors);
 
   React.useEffect(() => {
