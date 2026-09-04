@@ -7,6 +7,7 @@ import { vaisesikaSutrasText } from './vaisesika/vaisesika-sutras';
 import { vaisesikaThreadEn } from './vaisesika/vaisesika-sutras-thread-en';
 import { mimamsaSystem } from './mimamsa';
 import { vedantaSystem } from './vedanta';
+import { kashmirShaivismSystem } from './kashmir-shaivism';
 
 // Stitches a text's authored thread steps into full ThreadStep objects,
 // tagging each with the text it came from. A system with several texts
@@ -45,7 +46,8 @@ export const systems: System[] = [
     thread: threadFor(vaisesikaSutrasText, vaisesikaThreadEn),
   },
   mimamsaSystem,
-  vedantaSystem
+  vedantaSystem,
+  kashmirShaivismSystem
 ];
 
 export const getSystem = (id: string) => systems.find((s) => s.id === id);
