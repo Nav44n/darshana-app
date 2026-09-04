@@ -13,7 +13,7 @@ export default function FiveKlesas() {
   ];
 
   return (
-    <Svg width="100%" viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" role="img">
+    <Svg width="100%" viewBox="0 0 680 260">
       <Defs>
         <Marker id="arrowFK" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
           <Path d="M2 1L8 5L2 9" fill="none" stroke={colors.tamas} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -21,8 +21,8 @@ export default function FiveKlesas() {
       </Defs>
 
       <Rect x="260" y="20" width="160" height="56" rx="8" fill={colors.avyakta2} stroke={colors.tamas} strokeWidth="0.5"/>
-      <SvgText x="340" y="42" textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="14" fontWeight="500" fill={colors.ink}>Avidyā</SvgText>
-      <SvgText x="340" y="62" textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="11" fill={colors.tamas}>root ignorance</SvgText>
+      <SvgText x="340" y="42" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif" fontSize="14" fontWeight="500" fill={colors.ink}>Avidyā</SvgText>
+      <SvgText x="340" y="62" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif" fontSize="11" fill={colors.tamas}>root ignorance</SvgText>
 
       {items.map((it, idx) => (
         <React.Fragment key={it.title}>
@@ -37,8 +37,8 @@ export default function FiveKlesas() {
             markerEnd="url(#arrowFK)"
           />
           <Rect x={it.x} y="150" width="160" height="72" rx="8" fill={colors.avyakta2} stroke={colors.rajas} strokeWidth="0.5"/>
-          <SvgText x={it.x + 80} y="180" textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="14" fontWeight="500" fill={colors.ink}>{it.title}</SvgText>
-          <SvgText x={it.x + 80} y="200" textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="11" fill={colors.rajasDim}>{it.sub}</SvgText>
+          <SvgText x={it.x + 80} y="180" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif" fontSize="14" fontWeight="500" fill={colors.ink}>{it.title}</SvgText>
+          <SvgText x={it.x + 80} y="200" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif" fontSize="11" fill={colors.rajasDim}>{it.sub}</SvgText>
         </React.Fragment>
       ))}
     </Svg>

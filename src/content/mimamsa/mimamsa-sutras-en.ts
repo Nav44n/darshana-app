@@ -1,6 +1,6 @@
-import { MimamsaSutra } from "../../types/content";
+import { Verse } from "../../types/content";
 
-export const mimamsaSutrasEn: MimamsaSutra[] = [
+export const mimamsaSutrasEn: any[] = [
   {
     "id": "1.1.1",
     "number": "I.1.1",

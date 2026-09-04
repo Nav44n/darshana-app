@@ -10,7 +10,7 @@ export interface Verse {
   conceptIds?: string[];
 }
 
-export const nyayaSutrasBook2Ml: Verse[
+export const nyayaSutrasBook2Ml: Verse[] = [
   {
     "id": "2.1.1",
     "number": 1,

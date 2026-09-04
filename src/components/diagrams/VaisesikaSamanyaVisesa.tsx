@@ -6,7 +6,7 @@ export default function VaisesikaSamanyaVisesa() {
   const { colors } = useTheme();
 
   return (
-    <Svg  width="100%" viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg" role="img">
+    <Svg  width="100%" viewBox="0 0 680 280">
 <Circle cx="260" cy="140" r="120" fill={colors.avyakta2} stroke={colors.sattva} strokeWidth="0.5"/>
 <SvgText x="260" y="45" textAnchor="middle" fontFamily="sans-serif" fontSize="14" fontWeight="500" fill={colors.ink}>Samanya — cowhood</SvgText>
 <Circle cx="190" cy="120" r="14" fill={colors.sattva}/>

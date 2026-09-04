@@ -14,7 +14,7 @@ export default function Parinamas() {
   const bw = 180, gap = 20;
 
   return (
-    <Svg width="100%" viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" role="img">
+    <Svg width="100%" viewBox="0 0 680 200">
       <Defs>
         <Marker id="arrowPZ" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
           <Path d="M2 1L8 5L2 9" fill="none" stroke={colors.tamas} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -26,8 +26,8 @@ export default function Parinamas() {
         return (
           <React.Fragment key={s.title}>
             <Rect x={x} y="50" width={bw} height="70" rx="8" fill={colors.avyakta2} stroke={colors.purusha} strokeWidth="0.6"/>
-            <SvgText x={x + bw / 2} y="78" textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="13.5" fontWeight="500" fill={colors.ink}>{s.title}</SvgText>
-            <SvgText x={x + bw / 2} y="100" textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="10.5" fill={colors.purushaDim}>{s.sub}</SvgText>
+            <SvgText x={x + bw / 2} y="78" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif" fontSize="13.5" fontWeight="500" fill={colors.ink}>{s.title}</SvgText>
+            <SvgText x={x + bw / 2} y="100" textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif" fontSize="10.5" fill={colors.purushaDim}>{s.sub}</SvgText>
             {i < stages.length - 1 && (
               <Line x1={x + bw} y1="85" x2={x + bw + gap} y2="85" stroke={colors.tamas} strokeWidth="1" markerEnd="url(#arrowPZ)"/>
             )}

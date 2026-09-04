@@ -12,7 +12,7 @@ export default function Antarayas() {
   ];
 
   return (
-    <Svg width="100%" viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" role="img">
+    <Svg width="100%" viewBox="0 0 680 300">
       {items.map((label, i) => {
         const col = i % 3;
         const row = Math.floor(i / 3);
@@ -22,8 +22,8 @@ export default function Antarayas() {
         return (
           <React.Fragment key={label}>
             <Rect x={x} y={y} width="200" height="72" rx="8" fill={colors.avyakta2} stroke={colors.tamas} strokeWidth="0.5"/>
-            <SvgText x={x + 100} y={y + 30} textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="14" fontWeight="500" fill={colors.ink}>{title}</SvgText>
-            <SvgText x={x + 100} y={y + 50} textAnchor="middle" dominantBaseline="central" fontFamily="sans-serif" fontSize="11" fill={colors.tamas}>{sub}</SvgText>
+            <SvgText x={x + 100} y={y + 30} textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif" fontSize="14" fontWeight="500" fill={colors.ink}>{title}</SvgText>
+            <SvgText x={x + 100} y={y + 50} textAnchor="middle" alignmentBaseline="middle" fontFamily="sans-serif" fontSize="11" fill={colors.tamas}>{sub}</SvgText>
           </React.Fragment>
         );
       })}
