@@ -106,7 +106,15 @@ export default function HomeScreen() {
         const verseCount = sys.texts.reduce((n, t) => n + t.verses.length, 0);
         const accent = systemAccent(sys.id);
         return (
-          <View key={sys.id} style={[s.sysCardWrap, elevation(2)]}>
+          <Pressable 
+            key={sys.id} 
+            style={({ pressed }) => [
+              s.sysCardWrap, 
+              elevation(2),
+              pressed && { opacity: 0.9 }
+            ]}
+            onPress={() => nav.navigate('System', { systemId: sys.id })}
+          >
             <GunaRule weight="bold" colors={accent.pair} style={s.sysCardEdge} />
             <View style={s.sysCard}>
               <LinearGradient
@@ -124,29 +132,8 @@ export default function HomeScreen() {
               <Text style={[s.sysText, { color: accent.dim }]}>
                 {textCount} text{textCount === 1 ? '' : 's'} · {verseCount} verses transcribed
               </Text>
-
-              <View style={s.sysActions}>
-                <Pressable
-                  style={({ pressed }) => [s.secondaryBtn, pressed && s.btnPressed]}
-                  onPress={() => nav.navigate('System', { systemId: sys.id })}
-                  accessibilityRole="button"
-                  accessibilityLabel={`Explore texts in ${sys.title}`}
-                >
-                  <Text style={s.secondaryBtnText}>Explore texts</Text>
-                </Pressable>
-                {sys.thread.length > 0 && (
-                  <Pressable
-                    style={({ pressed }) => [s.primaryBtn, { backgroundColor: pressed ? accent.dim : accent.primary }]}
-                    onPress={() => nav.navigate('Thread', { systemId: sys.id, stepId: sys.thread[0].id })}
-                    accessibilityRole="button"
-                    accessibilityLabel={`Explore ${sys.title} concept by concept, start to end`}
-                  >
-                    <Text style={s.primaryBtnText}>Explore threads</Text>
-                  </Pressable>
-                )}
-              </View>
             </View>
-          </View>
+          </Pressable>
         );
       })}
 
