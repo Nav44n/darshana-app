@@ -1194,5 +1194,295 @@ export const tantralokaConceptsEn: TantralokaConcept[] = [
     definition: "The deep-seated, intuitive, non-verbal sense of limitation and separation that affects the very core of the soul (Puruṣa). It is the innate feeling of 'I am incomplete'.",
     significance: "This ignorance cannot be removed by reading books or studying logic. It is only removed through spiritual initiation (dīkṣā) and direct yogic immersion (Samāveśa). Complete liberation requires the removal of both Bauddha and Pauruṣa ignorance.",
     relatedConcepts: ["bauddha-ajnana", "samavesa", "diksa"]
+  },
+
+// --- THE EMANATION OF THE VOWELS (PURE ENERGIES) ---
+  {
+    id: "akara-anuttara",
+    sanskrit: "अकार / अनुत्तर",
+    iast: "akāra / anuttara",
+    english: "The Phoneme 'A' / The Supreme Absolute",
+    category: "Philosophy of Language",
+    definition: "The first letter of the Sanskrit alphabet, representing pure, unconditioned, non-dual consciousness (Śiva). It is the source of all subsequent letters and energies.",
+    significance: "In Chapter 3, 'A' is not just a sound, but the resting place of all existence. It is implicitly present in every other consonant and vowel, just as Śiva's consciousness pervades all of reality.",
+    relatedConcepts: ["anuttara", "aham", "svara"]
+  },
+  {
+    id: "akara-ananda",
+    sanskrit: "आकार / आनन्द",
+    iast: "ākāra / ānanda",
+    english: "The Phoneme 'Ā' / Supreme Bliss",
+    category: "Philosophy of Language",
+    definition: "The second vowel ('Ā'), formed by the union of 'A' (Anuttara) with itself (A + A = Ā). It represents Śiva's sheer bliss and the initial impulse to expand or create.",
+    significance: "Bliss (Ānanda) is the energy of Śiva resting in His own fullness. It is the first vibration of consciousness celebrating its own limitless nature before projecting the universe.",
+    relatedConcepts: ["akara-anuttara", "camatkara", "iccha-sakti"]
+  },
+  {
+    id: "ikara-iccha",
+    sanskrit: "इकार / इच्छा",
+    iast: "ikāra / icchā",
+    english: "The Phoneme 'I' / Pure Will",
+    category: "Philosophy of Language",
+    definition: "The third vowel ('I'), representing the energy of Will (Icchā-śakti). It is the unmanifest, unfragmented desire of Śiva to manifest the cosmos.",
+    significance: "At this stage, the universe exists purely as an intention within consciousness. There is no separation yet between the wisher and what is wished for.",
+    relatedConcepts: ["sambhavopaya", "isana", "akara-ananda"]
+  },
+  {
+    id: "ikara-isana",
+    sanskrit: "ईकार / ईशान",
+    iast: "īkāra / īśana",
+    english: "The Phoneme 'Ī' / Supreme Lordship",
+    category: "Philosophy of Language",
+    definition: "The fourth vowel ('Ī'), representing Lordship or Mastery (Īśana). It is the intensification of Will ('I' + 'I' = 'Ī').",
+    significance: "It denotes the absolute sovereignty of consciousness over its own impending creation, a sovereign awareness that 'I am the master of all that will appear.'",
+    relatedConcepts: ["ikara-iccha", "svatantrya"]
+  },
+  {
+    id: "ukara-unmesa",
+    sanskrit: "उकार / उन्मेष",
+    iast: "ukāra / unmeṣa",
+    english: "The Phoneme 'U' / Emergence (Knowledge)",
+    category: "Philosophy of Language",
+    definition: "The fifth vowel ('U'), representing the energy of Knowledge (Jñāna-śakti) and the sudden unfolding or emergence (Unmeṣa) of the objective universe within the mind of Śiva.",
+    significance: "Here, the cosmos begins to take shape as an idea or form within consciousness, similar to how an image first clearly appears in the mind's eye.",
+    relatedConcepts: ["jnana-sakti", "unata"]
+  },
+  {
+    id: "ukara-unata",
+    sanskrit: "ऊकार / ऊनता",
+    iast: "ūkāra / ūnatā",
+    english: "The Phoneme 'Ū' / Deficiency (Objective Appearance)",
+    category: "Philosophy of Language",
+    definition: "The sixth vowel ('Ū'), representing a state of 'deficiency' or 'lack'. It occurs when consciousness begins to view the unfolding universe as an object slightly separate from its own fullness.",
+    significance: "This 'deficiency' is not a flaw, but a necessary step for creation. By slightly concealing His absolute fullness, Śiva allows the objective world to appear as if it were distinct.",
+    relatedConcepts: ["ukara-unmesa", "maya-tattva"]
+  },
+  {
+    id: "sandhyaksara",
+    sanskrit: "सन्ध्यक्षर",
+    iast: "sandhyakṣara",
+    english: "The Diphthongs (E, AI, O, AU) / Blended Energies",
+    category: "Philosophy of Language",
+    definition: "The complex vowels (E, AI, O, AU), which in Sanskrit are formed by combining the base energies (e.g., A + I = E; A + U = O).",
+    significance: "Esoterically, these represent the geometric and dynamic fusion of Absolute Consciousness (A/Ā) with Will (I/Ī) and Knowledge (U/Ū), forming the 'Triangles' (Śṛṅgāṭaka) of emission that lead to action (Kriyā).",
+    relatedConcepts: ["sringataka", "kriya-sakti"]
+  },
+  {
+    id: "bindu",
+    sanskrit: "बिन्दु / अं",
+    iast: "bindu / aṃ",
+    english: "The Point (Anusvāra) / Undivided Knowing",
+    category: "Philosophy of Language",
+    definition: "The nasal sound (Aṃ) at the end of the vowel series. It represents the compression of all preceding energies into a single, intensely concentrated, dimensionless point of pure awareness.",
+    significance: "Bindu is the state where the entire universe is held in potential, like a seed. It is the perfect fusion of the subjective (Śiva) and objective (Śakti) poles of reality.",
+    relatedConcepts: ["visarga", "aham", "prakasa"]
+  },
+  {
+    id: "visarga",
+    sanskrit: "विसर्ग / अः",
+    iast: "visarga / aḥ",
+    english: "Emission (Aḥ) / The Creative Outpouring",
+    category: "Philosophy of Language",
+    definition: "The final vowel sound, an aspirated release of breath (Aḥ). It represents Śakti as the power of emission, projecting the inner universe outward into manifestation.",
+    significance: "Visarga is the supreme creative act. It is depicted as two points (colon-like), representing the inner and outer, or the upper and lower realms, connected by the flow of divine breath.",
+    relatedConcepts: ["bindu", "kriya-sakti", "aham"]
+  },
+  {
+    id: "aham-vimarsa",
+    sanskrit: "अहं विमर्श",
+    iast: "ahaṃ vimarśa",
+    english: "The Supreme 'I' Awareness",
+    category: "Absolute Reality",
+    definition: "The absolute, self-referential consciousness of Śiva. Esoterically constructed from the alphabet: 'A' (the first letter, Śiva) to 'Ha' (the last letter, Śakti), bound together by 'M' (Bindu, non-dual union).",
+    significance: "This is the climax of the vowel emanation in Chapter 3. Ahaṃ is not the limited human ego; it is the infinite, cosmic container that holds all letters (and thus all realities) from A to Z within itself.",
+    relatedConcepts: ["matrika", "purnata", "anuttara"]
+  },
+
+// --- THE EMANATION OF THE CONSONANTS (OBJECTIVE WORLD) ---
+  {
+    id: "vyanjana",
+    sanskrit: "व्यञ्जन",
+    iast: "vyañjana",
+    english: "Consonants / The Manifesting Letters",
+    category: "Philosophy of Language",
+    definition: "The consonants of the Sanskrit alphabet. In the esoteric Trika system, while vowels represent the autonomous, self-shining consciousness of Śiva, the consonants represent the dependent, objective universe (the 'created' things).",
+    significance: "Consonants cannot be pronounced without a vowel (usually 'a'). This phonetically proves the philosophical point that the objective world (consonants) cannot exist without the underlying support of Śiva's consciousness (the vowel).",
+    relatedConcepts: ["svara", "matrika", "tattva"]
+  },
+  {
+    id: "sparsha-varna",
+    sanskrit: "स्पर्श वर्ण",
+    iast: "sparśa varṇa",
+    english: "The Mute Consonants (Ka to Ma)",
+    category: "Philosophy of Language",
+    definition: "The 25 specific consonants ranging from 'Ka' to 'Ma'. They are called 'sparśa' (contact) because the tongue makes full contact with the mouth to pronounce them.",
+    significance: "Abhinavagupta maps these 25 letters exactly to the lowest 25 Tattvas of the Sāṃkhya system, from the gross material elements (Earth) up to the limited individual soul (Puruṣa). They represent the fully condensed, material realm.",
+    relatedConcepts: ["kavarga", "pavarga", "tattva"]
+  },
+  {
+    id: "kavarga",
+    sanskrit: "कवर्ग",
+    iast: "kavarga",
+    english: "The Guttural Consonants (Ka, Kha, Ga, Gha, Ṅa)",
+    category: "Cosmology",
+    definition: "The first group of five consonants. In the process of cosmic emanation, they correspond to the Pañcamahābhūtas: the five gross physical elements (Earth, Water, Fire, Air, Ether/Space).",
+    significance: "They form the outermost, densest layer of manifestation, rooted in the throat (guttural), which is esoterically linked to the gross physical plane.",
+    relatedConcepts: ["sparsha-varna", "mahabhuta"]
+  },
+  {
+    id: "cavarga",
+    sanskrit: "चवर्ग",
+    iast: "cavarga",
+    english: "The Palatal Consonants (Ca, Cha, Ja, Jha, Ña)",
+    category: "Cosmology",
+    definition: "The second group of five consonants. They correspond to the Pañcatanmātras: the five subtle elements or sensory potentials (Odor, Taste, Form/Color, Touch, Sound).",
+    significance: "These subtle elements are the energetic templates or 'blueprints' from which the gross physical elements (Kavarga) eventually solidify.",
+    relatedConcepts: ["kavarga", "tanmatra"]
+  },
+  {
+    id: "tavarga-cerebrals",
+    sanskrit: "टवर्ग",
+    iast: "ṭavarga",
+    english: "The Cerebral Consonants (Ṭa, Ṭha, Ḍa, Ḍha, Ṇa)",
+    category: "Cosmology",
+    definition: "The third group of five consonants. They correspond to the Pañcakarmendriyas: the five organs of action (Resting, Evacuation, Locomotion, Handling, Speech).",
+    significance: "This represents the universe of dynamic physical interaction and the capacities of the individual soul to act within the materialized world.",
+    relatedConcepts: ["karmendriya", "vyanjana"]
+  },
+  {
+    id: "tavarga-dentals",
+    sanskrit: "तवर्ग",
+    iast: "tavarga",
+    english: "The Dental Consonants (Ta, Tha, Da, Dha, Na)",
+    category: "Cosmology",
+    definition: "The fourth group of five consonants. They correspond to the Pañcajñānendriyas: the five organs of sense/perception (Smell, Taste, Sight, Touch, Hearing).",
+    significance: "This represents the cognitive interface of the soul—the capacities required to perceive the objective universe.",
+    relatedConcepts: ["jnanendriya", "vyanjana"]
+  },
+  {
+    id: "pavarga",
+    sanskrit: "पवर्ग",
+    iast: "pavarga",
+    english: "The Labial Consonants (Pa, Pha, Ba, Bha, Ma)",
+    category: "Cosmology",
+    definition: "The fifth group of five consonants. They correspond to the inner psychological instruments and their source: Mind (Manas), Ego (Ahaṃkāra), Intellect (Buddhi), Root Nature (Prakṛti), and the limited Soul (Puruṣa) corresponding to 'Ma'.",
+    significance: "The letter 'Ma' represents the limited subject (the bound human). Thus, from 'Ka' to 'Ma', the entire lower universe of the bound soul and its environment is completely mapped.",
+    relatedConcepts: ["purusa", "prakriti", "sparsha-varna"]
+  },
+  {
+    id: "antahstha",
+    sanskrit: "अन्तःस्थ",
+    iast: "antaḥstha",
+    english: "The Semivowels (Ya, Ra, La, Va)",
+    category: "Cosmology",
+    definition: "The intermediate consonants. In the Tattva system, these correspond to the restrictive forces (Kañcukas) that bind the soul, and the great illusion itself: Niyati, Kāla, Rāga, Vidyā, and Māyā.",
+    significance: "They exist 'in between' (antaḥstha) the pure spiritual realms and the completely materialized realm (Ka to Ma). They are the veils that transform infinite Śiva into the limited Puruṣa.",
+    relatedConcepts: ["kancuka", "maya-tattva"]
+  },
+  {
+    id: "usman",
+    sanskrit: "ऊष्मन्",
+    iast: "ūṣman",
+    english: "The Fricatives/Sibilants (Śa, Ṣa, Sa)",
+    category: "Absolute Reality",
+    definition: "The heated or aspirate sounds. These correspond to the highest, pure stages of cosmic emanation (Śuddha Adhvan): Śuddhavidyā, Īśvara, and Sadāśiva.",
+    significance: "These represent the states of consciousness where the universe is known purely as an expression of the Self (e.g., 'I am this Universe'), before the veil of Māyā divides subject and object.",
+    relatedConcepts: ["suddha-adhvan", "sadasiva"]
+  },
+  {
+    id: "hakara",
+    sanskrit: "हकार",
+    iast: "hakāra",
+    english: "The Phoneme 'Ha'",
+    category: "Absolute Reality",
+    definition: "The final foundational consonant of the alphabet. It corresponds directly to the pure Śakti (Energy/Emission) of Śiva.",
+    significance: "Together, 'A' (Anuttara/Śiva) and 'Ha' (Śakti) encompass the entire alphabet and reality. When bound together by the point of non-dual awareness ('M'/Bindu), they form 'Ahaṃ'—the Supreme 'I'.",
+    relatedConcepts: ["aham", "sakti", "visarga"]
+  },
+
+// --- MANTRA POTENCY & THE HEART ---
+  {
+    id: "mantra-virya2",
+    sanskrit: "मन्त्रवीर्य",
+    iast: "mantra-vīrya",
+    english: "The Virility / Potency of Mantra",
+    category: "Ritual & Mantra",
+    definition: "The true, living power of a mantra, which is nothing other than the supreme 'I-consciousness' (Ahaṃ-vimarśa) of Śiva. Without this inner realization, mantras are merely dead letters.",
+    significance: "Abhinavagupta emphasizes that reciting a mantra millions of times is useless without Mantra-vīrya. The practitioner must infuse the sound with the fierce, vibrant awareness of their own absolute freedom (Svātantrya) for the mantra to bear fruit.",
+    relatedConcepts: ["aham-vimarsa", "matrika", "prana"]
+  },
+  {
+    id: "hridaya",
+    sanskrit: "हृदय",
+    iast: "hṛdaya",
+    english: "The Heart / The Core of Consciousness",
+    category: "Absolute Reality",
+    definition: "Not the physical organ, but the absolute center and resting place of supreme consciousness. It is the infinite space (kha) where the entire alphabet (and thus the universe) emerges and dissolves.",
+    significance: "In Śāmbhavopāya, the yogi is instructed to dissolve all objective reality (consonants) and subjective energies (vowels) back into this radiant Heart, realizing that everything is a pulsation (Spanda) of their own core being.",
+    relatedConcepts: ["visranti", "madhya-dhaman", "khecari-mudra"]
+  },
+
+  // --- SUBTLE PHYSIOLOGY & DISSOLUTION ---
+  {
+    id: "puryastaka",
+    sanskrit: "पुर्यष्टक",
+    iast: "puryaṣṭaka",
+    english: "The City of Eight / The Subtle Body",
+    category: "Subtle Physiology",
+    definition: "The subtle body consisting of eight components: the five subtle elements (tanmātras), plus mind (manas), intellect (buddhi), and ego (ahaṃkāra).",
+    significance: "This is the vehicle that transmigrates from life to life. In Śāmbhavopāya, the yogi metaphorically 'burns' this city in the fire of supreme consciousness, purifying it so it no longer acts as a limiting veil (Kañcuka).",
+    relatedConcepts: ["kancuka", "tanmatra", "jiva"]
+  },
+  {
+    id: "madhya-dhaman",
+    sanskrit: "मध्यधामन्",
+    iast: "madhya-dhāman",
+    english: "The Central Abode / The Middle Channel",
+    category: "Subtle Physiology",
+    definition: "Esoterically corresponding to the Suṣumnā nerve, but in Śāmbhavopāya it refers to the absolute center of awareness, completely devoid of the duality of subject (Prāṇa) and object (Apāna).",
+    significance: "Entering the Middle Channel means stopping the outward flow of attention and resting in the non-dual center. All genuine spiritual transformation in Trika occurs here.",
+    relatedConcepts: ["hridaya", "susumna", "prana-apana"]
+  },
+
+  // --- THE SUPREME SEALS (MUDRĀ) & RESTING ---
+  {
+    id: "bhairavi-mudra",
+    sanskrit: "भैरवी मुद्रा",
+    iast: "bhairavī mudrā",
+    english: "The Seal of Bhairavī",
+    category: "Soteriology",
+    definition: "A supreme state of awareness where the yogi's eyes are open and looking outward at the physical world, but their entire attention and consciousness are rooted completely inward in Śiva.",
+    significance: "This embodies the pinnacle of Trika non-duality: one does not need to close their eyes or flee the world to meditate. The world itself is perceived as a reflection (Pratibimba) within the mirror of one's own awareness.",
+    relatedConcepts: ["pratibimba", "khecari-mudra", "unmesa"]
+  },
+  {
+    id: "khecari-mudra",
+    sanskrit: "खेचरी मुद्रा",
+    iast: "khecarī mudrā",
+    english: "The Seal of Roaming in the Void",
+    category: "Soteriology",
+    definition: "From 'Kha' (the void/ether of consciousness) and 'Carī' (moving). It is the state where the yogi's awareness moves freely and limitlessly in the vast, unconditioned expanse of absolute consciousness.",
+    significance: "While Hatha Yoga views this as a physical tongue lock, Abhinavagupta defines it as an internal, energetic posture of the soul. It is the ultimate freedom of the realized master to roam the universe as Śiva.",
+    relatedConcepts: ["hridaya", "bhairavi-mudra", "svatantrya"]
+  },
+  {
+    id: "visranti",
+    sanskrit: "विश्रान्ति",
+    iast: "viśrānti",
+    english: "Repose / Ultimate Resting",
+    category: "Aesthetics & Experience",
+    definition: "The state of profound, dynamic stillness. It is the effortless resting of the self within its own essential nature (Svabhāva), free from the agitation of striving or becoming.",
+    significance: "Viśrānti is the goal of Śāmbhavopāya. It is not an inert sleep, but a vibrant, blissful settling into the 'I-consciousness' (Ahaṃ) after all mental constructs (vikalpas) have been dissolved.",
+    relatedConcepts: ["camatkara", "nirvikalpa", "ananda"]
+  },
+  {
+    id: "sarva-svarupatva",
+    sanskrit: "सर्वस्वरूपत्व",
+    iast: "sarva-svarūpatva",
+    english: "The State of Being the Form of All Things",
+    category: "Absolute Reality",
+    definition: "The ultimate realization concluding Śāmbhavopāya: the undeniable, lived experience that 'I am the universe' and that all 36 Tattvas and all phonemes are synthesized within my own body and consciousness.",
+    significance: "This brings the teachings of Volume 2 full circle. The Anuttara (Absolute) discussed in Anupāya is finally realized in Śāmbhavopāya not as a distant goal, but as the very fabric of one's own embodied existence.",
+    relatedConcepts: ["aham", "pratibimba", "purnata"]
   }
 ];
