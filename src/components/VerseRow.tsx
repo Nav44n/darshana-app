@@ -13,7 +13,7 @@ export default function VerseRow({
   onPress: () => void;
   bookmarked?: boolean;
 }) {
-  const { colors, type } = useTheme();
+  const { colors, type, fonts } = useTheme();
   const s = makeStyles(colors);
   return (
     <Pressable
@@ -28,7 +28,14 @@ export default function VerseRow({
         <Text style={[type.body, s.en]} numberOfLines={2}>
           {verse.content?.en?.translation?.split('.')[0] ?? ''}.
         </Text>
-        <Text style={[type.caption, s.sa]} numberOfLines={1}>
+        <Text 
+          style={[
+            type.caption, 
+            s.sa, 
+            verse.devanagari ? { fontFamily: fonts.sanskrit, fontSize: 14 } : { fontFamily: fonts.serifItalic, fontSize: 14 }
+          ]} 
+          numberOfLines={1}
+        >
           {verse.devanagari ? verse.devanagari.split('\n')[0] : verse.iast.split('\n')[0]}
         </Text>
       </View>
