@@ -990,5 +990,107 @@ export const tantralokaConceptsEn: TantralokaConcept[] = [
     definition: "The true, intrinsic, and unalterable nature of reality, which is pure, vibrant consciousness, as opposed to the temporary states, objects, or mental constructs that arise within it.",
     significance: "Anupāya emphasizes effortlessly resting in one's Svabhāva. Because this nature is innate, it cannot be acquired, generated, or destroyed—it can only be recognized. Any striving to 'attain' it implies it is alien, thus destroying the realization.",
     relatedConcepts: ["svatah-siddha", "anupaya", "sakrjjnana"]
+  },
+
+// --- ŚĀMBHAVOPĀYA: THE MEANS OF ŚIVA ---
+  {
+    id: "sambhavopaya",
+    sanskrit: "शाम्भवोपाय",
+    iast: "śāmbhavopāya",
+    english: "The Means of Śiva / The Divine Method",
+    category: "Soteriology",
+    definition: "The highest active method (upāya) in Trika, functioning strictly at the level of Will (Icchā). It involves the sudden, thought-free realization of the Self through a sheer flash of intuition, without relying on mantras, meditation on objects, or intellectual reasoning.",
+    significance: "Detailed in Chapter 3 of the Tantrāloka. It is for highly advanced practitioners who, upon simply hearing the truth from a Guru, can instantaneously absorb their mind into pure consciousness by dissolving all dualistic thoughts (vikalpa-kṣaya).",
+    relatedConcepts: ["icchashakti", "vikalpa-kshaya", "saktopaya", "pratibimba"]
+  },
+  {
+    id: "icchashakti",
+    sanskrit: "इच्छाशक्ति",
+    iast: "icchā-śakti",
+    english: "The Power of Will",
+    category: "Absolute Reality",
+    definition: "The supreme, unimpeded drive of Śiva to manifest, maintain, and dissolve. In the practitioner, it is the pure, unconditioned spiritual urge towards liberation that precedes thought or action.",
+    significance: "Śāmbhavopāya operates entirely within the domain of Icchā-śakti. Realization here occurs not by 'doing' anything or 'thinking' anything, but by resting in the sheer, vibrating Will of the Divine before it fractures into specific desires.",
+    relatedConcepts: ["jnanashakti", "kriyashakti", "sambhavopaya"]
+  },
+  {
+    id: "vikalpa-kshaya",
+    sanskrit: "विकल्पक्षय",
+    iast: "vikalpa-kṣaya",
+    english: "The Dissolution of Dualistic Thought",
+    category: "Soteriology",
+    definition: "The sudden cessation or silencing of all discursive, dualistic mental constructs (vikalpas), leaving the mind in a state of naked, vibrant awareness.",
+    significance: "This is the primary technique of Śāmbhavopāya. Instead of replacing bad thoughts with good thoughts (as in Śāktopāya), the practitioner abruptly stops the thought-generating process itself, revealing the underlying screen of pure consciousness.",
+    relatedConcepts: ["sambhavopaya", "vikalpa", "unmana"]
+  },
+  {
+    id: "pratibimba",
+    sanskrit: "प्रतिबिम्ब",
+    iast: "pratibimba",
+    english: "Reflection / The Mirror Analogy",
+    category: "Cosmology",
+    definition: "The philosophical analogy that the entire universe is merely a reflection appearing within the mirror of supreme consciousness (Śiva).",
+    significance: "Crucial to Chapter 3. Unlike a physical reflection which requires an external object and a physical mirror, Śiva's reflection is entirely autonomous (Svātantrya)—He is the mirror, the reflection, and the entity casting the reflection, all at once.",
+    relatedConcepts: ["bimba", "prakasa", "abhasa"]
+  },
+  {
+    id: "bimba",
+    sanskrit: "बिम्ब",
+    iast: "bimba",
+    english: "The Original Object / The Source",
+    category: "Absolute Reality",
+    definition: "The original source that casts a reflection. In Trika's cosmology of reflection (Pratibimba-vāda), the Bimba is the supreme, unmanifest consciousness (Anuttara).",
+    significance: "The universe (Pratibimba) is totally dependent on the Source (Bimba), but the Source remains completely unaffected and untainted by the reflection it manifests.",
+    relatedConcepts: ["pratibimba", "anuttara"]
+  },
+  {
+    id: "akincaccintaka",
+    sanskrit: "अकिञ्चच्चिन्तक",
+    iast: "akiñcaccintaka",
+    english: "Thinking of Absolutely Nothing",
+    category: "Soteriology",
+    definition: "A specific meditative state in Śāmbhavopāya where the practitioner fiercely holds the mind in a state of complete conceptual void, refusing to entertain even a single thought.",
+    significance: "By actively arresting the mind's tendency to grasp at objects, the practitioner forces consciousness to collapse back into its own self-luminous nature. This is a violent, sudden technique to achieve vikalpa-kṣaya.",
+    relatedConcepts: ["vikalpa-kshaya", "bhairava-mudra"]
+  },
+  {
+    id: "matrka-cakra",
+    sanskrit: "मातृकाचक्र",
+    iast: "mātṛkā-cakra",
+    english: "The Wheel of Phonemic Energies",
+    category: "Philosophy of Language",
+    definition: "The complete circuit of the 50 phonemes of the Sanskrit alphabet, viewed not as dead letters, but as sentient, vibrating goddesses that construct all human perception and reality.",
+    significance: "In the context of Śāmbhavopāya, recognizing the Mātṛkā-cakra means seeing that all words and thoughts are just manifestations of Śiva's energy. Realizing this prevents one from being bound by their own mental narratives.",
+    relatedConcepts: ["matrika", "vikalpa"]
+  },
+  {
+    id: "nirvikalpa",
+    sanskrit: "निर्विकल्प",
+    iast: "nirvikalpa",
+    english: "Thought-Free / Non-discursive",
+    category: "Epistemology",
+    definition: "A state of direct, unmediated perception devoid of any linguistic or conceptual framing. It is raw, naked experience.",
+    significance: "Śāmbhavopāya aims to stabilize the yogi in continuous Nirvikalpa awareness. Even while engaging with the world, the underlying consciousness remains undisturbed by the labeling and categorizing functions of the mind.",
+    relatedConcepts: ["vikalpa", "vikalpa-kshaya", "pramana"]
+  },
+  {
+    id: "jnana-shakti",
+    sanskrit: "ज्ञानशक्ति",
+    iast: "jñāna-śakti",
+    english: "The Power of Knowledge",
+    category: "Absolute Reality",
+    definition: "The second of Śiva's three primary powers. It is the capacity of consciousness to know, perceive, and illuminate both itself and the manifested universe.",
+    significance: "While Śāmbhavopāya aligns with Will (Icchā), the next lower means, Śāktopāya, aligns with Knowledge (Jñāna). Jñāna-śakti is what allows the dualistic universe to be recognized and understood.",
+    relatedConcepts: ["icchashakti", "kriyashakti", "saktopaya"]
+  },
+  {
+    id: "kriya-shakti",
+    sanskrit: "क्रियाशक्ति",
+    iast: "kriyā-śakti",
+    english: "The Power of Action",
+    category: "Absolute Reality",
+    definition: "The third of Śiva's primary powers. It is the capacity to actually execute, construct, and physically manifest the universe in time and space.",
+    significance: "Kriyā-śakti is the domain of Āṇavopāya (the lowest means). It represents the grossest level of manifestation, where physical rituals, breath control (prāṇāyāma), and bodily yogas are required to reverse the outward flow of energy.",
+    relatedConcepts: ["icchashakti", "jnanashakti", "anavopaya"]
   }
 ];
