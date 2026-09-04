@@ -888,5 +888,107 @@ export const tantralokaConceptsEn: TantralokaConcept[] = [
     definition: "Not mere intellectual information, but the living, experiential recognition (Pratyabhijñā) of one's absolute identity with Śiva.",
     significance: "Because Abhinavagupta defines bondage strictly as Ignorance (Ajñāna), Jñāna is the sole, absolute requirement for Mokṣa (Liberation). Action (Karma) cannot remove ignorance; only light can remove darkness.",
     relatedConcepts: ["ajnana", "pratyabhijna", "moksha", "prakasa"]
+  },
+
+// --- ANUPĀYA: THE PATHLESS PATH ---
+  {
+    id: "anupaya",
+    sanskrit: "अनुपाय",
+    iast: "anupāya",
+    english: "The Pathless Path / The Null Means",
+    category: "Soteriology",
+    definition: "The highest 'method' of realization in Trika, which is actually the total absence of any method. It is the spontaneous, unmediated recognition of the Absolute (Anuttara) without relying on rituals, meditation, or cognitive efforts.",
+    significance: "It forms the core subject of Chapter 2. Abhinavagupta argues that the ultimate reality cannot be 'produced' or 'reached' by any means, because it is already the ever-present, self-luminous ground of all existence. Any 'means' implies a distance that does not exist.",
+    relatedConcepts: ["upaya-upeya-bhava", "sakrjjnana", "tivrativra-saktipata"]
+  },
+  {
+    id: "tivrativra-saktipata",
+    sanskrit: "तीव्रतीव्र शक्तिपात",
+    iast: "tīvratīvra śaktipāta",
+    english: "Supremely Intense Descent of Grace",
+    category: "Soteriology",
+    definition: "The highest, most absolute level of divine grace (Śaktipāta). It is so powerful that it instantly burns away all limitations, ignorance, and karma upon mere contact, requiring no subsequent effort from the recipient.",
+    significance: "This specific intensity of grace is the sole 'cause' or prerequisite for a disciple to enter Anupāya. It results in immediate, spontaneous liberation (Jīvanmukti) without the need for any progressive spiritual practice or initiation.",
+    relatedConcepts: ["anupaya", "saktipata", "jivanmukti-anupaya"]
+  },
+  {
+    id: "svatah-siddha",
+    sanskrit: "स्वतःसिद्ध",
+    iast: "svataḥ-siddha",
+    english: "Self-Established / Self-Evident",
+    category: "Absolute Reality",
+    definition: "The nature of supreme consciousness as being intrinsically proven, existing, and shining by its own light. It does not need external proof, logical deduction, or a 'cause' to be known.",
+    significance: "Because Śiva (Consciousness) is svataḥ-siddha, it cannot be revealed by any external means (upāya). Abhinavagupta points out that means are only useful for illuminating things that are insentient or hidden in darkness, not the very Light that illuminates the darkness.",
+    relatedConcepts: ["prakasa", "anupaya", "bhava-svabhava"]
+  },
+  {
+    id: "upaya-upeya-bhava",
+    sanskrit: "उपाय-उपेय भाव",
+    iast: "upāya-upeya bhāva",
+    english: "The Duality of Means and Goal",
+    category: "Epistemology",
+    definition: "The conceptual, dualistic division between a 'method' or practice (upāya) used to achieve something, and the 'goal' (upeya) that is to be achieved.",
+    significance: "In Chapter 2, Abhinavagupta fiercely deconstructs this duality. In the absolute state, the means and the goal are identical. Consciousness cannot be the goal of a means because it is the very fabric that makes the operation of any means possible.",
+    relatedConcepts: ["anupaya", "pratipadya-pratipadaka"]
+  },
+  {
+    id: "sakrjjnana",
+    sanskrit: "सकृज्ज्ञान",
+    iast: "sakṛjjñāna",
+    english: "Once-and-for-all Realization / Instantaneous Knowledge",
+    category: "Epistemology",
+    definition: "A sudden, complete, and unalterable flash of spiritual recognition that requires no subsequent reinforcement, meditation, or repetition to maintain.",
+    significance: "This contrasts sharply with paths requiring continuous practice. In Anupāya, once the truth of one's identity with Śiva is realized, it is permanently established. Just as one does not need to repeatedly remind oneself that a pot is a pot once seen, the Self requires no repeated realization.",
+    relatedConcepts: ["anupaya", "abhyasa", "pratyabhijna"]
+  },
+  {
+    id: "abhyasa",
+    sanskrit: "अभ्यास",
+    iast: "abhyāsa",
+    english: "Repeated Practice / Spiritual Effort",
+    category: "Soteriology",
+    definition: "The continuous, repetitive application of a method (like meditation, mantra recitation, or yogic breathing) to achieve a spiritual goal.",
+    significance: "In the strict context of Anupāya (Chapter 2), Abhyāsa is considered redundant and even a product of ignorance. Since the Self is ever-present and self-luminous, trying to 'practice' to attain it implies it is absent, which reinforces ignorance.",
+    relatedConcepts: ["anupaya", "sakrjjnana", "upaya-upeya-bhava"]
+  },
+  {
+    id: "pratipadya-pratipadaka",
+    sanskrit: "प्रतिपाद्य-प्रतिपादक भाव",
+    iast: "prātipādya-pratipādaka bhāva",
+    english: "The Duality of the Explained and the Explainer",
+    category: "Philosophy of Language",
+    definition: "The distinction between the ultimate truth that is being taught or explained (prātipādya) and the text, words, or teacher doing the teaching (pratipādaka).",
+    significance: "Similar to means/goal duality, Abhinavagupta deconstructs this in Anupāya. The ultimate reality (Anuttara) cannot be truly 'taught' by texts or words, because language is a limited construct that arises *from* the very consciousness it attempts to describe.",
+    relatedConcepts: ["upaya-upeya-bhava", "anuttara"]
+  },
+  {
+    id: "jivanmukti-anupaya",
+    sanskrit: "जीवन्मुक्ति",
+    iast: "jīvanmukti",
+    english: "Spontaneous Liberation in Life",
+    category: "Soteriology",
+    definition: "The state of being completely, irrevocably liberated from all bondage while still residing in the physical body, achieved instantaneously through Anupāya.",
+    significance: "For the Anupāya adept, liberation is not a post-mortem state. Because they realize that bondage was an illusion to begin with, they live entirely spontaneously. Their continued existence is pure play (līlā), driven only by compassion, not karma.",
+    relatedConcepts: ["tivrativra-saktipata", "vidhi-nisedha"]
+  },
+  {
+    id: "vidhi-nisedha",
+    sanskrit: "विधि-निषेध",
+    iast: "vidhi-niṣedha",
+    english: "Injunctions and Prohibitions",
+    category: "Ritual & Mantra",
+    definition: "The religious, moral, and ritualistic rules dictating what a practitioner must do (vidhi) and what they must avoid (niṣedha) to achieve spiritual merit or avoid impurity.",
+    significance: "In Chapter 2, Abhinavagupta asserts that the realized being in Anupāya is entirely free from all vidhi and niṣedha. Such dualistic rules apply only in the realm of limited means (māyā), not in the absolute freedom and purity of supreme consciousness.",
+    relatedConcepts: ["jivanmukti-anupaya", "anupaya"]
+  },
+  {
+    id: "bhava-svabhava",
+    sanskrit: "भाव / स्वभाव",
+    iast: "bhāva / svabhāva",
+    english: "Existence / Innate Nature",
+    category: "Absolute Reality",
+    definition: "The true, intrinsic, and unalterable nature of reality, which is pure, vibrant consciousness, as opposed to the temporary states, objects, or mental constructs that arise within it.",
+    significance: "Anupāya emphasizes effortlessly resting in one's Svabhāva. Because this nature is innate, it cannot be acquired, generated, or destroyed—it can only be recognized. Any striving to 'attain' it implies it is alien, thus destroying the realization.",
+    relatedConcepts: ["svatah-siddha", "anupaya", "sakrjjnana"]
   }
 ];
