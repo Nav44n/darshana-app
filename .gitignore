@@ -39,3 +39,9 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# Repo cleanup
+app-release.apk
+repopack-output.txt
+scratch-*.js
+scratch-*.ts

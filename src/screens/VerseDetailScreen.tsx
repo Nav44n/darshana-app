@@ -73,8 +73,9 @@ export default function VerseDetailScreen() {
 
   const onShare = () => {
     if (!text || !verse) return;
+    const content = verse.content[appLanguage] || verse.content.en;
     Share.share({
-      message: `${text.transliteratedTitle} ${verse.number}\n\n${verse.content.en?.translation}\n\n— ${text.author}`,
+      message: `${text.transliteratedTitle} ${verse.number}\n\n${content?.translation}\n\n— ${text.author}`,
     });
   };
 
@@ -184,12 +185,13 @@ export default function VerseDetailScreen() {
           </>
         )}
 
-        {verse.content.en?.keyPoints && verse.content.en.keyPoints.length > 0 && (
+        {(verse.content[appLanguage]?.keyPoints || verse.content.en?.keyPoints) && 
+         (verse.content[appLanguage]?.keyPoints || verse.content.en?.keyPoints)!.length > 0 && (
           <>
-            <SectionLabel>Key points</SectionLabel>
-            {verse.content.en.keyPoints.map((p, i) => (
+            <SectionLabel>{appLanguage === 'ml' && verse.content.ml?.keyPoints ? 'പ്രധാന ആശയങ്ങൾ' : 'Key points'}</SectionLabel>
+            {(verse.content[appLanguage]?.keyPoints || verse.content.en?.keyPoints)!.map((p, i) => (
               <View key={i} style={s.keyRow}>
-                <Text style={[s.keyDash, { color: accent.primary }]}>—</Text>
+                <Text style={[s.keyDash, { color: accent.primary }]}>-</Text>
                 <LinkedText style={[s.keyText, { fontSize: scaledFont(13.5) }]}>{p ?? ''}</LinkedText>
               </View>
             ))}

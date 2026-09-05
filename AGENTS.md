@@ -8,13 +8,13 @@ Read the exact versioned docs at https://docs.expo.dev/versions/v57.0.0/ before 
 **CRITICAL:** Under NO circumstances should any AI agent (or human) deviate from the following core philosophies, file structures, and data models. Do not introduce new generic UI paradigms, and do not break the strict data isolation.
 
 ## 1. The Design Philosophy (The Guna Theme)
-*   **NO GENERIC LIGHT/DARK MODE:** The app design is strictly anchored in S??khya philosophy. It is a visual representation of Prak?ti (Nature) and its three fundamental Gu?as (qualities).
+*   **NO GENERIC LIGHT/DARK MODE:** The app design is strictly anchored in Sāṃkhya philosophy. It is a visual representation of Prakṛti (Nature) and its three fundamental Guṇas (qualities).
 *   **Color Palette Rule:**
     *   `sattva` (clarity) = warm parchment-gold (primary text, active states).
     *   `rajas` (activity) = terracotta/oxide-copper (navigation, interactive highlights).
     *   `tamas` (inertia) = dim slate (disabled states, unreached steps).
     *   `avyakta` (unmanifest) = near-black indigo ground (backgrounds).
-    *   `purusa` (witness) = amethyst-violet (ontology graphs).
+    *   `purusha` (witness) = amethyst-violet (ontology graphs).
 *   **System Accents:** Each Darshana gets a specific accent color reflecting its viewpoint identity (e.g., Samkhya = amber/rust; Yoga = teal/violet).
 
 ## 2. Information Architecture (Data Models)
