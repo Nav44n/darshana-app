@@ -16,13 +16,6 @@ export default function HomeScreen() {
   const { lastReadList, bookmarkList } = useReadingPrefs();
   const { colors, elevation, systemAccent, glowText } = useTheme();
   const s = makeStyles(colors);
-  const [, forceTick] = React.useReducer((x) => x + 1, 0);
-
-  useFocusEffect(
-    React.useCallback(() => {
-      forceTick();
-    }, [])
-  );
 
   const continueEntries = lastReadList
     .map(({ systemId, textId, verseId }) => {

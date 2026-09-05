@@ -1,12 +1,12 @@
 import { useRef } from 'react';
-import { Animated, PanResponder } from 'react-native';
+import { Animated, PanResponder, Platform } from 'react-native';
 
 // react-native-web maps View to a <div> whose text is selectable by
 // default — dragging over it triggers the browser's native text-selection
 // instead of (in addition to) the pan gesture. `userSelect` isn't part of
 // RN's ViewStyle type (native has no such concept), hence the `any` — it's
 // inert on native and only matters for the web target.
-export const webNoSelect: any = { userSelect: 'none' };
+export const webNoSelect: any = Platform.OS === 'web' ? {} : { userSelect: 'none' };
 
 // Shared horizontal drag-to-navigate gesture for paged content (verse
 // detail, thread steps). Unlike a bare PanResponder that only decides
@@ -69,5 +69,8 @@ export function useSwipeNav({
     })
   ).current;
 
-  return { panHandlers: panResponder.panHandlers, translateX };
+  return { 
+    panHandlers: Platform.OS === 'web' ? {} : panResponder.panHandlers, 
+    translateX 
+  };
 }

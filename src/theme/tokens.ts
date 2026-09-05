@@ -63,46 +63,6 @@ export const darkColors = {
   overlay: 'rgba(5,6,10,0.72)', // modal / sheet scrim
 };
 
-export const lightColors: ColorPalette = {
-  avyakta: '#f7f1e3',
-  avyakta2: '#ffffff',
-  avyakta3: '#efe6d0',
-  avyakta4: '#e7dabd',
-
-  sattva: '#8a6a1f',
-  // Was #a68a4a — only ~3.3:1 against white, failing WCAG AA for the small
-  // text it's used on (Eyebrow labels, verse counts, etc). Darkened to clear
-  // 4.5:1 against both avyakta2 (white) and avyakta while staying visibly
-  // more muted than sattva itself.
-  sattvaDim: '#7d5e22',
-  sattvaGlow: 'rgba(138, 106, 31, 0.10)',
-
-  rajas: '#a8452b',
-  rajasDim: '#7a3220',
-  rajasGlow: 'rgba(168, 69, 43, 0.12)',
-
-  tamas: '#9a9cab',
-
-  purusha: '#6f57b8',
-  purushaDim: '#5a468f',
-  purushaGlow: 'rgba(111, 87, 184, 0.12)',
-
-  amber: '#c17d1f',
-  amberDim: '#8f5c14',
-  teal: '#2f7f72',
-  tealDim: '#245f55',
-
-  ink: '#211f1a',
-  inkDim: '#5c5750',
-  hair: '#e0d5bd',
-  bg: '#f7f1e3',
-
-  shadow: 'rgba(60, 46, 20, 0.18)',
-  overlay: 'rgba(33, 24, 10, 0.45)',
-};
-
-// Legacy static export — kept so any file not yet migrated to useTheme()
-// still compiles against the dark palette rather than breaking.
 export const colors = darkColors;
 
 export const fonts = {

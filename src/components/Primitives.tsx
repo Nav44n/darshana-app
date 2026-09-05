@@ -43,7 +43,6 @@ export function Card({
   withRule?: boolean;
 }) {
   const { colors, elevation } = useTheme();
-  const s = makeStyles(colors);
   
   const content = (
     <LinearGradient
@@ -76,7 +75,6 @@ export function Card({
 export function LanguageToggle() {
   const { appLanguage, toggleLanguage } = useReadingPrefs();
   const { colors, type } = useTheme();
-  const s = makeStyles(colors);
   return (
     <Pressable
       style={({ pressed }) => [s.themeToggle, pressed && s.themeTogglePressed]}
@@ -90,23 +88,11 @@ export function LanguageToggle() {
 }
 
 export function ThemeToggle() {
-  const { colors, mode, toggleThemeMode, type } = useTheme();
-  const s = makeStyles(colors);
-  return (
-    <Pressable
-      style={({ pressed }) => [s.themeToggle, pressed && s.themeTogglePressed]}
-      onPress={toggleThemeMode}
-      accessibilityRole="button"
-      accessibilityLabel={mode === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
-    >
-      <Text style={[type.caption, { color: colors.sattva }]}>{mode === 'dark' ? '☀' : '☾'}</Text>
-    </Pressable>
-  );
+  return null;
 }
 
 export function DiagramFrame({ children, caption }: { children: React.ReactNode; caption?: string }) {
   const { colors, elevation, type } = useTheme();
-  const s = makeStyles(colors);
   return (
     <LinearGradient
       colors={[colors.avyakta2, colors.avyakta3]}
@@ -120,35 +106,36 @@ export function DiagramFrame({ children, caption }: { children: React.ReactNode;
   );
 }
 
-const makeStyles = (colors: ColorPalette) =>
-  StyleSheet.create({
-    card: {
-      borderWidth: 1,
-      borderColor: colors.hair,
-      borderRadius: 16,
-      padding: 16,
-      marginBottom: 12,
-      overflow: 'hidden',
-    },
-    diagramFrame: {
-      borderWidth: 1,
-      borderColor: colors.hair,
-      borderRadius: 16,
-      padding: 16,
-      marginVertical: 16,
-    },
-    themeToggle: {
-      width: 34,
-      height: 34,
-      borderRadius: 17,
-      borderWidth: 1,
-      borderColor: colors.hair,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: colors.avyakta2,
-    },
-    themeTogglePressed: {
-      opacity: 0.7,
-      backgroundColor: colors.avyakta3,
-    },
-  });
+import { colors as darkColors } from '../theme/tokens';
+
+const s = StyleSheet.create({
+  card: {
+    borderWidth: 1,
+    borderColor: darkColors.hair,
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 12,
+    overflow: 'hidden',
+  },
+  diagramFrame: {
+    borderWidth: 1,
+    borderColor: darkColors.hair,
+    borderRadius: 16,
+    padding: 16,
+    marginVertical: 16,
+  },
+  themeToggle: {
+    width: 34,
+    height: 34,
+    borderRadius: 17,
+    borderWidth: 1,
+    borderColor: darkColors.hair,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: darkColors.avyakta2,
+  },
+  themeTogglePressed: {
+    opacity: 0.7,
+    backgroundColor: darkColors.avyakta3,
+  },
+});

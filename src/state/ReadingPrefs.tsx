@@ -7,14 +7,12 @@ type LastReadEntry = { key: BookmarkKey; at: number }; // at = Date.now() when r
 type ReadingPrefsState = {
   bookmarks: Set<BookmarkKey>;
   fontScale: number;
-  themeMode: 'dark' | 'light';
   appLanguage: 'en' | 'ml';
   toggleLanguage: () => void;
   toggleBookmark: (systemId: string, textId: string, verseId: string) => void;
   isBookmarked: (systemId: string, textId: string, verseId: string) => boolean;
   setFontScale: (scale: number) => void;
   recordLastRead: (systemId: string, textId: string, verseId: string) => void;
-  toggleThemeMode: () => void;
   bookmarkList: { systemId: string; textId: string; verseId: string }[];
   lastReadList: { systemId: string; textId: string; verseId: string }[];
   completedThreadSteps: Set<string>;
@@ -45,7 +43,6 @@ export function ReadingPrefsProvider({ children }: { children: React.ReactNode }
   const [bookmarks, setBookmarks] = useState<Set<BookmarkKey>>(new Set());
   const [fontScale, setFontScaleState] = useState(1);
   const [lastRead, setLastRead] = useState<Record<string, LastReadEntry>>({});
-  const [themeMode, setThemeMode] = useState<'dark' | 'light'>('light');
   const [appLanguage, setAppLanguage] = useState<'en' | 'ml'>('en');
   const [completedThreadSteps, setCompletedThreadSteps] = useState<Set<string>>(new Set());
   const [loaded, setLoaded] = useState(false);
@@ -59,7 +56,6 @@ export function ReadingPrefsProvider({ children }: { children: React.ReactNode }
           setBookmarks(new Set(parsed.bookmarks ?? []));
           setFontScaleState(parsed.fontScale ?? 1);
           setLastRead(normalizeLastRead(parsed.lastRead));
-          setThemeMode(parsed.themeMode ?? 'light');
           setAppLanguage(parsed.appLanguage ?? 'en');
           setCompletedThreadSteps(new Set(parsed.completedThreadSteps ?? []));
         }
@@ -80,14 +76,13 @@ export function ReadingPrefsProvider({ children }: { children: React.ReactNode }
           bookmarks: Array.from(bookmarks), 
           fontScale, 
           lastRead, 
-          themeMode,
           appLanguage,
           completedThreadSteps: Array.from(completedThreadSteps)
         })
       ).catch(() => {});
     }, 1000);
     return () => clearTimeout(timer);
-  }, [bookmarks, fontScale, lastRead, themeMode, appLanguage, completedThreadSteps, loaded]);
+  }, [bookmarks, fontScale, lastRead, appLanguage, completedThreadSteps, loaded]);
 
   const toggleBookmark = useCallback((systemId: string, textId: string, verseId: string) => {
     const key = `${systemId}:${textId}:${verseId}`;
@@ -109,9 +104,7 @@ export function ReadingPrefsProvider({ children }: { children: React.ReactNode }
     setLastRead((prev) => ({ ...prev, [textId]: { key: `${systemId}:${textId}:${verseId}`, at: Date.now() } }));
   }, []);
 
-  const toggleThemeMode = useCallback(() => {
-    setThemeMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  }, []);
+
 
   const toggleLanguage = useCallback(() => {
     setAppLanguage((prev) => (prev === 'en' ? 'ml' : 'en'));
@@ -143,12 +136,10 @@ export function ReadingPrefsProvider({ children }: { children: React.ReactNode }
   const providerValue = React.useMemo(() => ({
     bookmarks,
     fontScale,
-    themeMode,
     toggleBookmark,
     isBookmarked,
     setFontScale: setFontScaleState,
     recordLastRead,
-    toggleThemeMode,
     appLanguage,
     toggleLanguage,
     bookmarkList,
@@ -157,9 +148,9 @@ export function ReadingPrefsProvider({ children }: { children: React.ReactNode }
     toggleThreadStepCompletion,
     isThreadStepCompleted,
   }), [
-    bookmarks, fontScale, themeMode, appLanguage, 
+    bookmarks, fontScale, appLanguage, 
     completedThreadSteps, bookmarkList, lastReadList,
-    toggleBookmark, isBookmarked, recordLastRead, toggleThemeMode, 
+    toggleBookmark, isBookmarked, recordLastRead, 
     toggleLanguage, toggleThreadStepCompletion, isThreadStepCompleted
   ]);
 

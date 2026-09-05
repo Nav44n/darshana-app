@@ -13,7 +13,7 @@ export default function GraphScreen() {
   const route = useRoute<any>();
   const [selectedNode, setSelectedNode] = useState<any>(null);
   const [activeTab, setActiveTab] = useState<'verses' | 'concepts'>('verses');
-  const [system, setSystem] = useState<'Sāṃkhya' | 'Yoga' | 'Nyāya' | 'Both'>('Sāṃkhya');
+  const [system, setSystem] = useState<'Sāṃkhya' | 'Yoga' | 'Both'>('Sāṃkhya');
   const s = makeStyles(colors);
 
   React.useEffect(() => {
@@ -27,7 +27,6 @@ export default function GraphScreen() {
     if (route.params?.systemId) {
       if (route.params.systemId === 'samkhya') setSystem('Sāṃkhya');
       if (route.params.systemId === 'yoga') setSystem('Yoga');
-      if (route.params.systemId === 'nyaya') setSystem('Nyāya');
     }
   }, [route.params?.highlightNodeId, route.params?.systemId]);
 
@@ -39,12 +38,11 @@ export default function GraphScreen() {
           <Text style={s.title}>Ontology</Text>
         </View>
         <View style={s.toggleRow}>
-          {(['Sāṃkhya', 'Yoga', 'Nyāya', 'Both'] as const).map((sys) => {
+          {(['Sāṃkhya', 'Yoga', 'Both'] as const).map((sys) => {
             const active = system === sys;
             const accent =
               sys === 'Sāṃkhya' ? systemAccent('samkhya') 
               : sys === 'Yoga' ? systemAccent('yoga') 
-              : sys === 'Nyāya' ? systemAccent('nyaya') 
               : { primary: colors.purusha };
             return (
               <TouchableOpacity

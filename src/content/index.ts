@@ -60,10 +60,18 @@ export const getVerse = (systemId: string, textId: string, verseId: string) =>
 
 export const allTexts = () => systems.flatMap((s) => s.texts);
 
+const verseIndex = new Set<string>();
+
+export const hasVerse = (systemId: string, textId: string, verseId: string) =>
+  verseIndex.has(`${systemId}:${textId}:${verseId}`);
+
 // Compute bi-directional lookups dynamically and safely using Maps (O(1) lookups).
 // We build Sets to ensure idempotency (Fast Refresh safe) and freeze the results.
 systems.forEach(sys => {
   sys.texts.forEach(text => {
+    // Populate O(1) global existence index
+    text.verses.forEach(v => verseIndex.add(`${sys.id}:${text.id}:${v.id}`));
+
     // 1. Build lookup maps for O(1) access
     const verseMap = new Map(text.verses.map(v => [v.id, v]));
     const conceptMap = new Map(text.concepts.map(c => [c.id, c]));

@@ -4,10 +4,10 @@ import { useNavigation } from '@react-navigation/native';
 import { linkifyReferences } from '../utils/crossref';
 import { useTheme } from '../theme/useTheme';
 
-export default function LinkedText({ style, children }: { style?: TextStyle | TextStyle[]; children: string }) {
+function LinkedText({ style, children }: { style?: TextStyle | TextStyle[]; children: string }) {
   const nav = useNavigation<any>();
   const { colors } = useTheme();
-  const segments = linkifyReferences(children);
+  const segments = React.useMemo(() => linkifyReferences(children), [children]);
 
   if (segments.every((s) => !s.link)) {
     return <Text style={style}>{children}</Text>;
@@ -31,3 +31,5 @@ export default function LinkedText({ style, children }: { style?: TextStyle | Te
     </Text>
   );
 }
+
+export default React.memo(LinkedText);

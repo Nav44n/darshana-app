@@ -1,4 +1,4 @@
-import { getText } from '../content';
+import { hasVerse } from '../content';
 
 export type TextSegment = { text: string; link?: { systemId: string; textId: string; verseId: string } };
 
@@ -15,8 +15,7 @@ const prefixMap: Record<string, { systemId: string, textId: string }> = {
 };
 
 function verseExists(systemId: string, textId: string, verseId: string): boolean {
-  const text = getText(systemId, textId);
-  return !!text?.verses.some((v) => v.id === verseId);
+  return hasVerse(systemId, textId, verseId);
 }
 
 /**
