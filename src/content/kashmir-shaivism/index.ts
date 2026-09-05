@@ -41,7 +41,7 @@ export const tantralokaText: ClassicalText = buildClassicalText(
     author: 'Abhinavagupta',
     system: 'kashmir-shaivism',
     contentDepth: 'full',
-    sources: [{ name: 'Tantrāloka Translation', status: 'pending' }]
+    sources: [{ name: 'Tantrāloka Translation', status: 'integrated' }]
   },
   {
     en: tantralokaVersesEn,
