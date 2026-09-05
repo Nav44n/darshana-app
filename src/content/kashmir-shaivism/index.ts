@@ -1,6 +1,7 @@
 import { System, ClassicalText, SystemId } from '../../types/content';
 import { buildClassicalText, buildSystemThread } from '../factory';
 import { tantralokaConceptsEn, TantralokaConcept } from './tantraloka-concepts-en';
+import { tantralokaVersesEn } from './tantraloka-verses-en';
 
 const mappedConceptsEn = tantralokaConceptsEn.map((c: TantralokaConcept) => ({
   id: c.id,
@@ -39,10 +40,13 @@ export const tantralokaText: ClassicalText = buildClassicalText(
     transliteratedTitle: 'Tantrāloka',
     author: 'Abhinavagupta',
     system: 'kashmir-shaivism',
-    contentDepth: 'concepts-only',
+    contentDepth: 'full',
     sources: [{ name: 'Tantrāloka Translation', status: 'pending' }]
   },
-  {},
+  {
+    en: tantralokaVersesEn,
+    ml: {}
+  },
   {
     en: mappedConceptsEn,
     ml: mappedConceptsMl
