@@ -109,27 +109,6 @@ export const gunaStops = (c: ColorPalette): [string, string, string] => [c.sattv
 // ─────────────────────────────────────────────────────────────────────────
 // Each darśana gets its own jewel-tone identity — literally "a viewpoint,"
 // so it's appropriate that the two systems currently in the library don't
-// look identical. Sāṃkhya (the older, analytic enumeration of categories)
-// takes amber/rust — the colour of old palm-leaf manuscripts and temple
-// ochre. Yoga (the practice built on top of it) takes teal/violet — cooler,
-// stiller, closer to puruṣa. Unknown/future systems fall back to the
-// sattva/rajas guṇa pair rather than crashing.
-// ─────────────────────────────────────────────────────────────────────────
-export function getSystemAccent(c: ColorPalette, systemId?: string) {
-  switch (systemId) {
-    case 'samkhya':
-      return { primary: c.amber, dim: c.amberDim, glow: 'rgba(232, 162, 61, 0.22)', pair: [c.sattva, c.amber, c.rajas] as [string, string, string] };
-    case 'yoga':
-      return { primary: c.teal, dim: c.tealDim, glow: 'rgba(79, 179, 163, 0.22)', pair: [c.purusha, c.teal, c.rajasDim] as [string, string, string] };
-    default:
-      return { primary: c.sattva, dim: c.sattvaDim, glow: c.sattvaGlow, pair: gunaStops(c) };
-  }
-}
-
-// The full prakṛti spectrum — every named hue in the palette in one sweep,
-// for the one or two places per screen that should feel genuinely
-// luminous (a hero glow, the verse-of-the-day devanagari block) rather
-// than quietly tasteful. Use through <AuroraGlow />, not raw.
 export const auroraStops = (c: ColorPalette): string[] => [c.purushaGlow, c.sattvaGlow, c.amber, c.rajasGlow, c.tealDim];
 
 // Soft platform-appropriate elevation. Dark mode leans on a faint glow

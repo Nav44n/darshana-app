@@ -21,7 +21,7 @@ export default function GunaLamp() {
       <SvgText x={278} y={184} fontSize={8.5} fill={colors.inkDim}>
         moves
       </SvgText>
-      <Circle cx={65} cy={175} r={16} fill="#3a3d4d" />
+      <Circle cx={65} cy={175} r={16} fill={colors.tamas} />
       <SvgText x={42} y={172} fontSize={10} fontWeight="600" fill={colors.ink} textAnchor="end">
         TAMAS
       </SvgText>
