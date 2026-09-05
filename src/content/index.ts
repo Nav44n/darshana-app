@@ -60,42 +60,46 @@ export const getVerse = (systemId: string, textId: string, verseId: string) =>
 
 export const allTexts = () => systems.flatMap((s) => s.texts);
 
-// Compute bi-directional lookups dynamically so we don't have to hardcode relatedVerseIds in the concepts.
+// Compute bi-directional lookups dynamically and safely using Maps (O(1) lookups).
+// We build Sets to ensure idempotency (Fast Refresh safe) and freeze the results.
 systems.forEach(sys => {
   sys.texts.forEach(text => {
-    // Initialize empty arrays if not present
-    text.concepts.forEach(c => {
-      c.relatedVerseIds = c.relatedVerseIds || [];
-    });
-    
-    // 1. Map from verses to concepts
+    // 1. Build lookup maps for O(1) access
+    const verseMap = new Map(text.verses.map(v => [v.id, v]));
+    const conceptMap = new Map(text.concepts.map(c => [c.id, c]));
+
+    // 2. Use Sets to safely gather relationships without duplicates
+    const conceptToVerses = new Map<string, Set<string>>();
+    const verseToConcepts = new Map<string, Set<string>>();
+
+    text.concepts.forEach(c => conceptToVerses.set(c.id, new Set(c.relatedVerseIds || [])));
+    text.verses.forEach(v => verseToConcepts.set(v.id, new Set(v.conceptIds || [])));
+
+    // 3. Populate sets in both directions
     text.verses.forEach(v => {
-      if (v.conceptIds) {
-        v.conceptIds.forEach(cid => {
-          const concept = text.concepts.find(c => c.id === cid);
-          if (concept) {
-            concept.relatedVerseIds = concept.relatedVerseIds || [];
-            if (!concept.relatedVerseIds.includes(v.id)) {
-              concept.relatedVerseIds.push(v.id);
-            }
-          }
-        });
-      }
+      (v.conceptIds || []).forEach(cid => {
+        if (conceptMap.has(cid)) {
+          conceptToVerses.get(cid)!.add(v.id);
+          verseToConcepts.get(v.id)!.add(cid); // enforce bi-directionality from verse->concept
+        }
+      });
     });
-    
-    // 2. Map from concepts to verses (for concepts that statically defined relatedVerseIds)
+
     text.concepts.forEach(c => {
-      if (c.relatedVerseIds && c.relatedVerseIds.length > 0) {
-        c.relatedVerseIds.forEach(vid => {
-          const verse = text.verses.find(v => v.id === vid);
-          if (verse) {
-            verse.conceptIds = verse.conceptIds || [];
-            if (!verse.conceptIds.includes(c.id)) {
-              verse.conceptIds.push(c.id);
-            }
-          }
-        });
-      }
+      (c.relatedVerseIds || []).forEach(vid => {
+        if (verseMap.has(vid)) {
+          verseToConcepts.get(vid)!.add(c.id);
+          conceptToVerses.get(c.id)!.add(vid); // enforce bi-directionality from concept->verse
+        }
+      });
+    });
+
+    // 4. Assign frozen arrays back to prevent downstream mutation bugs
+    text.concepts.forEach(c => {
+      c.relatedVerseIds = Object.freeze(Array.from(conceptToVerses.get(c.id) || [])) as string[];
+    });
+    text.verses.forEach(v => {
+      v.conceptIds = Object.freeze(Array.from(verseToConcepts.get(v.id) || [])) as string[];
     });
   });
 });
