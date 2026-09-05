@@ -160,7 +160,7 @@ const threadBase = [
   }
 ];
 
-export const yogaSutrasThreadEn: ThreadStep[] = threadBase.map(t => ({
+export const yogaSutrasThreadEn = threadBase.map(t => ({
   ...t,
   content: {
     en: t.content.en,

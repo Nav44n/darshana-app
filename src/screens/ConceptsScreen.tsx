@@ -5,7 +5,7 @@ import { Eyebrow, PageTitle, Subtitle, SectionLabel, DiagramFrame, ThemeToggle, 
 import { Diagram } from '../components/diagrams';
 import GunaRule from '../components/GunaRule';
 import { systems, getSystem } from '../content';
-import { useReadingPrefs } from '../state/ReadingPrefs';
+import { useDisplayPrefs } from '../state/ReadingPrefs';
 import { fonts, type, ColorPalette } from '../theme/tokens';
 import { useTheme } from '../theme/useTheme';
 
@@ -16,7 +16,7 @@ export default function ConceptsScreen() {
   const filterSystem = systemId ? getSystem(systemId) : undefined;
   const visibleSystems = filterSystem ? [filterSystem] : systems;
   const { colors, systemAccent } = useTheme();
-  const { fontScale, appLanguage } = useReadingPrefs();
+  const { fontScale, appLanguage } = useDisplayPrefs();
   const s = React.useMemo(() => makeStyles(colors), [colors]);
   const scaledFont = (base: number) => Math.round(base * fontScale);
 
@@ -40,6 +40,11 @@ export default function ConceptsScreen() {
 
   const renderHeader = () => (
     <View style={s.topContainer}>
+      {filterSystem && nav.canGoBack() && (
+        <Pressable onPress={() => nav.goBack()} style={{ marginBottom: 12, flexDirection: 'row', alignItems: 'center' }}>
+          <Text style={{ ...type.caption, color: colors.rajas }}>{'< '}Back to {filterSystem.title}</Text>
+        </Pressable>
+      )}
       <View style={s.topRow}>
         <View style={{ flex: 1 }}>
           <Eyebrow>{filterSystem ? filterSystem.title : 'Visual system'}</Eyebrow>
@@ -96,6 +101,12 @@ export default function ConceptsScreen() {
           </DiagramFrame>
         )}
         <View style={s.actionsRow}>
+          <Pressable
+            style={s.inThreadBtn}
+            onPress={() => nav.navigate('ConceptDetail', { systemId: sys.id, textId: text.id, conceptId: c.id })}
+          >
+            <Text style={[s.inThreadBtnText, { color: accent.primary }]}>View details ›</Text>
+          </Pressable>
           {threadStep && (
             <Pressable
               style={s.inThreadBtn}

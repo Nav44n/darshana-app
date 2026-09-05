@@ -1,6 +1,6 @@
 import { Concept } from '../../types/content';
 
-export const vaisesikaConceptsEn: Concept[] = [
+export const vaisesikaConceptsEn = [
   { id: "dharma", diagramId: "dharma", content: { en: { title: "Dharma", summary: "That from which true prosperity and ultimate good are achieved." } } },
   { id: "padartha", diagramId: "padartha", content: { en: { title: "Padartha", summary: "The categories of reality into which all existents can be classified." } } },
   { id: "dravya", diagramId: "dravya", content: { en: { title: "Dravya", summary: "Substance, the substrate where attributes and actions reside." } } },

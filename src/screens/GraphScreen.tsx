@@ -34,6 +34,11 @@ export default function GraphScreen() {
     <SafeAreaView style={s.container}>
       <View style={s.header}>
         <View>
+          {navigation.canGoBack() && !!route.params?.systemId && (
+            <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginBottom: 6 }}>
+              <Text style={{ ...type.caption, color: colors.rajas }}>{'< '}Back to {system}</Text>
+            </TouchableOpacity>
+          )}
           <Text style={s.eyebrow}>Knowledge graph</Text>
           <Text style={s.title}>Ontology</Text>
         </View>
@@ -69,6 +74,16 @@ export default function GraphScreen() {
           }}
         />
       </View>
+
+      {!selectedNode && (
+        <View style={[s.infoCard, elevation(1), { alignItems: 'center', paddingVertical: 20 }]}>
+          <Text style={{ fontSize: 28, marginBottom: 8 }}>🕸️</Text>
+          <Text style={[s.nodeTitle, { textAlign: 'center', fontSize: 16 }]}>Interactive Knowledge Graph</Text>
+          <Text style={[s.nodeSubtitle, { textAlign: 'center', marginTop: 6, paddingHorizontal: 16 }]}>
+            Tap any node in the ontology graph above to inspect its definition, philosophical connections, and cross-referenced verses.
+          </Text>
+        </View>
+      )}
 
       {selectedNode && (
         <View style={[s.infoCard, elevation(3)]}>

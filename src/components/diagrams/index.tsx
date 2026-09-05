@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import DuhkhaTraya from './DuhkhaTraya';
 import GunaLamp from './GunaLamp';
+import MimamsaDharma from './MimamsaDharma';
 import TattvaTree from './TattvaTree';
 import SatkaryavadaChain from './SatkaryavadaChain';
 import PurushaPrakritiUnion from './PurushaPrakritiUnion';
@@ -69,6 +70,7 @@ export const diagramRegistry: Record<string, React.FC> = {
   'moksha': VaisesikaMoksha,
   'duhkha-traya': DuhkhaTraya,
   'guna-lamp': GunaLamp,
+  'mimamsa-dharma': MimamsaDharma,
   'tattva-tree': TattvaTree,
   'satkaryavada-chain': SatkaryavadaChain,
   'purusha-prakriti-union': PurushaPrakritiUnion,

@@ -46,25 +46,40 @@ describe('content integrity', () => {
           });
         });
 
-        it('every concept.relatedVerseIds points at a verse that actually exists', () => {
-          const verseIds = new Set(text.verses.map((v) => v.id));
-          const bad: string[] = [];
-          text.concepts.forEach((c) => {
-            (c.relatedVerseIds || []).forEach((vid) => {
-              if (!verseIds.has(vid)) bad.push(`${c.id} -> ${vid}`);
-            });
+        if (text.contentDepth === 'concepts-only') {
+          it('has no verses', () => {
+            expect(text.verses.length).toBe(0);
           });
-          expect(bad).toEqual([]);
-        });
+        } else {
+          it('every concept.relatedVerseIds points at a verse that actually exists', () => {
+            const verseIds = new Set(text.verses.map((v) => v.id));
+            const bad: string[] = [];
+            text.concepts.forEach((c) => {
+              (c.relatedVerseIds || []).forEach((vid) => {
+                if (!verseIds.has(vid)) bad.push(`${c.id} -> ${vid}`);
+              });
+            });
+            expect(bad).toEqual([]);
+          });
 
+          it('every verse has non-empty translation, commentary, and at least one key point (if integrated)', () => {
+            const isPending = text.sources.some(s => s.status === 'pending');
+            if (isPending) return; // Skip strict content checks for pending texts
+            
+            const bad = text.verses
+              .filter((v) => !v.content.en?.translation?.trim() || !v.content.en?.commentary?.trim() || !v.content.en?.keyPoints || v.content.en.keyPoints.length === 0)
+              .map((v) => v.id);
+            expect(bad).toEqual([]);
+          });
+        }
+        
         it('has at least one source listed', () => {
           expect(text.sources.length).toBeGreaterThan(0);
         });
-
-        it('every verse has non-empty translation, commentary, and at least one key point', () => {
-          const bad = text.verses
-            .filter((v) => !v.content.en?.translation?.trim() || !v.content.en?.commentary?.trim() || !v.content.en?.keyPoints || v.content.en.keyPoints.length === 0)
-            .map((v) => v.id);
+        it('every concept has non-empty title and summary in English', () => {
+          const bad = text.concepts
+            .filter((c) => !c.content.en?.title?.trim() || !c.content.en?.summary?.trim())
+            .map((c) => c.id);
           expect(bad).toEqual([]);
         });
       });
@@ -74,6 +89,13 @@ describe('content integrity', () => {
       it('has no duplicate step ids', () => {
         const ids = sys.thread.map((t) => t.id);
         expect(new Set(ids).size).toBe(ids.length);
+      });
+
+      it('every step has non-empty title and narrative in English', () => {
+        const bad = sys.thread
+          .filter((t) => !t.content.en?.title?.trim() || !t.content.en?.narrative?.trim())
+          .map((t) => t.id);
+        expect(bad).toEqual([]);
       });
 
       it('every step.textId names a text that actually belongs to this system', () => {

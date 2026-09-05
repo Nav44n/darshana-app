@@ -1,5 +1,5 @@
 {
-  "name": "samkhya-app",
+  "name": "darshana-app",
   "version": "1.0.0",
   "main": "index.ts",
   "dependencies": {
@@ -55,6 +55,7 @@
   },
   "private": true,
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "setupFiles": ["./jest.setup.js"]
   }
 }

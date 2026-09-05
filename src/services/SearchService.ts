@@ -14,11 +14,15 @@ export interface SearchResult {
   systemId?: string; // for verses/concepts
 }
 
+export function stripDiacritics(str: string): string {
+  return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
 class SearchServiceEngine {
   private indexed = false;
-  private verses: (Verse & { systemId: string; textId: string })[] = [];
-  private concepts: (Concept & { systemId: string; textId: string })[] = [];
-  private nodes: Node[] = [];
+  private verses: (Verse & { systemId: string; textId: string; _shadow: string })[] = [];
+  private concepts: (Concept & { systemId: string; textId: string; _shadow: string })[] = [];
+  private nodes: (Node & { _shadow: string })[] = [];
 
   public init() {
     if (this.indexed) return;
@@ -27,15 +31,25 @@ class SearchServiceEngine {
     const texts = allTexts();
     texts.forEach(text => {
       text.verses.forEach(v => {
-        this.verses.push({ ...v, systemId: text.system, textId: text.id });
+        const textEn = v.content?.en;
+        const textMl = v.content?.ml;
+        const content = `${textEn?.translation || ''} ${textEn?.commentary || ''} ${textEn?.keyPoints?.join(' ') || ''} ${textMl?.translation || ''} ${v.iast} ${v.devanagari || ''}`;
+        this.verses.push({ ...v, systemId: text.system, textId: text.id, _shadow: stripDiacritics(content) });
       });
       text.concepts.forEach(c => {
-        this.concepts.push({ ...c, systemId: text.system, textId: text.id });
+        const textEn = c.content?.en;
+        const textMl = c.content?.ml;
+        const content = `${textEn?.title || ''} ${textEn?.summary || ''} ${textMl?.title || ''}`;
+        this.concepts.push({ ...c, systemId: text.system, textId: text.id, _shadow: stripDiacritics(content) });
       });
     });
 
     // Index Nodes
-    this.nodes = graphData.nodes as Node[];
+    const rawNodes = graphData.nodes as Node[];
+    this.nodes = rawNodes.map(n => {
+      const content = `${n.label} ${n.type} ${n.properties.description || ''} ${n.properties.sanskrit || ''}`;
+      return { ...n, _shadow: stripDiacritics(content) };
+    });
 
     this.indexed = true;
   }
@@ -48,17 +62,28 @@ class SearchServiceEngine {
   public search(query: string): SearchResult[] {
     this.init();
     
-    const terms = query.toLowerCase().split(/[\s-]+/).filter(t => t.length > 2);
+    const terms = stripDiacritics(query).split(/[\s-]+/).filter(t => t.length > 2);
     if (terms.length === 0) return [];
 
-    const results: SearchResult[] = [];
+    const results: (SearchResult & { score: number })[] = [];
+
+    const getMatchScore = (terms: string[], title: string, content: string) => {
+      let score = 0;
+      const shadowTitle = stripDiacritics(title);
+      const shadowContent = stripDiacritics(content);
+      
+      terms.forEach(term => {
+        if (shadowTitle.includes(term)) {
+          score += 100;
+          if (shadowTitle === term) score += 50; // Exact match bonus
+        }
+        else if (shadowContent.includes(term)) score += 10;
+      });
+      return score;
+    };
 
     // Search Verses
     this.verses.forEach(v => {
-      const textEn = v.content?.en;
-      const textMl = v.content?.ml;
-      const content = `${textEn?.translation || ''} ${textEn?.commentary || ''} ${textEn?.keyPoints?.join(' ') || ''} ${textMl?.translation || ''} ${v.iast} ${v.devanagari || ''}`.toLowerCase();
-      
       const textAbbreviations: Record<string, string> = {
         'samkhya-karika': 'SK',
         'yoga-sutras': 'YS',
@@ -68,49 +93,54 @@ class SearchServiceEngine {
         'brahma-sutras': 'BS'
       };
       
-      if (terms.every(term => content.includes(term))) {
+      if (terms.every(term => v._shadow.includes(term))) {
+        const title = `${textAbbreviations[v.textId] || v.textId} ${v.number}`;
+        const content = v.content?.en?.translation || '';
         results.push({
           type: 'verse',
           id: v.id,
-          title: `${textAbbreviations[v.textId] || v.textId} ${v.number}`,
-          subtitle: (textEn?.translation || '').substring(0, 100) + '...',
+          title,
+          subtitle: content.substring(0, 100) + '...',
           textId: v.textId,
           systemId: v.systemId,
+          score: getMatchScore(terms, title, content)
         });
       }
     });
 
     // Search Concepts
     this.concepts.forEach(c => {
-      const textEn = c.content?.en;
-      const textMl = c.content?.ml;
-      const content = `${textEn?.title || ''} ${textEn?.summary || ''} ${textMl?.title || ''}`.toLowerCase();
-      if (terms.every(term => content.includes(term))) {
+      if (terms.every(term => c._shadow.includes(term))) {
+        const title = c.content?.en?.title || '';
+        const content = c.content?.en?.summary || '';
         results.push({
           type: 'concept',
           id: c.id,
-          title: textEn?.title || '',
-          subtitle: (textEn?.summary || '').substring(0, 100) + '...',
+          title,
+          subtitle: content.substring(0, 100) + '...',
           textId: c.textId,
           systemId: c.systemId,
+          score: getMatchScore(terms, title, content) + 20 // Concepts get a base boost over verses
         });
       }
     });
 
     // Search Nodes
     this.nodes.forEach(n => {
-      const content = `${n.label} ${n.type} ${n.properties.description || ''} ${n.properties.sanskrit || ''}`.toLowerCase();
-      if (terms.every(term => content.includes(term))) {
+      if (terms.every(term => n._shadow.includes(term))) {
+        const title = n.label;
+        const content = n.properties.description || '';
         results.push({
           type: 'node',
           id: n.id,
-          title: n.label,
-          subtitle: `[${n.type}] ${n.properties.description ? n.properties.description.substring(0, 80) + '...' : ''}`,
+          title,
+          subtitle: `[${n.type}] ${content.substring(0, 80) + '...'}`,
+          score: getMatchScore(terms, title, content) + 30 // Nodes get highest base boost
         });
       }
     });
 
-    return results;
+    return results.sort((a, b) => b.score - a.score);
   }
 }
 

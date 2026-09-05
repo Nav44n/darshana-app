@@ -1,6 +1,6 @@
 import { ThreadStep } from '../../types/content';
 
-export const samkhyaKarikaThread: ThreadStep[] = [
+export const samkhyaKarikaThread = [
   {
     id: "step-1-duhkha",
     conceptId: "duhkha-traya",

@@ -9,7 +9,7 @@ import LinkedText from '../components/LinkedText';
 import NotFoundState from '../components/NotFoundState';
 import AuroraGlow from '../components/AuroraGlow';
 import { getText } from '../content';
-import { useReadingPrefs } from '../state/ReadingPrefs';
+import { useDisplayPrefs, useProgressPrefs } from '../state/ReadingPrefs';
 import { useSwipeNav, webNoSelect } from '../utils/useSwipeNav';
 import { fonts, type, ColorPalette } from '../theme/tokens';
 import { useTheme } from '../theme/useTheme';
@@ -22,7 +22,8 @@ export default function VerseDetailScreen() {
   const index = text ? text.verses.findIndex((v) => v.id === verseId) : -1;
   const verse = text?.verses[index];
   const [jumpVisible, setJumpVisible] = useState(false);
-  const { isBookmarked, toggleBookmark, fontScale, setFontScale, recordLastRead, appLanguage } = useReadingPrefs();
+  const { fontScale, setFontScale, appLanguage } = useDisplayPrefs();
+  const { isBookmarked, toggleBookmark, recordLastRead } = useProgressPrefs();
   const { colors, elevation, systemAccent, glowText } = useTheme();
   const accent = systemAccent(systemId);
   const s = makeStyles(colors);
@@ -73,7 +74,7 @@ export default function VerseDetailScreen() {
 
   const onShare = () => {
     if (!text || !verse) return;
-    const content = verse.content[appLanguage] || verse.content.en;
+    const content = (verse.content as any)[appLanguage] || verse.content.en;
     Share.share({
       message: `${text.transliteratedTitle} ${verse.number}\n\n${content?.translation}\n\n— ${text.author}`,
     });
@@ -88,7 +89,12 @@ export default function VerseDetailScreen() {
       <Animated.View style={[{ flex: 1, transform: [{ translateX }] }, webNoSelect]} {...panHandlers}>
       <ScrollView ref={scrollRef} style={s.screen} contentContainerStyle={{ paddingBottom: 20 }}>
         <View style={s.topRow}>
-          <Pressable onPress={() => nav.goBack()} style={s.crumb} accessibilityRole="button" accessibilityLabel={`Back to ${text.transliteratedTitle}`}>
+          <Pressable
+            onPress={() => (nav.canGoBack() ? nav.goBack() : nav.navigate('TextIndex', { systemId, textId }))}
+            style={s.crumb}
+            accessibilityRole="button"
+            accessibilityLabel={`Back to ${text.transliteratedTitle}`}
+          >
             <Text style={s.crumbText} numberOfLines={1}>‹  {text.transliteratedTitle}</Text>
           </Pressable>
           <View style={s.topActions}>
@@ -185,11 +191,11 @@ export default function VerseDetailScreen() {
           </>
         )}
 
-        {(verse.content[appLanguage]?.keyPoints || verse.content.en?.keyPoints) && 
-         (verse.content[appLanguage]?.keyPoints || verse.content.en?.keyPoints)!.length > 0 && (
+        {((verse.content as any)[appLanguage]?.keyPoints || verse.content.en?.keyPoints) && 
+         ((verse.content as any)[appLanguage]?.keyPoints || verse.content.en?.keyPoints)!.length > 0 && (
           <>
-            <SectionLabel>{appLanguage === 'ml' && verse.content.ml?.keyPoints ? 'പ്രധാന ആശയങ്ങൾ' : 'Key points'}</SectionLabel>
-            {(verse.content[appLanguage]?.keyPoints || verse.content.en?.keyPoints)!.map((p, i) => (
+            <SectionLabel>{appLanguage === 'ml' && (verse.content as any).ml?.keyPoints ? 'പ്രധാന ആശയങ്ങൾ' : 'Key points'}</SectionLabel>
+            {((verse.content as any)[appLanguage]?.keyPoints || verse.content.en?.keyPoints)!.map((p: string, i: number) => (
               <View key={i} style={s.keyRow}>
                 <Text style={[s.keyDash, { color: accent.primary }]}>-</Text>
                 <LinkedText style={[s.keyText, { fontSize: scaledFont(13.5) }]}>{p ?? ''}</LinkedText>

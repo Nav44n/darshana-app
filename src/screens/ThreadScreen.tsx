@@ -6,7 +6,7 @@ import { Diagram } from '../components/diagrams';
 import LinkedText from '../components/LinkedText';
 import NotFoundState from '../components/NotFoundState';
 import { getSystem, getText } from '../content';
-import { useReadingPrefs } from '../state/ReadingPrefs';
+import { useDisplayPrefs, useProgressPrefs } from '../state/ReadingPrefs';
 import { useSwipeNav, webNoSelect } from '../utils/useSwipeNav';
 import { fonts, type, ColorPalette } from '../theme/tokens';
 import { useTheme } from '../theme/useTheme';
@@ -27,7 +27,8 @@ export default function ThreadScreen() {
   const { colors, elevation, systemAccent, glowText } = useTheme();
   const accent = systemAccent(systemId);
 
-  const { fontScale, isThreadStepCompleted, toggleThreadStepCompletion, appLanguage } = useReadingPrefs();
+  const { fontScale, appLanguage } = useDisplayPrefs();
+  const { isThreadStepCompleted, toggleThreadStepCompletion } = useProgressPrefs();
 
   const s = makeStyles(colors);
   const scaledFont = (base: number) => Math.round(base * fontScale);

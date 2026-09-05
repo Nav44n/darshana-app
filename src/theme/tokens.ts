@@ -52,6 +52,11 @@ export const darkColors = {
   teal: '#4fb3a3',
   tealDim: '#347a70',
 
+  // Trika/Spanda - vibrant pulse of consciousness for non-dual Shaivism.
+  spanda: '#d13b5f',
+  spandaDim: '#a62b49',
+  spandaGlow: 'rgba(209, 59, 95, 0.22)',
+
   // Ink — the reader's own register: text, not doctrine.
   ink: '#eae7de',
   inkDim: '#9b9cad',
@@ -152,3 +157,24 @@ export const glowText = (color: string, radius = 12) => ({
   textShadowOffset: { width: 0, height: 0 },
   textShadowRadius: radius,
 });
+
+export function getSystemAccent(c: ColorPalette, systemId?: string) {
+  switch (systemId) {
+    case 'samkhya':
+      return { primary: c.amber, dim: c.amberDim, glow: 'rgba(232, 162, 61, 0.22)', pair: [c.sattva, c.amber, c.rajas] as [string, string, string] };
+    case 'yoga':
+      return { primary: c.teal, dim: c.tealDim, glow: 'rgba(79, 179, 163, 0.22)', pair: [c.purusha, c.teal, c.rajasDim] as [string, string, string] };
+    case 'nyaya':
+      return { primary: c.purusha, dim: c.purushaDim, glow: c.purushaGlow, pair: [c.sattva, c.purusha, c.tamas] as [string, string, string] };
+    case 'vaisesika':
+      return { primary: c.tamas, dim: c.inkDim, glow: c.purushaGlow, pair: [c.purushaDim, c.tamas, c.avyakta4] as [string, string, string] };
+    case 'mimamsa':
+      return { primary: c.rajas, dim: c.rajasDim, glow: c.rajasGlow, pair: [c.sattva, c.rajas, c.amberDim] as [string, string, string] };
+    case 'kashmir-shaivism':
+      return { primary: c.spanda, dim: c.spandaDim, glow: c.spandaGlow, pair: [c.purusha, c.spanda, c.avyakta4] as [string, string, string] };
+    case 'vedanta':
+      return { primary: c.sattva, dim: c.sattvaDim, glow: c.sattvaGlow, pair: [c.amber, c.sattva, c.purusha] as [string, string, string] };
+    default:
+      return { primary: c.sattva, dim: c.sattvaDim, glow: c.sattvaGlow, pair: gunaStops(c) };
+  }
+}

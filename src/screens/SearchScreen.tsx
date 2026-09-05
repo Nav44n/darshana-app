@@ -82,14 +82,12 @@ export default function SearchScreen() {
         style={[s.resultCard, { borderLeftColor: accent }]}
         onPress={() => {
           if (item.type === 'verse') {
-            navigation.navigate('Library', {
-              screen: 'VerseDetail',
-              params: { systemId: item.systemId, textId: item.textId, verseId: item.id },
-            });
+            navigation.navigate('VerseDetail', { systemId: item.systemId, textId: item.textId, verseId: item.id });
           } else if (item.type === 'concept') {
-            navigation.navigate('Concepts', {
-              screen: 'ConceptsMain',
-              params: { systemId: item.systemId, conceptId: item.id },
+            navigation.navigate('ConceptDetail', {
+              systemId: item.systemId,
+              textId: item.textId,
+              conceptId: item.id,
             });
           } else if (item.type === 'node') {
             navigation.navigate('Graph', {

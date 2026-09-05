@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useFonts } from 'expo-font';
-import { Fraunces_500Medium } from '@expo-google-fonts/fraunces';
+import { Fraunces_500Medium, Fraunces_600SemiBold } from '@expo-google-fonts/fraunces';
 import {
   CormorantGaramond_400Regular,
   CormorantGaramond_400Regular_Italic,
@@ -16,6 +16,8 @@ import { ReadingPrefsProvider } from './src/state/ReadingPrefs';
 import ErrorBoundary from './src/components/ErrorBoundary';
 import { useTheme } from './src/theme/useTheme';
 
+import { SearchService } from './src/services/SearchService';
+SearchService.init();
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
 function AppShell() {
@@ -31,6 +33,7 @@ function AppShell() {
 export default function App() {
   const [fontsLoaded] = useFonts({
     Fraunces_500Medium,
+    Fraunces_600SemiBold,
     CormorantGaramond_400Regular,
     CormorantGaramond_400Regular_Italic,
     NotoSerifDevanagari_400Regular,

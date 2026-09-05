@@ -7,13 +7,13 @@ import { SystemHero } from '../components/diagrams';
 import GunaRule from '../components/GunaRule';
 import AuroraGlow from '../components/AuroraGlow';
 import { systems, getText, getVerse } from '../content';
-import { useReadingPrefs } from '../state/ReadingPrefs';
+import { useProgressPrefs } from '../state/ReadingPrefs';
 import { fonts, type, ColorPalette } from '../theme/tokens';
 import { useTheme } from '../theme/useTheme';
 
 export default function HomeScreen() {
   const nav = useNavigation<any>();
-  const { lastReadList, bookmarkList } = useReadingPrefs();
+  const { lastReadList, bookmarkList } = useProgressPrefs();
   const { colors, elevation, systemAccent, glowText } = useTheme();
   const s = makeStyles(colors);
 
@@ -93,42 +93,59 @@ export default function HomeScreen() {
         </>
       )}
 
-      <SectionLabel>Explore a system</SectionLabel>
-      {systems.map((sys) => {
-        const textCount = sys.texts.length;
-        const verseCount = sys.texts.reduce((n, t) => n + t.verses.length, 0);
-        const accent = systemAccent(sys.id);
-        return (
-          <Pressable 
-            key={sys.id} 
-            style={({ pressed }) => [
-              s.sysCardWrap, 
-              elevation(2),
-              pressed && { opacity: 0.9 }
-            ]}
-            onPress={() => nav.navigate('System', { systemId: sys.id })}
-          >
-            <GunaRule weight="bold" colors={accent.pair} style={s.sysCardEdge} />
-            <View style={s.sysCard}>
-              <LinearGradient
-                colors={[accent.glow, 'transparent']}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 0.9, y: 1 }}
-                style={StyleSheet.absoluteFill}
-              />
-              <Text style={[s.sysTitle, glowText(accent.glow, 16)]}>{sys.title}</Text>
-              <Text style={s.sysSubtitle}>{sys.subtitle}</Text>
-              <View style={s.heroMini}>
-                <AuroraGlow colors={accent.pair} intensity={0.8} />
-                <SystemHero systemId={sys.id} />
+      <SectionLabel>The Six Orthodox Schools</SectionLabel>
+      {(() => {
+        const orthodoxSystems = systems.filter(s => ['samkhya', 'yoga', 'nyaya', 'vaisesika', 'mimamsa', 'vedanta'].includes(s.id));
+        const agamicSystems = systems.filter(s => !['samkhya', 'yoga', 'nyaya', 'vaisesika', 'mimamsa', 'vedanta'].includes(s.id));
+        
+        const renderSystem = (sys: any) => {
+          const textCount = sys.texts.length;
+          const verseCount = sys.texts.reduce((n: number, t: any) => n + t.verses.length, 0);
+          const accent = systemAccent(sys.id);
+          return (
+            <Pressable 
+              key={sys.id} 
+              style={({ pressed }) => [
+                s.sysCardWrap, 
+                elevation(2),
+                pressed && { opacity: 0.9 }
+              ]}
+              onPress={() => nav.navigate('System', { systemId: sys.id })}
+            >
+              <GunaRule weight="bold" colors={accent.pair} style={s.sysCardEdge} />
+              <View style={s.sysCard}>
+                <LinearGradient
+                  colors={[accent.glow, 'transparent']}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 0.9, y: 1 }}
+                  style={StyleSheet.absoluteFill}
+                />
+                <Text style={[s.sysTitle, glowText(accent.glow, 16)]}>{sys.title}</Text>
+                <Text style={s.sysSubtitle}>{sys.subtitle}</Text>
+                <View style={s.heroMini}>
+                  <AuroraGlow colors={accent.pair} intensity={0.8} />
+                  <SystemHero systemId={sys.id} />
+                </View>
+                <Text style={[s.sysText, { color: accent.dim }]}>
+                  {textCount} text{textCount === 1 ? '' : 's'} • {verseCount > 0 ? `${verseCount} verses transcribed` : 'Conceptual overview'}
+                </Text>
               </View>
-              <Text style={[s.sysText, { color: accent.dim }]}>
-                {textCount} text{textCount === 1 ? '' : 's'} · {verseCount} verses transcribed
-              </Text>
-            </View>
-          </Pressable>
+            </Pressable>
+          );
+        };
+        
+        return (
+          <>
+            {orthodoxSystems.map(renderSystem)}
+            {agamicSystems.length > 0 && (
+              <>
+                <View style={{ marginTop: 24, marginBottom: 16 }}><SectionLabel>Āgamic / Tantric Systems</SectionLabel></View>
+                {agamicSystems.map(renderSystem)}
+              </>
+            )}
+          </>
         );
-      })}
+      })()}
 
       <SectionLabel>About this library</SectionLabel>
       <Card>

@@ -4,7 +4,7 @@ import Svg, { Circle, Line, Text as SvgText, G } from 'react-native-svg';
 import { forceSimulation, forceLink, forceManyBody, forceCenter, forceCollide, SimulationNodeDatum, SimulationLinkDatum } from 'd3-force';
 import { useTheme } from '../../theme/useTheme';
 import { ColorPalette } from '../../theme/tokens';
-const graphData = require('../../knowledge/darshana-knowledge-graph.json');
+import graphData from '../../knowledge/darshana-knowledge-graph.json';
 
 interface NodeData extends SimulationNodeDatum {
   id: string;
@@ -36,6 +36,8 @@ export default function KnowledgeGraphView({
   useEffect(() => {
     if (layout.width === 0 || layout.height === 0) return;
 
+    let simulation: any;
+
     const timer = setTimeout(() => {
       let rawNodes = graphData.nodes as any[];
       if (systemFilter !== 'Both') {
@@ -47,19 +49,23 @@ export default function KnowledgeGraphView({
       const nodesData: NodeData[] = rawNodes.map(n => ({ ...n }));
       const linksData: LinkData[] = rawEdges.map(e => ({ ...e, source: e.source, target: e.target }));
 
-      const simulation = forceSimulation(nodesData)
+      simulation = forceSimulation(nodesData)
         .force('charge', forceManyBody().strength(-300))
         .force('link', forceLink(linksData).id((d: any) => d.id).distance(100))
         .force('center', forceCenter(layout.width / 2, layout.height / 3))
-        .force('collide', forceCollide().radius(40))
-        .stop();
+        .force('collide', forceCollide().radius(40));
 
-      for (let i = 0; i < 300; i++) simulation.tick();
+      const tick = () => {
+        setGraph({ nodes: [...nodesData], links: [...linksData] });
+      };
 
-      setGraph({ nodes: nodesData, links: linksData });
+      simulation.on('tick', tick);
     }, 10);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      if (simulation) simulation.stop();
+    };
   }, [systemFilter, layout.width, layout.height]);
 
   const panResponder = useRef(

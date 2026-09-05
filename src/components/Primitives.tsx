@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ColorPalette } from '../theme/tokens';
 import { useTheme } from '../theme/useTheme';
-import { useReadingPrefs } from '../state/ReadingPrefs';
+import { useDisplayPrefs } from '../state/ReadingPrefs';
 import GunaRule from './GunaRule';
 
 export function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -73,7 +73,7 @@ export function Card({
 }
 
 export function LanguageToggle() {
-  const { appLanguage, toggleLanguage } = useReadingPrefs();
+  const { appLanguage, toggleLanguage } = useDisplayPrefs();
   const { colors, type } = useTheme();
   return (
     <Pressable

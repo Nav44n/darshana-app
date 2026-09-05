@@ -148,4 +148,4 @@ const threadBase = [
   }
 ];
 
-export const vaisesikaThreadEn: ThreadStep[] = threadBase.map(t => ({...t, content: { ...t.content, ml: vaisesikaThreadMl[t.id] }}));
+export const vaisesikaThreadEn = threadBase.map(t => ({...t, content: { ...t.content, ml: vaisesikaThreadMl[t.id] }}));

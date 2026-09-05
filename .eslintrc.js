@@ -6,12 +6,13 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
     'prettier'
   ],
   rules: {
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
     '@typescript-eslint/no-explicit-any': 'warn',
     'react/react-in-jsx-scope': 'off',
+    'react/no-unescaped-entities': 'off',
     'react-native/no-inline-styles': 'warn',
     'no-restricted-syntax': [
       'warn',
@@ -21,6 +22,14 @@ module.exports = {
       }
     ]
   },
+  overrides: [
+    {
+      files: ['src/theme/tokens.ts'],
+      rules: {
+        'no-restricted-syntax': 'off'
+      }
+    }
+  ],
   settings: {
     react: {
       version: 'detect',

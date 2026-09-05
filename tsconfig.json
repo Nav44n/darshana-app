@@ -3,5 +3,16 @@
   "compilerOptions": {
     "strict": true,
     "types": ["jest"]
-  }
+  },
+  "include": [
+    "src",
+    "App.tsx",
+    "index.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "scripts",
+    "scratch",
+    "dist"
+  ]
 }

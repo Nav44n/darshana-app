@@ -2,11 +2,11 @@ import React from 'react';
 import Svg, { Line, Text as SvgText, Rect, Polygon } from 'react-native-svg';
 import { useTheme } from '../../theme/useTheme';
 import { diagramVocab } from './vocabulary';
-import { useReadingPrefs } from '../../state/ReadingPrefs';
+import { useDisplayPrefs } from '../../state/ReadingPrefs';
 
 export default function Antahkarana() {
   const { colors } = useTheme();
-  const { appLanguage } = useReadingPrefs();
+  const { appLanguage } = useDisplayPrefs();
   const label = (key: string) => diagramVocab[key]?.[appLanguage] || diagramVocab[key]?.en || '';
 
   return (

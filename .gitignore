@@ -42,6 +42,9 @@ yarn-error.*
 
 # Repo cleanup
 app-release.apk
+*.apk
 repopack-output.txt
 scratch-*.js
 scratch-*.ts
+scratch/
+*.log

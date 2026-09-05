@@ -6,7 +6,7 @@ import VerseRow from '../components/VerseRow';
 import NotFoundState from '../components/NotFoundState';
 import GunaRule from '../components/GunaRule';
 import { getText } from '../content';
-import { useReadingPrefs } from '../state/ReadingPrefs';
+import { useProgressPrefs } from '../state/ReadingPrefs';
 import { fonts, type, ColorPalette } from '../theme/tokens';
 import { useTheme } from '../theme/useTheme';
 
@@ -15,7 +15,7 @@ export default function TextIndexScreen() {
   const route = useRoute<any>();
   const { systemId, textId } = route.params ?? {};
   const text = getText(systemId, textId);
-  const { isBookmarked } = useReadingPrefs();
+  const { isBookmarked } = useProgressPrefs();
   const { colors, systemAccent } = useTheme();
   const accent = systemAccent(systemId);
   // Memoize makeStyles
@@ -85,6 +85,16 @@ export default function TextIndexScreen() {
 
   const renderHeader = () => (
     <View style={s.topContainer}>
+      {systemId && (
+        <Pressable
+          onPress={() => (nav.canGoBack() ? nav.goBack() : nav.navigate('System', { systemId }))}
+          style={s.crumb}
+          accessibilityRole="button"
+          accessibilityLabel="Back to system overview"
+        >
+          <Text style={s.crumbText}>‹  Back to Overview</Text>
+        </Pressable>
+      )}
       <View style={s.topRow}>
         <View style={{ flex: 1 }}>
           <Eyebrow>{text.author}</Eyebrow>
@@ -189,6 +199,8 @@ export default function TextIndexScreen() {
 
 const makeStyles = (colors: ColorPalette) => StyleSheet.create({
   screen: { flex: 1, alignSelf: 'center', width: '100%', maxWidth: 800, backgroundColor: colors.avyakta, paddingHorizontal: 22, paddingTop: 8 },
+  crumb: { marginBottom: 10, paddingVertical: 4, alignSelf: 'flex-start' },
+  crumbText: { ...type.caption, color: colors.rajas, fontSize: 13, fontWeight: '600' },
   topContainer: { paddingBottom: 8 },
   topRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between' },
   headerRule: { width: 46, marginTop: 12, marginBottom: 18 },

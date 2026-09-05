@@ -1,9 +1,9 @@
 /**
  * ============================================================================
- * TANTRĀLOKA: MASTER ONTOLOGY & CONCEPTS DIRECTORY (VOL 1 COMPLETE)
+ * TANTRĀLOKA: MASTER ONTOLOGY & CONCEPTS DIRECTORY (VOLUMES 1–3)
  * ============================================================================
  * This file represents the systematic conceptual mapping of Abhinavagupta's 
- * Tantrāloka (Volume 1). It maps the non-dual Shaiva philosophy (Trika).
+ * Tantrāloka (Volumes 1–3). It maps the non-dual Shaiva philosophy (Trika).
  * ============================================================================
  */
 

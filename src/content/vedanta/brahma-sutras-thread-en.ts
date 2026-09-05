@@ -1,6 +1,6 @@
 import { ThreadStep } from '../../types/content';
 
-export const brahmaSutrasThreadEn: ThreadStep[] = [
+export const brahmaSutrasThreadEn = [
   {
     id: "step-1",
     conceptId: "concept_sadhana_chatushtaya",

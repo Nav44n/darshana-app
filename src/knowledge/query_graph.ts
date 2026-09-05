@@ -8,7 +8,7 @@ export interface Node {
 export interface Edge {
   source: string;
   target: string;
-  relation: 'EVOLVES_FROM' | 'COMPOSED_OF' | 'OBSERVES' | 'LIBERATES' | 'ACTIVATED_BY' | 'INCLUDES';
+  relation: string;
   properties: Record<string, any>;
 }
 

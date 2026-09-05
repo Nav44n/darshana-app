@@ -23,6 +23,14 @@ export default function SystemScreen() {
 
   return (
     <ScrollView style={s.screen} contentContainerStyle={{ paddingBottom: 40 }}>
+      <Pressable
+        onPress={() => (nav.canGoBack() ? nav.goBack() : nav.navigate('Tabs', { screen: 'Home' }))}
+        style={s.crumb}
+        accessibilityRole="button"
+        accessibilityLabel="Back to all systems"
+      >
+        <Text style={s.crumbText}>‹  All Darśanas</Text>
+      </Pressable>
       <View style={s.topRow}>
         <View style={{ flex: 1 }}>
           <Eyebrow>Darśana</Eyebrow>
@@ -74,7 +82,7 @@ export default function SystemScreen() {
             { borderColor: accent.dim },
             pressed && { backgroundColor: colors.avyakta3 },
           ]}
-          onPress={() => nav.navigate('Concepts', { screen: 'ConceptsMain', params: { systemId: system.id } })}
+          onPress={() => nav.navigate('Concepts', { systemId: system.id })}
         >
           <View style={{ flex: 1 }}>
             <Text style={[s.ctaTitle, { color: accent.primary }, glowText(accent.glow, 10)]}>Concept Dictionary (Ontology)</Text>
@@ -87,15 +95,29 @@ export default function SystemScreen() {
           style={({ pressed }) => [
             s.ctaCard,
             { borderColor: accent.dim },
-            pressed && { backgroundColor: colors.avyakta3 },
+            pressed && ['samkhya', 'yoga'].includes(system.id) && { backgroundColor: colors.avyakta3 },
+            !['samkhya', 'yoga'].includes(system.id) && { opacity: 0.6 }
           ]}
-          onPress={() => nav.navigate('Graph', { screen: 'GraphMain', params: { systemId: system.id } })}
+          onPress={() => {
+            if (['samkhya', 'yoga'].includes(system.id)) {
+              nav.navigate('Graph', { systemId: system.id });
+            }
+          }}
         >
           <View style={{ flex: 1 }}>
-            <Text style={[s.ctaTitle, { color: accent.primary }, glowText(accent.glow, 10)]}>Knowledge Graph</Text>
+            {['samkhya', 'yoga'].includes(system.id) ? (
+              <Text style={[s.ctaTitle, { color: accent.primary }, glowText(accent.glow, 10)]}>Knowledge Graph</Text>
+            ) : (
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                <Text style={[s.ctaTitle, { color: colors.tamas }]}>Knowledge Graph</Text>
+                <View style={{ backgroundColor: colors.avyakta4, paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4 }}>
+                  <Text style={{ fontSize: 10, color: colors.tamas, fontWeight: 'bold' }}>COMING SOON</Text>
+                </View>
+              </View>
+            )}
             <Text style={s.ctaDesc}>An interactive visualization showing how every concept and sutra mathematically connects to each other.</Text>
           </View>
-          <Text style={[s.chev, { color: accent.primary }]}>›</Text>
+          <Text style={[s.chev, { color: ['samkhya', 'yoga'].includes(system.id) ? accent.primary : colors.tamas }]}>›</Text>
         </Pressable>
       </View>
 
@@ -113,7 +135,17 @@ export default function SystemScreen() {
             <View style={{ flex: 1 }}>
               <Text style={s.textTitle}>{text.transliteratedTitle}</Text>
               <Text style={s.textAuthor}>{text.author}</Text>
-              <Text style={[s.textCount, { color: accent.dim }]}>{text.verses.length} verses transcribed</Text>
+              {text.contentDepth === 'concepts-only' ? (
+                <Text style={[s.textCount, { color: accent.dim }]}>Concepts Only • {text.concepts.length} mapped</Text>
+              ) : (
+                <Text style={[s.textCount, { color: accent.dim }]}>{text.verses.length} verses transcribed</Text>
+              )}
+              {text.sources?.some(s => s.status === 'pending') && (
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 4 }}>
+                  <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: colors.rajas, marginRight: 6 }} />
+                  <Text style={[s.textCount, { color: colors.rajas }]}>Translations Pending</Text>
+                </View>
+              )}
             </View>
             <Text style={s.chev}>›</Text>
           </View>
@@ -126,6 +158,8 @@ export default function SystemScreen() {
 const makeStyles = (colors: ColorPalette) =>
   StyleSheet.create({
     screen: { flex: 1, alignSelf: 'center', width: '100%', maxWidth: 800, backgroundColor: colors.avyakta, paddingHorizontal: 22, paddingTop: 8 },
+    crumb: { marginBottom: 10, paddingVertical: 4, alignSelf: 'flex-start' },
+    crumbText: { ...type.caption, color: colors.rajas, fontSize: 13, fontWeight: '600' },
     topRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between' },
     headerRule: { width: 46, marginTop: 12, marginBottom: 18 },
     topActions: { flexDirection: 'row', gap: 8 },
