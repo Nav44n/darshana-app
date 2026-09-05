@@ -6,6 +6,9 @@ import { vaisesikaSutrasBook8 } from './vaisesika-sutras-en-book8';
 import { vaisesikaSutrasMl } from './vaisesika-sutras-ml';
 import { vaisesikaConceptsEn } from './vaisesika-sutras-concepts-en';
 
+const allVaisesikaVersesEn = [...vaisesikaSutrasEn, ...vaisesikaSutrasBooks4To8.filter(s => s.book !== 8), ...vaisesikaSutrasBook8, ...vaisesikaSutrasBooks9And10];
+const mlVersesMap = new Map(vaisesikaSutrasMl.map(m => [m.id, m]));
+
 export const vaisesikaSutrasText: ClassicalText = {
   id: 'vaisesika-sutras',
   title: 'Vaiśeṣika Sūtras',
@@ -15,8 +18,8 @@ export const vaisesikaSutrasText: ClassicalText = {
   sources: [
     { name: 'Vaiśeṣika Sūtras English Reference', status: 'integrated' }
   ],
-  verses: [...vaisesikaSutrasEn, ...vaisesikaSutrasBooks4To8.filter(s => s.book !== 8), ...vaisesikaSutrasBook8, ...vaisesikaSutrasBooks9And10].map(v => {
-    const mlVerse = vaisesikaSutrasMl.find(m => m.id === v.id);
+  verses: allVaisesikaVersesEn.map(v => {
+    const mlVerse = mlVersesMap.get(v.id);
     return {
       id: v.id,
       number: v.id,

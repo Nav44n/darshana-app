@@ -6,8 +6,13 @@ import { nyayaSutrasConceptsMl } from './nyaya-sutras-concepts-ml';
 import { nyayaSutrasThreadEn } from './nyaya-sutras-thread-en';
 import { nyayaSutrasThreadMl } from './nyaya-sutras-thread-ml';
 
+// Build O(1) lookup maps for Malayalam translations
+const mlVersesMap = new Map(nyayaSutrasMalayalam.map((m: any) => [`${m.id}`, m]));
+const mlConceptsMap = new Map(nyayaSutrasConceptsMl.map((m: any) => [m.id, m]));
+const mlThreadMap = new Map(nyayaSutrasThreadMl.map((m: any) => [m.id, m]));
+
 export const nyayaVerses: Verse[] = nyayaSutrasEn.map(v => {
-  const mlSutra = nyayaSutrasMalayalam.find((m: any) => `${m.id}` === v.id);
+  const mlSutra = mlVersesMap.get(v.id);
   
   return {
     id: v.id,
@@ -41,12 +46,12 @@ export const nyayaConcepts: Concept[] = nyayaConceptsEn.map((c: any) => ({
       title: `${c.sanskrit} (${c.iast}) - ${c.english}`,
       summary: `**Category**: ${c.category}\n\n**Definition**: ${c.definition}\n\n**Significance**: ${c.significance}`
     },
-    ml: nyayaSutrasConceptsMl.find((m: any) => m.id === c.id)
+    ml: mlConceptsMap.get(c.id)
   }
 }));
 
-export const nyayaSutrasThread: Omit<ThreadStep, 'textId'>[] = nyayaSutrasThreadEn.map((t: any, index: number) => {
-  const mlThread = nyayaSutrasThreadMl.find((m: any) => m.id === t.id) || nyayaSutrasThreadMl[index];
+export const nyayaSutrasThread: Omit<ThreadStep, 'textId'>[] = nyayaSutrasThreadEn.map((t: any) => {
+  const mlThread = mlThreadMap.get(t.id);
   return {
     id: t.id,
     conceptId: t.conceptId,

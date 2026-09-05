@@ -12,9 +12,11 @@ const vibhutiPada = [...yogaSutrasVibhutiPada1to20, ...yogaSutrasVibhutiPada21to
 const kaivalyaPada = [...yogaSutrasKaivalyaPada].map(m => ({ ...m, chapter: 'IV' }));
 
 const allYogaSutrasMl = [...samadhiPada, ...sadhanaPada, ...vibhutiPada, ...kaivalyaPada];
+const mlVersesMap = new Map(allYogaSutrasMl.map(m => [`${m.chapter}.${m.id}`, m]));
+const mlConceptsMap = new Map(Object.entries(yogaSutrasConceptsMl)); // Ensure object lookup parity or explicit maps
 
 export const yogaVerses: Verse[] = yogaSutrasEn.map(v => {
-  const mlSutra = allYogaSutrasMl.find(m => `${m.chapter}.${m.id}` === v.id);
+  const mlSutra = mlVersesMap.get(v.id);
   
   return {
     id: v.id,

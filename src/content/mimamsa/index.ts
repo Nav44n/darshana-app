@@ -6,8 +6,10 @@ import { mimamsaConceptsMl } from './mimamsa-sutras-concepts-ml';
 import { mimamsaThreadEn } from './mimamsa-sutras-thread-en';
 import { mimamsaThreadMl } from './mimamsa-sutras-thread-ml';
 
+const mlVersesMap = new Map(mimamsaSutrasMl.map((m: any) => [`${m.id}`, m]));
+
 export const mimamsaVerses: Verse[] = mimamsaSutrasEn.map(v => {
-  const mlSutra = mimamsaSutrasMl.find((m: any) => `${m.id}` === v.id);
+  const mlSutra = mlVersesMap.get(v.id);
   
   return {
     id: v.id,
