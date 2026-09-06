@@ -1,4 +1,4 @@
-import{c}from"./textTerminology-DR2xHTGq.js";/**
+import{c}from"./textTerminology-CzBo3Lot.js";/**
  * @license lucide-react v0.546.0 - ISC
  *
  * This source code is licensed under the ISC license.
