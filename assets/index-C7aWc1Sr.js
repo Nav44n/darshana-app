@@ -1,4 +1,4 @@
-import{c as xr}from"./textTerminology-Onb_SD_d.js";import{j as Je}from"./index-BX-mRNIK.js";function Tt(e){return e&&e.__esModule&&Object.prototype.hasOwnProperty.call(e,"default")?e.default:e}/**
+import{c as xr}from"./textTerminology-vLaxtjzP.js";import{j as Je}from"./index-jrDo5ovc.js";function Tt(e){return e&&e.__esModule&&Object.prototype.hasOwnProperty.call(e,"default")?e.default:e}/**
  * @license lucide-react v0.546.0 - ISC
  *
  * This source code is licensed under the ISC license.
