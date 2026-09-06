@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+    "src",
+    "server.ts",
+    "vite.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "scripts",
+    "scratch",
+    "dist",
+    "src/screens",
+    "src/navigation",
+    "src/state",
+    "src/components/diagrams",
+    "src/components/graph",
+    "src/components/Primitives.tsx",
+    "src/components/AuroraGlow.tsx",
+    "src/components/ErrorBoundary.tsx",
+    "src/components/GunaRule.tsx",
+    "src/components/JumpToVerseModal.tsx",
+    "src/components/LinkedText.tsx",
+    "src/components/NotFoundState.tsx",
+    "src/components/VerseRow.tsx",
+    "src/utils/useSwipeNav.ts",
+    "src/utils/__tests__",
+    "src/__tests__",
+    "src/content/__tests__"
+  ]
+}
