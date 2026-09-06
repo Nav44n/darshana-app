@@ -1,0 +1,1 @@
+function n(a,e=1){const r=(a==null?void 0:a.verseTerm)||"Verse";return e===1?r:r==="Sūtra"?"Sūtras":r==="Kārikā"?"Kārikās":r==="Śloka"?"Ślokas":r==="Mantra"?"Mantras":r==="Śloka / Mantra"?"Ślokas / Mantras":r.endsWith("s")?r:`${r}s`}export{n as g};
