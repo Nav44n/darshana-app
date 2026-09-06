@@ -1,4 +1,4 @@
-import{c as o}from"./index-CA179AsM.js";/**
+import{c as o}from"./textTerminology-Luo4-oc7.js";/**
  * @license lucide-react v0.546.0 - ISC
  *
  * This source code is licensed under the ISC license.
