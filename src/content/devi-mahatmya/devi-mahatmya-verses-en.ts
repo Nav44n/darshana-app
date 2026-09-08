@@ -1,9 +1,21 @@
 import { deviMahatmyaVersesEnKavaca } from './devi-mahatmya-verses-en-kavaca';
 import { deviMahatmyaVersesEnArgala } from './devi-mahatmya-verses-en-argala';
 import { deviMahatmyaVersesEnKilaka } from './devi-mahatmya-verses-en-kilaka';
-import { deviMahatmyaVersesEnCarita1 } from './devi-mahatmya-verses-en-carita1';
-import { deviMahatmyaVersesEnCarita2 } from './devi-mahatmya-verses-en-carita2';
-import { deviMahatmyaVersesEnCarita3 } from './devi-mahatmya-verses-en-carita3';
+import {
+  deviMahatmyaCh01En,
+  deviMahatmyaCh02En,
+  deviMahatmyaCh03En,
+  deviMahatmyaCh04En,
+  deviMahatmyaCh05En,
+  deviMahatmyaCh06En,
+  deviMahatmyaCh07En,
+  deviMahatmyaCh08En,
+  deviMahatmyaCh09En,
+  deviMahatmyaCh10En,
+  deviMahatmyaCh11En,
+  deviMahatmyaCh12En,
+  deviMahatmyaCh13En,
+} from './chapters';
 import { deviMahatmyaVersesEnPrayoga } from './devi-mahatmya-verses-en-prayoga';
 
 export { deviMahatmyaVersesEnPrayoga };
@@ -21,13 +33,24 @@ export interface RawVerseEn {
 }
 
 // Canonical Devi Mahatmya order: Purvanga (Kavaca, Argala, Kilaka),
-// Prathama (ch.1), Madhyama (ch.2-4), Uttama (ch.5-13), and Prayoga Vidhi ritual manual.
+// Prathama Carita (ch.1), Madhyama Carita (ch.2-4), Uttama Carita (ch.5-13),
+// and Prayoga Vidhi ritual manual. Chapters live in ./chapters/ch01-ch13.
 export const deviMahatmyaVersesEn: RawVerseEn[] = [
   ...deviMahatmyaVersesEnKavaca,
   ...deviMahatmyaVersesEnArgala,
   ...deviMahatmyaVersesEnKilaka,
-  ...deviMahatmyaVersesEnCarita1,
-  ...deviMahatmyaVersesEnCarita2,
-  ...deviMahatmyaVersesEnCarita3,
+  ...deviMahatmyaCh01En,
+  ...deviMahatmyaCh02En,
+  ...deviMahatmyaCh03En,
+  ...deviMahatmyaCh04En,
+  ...deviMahatmyaCh05En,
+  ...deviMahatmyaCh06En,
+  ...deviMahatmyaCh07En,
+  ...deviMahatmyaCh08En,
+  ...deviMahatmyaCh09En,
+  ...deviMahatmyaCh10En,
+  ...deviMahatmyaCh11En,
+  ...deviMahatmyaCh12En,
+  ...deviMahatmyaCh13En,
   ...deviMahatmyaVersesEnPrayoga,
 ];

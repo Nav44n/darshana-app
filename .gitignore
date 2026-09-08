@@ -41,7 +41,7 @@ yarn-error.*
 /ios
 /android
 
-# Repo cleanup
+# Repo cleanup (translation scratch artifacts — manifests below stay committed)
 app-release.apk
 *.apk
 repopack-output.txt
@@ -49,12 +49,20 @@ scratch-*.js
 scratch-*.ts
 scratch/
 *.log
-
 *.pdf
-*.json
 .translate_cache/
-*.txt
+merge-*.txt
 *.cjs
-*.py
+append-*.py
 *.bat
 .aider*
+merge.ts
+old_105.ts
+check*.ts
+check-pdf.js
+
+# Keep build manifests committed for CI/Pages
+!package.json
+!package-lock.json
+!tsconfig.json
+!tsconfig.*.json
