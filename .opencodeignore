@@ -1,11 +1,14 @@
-# Create .opencodeignore file in your active folder
-Set-Content -Path ".opencodeignore" -Value @"
+# Files and directories the opencode agent should skip when reading this repo.
 node_modules/
 .git/
 dist/
+web-build/
 build/
 coverage/
 *.log
 *.bin
 models/
-"@
+.expo/
+*.tsbuildinfo
+app-release.apk
+*.apk
