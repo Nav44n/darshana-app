@@ -4,7 +4,9 @@ import { nyayaSutrasBook2Ml } from './nyaya-sutras-book2-ml';
 
 import { nyayaSutrasBook3Ml } from './nyaya-sutras-book3-ml';
 
-// As you translate more books, import them and add them to this array:
-// export const nyayaSutrasMalayalam = [...nyayaSutrasBook1Ml, ...nyayaSutrasBook2Ml, ...nyayaSutrasBook3Ml];
+import { nyayaSutrasBook4Ml } from './nyaya-sutras-book4-ml';
 
-export const nyayaSutrasMalayalam = [...nyayaSutrasBook1Ml, ...nyayaSutrasBook2Ml, ...nyayaSutrasBook3Ml];
+// As you translate more books, import them and add them to this array:
+// export const nyayaSutrasMalayalam = [...nyayaSutrasBook1Ml, ...nyayaSutrasBook2Ml, ...nyayaSutrasBook3Ml, ...nyayaSutrasBook4Ml];
+
+export const nyayaSutrasMalayalam = [...nyayaSutrasBook1Ml, ...nyayaSutrasBook2Ml, ...nyayaSutrasBook3Ml, ...nyayaSutrasBook4Ml];
