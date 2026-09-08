@@ -9,8 +9,9 @@ import { mimamsaThreadMl } from './mimamsa-sutras-thread-ml';
 
 const mappedMimamsaMl = mimamsaSutrasMl.map((m: any) => ({
   id: m.id,
-  translation: m.malayalamSutra,
-  commentary: m.malayalamCommentary
+  translation: m.translation ?? m.malayalamSutra,
+  commentary: m.commentary ?? m.malayalamCommentary,
+  keyPoints: m.keyPoints
 }));
 
 const mappedMimamsaConceptsEn = mimamsaConceptsEn.map((c: any) => ({

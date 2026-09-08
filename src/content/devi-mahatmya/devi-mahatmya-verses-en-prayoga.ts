@@ -57,7 +57,7 @@ hṛdayādinyāsaḥ
 oṃ aiṃ hṛdayāya namaḥ | oṃ hrīṃ śirase svāhā | oṃ klīṃ śikhāyai vaṣaṭ |
 oṃ cāmuṇḍāyai kavacāya hum | oṃ vicce netratrayāya vauṣaṭ |
 oṃ aiṃ hrīṃ klīṃ cāmuṇḍāyai vicce astrāya phaṭ |`,
-    conceptIds: ['three-hymns-of-approach', 'sadhana-samara'],
+    conceptIds: ['devi-kavaca', 'argala-stotra', 'keelaka-stotra', 'sadhana-samara'],
     translation: `"Oṃ, to Cāmuṇḍā of the seed-sounds Aiṃ-Hrīṃ-Klīṃ, Vicce" - the nine-syllable Navārṇa mantra that this whole recitation is built around. What follows it is not translation but procedure: karanyāsa touches each syllable in turn to the thumb, index, middle, ring, and little fingers, then to the palms and their backs together. hṛdayādinyāsa then touches the same syllables to the heart, the crown of the head, the tuft of hair, both shoulders together (the "armour"), the space between the eyes and forehead (the "three eyes"), and finally traces the right hand overhead from left to back to front while clapping the left palm (the "weapon").`,
     commentary: `**What this actually is:** before reciting the Saptaśatī itself, tradition has the reciter place the nine syllables of the core mantra onto the fingers and then onto the body, part by part. This isn't decorative - it's the standard preparatory nyāsa done before most Śākta recitation, meant to make the reciter's own body and hands, quite literally, the site where the mantra is first "installed" before it's spoken aloud.
 
@@ -250,7 +250,7 @@ yataḥ kalau praśaṃsanti ṛṣibhirbhāṣitaṃ tu yat ||
 
 aṣṭamyāṃ vā caturdaśyāṃ kṛṣṇāyāṃ tu samāhitaḥ |
 dadāti pratigṛhṇāti nānyathaiṣā prasīdati |`,
-    conceptIds: ['sadhana-samara', 'phala-stuti'],
+    conceptIds: ['sadhana-samara', 'phalastuti'],
     translation: `Rest the book on a stand before reading from it — reading it propped in the hand, the text says, earns only half the benefit. Once a chapter is begun, do not stop until it's finished; if a break happens by accident partway through, begin that chapter again from the start and read it through completely, in order, without agitation. Recite the syllable "Oṃ" before a hymn or continuous text, and add it again at the end (this is the convention for texts, like this one, that open with a narrator's "he said" - uvāca); a hymn that instead ends in "namaḥ" (salutation) is better read by the reciter's own understanding of its form. Recite only after placing the seer, meter, and limb-assignments correctly, with full attention; where a hymn shows no opening "Oṃ," don't force the nyāsa procedure onto it either. Recite with a clean, undistracted mind and real effort — never a hymn you copied out yourself, never one in a non-Brahminical script, never one you composed yourself or that someone else composed for the purpose, because in this age what's praised is specifically what the ancient seers themselves spoke. On the eighth or fourteenth day of the dark lunar fortnight, done with full attention, she both gives and receives; she isn't pleased any other way.`,
     commentary: `**What this actually is:** general procedural etiquette for reciting the Saptaśatī (and, by the text's own extension, other major stotras) — not tied to any specific chapter or verse, but rules for the act of recitation itself. Several of these are genuinely practical regardless of belief: read from a stand rather than holding the book (steadier posture, presumably fewer mistakes); don't stop mid-chapter, and if you accidentally do, restart that chapter rather than resuming from where you left off; recite with real attention rather than mechanically.
 
@@ -291,7 +291,7 @@ durgā bījam | uṣṇik chandaḥ | vāyus tattvam | īpsitaprāptyarthe jape 
 
 uttaracaritasya śiva ṛṣiḥ | chandau anuṣṭubjagatyau | mahāsarasvatī devatā |
 bhīmā śaktiḥ | bhrāmarī bījam | sūryas tattvam | uccāṭanādau viśeṣato viniyoga iti |`,
-    conceptIds: ['three-hymns-of-approach', 'three-caritas', 'shumbha-nishumbha'],
+    conceptIds: ['devi-kavaca', 'argala-stotra', 'keelaka-stotra', 'three-caritas', 'shumbha-nishumbha'],
     translation: `For the Kavaca: Cāmuṇḍā is the deity, Brahmā the seer, Anuṣṭubh the meter, the armed Mother-goddesses installed on the limbs are its seed-power, and the deities who bind the directions are its underlying element. For the Argala: Viṣṇu is the seer, Anuṣṭubh the meter, the Navārṇa mantra its power, the goddesses named within it its seed, the Saptaśatī-mantra itself its underlying element. For the Kīlaka: Śiva is the seer; the rest follows the Argala's pattern.
 
 For the first Carita: Brahmā is the seer, Anuṣṭubh the meter, Mahākālī the deity, Nandajā the power, Raktadantikā the seed-syllable, fire the element — its application is for nourishment/prosperity (pauṣṭika). For the middle Carita: Viṣṇu the seer, Mahālakṣmī the deity, Śākambharī the power, Durgā the seed, Uṣṇik the meter, wind the element — its application is for obtaining a specific desired outcome. For the final Carita: Śiva the seer, Anuṣṭubh and Jagatī the meters, Mahāsarasvatī the deity, Bhīmā the power, Bhrāmarī the seed, the sun the element — its application is specifically for uccāṭana (dislodging or driving off an obstacle).`,
