@@ -1,11 +1,12 @@
 // NOTE ON NUMBERING: this file follows a different sutra-division tradition
-// from nyaya-sutras-book2-en.ts (it skips EN's 2.1.2-2.1.8 and splits several
-// sutras differently, so shared ids from ~2.1.8 onward cite different sutras
-// and this file runs to 2.1.69 while EN ends at 2.1.67). Do NOT "fix" by
-// renumbering either side: EN ids are referenced by thread steps and concept
-// relatedVerseIds. Reconciling the two divisions needs a translator, not a
-// mechanical edit. The ML-only 2.1.68-2.1.69 (reply + conclusion on Veda
-// authority) intentionally carry no EN counterpart yet.
+// from nyaya-sutras-book2-en.ts (several sutras are split differently, so
+// shared ids from ~2.1.8 onward cite different sutras, and this file runs to
+// 2.1.69 while EN ends at 2.1.67; entries 2.1.2-2.1.7 below follow EN
+// numbering so they overlay correctly). Do NOT "fix" by renumbering either
+// side: EN ids are referenced by thread steps and concept relatedVerseIds.
+// Reconciling the two divisions needs a translator, not a mechanical edit.
+// The ML-only 2.1.68-2.1.69 (reply + conclusion on Veda authority)
+// intentionally carry no EN counterpart yet.
 export interface Verse {
   id: string;
   number: number | string;
@@ -782,7 +783,105 @@ export const nyayaSutrasBook2Ml: Verse[] = [
     "commentary": "ഈ സൂത്രത്തോടെ ഒന്നാം ആഹ്നികം അവസാനിക്കുന്നു. ആയുർവേദം ഉപയോഗിക്കുമ്പോൾ രോഗം മാറുന്നത് നാം നേരിട്ട് കാണുന്നുണ്ട്. ആയുർവേദം രചിച്ച അതേ വിശ്വസ്തരായ ഋഷിമാർ തന്നെയാണ് വേദങ്ങളും നൽകിയത്. അതുകൊണ്ട് വേദങ്ങളിലെ കാര്യങ്ങളും പൂർണ്ണമായും വിശ്വസനീയവും പ്രമാണവുമാണെന്ന് ഗൗതമൻ സമർത്ഥിക്കുന്നു.",
     "conceptIds": [
       "shabda",
-      "apta-vakya"
+      "apta"
+    ]
+  },
+  {
+    "id": "2.1.2",
+    "number": "2.1.2",
+    "section": "Examination of Doubt (Saṃśaya Parīkṣā)",
+    "devanagari": "विद्यामानार्थोपपत्तेश्च ॥",
+    "iast": "vidyāmānārthopapatteśca",
+    "translation": "(എതിർവാദം തുടരുന്നു): നിലനിൽക്കുന്ന വസ്തുവിനെ അത് നിലനിൽക്കുന്നതുപോലെ തന്നെ ഗ്രഹിക്കുന്നതുകൊണ്ടും (സംശയത്തിന് ഇടമില്ല).",
+    "commentary": "എതിരാളി ആക്രമണം തുടരുന്നു: ഒരു സാമാന്യധർമ്മം യഥാർത്ഥത്തിൽ ഗ്രഹിക്കപ്പെട്ടാൽ, നിലനിൽക്കുന്ന ഒരു പ്രത്യേക വസ്തുവിന്റേതായി തന്നെ അത് ഗ്രഹിക്കപ്പെടണം. യാഥാർത്ഥ്യത്തെ ശരിയായി ഗ്രഹിച്ചാൽ സംശയത്തിന് ഇടമില്ല.",
+    "keyPoints": [
+      "യഥാർത്ഥ ഗ്രഹണത്തിൽ സംശയത്തിന് ഇടമില്ലെന്ന വാദം.",
+      "സാമാന്യധർമ്മം പ്രത്യേക വസ്തുവിനോട് ചേർത്ത് ഗ്രഹിക്കപ്പെടുന്നു."
+    ],
+    "conceptIds": [
+      "samsaya"
+    ]
+  },
+  {
+    "id": "2.1.3",
+    "number": "2.1.3",
+    "section": "Examination of Doubt (Saṃśaya Parīkṣā)",
+    "devanagari": "निरवधारणज्ञानमवधारणकारणोपपत्तेः ॥",
+    "iast": "niravadhāraṇajñānamavadhāraṇakāraṇopapatteḥ",
+    "translation": "(എതിർവാദം തുടരുന്നു): (സംശയം) നിശ്ചയമില്ലാത്ത അറിവാണ്, എന്നാൽ നിശ്ചയത്തിനുള്ള കാരണങ്ങൾ ഉണ്ടെങ്കിലേ അത് സാധ്യമാകൂ.",
+    "commentary": "സൂക്ഷ്മമായ തർക്കം. സംശയം അനിശ്ചയാവസ്ഥയാണെന്ന് എതിരാളി പറയുന്നു. എന്നാൽ നിശ്ചയവുമായുള്ള വൈരുദ്ധ്യത്തിലേ അനിശ്ചയത്തിന് അർത്ഥമുള്ളൂ. സംശയത്തിന്റെ കാരണങ്ങളെന്ന് പറയപ്പെടുന്നവ യഥാർത്ഥമാണെങ്കിൽ അവ നിശ്ചയത്തിലേക്കാണ് നയിക്കേണ്ടത്, സംശയത്തിലേക്കല്ല.",
+    "keyPoints": [
+      "അനിശ്ചയം നിശ്ചയത്തിന്റെ വൈരുദ്ധ്യത്തിലേ അർത്ഥവത്താകൂ.",
+      "സംശയകാരണങ്ങൾ നിശ്ചയത്തിലേക്ക് നയിക്കേണ്ടതാണ്."
+    ],
+    "conceptIds": [
+      "samsaya",
+      "jnana"
+    ]
+  },
+  {
+    "id": "2.1.4",
+    "number": "2.1.4",
+    "section": "Examination of Doubt (Saṃśaya Parīkṣā)",
+    "devanagari": "विप्रतिपत्तौ च संप्रतिपत्तेः ॥",
+    "iast": "vipratipattau ca saṃpratipatteḥ",
+    "translation": "(എതിർവാദം തുടരുന്നു): പരസ്പരവിരുദ്ധമായ അഭിപ്രായങ്ങളുടെ കാര്യത്തിൽ യഥാർത്ഥത്തിൽ ഒരു ഏകാഭിപ്രായം (ദൃഢബോധ്യം) ഉണ്ട്.",
+    "commentary": "പരസ്പരവിരുദ്ധമായ കാഴ്ചപ്പാടുകൾ (വിപ്രതിപത്തി) സംശയമുണ്ടാക്കുമെന്ന് ഗൗതമൻ പറഞ്ഞു. എതിരാളി മറുവാദിക്കുന്നു: രണ്ട് തത്ത്വചിന്തകർ തർക്കിക്കുമ്പോൾ (ഒരാൾ ആത്മാവ് ശാശ്വതമെന്നും മറ്റൊരാൾ അല്ലെന്നും പറയുമ്പോൾ), ഇരുവരും തങ്ങളുടെ നിലപാടിൽ പൂർണ്ണമായും ഉറച്ചുനിൽക്കുന്നു — അവിടെ സംശയമില്ല, ദൃഢബോധ്യമാണുള്ളത്.",
+    "keyPoints": [
+      "തർക്കിക്കുന്നവർക്ക് സംശയമില്ല, ദൃഢബോധ്യമാണുള്ളത്.",
+      "വിപ്രതിപത്തി സംശയത്തിന് കാരണമാകുമെന്ന വാദത്തിനെതിരെ."
+    ],
+    "conceptIds": [
+      "vipratipatti"
+    ]
+  },
+  {
+    "id": "2.1.5",
+    "number": "2.1.5",
+    "section": "Examination of Doubt (Saṃśaya Parīkṣā)",
+    "devanagari": "अव्यवस्थात्मनि व्यवस्थितात्वाच्चाव्यवस्थायाः ॥",
+    "iast": "avyavasthātmani vyavasthitātvāccāvyavasthāyāḥ",
+    "translation": "(എതിർവാദം തുടരുന്നു): ക്രമക്കേട് അതിന്റെ ക്രമക്കേട് എന്ന സ്വഭാവത്തിൽ തന്നെ ക്രമമായതിനാലും.",
+    "commentary": "സംശയവാദികൾ ഉപയോഗിക്കുന്ന പ്രസിദ്ധമായ ഭാഷാ-യുക്തി വിരോധാഭാസം. സംശയം ക്രമക്കേടിൽ (അവ്യവസ്ഥ) നിന്ന് ഉണ്ടാകുന്നു എന്ന് ഗൗതമൻ നിർവ്വചിച്ചു. എതിരാളി ചോദിക്കുന്നു: ഈ 'ക്രമക്കേട്' ക്രമമാണോ അക്രമമാണോ? അത് സ്ഥിരമായി ക്രമക്കേട് തന്നെയാണെങ്കിൽ, പിന്നെ സംശയത്തിന് പകരം നിശ്ചയം ഉണ്ടാകേണ്ടതല്ലേ?",
+    "keyPoints": [
+      "ക്രമക്കേട് സ്ഥിരമാണെങ്കിൽ അത് ക്രമം തന്നെ.",
+      "സംശയത്തിന്റെ നിർവ്വചനത്തിനെതിരായ ഭാഷാപരമായ വിരോധാഭാസം."
+    ],
+    "conceptIds": [
+      "avyavastha"
+    ]
+  },
+  {
+    "id": "2.1.6",
+    "number": "2.1.6",
+    "section": "Examination of Doubt (Saṃśaya Parīkṣā)",
+    "devanagari": "तथात्यन्तसंशयस्तद्धर्मसातत्यात् ॥",
+    "iast": "tathātyantasaṃśayastaddharmasātatyāt",
+    "translation": "(എതിർവാദം തുടരുന്നു): അങ്ങനെ സംശയം ഒരിക്കലും അവസാനിക്കാതാകും, കാരണം അതിന് കാരണമായ ധർമ്മം തുടർച്ചയായി നിലനിൽക്കുന്നു.",
+    "commentary": "സംശയത്തിനെതിരായ എതിരാളിയുടെ ആക്രമണം ഇവിടെ അവസാനിക്കുന്നു. ഒരു സാമാന്യധർമ്മം (സ്തംഭത്തിന്റെ ഉയരം പോലെ) സംശയമുണ്ടാക്കുന്നുവെങ്കിൽ, ആ വസ്തു നിലനിൽക്കുന്നിടത്തോളം അതിന്റെ സാമാന്യധർമ്മങ്ങളും നിലനിൽക്കും. അതുകൊണ്ട് സംശയം ഒരിക്കലും പരിഹരിക്കപ്പെടാതെ വരും.",
+    "keyPoints": [
+      "കാരണം നിലനിൽക്കുന്നിടത്തോളം സംശയവും നിലനിൽക്കും.",
+      "സംശയത്തിനെതിരായ പൂർവ്വപക്ഷ ആക്രമണത്തിന്റെ സമാപനം."
+    ],
+    "conceptIds": [
+      "samsaya"
+    ]
+  },
+  {
+    "id": "2.1.7",
+    "number": "2.1.7",
+    "section": "Examination of Doubt (Saṃśaya Parīkṣā)",
+    "devanagari": "यथोक्ताध्यवसायादेव तद्विशेषापेक्षत्संशये नासंशयो नात्यन्तसंशयो वा ॥",
+    "iast": "yathoktādhyavasāyādeva tadviśeṣāpekṣatsaṃśaye nāsaṃśayo nātyantasaṃśayo vā",
+    "translation": "(ഗൗതമന്റെ മറുപടി): പറഞ്ഞിരിക്കുന്നതുപോലെ (സാമാന്യ)ധർമ്മങ്ങളെ ഗ്രഹിക്കുന്നതിൽ നിന്നുതന്നെ, വിശേഷധർമ്മങ്ങളെ അറിയാനുള്ള പ്രതീക്ഷയോടെ സംശയം ഉണ്ടാകുന്നു; അതുകൊണ്ട് സംശയമില്ല എന്നോ അനന്തമായ സംശയമുണ്ടെന്നോ പറയാനാവില്ല.",
+    "commentary": "ഗൗതമൻ സിദ്ധാന്തം (സ്ഥാപിത നിഗമനം) ആരംഭിച്ച് എതിരാളിയെ ഖണ്ഡിക്കുന്നു. സംശയത്തിന്റെ മനഃശാസ്ത്രം എതിരാളി തെറ്റിദ്ധരിച്ചു. സാമാന്യധർമ്മങ്ങൾ വെറുതെ നിലനിൽക്കുന്നതുകൊണ്ടല്ല സംശയം ഉണ്ടാകുന്നത്, മറിച്ച് അവയെ ഗ്രഹിക്കുന്നതിനോടൊപ്പം വിശേഷധർമ്മങ്ങളെ അറിയാനുള്ള പ്രതീക്ഷയും ചേരുമ്പോഴാണ്.",
+    "keyPoints": [
+      "സാമാന്യഗ്രഹണം + വിശേഷാപേക്ഷ = സംശയം.",
+      "സംശയമില്ലെന്നും അനന്തസംശയമെന്നും ഉള്ള രണ്ട് അതിരുകളും തള്ളുന്നു."
+    ],
+    "conceptIds": [
+      "samsaya",
+      "siddhanta"
     ]
   }
 ];
