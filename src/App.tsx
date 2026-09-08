@@ -4,8 +4,7 @@
  */
 
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router';
-import ConsciousChat from './components/ConsciousChat';
+import { HashRouter, Routes, Route, Link } from 'react-router';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
 const Home = lazy(() => import('./components/Home'));
@@ -27,18 +26,18 @@ function HeaderNav() {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <header className="bg-white border-b border-neutral-200 sticky top-0 z-10">
+    <header className="bg-avyakta-2 border-b border-tamas-deep sticky top-0 z-10">
       <div className="max-w-4xl mx-auto px-4 py-3.5 flex items-center justify-between">
-        <Link to="/" className="text-xl font-serif font-bold tracking-tight text-neutral-900 hover:text-neutral-700 transition-colors">
+        <Link to="/" className="text-xl font-serif font-bold tracking-tight text-sattva hover:text-sattva-dim transition-colors">
           Darśana
         </Link>
-        <div className="flex items-center space-x-1 bg-neutral-100 p-1 rounded-lg border border-neutral-200 text-xs font-medium">
+        <div className="flex items-center space-x-1 bg-avyakta-3 p-1 rounded-lg border border-tamas-deep text-xs font-medium">
           <button
             onClick={() => setLanguage('en')}
             className={`px-2.5 py-1 rounded transition-colors ${
               language === 'en'
-                ? 'bg-white text-neutral-900 shadow-xs font-semibold'
-                : 'text-neutral-500 hover:text-neutral-800'
+                ? 'bg-avyakta-4 text-sattva shadow-xs font-semibold'
+                : 'text-sattva-dim hover:text-sattva'
             }`}
           >
             English
@@ -47,8 +46,8 @@ function HeaderNav() {
             onClick={() => setLanguage('ml')}
             className={`px-2.5 py-1 rounded transition-colors ${
               language === 'ml'
-                ? 'bg-white text-neutral-900 shadow-xs font-semibold'
-                : 'text-neutral-500 hover:text-neutral-800'
+                ? 'bg-avyakta-4 text-sattva shadow-xs font-semibold'
+                : 'text-sattva-dim hover:text-sattva'
             }`}
           >
             മലയാളം
@@ -62,8 +61,8 @@ function HeaderNav() {
 export default function App() {
   return (
     <LanguageProvider>
-      <BrowserRouter>
-        <div className="min-h-screen bg-neutral-50 text-neutral-900 font-sans">
+      <HashRouter>
+        <div className="min-h-screen bg-avyakta text-sattva font-sans">
           <HeaderNav />
           <main className="max-w-4xl mx-auto px-4 py-8">
             <Suspense fallback={<ScreenFallback />}>
@@ -76,9 +75,8 @@ export default function App() {
               </Routes>
             </Suspense>
           </main>
-          <ConsciousChat />
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </LanguageProvider>
   );
 }

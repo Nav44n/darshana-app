@@ -1,6 +1,8 @@
 # Darśana App
 
-A React Native (Expo) application designed for deep, structured exploration of classical Indian philosophical systems (Darśanas). The app moves beyond flat text reading to provide guided threads, bidirectional concept-to-verse linking, and interactive ontology diagrams.
+A Vite + React web application designed for deep, structured exploration of classical Indian philosophical systems (Darśanas). The app moves beyond flat text reading to provide guided threads, bidirectional concept-to-verse linking, and interactive ontology diagrams.
+
+> Note: The legacy Expo/React-Native shell has been officially retired. The web client in `src/` is the supported target. `App.tsx` at the repo root and `AuroraGlow`/`GunaRule`/`ErrorBoundary` native imports are retained only as reference until the Phase A web cleanup replaces them.
 
 ## Current Systems Integrated
 
@@ -20,12 +22,12 @@ A React Native (Expo) application designed for deep, structured exploration of c
 - **Ontology Diagrams**: Interactive SVG visualizations of complex philosophical structures (e.g., the 25 Tattvas, the Guṇa interplay).
 - **Cross-Reference Engine**: Smart auto-linking of internal verse citations across commentaries and notes.
 - **Bilingual Support**: Toggle between English and Malayalam translations.
-- **Reading Preferences**: Light/Dark mode, scalable typography, and persistent bookmarking.
-- **Universal Platform Support**: Runs natively on iOS and Android, and deploys fully responsive to the Web via GitHub Pages.
+- **Reading Preferences**: Light + Guna-dark dual theme, scalable typography, and persistent bookmarking.
+- **Web-first**: Fully responsive static web via GitHub Pages. No server, no API keys — all content ships locally.
 
 ## Development
 
-The app is built with Expo and React Native.
+The app is built with Vite + React + Tailwind v4 as a fully static client. All philosophical content ships as local TypeScript data — no backend, no API keys, no chatbot.
 
 ### Running Locally
 
@@ -33,20 +35,17 @@ The app is built with Expo and React Native.
 # Install dependencies
 npm install
 
-# Start the Expo development server
-npx expo start
+# Dev server with hot reload
+npm run dev
 
-# Start specifically for web
-npm run web
+# Production build + preview
+npm run build
+npm run preview
 ```
 
 ### Deployment
 
-The web version is configured for automatic deployment to GitHub Pages.
-```bash
-# Export the web bundle and push to the gh-pages branch
-npm run deploy
-```
+- **GitHub Pages (static):** `npm run build` emits `dist/`, served with `base: '/darshana-app/'`. Any static host works — no server component exists.
 
 ## Architecture
 

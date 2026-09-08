@@ -1,0 +1,11 @@
+# Create .opencodeignore file in your active folder
+Set-Content -Path ".opencodeignore" -Value @"
+node_modules/
+.git/
+dist/
+build/
+coverage/
+*.log
+*.bin
+models/
+"@

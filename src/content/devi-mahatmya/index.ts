@@ -6,6 +6,21 @@ import { deviMahatmyaConceptsEn } from './devi-mahatmya-concepts-en';
 import { deviMahatmyaConceptsMl } from './devi-mahatmya-concepts-ml';
 import { deviMahatmyaThreadEn } from './devi-mahatmya-thread-en';
 import { deviMahatmyaThreadMl } from './devi-mahatmya-thread-ml';
+import {
+  guptavatiConceptsEn,
+  guptavatiConceptsMl,
+  guptavatiIntroTopics,
+  guptavatiUpodghataEn
+} from './devi-mahatmya-intro-guptavati';
+import type { UpodghataTopicEn } from './devi-mahatmya-intro-guptavati';
+
+export {
+  guptavatiIntroTopics,
+  guptavatiConceptsEn,
+  guptavatiConceptsMl,
+  guptavatiUpodghataEn
+};
+export type { UpodghataTopicEn };
 
 export const deviMahatmyaText: ClassicalText = buildClassicalText(
   {
@@ -20,6 +35,10 @@ export const deviMahatmyaText: ClassicalText = buildClassicalText(
       {
         name: 'Sādhana-Samara (സാധനാ-സമരം) by Swami Pratyagātmānanda Saraswatī / Brahmachari Eran',
         status: 'integrated'
+      },
+      {
+        name: 'Durgāsaptashatī with Seven Sanskrit Commentaries (Guptavatī, Pradīpa, Caturdharī, Santanavī, Nāgojībhaṭṭī, Jagaccandracandrikā, Daṃśoddhāra) and Candraprabhā Hindī-ṭīkā, ed. Dr. Girijesh Kumar Dixit, Sampurnanand Sanskrit Vishvavidyalaya, Varanasi, 2003',
+        status: 'integrated'
       }
     ]
   },
@@ -28,8 +47,8 @@ export const deviMahatmyaText: ClassicalText = buildClassicalText(
     ml: deviMahatmyaVersesMl
   },
   {
-    en: deviMahatmyaConceptsEn,
-    ml: deviMahatmyaConceptsMl
+    en: [...deviMahatmyaConceptsEn, ...guptavatiConceptsEn],
+    ml: [...deviMahatmyaConceptsMl, ...guptavatiConceptsMl]
   }
 );
 

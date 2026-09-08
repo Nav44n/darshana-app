@@ -1,5 +1,5 @@
 import { ClassicalText } from '../../types/content';
-import { buildClassicalText } from '../factory';
+import { buildClassicalText, buildSystemThread } from '../factory';
 import { brahmaSutrasEn } from './brahma-sutras-en';
 import { brahmaSutrasEnAdhyaya2 } from './brahma-sutras-en-adhyaya2';
 import { brahmaSutrasEnAdhyaya3Part1 } from './brahma-sutras-en-adhyaya3-1';
@@ -8,6 +8,7 @@ import { brahmaSutrasEnAdhyaya4 } from './brahma-sutras-en-adhyaya4';
 import { brahmaSutrasMl } from './brahma-sutras-ml';
 import { brahmaSutrasConceptsEn } from './brahma-sutras-concepts-en';
 import { brahmaSutrasConceptsMl } from './brahma-sutras-concepts-ml';
+import { brahmaSutrasThreadEn } from './brahma-sutras-thread-en';
 
 const allEnVerses = [
   ...brahmaSutrasEn, 
@@ -36,3 +37,7 @@ export const brahmaSutrasText: ClassicalText = buildClassicalText(
     ml: brahmaSutrasConceptsMl
   }
 );
+
+export const brahmaSutrasThread = buildSystemThread('brahma-sutras', {
+  en: brahmaSutrasThreadEn
+});

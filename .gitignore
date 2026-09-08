@@ -30,7 +30,8 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
+# local env files (no backend remains — no env files should ever be needed)
+.env
 .env*.local
 
 # typescript
@@ -48,3 +49,12 @@ scratch-*.js
 scratch-*.ts
 scratch/
 *.log
+
+*.pdf
+*.json
+.translate_cache/
+*.txt
+*.cjs
+*.py
+*.bat
+.aider*

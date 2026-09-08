@@ -1,7 +1,4 @@
-import { ThreadStep } from '../../types/content';
-import { yogaSutrasThreadMl } from './yoga-sutras-thread-ml';
-
-const threadBase = [
+export const yogaSutrasThreadEn = [
   {
     id: "the-definition",
     textId: "yoga-sutras",
@@ -159,11 +156,3 @@ const threadBase = [
     }
   }
 ];
-
-export const yogaSutrasThreadEn: ThreadStep[] = threadBase.map(t => ({
-  ...t,
-  content: {
-    en: t.content.en,
-    ml: yogaSutrasThreadMl[t.id]
-  }
-}));

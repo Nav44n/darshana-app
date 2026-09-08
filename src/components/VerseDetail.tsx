@@ -1,3 +1,4 @@
+import { getSystemAccent } from '../utils/theme';
 import React, { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router';
 import { getVerse, getText, getSystem } from '../content';
@@ -50,17 +51,17 @@ export default function VerseDetail() {
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500 max-w-3xl mx-auto pb-24 select-text">
-      <div className="flex items-center justify-between text-sm text-neutral-500">
+      <div className="flex items-center justify-between text-sm text-sattva-dim">
         <div className="flex items-center space-x-2 truncate">
-          <Link to={`/system/${system.id}`} className="hover:text-blue-600 transition-colors">
+          <Link to={`/system/${system.id}`} className="hover:text-rajas transition-colors">
             {system.title}
           </Link>
           <ChevronRight className="w-4 h-4 shrink-0" />
-          <Link to={`/system/${system.id}/text/${text.id}`} className="hover:text-blue-600 transition-colors truncate">
+          <Link to={`/system/${system.id}/text/${text.id}`} className="hover:text-rajas transition-colors truncate">
             {text.transliteratedTitle}
           </Link>
           <ChevronRight className="w-4 h-4 shrink-0" />
-          <span className="text-neutral-900 font-medium whitespace-nowrap">{verseTerm} {verse.number}</span>
+          <span className="text-sattva font-medium whitespace-nowrap">{verseTerm} {verse.number}</span>
         </div>
 
         <div className="flex items-center space-x-1.5 shrink-0 ml-2">
@@ -68,7 +69,7 @@ export default function VerseDetail() {
             <button
               onClick={() => setLanguage('en')}
               className={`text-xs px-2 py-1 rounded font-medium transition-colors ${
-                language === 'en' ? 'bg-neutral-900 text-white shadow-xs' : 'bg-neutral-100 hover:bg-neutral-200 text-neutral-700'
+                language === 'en' ? 'bg-neutral-900 text-sattva shadow-xs' : 'bg-avyakta-3 hover:bg-avyakta-4 text-sattva'
               }`}
               title="English translation"
             >
@@ -80,7 +81,7 @@ export default function VerseDetail() {
             <button
               onClick={() => setLanguage('ml')}
               className={`text-xs px-2 py-1 rounded font-medium transition-colors ${
-                language === 'ml' ? 'bg-neutral-900 text-white shadow-xs' : 'bg-neutral-100 hover:bg-neutral-200 text-neutral-700'
+                language === 'ml' ? 'bg-neutral-900 text-sattva shadow-xs' : 'bg-avyakta-3 hover:bg-avyakta-4 text-sattva'
               }`}
               title="മലയാളം വിവർത്തനം"
             >
@@ -90,7 +91,7 @@ export default function VerseDetail() {
 
           <button
             onClick={handleCopy}
-            className="flex items-center space-x-1 text-xs px-2.5 py-1 rounded bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-medium transition-colors"
+            className="flex items-center space-x-1 text-xs px-2.5 py-1 rounded bg-avyakta-3 hover:bg-avyakta-4 text-sattva font-medium transition-colors"
             title="Copy or share verse text"
           >
             {copied ? (
@@ -109,27 +110,27 @@ export default function VerseDetail() {
       </div>
 
       {isShowingFallback && (
-        <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800 flex items-center justify-between">
+        <div className="p-3 bg-amber-dim/20 border border-amber-dim rounded-lg text-xs text-amber flex items-center justify-between">
           <span>Malayalam translation for this verse is pending. Displaying English version.</span>
         </div>
       )}
 
-      <div className="bg-white rounded-2xl shadow-xs border border-neutral-200 overflow-hidden">
+      <div className="bg-avyakta-2 rounded-2xl shadow-xs border border-tamas-deep overflow-hidden">
         <div className="p-8 md:p-10 space-y-8">
           <div className="text-center space-y-6">
-            <h2 className="text-lg font-medium text-neutral-400 tracking-widest uppercase">
+            <h2 className="text-lg font-medium text-tamas tracking-widest uppercase">
               {verse.section ? `${verse.section} • ` : ''} {verseTerm} {verse.number}
             </h2>
             
             {verse.devanagari && (
-              <div className="text-3xl md:text-4xl text-neutral-900 leading-normal font-serif">
+              <div className="text-3xl md:text-4xl text-sattva leading-normal font-serif">
                 {verse.devanagari.split('\n').map((line, i) => (
                   <div key={i}>{line}</div>
                 ))}
               </div>
             )}
             
-            <div className="text-xl md:text-2xl text-neutral-700 italic leading-relaxed">
+            <div className="text-xl md:text-2xl text-sattva italic leading-relaxed">
               {verse.iast.split('\n').map((line, i) => (
                 <div key={i}>{line}</div>
               ))}
@@ -137,39 +138,39 @@ export default function VerseDetail() {
           </div>
 
           {translation && (
-            <div className="pt-6 border-t border-neutral-100">
+            <div className="pt-6 border-t border-tamas">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-bold text-neutral-400 uppercase tracking-wider">
+                <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
                   {language === 'ml' && verse.content.ml?.translation
                     ? 'വിവർത്തനം (Translation)'
                     : 'Translation'}
                 </h3>
               </div>
-              <div className="text-lg md:text-xl text-neutral-900 leading-relaxed font-serif">
+              <div className="text-lg md:text-xl text-sattva leading-relaxed font-serif">
                 <Markdown>{translation}</Markdown>
               </div>
             </div>
           )}
 
           {commentary && (
-            <div className="pt-6 border-t border-neutral-100">
+            <div className="pt-6 border-t border-tamas">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-bold text-neutral-400 uppercase tracking-wider">
+                <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
                   {language === 'ml' && verse.content.ml?.commentary
                     ? 'ഭാഷ്യം / വ്യാഖ്യാനം (Commentary)'
                     : 'Commentary'}
                 </h3>
               </div>
-              <div className="prose prose-neutral max-w-none text-neutral-700">
+              <div className="prose prose-neutral max-w-none text-sattva">
                 <Markdown>{commentary}</Markdown>
               </div>
             </div>
           )}
 
           {keyPoints && keyPoints.length > 0 && (
-            <div className="pt-6 border-t border-neutral-100">
+            <div className="pt-6 border-t border-tamas">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-bold text-neutral-400 uppercase tracking-wider">
+                <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
                   {language === 'ml' && verse.content.ml?.keyPoints
                     ? 'പ്രധാന തത്ത്വങ്ങൾ (Key Points)'
                     : 'Key Points'}
@@ -177,8 +178,8 @@ export default function VerseDetail() {
               </div>
               <ul className="space-y-2">
                 {keyPoints.map((point, idx) => (
-                  <li key={idx} className="flex text-neutral-700 items-start">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 mr-3 shrink-0"></span>
+                  <li key={idx} className="flex text-sattva items-start">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 mr-3 shrink-0"></span>
                     <span className="flex-1"><Markdown>{point}</Markdown></span>
                   </li>
                 ))}
@@ -188,12 +189,12 @@ export default function VerseDetail() {
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md border-t border-neutral-200">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-avyakta-2/80 backdrop-blur-md border-t border-tamas-deep">
         <div className="max-w-3xl mx-auto flex justify-between items-center">
           {prevVerse ? (
             <Link
               to={`/system/${system.id}/text/${text.id}/verse/${prevVerse.id}`}
-              className="flex items-center text-sm font-medium text-neutral-600 hover:text-blue-600 transition-colors"
+              className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors"
             >
               <ChevronLeft className="w-5 h-5 mr-1" />
               <span className="hidden sm:inline">{verseTerm}</span> {prevVerse.number}
@@ -204,7 +205,7 @@ export default function VerseDetail() {
 
           <Link
             to={`/system/${system.id}/text/${text.id}`}
-            className="flex flex-col items-center justify-center p-2 rounded-full hover:bg-neutral-100 transition-colors text-neutral-500"
+            className="flex flex-col items-center justify-center p-2 rounded-full hover:bg-avyakta-3 transition-colors text-sattva-dim"
             title="Back to Index"
           >
             <ArrowLeft className="w-5 h-5" />
@@ -213,7 +214,7 @@ export default function VerseDetail() {
           {nextVerse ? (
             <Link
               to={`/system/${system.id}/text/${text.id}/verse/${nextVerse.id}`}
-              className="flex items-center text-sm font-medium text-neutral-600 hover:text-blue-600 transition-colors"
+              className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors"
             >
               <span className="hidden sm:inline">{verseTerm}</span> {nextVerse.number}
               <ChevronRight className="w-5 h-5 ml-1" />

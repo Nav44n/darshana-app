@@ -1,3 +1,4 @@
+import { getSystemAccent } from '../utils/theme';
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router';
 import { getSystem } from '../content';
@@ -31,63 +32,63 @@ export default function ThreadView() {
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500 max-w-3xl mx-auto pb-24">
-      <div className="flex items-center justify-between text-sm text-neutral-500 mb-2">
+      <div className="flex items-center justify-between text-sm text-sattva-dim mb-2">
         <div className="flex items-center space-x-2">
-          <Link to={`/system/${system.id}`} className="hover:text-blue-600 transition-colors">
+          <Link to={`/system/${system.id}`} className="hover:text-rajas transition-colors">
             {system.title}
           </Link>
           <ChevronRight className="w-4 h-4" />
-          <span className="text-neutral-900 font-medium">Thread</span>
+          <span className="text-sattva font-medium">Thread</span>
         </div>
-        <div className="font-medium text-neutral-400">
+        <div className="font-medium text-tamas">
           Step {stepIndex + 1} of {totalSteps}
         </div>
       </div>
 
       {isFallback && (
-        <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800">
+        <div className="p-3 bg-amber-dim/20 border border-amber-dim rounded-lg text-xs text-amber">
           Malayalam translation for this thread step is pending. Displaying English version.
         </div>
       )}
 
-      <div className="bg-white rounded-2xl shadow-xs border border-neutral-200 overflow-hidden">
+      <div className="bg-avyakta-2 rounded-2xl shadow-xs border border-tamas-deep overflow-hidden">
         {/* Progress bar */}
-        <div className="h-1.5 w-full bg-neutral-100">
+        <div className="h-1.5 w-full bg-avyakta-3">
           <div 
-            className="h-full bg-blue-500 transition-all duration-300 ease-out" 
+            className="h-full bg-rajas transition-all duration-300 ease-out" 
             style={{ width: `${((stepIndex + 1) / totalSteps) * 100}%` }}
           />
         </div>
 
         <div className="p-8 md:p-10 space-y-8">
           {content?.title && (
-            <h2 className="text-3xl font-serif font-bold text-neutral-900 leading-tight">
+            <h2 className="text-3xl font-serif font-bold text-sattva leading-tight">
               {content.title}
             </h2>
           )}
 
           {content?.narrative && (
-            <div className="text-lg md:text-xl text-neutral-700 leading-relaxed font-serif">
+            <div className="text-lg md:text-xl text-sattva leading-relaxed font-serif">
               <Markdown>{content.narrative}</Markdown>
             </div>
           )}
 
           {content?.summary && (
-            <div className="pt-6 border-t border-neutral-100">
-              <h3 className="text-sm font-bold text-neutral-400 uppercase tracking-wider mb-4">Summary</h3>
-              <div className="prose prose-neutral max-w-none text-neutral-600">
+            <div className="pt-6 border-t border-tamas">
+              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">Summary</h3>
+              <div className="prose prose-neutral max-w-none text-sattva-dim">
                 <Markdown>{content.summary}</Markdown>
               </div>
             </div>
           )}
           
           {content?.keyPoints && content.keyPoints.length > 0 && (
-            <div className="pt-6 border-t border-neutral-100">
-              <h3 className="text-sm font-bold text-neutral-400 uppercase tracking-wider mb-4">Key Insights</h3>
+            <div className="pt-6 border-t border-tamas">
+              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">Key Insights</h3>
               <ul className="space-y-3">
                 {content.keyPoints.map((point, idx) => (
-                  <li key={idx} className="flex text-neutral-700 items-start">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 mr-3 shrink-0"></span>
+                  <li key={idx} className="flex text-sattva items-start">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 mr-3 shrink-0"></span>
                     <span className="flex-1"><Markdown>{point}</Markdown></span>
                   </li>
                 ))}
@@ -96,14 +97,14 @@ export default function ThreadView() {
           )}
           
           {step.verseIds && step.verseIds.length > 0 && targetTextId && (
-            <div className="pt-6 border-t border-neutral-100">
-              <h3 className="text-sm font-bold text-neutral-400 uppercase tracking-wider mb-4">Related {verseTermPlural}</h3>
+            <div className="pt-6 border-t border-tamas">
+              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">Related {verseTermPlural}</h3>
               <div className="flex flex-wrap gap-2">
                 {step.verseIds.map((vId) => (
                   <Link 
                     key={vId} 
                     to={`/system/${system.id}/text/${targetTextId}/verse/${vId}`}
-                    className="inline-flex items-center px-3 py-1.5 rounded-full bg-neutral-100 text-neutral-700 text-sm hover:bg-neutral-200 transition-colors"
+                    className="inline-flex items-center px-3 py-1.5 rounded-full bg-avyakta-3 text-sattva text-sm hover:bg-avyakta-4 transition-colors"
                   >
                     {verseTermSingular} {vId}
                   </Link>
@@ -114,12 +115,12 @@ export default function ThreadView() {
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md border-t border-neutral-200">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-avyakta-2/80 backdrop-blur-md border-t border-tamas-deep">
         <div className="max-w-3xl mx-auto flex justify-between items-center">
           {stepIndex > 0 ? (
             <button
               onClick={handlePrev}
-              className="flex items-center text-sm font-medium text-neutral-600 hover:text-blue-600 transition-colors px-4 py-2"
+              className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors px-4 py-2"
             >
               <ChevronLeft className="w-5 h-5 mr-1" />
               <span className="hidden sm:inline">Previous</span>
@@ -130,7 +131,7 @@ export default function ThreadView() {
 
           <Link
             to={`/system/${system.id}`}
-            className="flex flex-col items-center justify-center p-2 rounded-full hover:bg-neutral-100 transition-colors text-neutral-500"
+            className="flex flex-col items-center justify-center p-2 rounded-full hover:bg-avyakta-3 transition-colors text-sattva-dim"
             title="Back to System"
           >
             <ArrowLeft className="w-5 h-5" />
@@ -139,7 +140,7 @@ export default function ThreadView() {
           {stepIndex < totalSteps - 1 ? (
             <button
               onClick={handleNext}
-              className="flex items-center text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors px-4 py-2"
+              className="flex items-center text-sm font-medium text-rajas hover:text-rajas-dim transition-colors px-4 py-2"
             >
               <span className="hidden sm:inline">Next</span>
               <ChevronRight className="w-5 h-5 ml-1" />

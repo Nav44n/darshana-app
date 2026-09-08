@@ -1,1 +1,63 @@
 @import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-serif: "Cormorant Garamond", serif;
+  --font-display: "Fraunces", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-sanskrit: "Noto Serif Devanagari", serif;
+
+  /* Sāṃkhya principles (The Guṇas) */
+  --color-sattva: #f4ecd8;
+  --color-sattva-dim: #c4baa6;
+  --color-sattva-glow: rgba(244, 236, 216, 0.12);
+
+  --color-rajas: #c66c55;
+  --color-rajas-dim: #a65541;
+  --color-rajas-glow: rgba(198, 108, 85, 0.2);
+
+  --color-tamas: #62687a;
+  --color-tamas-deep: #494d5a;
+
+  /* The Ground (Prakṛti/Avyakta) */
+  --color-avyakta: #141420;
+  --color-avyakta-2: #1c1d2c;
+  --color-avyakta-3: #242538;
+  --color-avyakta-4: #2b2d42;
+
+  /* Purusha */
+  --color-purusha: #a48ce8;
+  --color-purusha-dim: #7c68b8;
+  --color-purusha-glow: rgba(164, 140, 232, 0.22);
+
+  /* System Accents */
+  --color-amber: #e8a23d;
+  --color-amber-dim: #b97a24;
+  --color-teal: #4fb3a3;
+  --color-teal-dim: #347a70;
+  --color-cerulean: #4a7fc4;
+  --color-cerulean-dim: #33588c;
+  --color-sage: #6b9078;
+  --color-sage-dim: #496356;
+  --color-crimson: #c73e4a;
+  --color-crimson-dim: #8f2c35;
+  --color-indigo: #5a5aa0;
+  --color-indigo-dim: #3d3d75;
+
+  /* Ink */
+  --color-ink: #eae7de;
+  --color-ink-dim: #9b9cad;
+
+  /* Additional */
+  --color-hair: #2c2f40;
+}
+
+body {
+  background-color: var(--color-avyakta);
+  color: var(--color-sattva);
+  font-family: var(--font-sans);
+}
+
+.font-sanskrit {
+  font-family: var(--font-sanskrit);
+}

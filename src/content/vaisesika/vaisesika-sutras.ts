@@ -6,6 +6,7 @@ import { vaisesikaSutrasBooks9And10 } from './vaisesika-sutras-en-books9-10';
 import { vaisesikaSutrasBook8 } from './vaisesika-sutras-en-book8';
 import { vaisesikaSutrasMl } from './vaisesika-sutras-ml';
 import { vaisesikaConceptsEn } from './vaisesika-sutras-concepts-en';
+import { vaisesikaConceptsMl } from './vaisesika-sutras-concepts-ml';
 import { vaisesikaThreadEn } from './vaisesika-sutras-thread-en';
 
 const allVaisesikaVersesEn = [...vaisesikaSutrasEn, ...vaisesikaSutrasBooks4To8.filter((s: any) => s.book !== 8), ...vaisesikaSutrasBook8, ...vaisesikaSutrasBooks9And10];
@@ -45,7 +46,8 @@ export const vaisesikaSutrasText: ClassicalText = buildClassicalText(
     ml: mappedVaisesikaMl
   },
   {
-    en: vaisesikaConceptsEn
+    en: vaisesikaConceptsEn,
+    ml: vaisesikaConceptsMl
   }
 );
 
