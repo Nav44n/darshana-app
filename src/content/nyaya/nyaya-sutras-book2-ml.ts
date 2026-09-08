@@ -1,3 +1,11 @@
+// NOTE ON NUMBERING: this file follows a different sutra-division tradition
+// from nyaya-sutras-book2-en.ts (it skips EN's 2.1.2-2.1.8 and splits several
+// sutras differently, so shared ids from ~2.1.8 onward cite different sutras
+// and this file runs to 2.1.69 while EN ends at 2.1.67). Do NOT "fix" by
+// renumbering either side: EN ids are referenced by thread steps and concept
+// relatedVerseIds. Reconciling the two divisions needs a translator, not a
+// mechanical edit. The ML-only 2.1.68-2.1.69 (reply + conclusion on Veda
+// authority) intentionally carry no EN counterpart yet.
 export interface Verse {
   id: string;
   number: number | string;
