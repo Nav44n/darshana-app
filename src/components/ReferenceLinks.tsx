@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router';
-import { Network, Quote, ListTree, Globe2 } from 'lucide-react';
+import { Network, Quote, ListTree, Globe2, ChevronDown } from 'lucide-react';
 import type { ConceptHit, ThreadStepHit, VerseHit } from '../utils/references';
 import { getConceptTitle, getThreadStepTitle } from '../utils/references';
 import { getText, getSystem } from '../content';
@@ -23,14 +23,24 @@ export function RefSection({
   count?: number;
   children: React.ReactNode;
 }) {
+  const [open, setOpen] = useState(true);
   return (
     <div className="pt-6 border-t border-tamas">
-      <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4 flex items-center">
-        <span className="mr-2 inline-flex">{icon}</span>
-        {title}
-        {count !== undefined && <span className="ml-1.5 font-medium">({count})</span>}
-      </h3>
-      {children}
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between mb-4 group cursor-pointer"
+      >
+        <h3 className="text-sm font-bold text-tamas uppercase tracking-wider flex items-center">
+          <span className="mr-2 inline-flex">{icon}</span>
+          {title}
+          {count !== undefined && <span className="ml-1.5 font-medium">({count})</span>}
+        </h3>
+        <ChevronDown
+          className={`w-4 h-4 text-tamas shrink-0 transition-transform duration-200 ${open ? '' : '-rotate-90'}`}
+        />
+      </button>
+      {open && <div>{children}</div>}
     </div>
   );
 }

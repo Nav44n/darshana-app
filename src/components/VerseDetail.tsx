@@ -2,7 +2,7 @@ import { getSystemAccent } from '../utils/theme';
 import React, { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router';
 import { getVerse, getText, getSystem } from '../content';
-import { ChevronRight, ChevronLeft, ArrowLeft, Share2, Check } from 'lucide-react';
+import { ChevronRight, ChevronLeft, ChevronDown, ArrowLeft, Share2, Check } from 'lucide-react';
 import Markdown from 'react-markdown';
 import RichText from './RichText';
 import {
@@ -19,6 +19,33 @@ import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
+
+function Collapsible({
+  title,
+  defaultOpen = true,
+  children,
+}: {
+  title: React.ReactNode;
+  defaultOpen?: boolean;
+  children: React.ReactNode;
+}) {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
+  return (
+    <div className="pt-6 border-t border-tamas">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        className="w-full flex items-center justify-between mb-4 group cursor-pointer"
+      >
+        <h3 className="text-sm font-bold text-tamas uppercase tracking-wider text-left">{title}</h3>
+        <ChevronDown
+          className={`w-4 h-4 text-tamas shrink-0 ml-2 transition-transform duration-200 ${isOpen ? '' : '-rotate-90'}`}
+        />
+      </button>
+      {isOpen && <div>{children}</div>}
+    </div>
+  );
+}
 
 export default function VerseDetail() {
   const { systemId, textId, verseId } = useParams();
@@ -182,44 +209,41 @@ export default function VerseDetail() {
           </div>
 
           {translation && (
-            <div className="pt-6 border-t border-tamas">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
-                  {language === 'ml' && verse.content.ml?.translation
-                    ? `${t(language, 'translationLabel')} (Translation)`
-                    : t(language, 'translationLabel')}
-                </h3>
-              </div>
+            <Collapsible
+              title={
+                language === 'ml' && verse.content.ml?.translation
+                  ? `${t(language, 'translationLabel')} (Translation)`
+                  : t(language, 'translationLabel')
+              }
+            >
               <div className="text-lg md:text-xl text-sattva leading-relaxed font-serif">
                 <Markdown>{translation}</Markdown>
               </div>
-            </div>
+            </Collapsible>
           )}
 
           {wordMeaning && (
-            <div className="pt-6 border-t border-tamas">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
-                  {language === 'ml' && (verse.content.ml as any)?.wordMeaning
-                    ? `${t(language, 'wordMeaningLabel')} (Word by Word)`
-                    : t(language, 'wordMeaningLabel')}
-                </h3>
-              </div>
+            <Collapsible
+              title={
+                language === 'ml' && (verse.content.ml as any)?.wordMeaning
+                  ? `${t(language, 'wordMeaningLabel')} (Word by Word)`
+                  : t(language, 'wordMeaningLabel')
+              }
+            >
               <div className="text-base md:text-lg text-sattva-dim leading-relaxed">
                 <Markdown>{wordMeaning}</Markdown>
               </div>
-            </div>
+            </Collapsible>
           )}
 
           {commentary && (
-            <div className="pt-6 border-t border-tamas">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
-                  {language === 'ml' && verse.content.ml?.commentary
-                    ? `${t(language, 'commentaryLabel')} (Commentary)`
-                    : t(language, 'commentaryLabel')}
-                </h3>
-              </div>
+            <Collapsible
+              title={
+                language === 'ml' && verse.content.ml?.commentary
+                  ? `${t(language, 'commentaryLabel')} (Commentary)`
+                  : t(language, 'commentaryLabel')
+              }
+            >
               <div className="prose max-w-none text-sattva">
                 <RichText
                   text={commentary}
@@ -227,18 +251,17 @@ export default function VerseDetail() {
                   textId={text.id as string}
                 />
               </div>
-            </div>
+            </Collapsible>
           )}
 
           {keyPoints && keyPoints.length > 0 && (
-            <div className="pt-6 border-t border-tamas">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
-                  {language === 'ml' && verse.content.ml?.keyPoints
-                    ? `${t(language, 'keyPoints')} (Key Points)`
-                    : t(language, 'keyPoints')}
-                </h3>
-              </div>
+            <Collapsible
+              title={
+                language === 'ml' && verse.content.ml?.keyPoints
+                  ? `${t(language, 'keyPoints')} (Key Points)`
+                  : t(language, 'keyPoints')
+              }
+            >
               <ul className="space-y-2">
                 {keyPoints.map((point, idx) => (
                   <li key={idx} className="flex text-sattva items-start">
@@ -253,29 +276,19 @@ export default function VerseDetail() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Collapsible>
           )}
 
           {variantNote && (
-            <div className="pt-6 border-t border-tamas">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
-                  {t(language, 'variantNoteLabel')}
-                </h3>
-              </div>
+            <Collapsible title={t(language, 'variantNoteLabel')}>
               <div className="text-sm md:text-base text-sattva-dim leading-relaxed">
                 <Markdown>{variantNote}</Markdown>
               </div>
-            </div>
+            </Collapsible>
           )}
 
           {verse.interpretiveNotes && verse.interpretiveNotes.length > 0 && (
-            <div className="pt-6 border-t border-tamas">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
-                  {t(language, 'variantNoteLabel')}
-                </h3>
-              </div>
+            <Collapsible title={t(language, 'variantNoteLabel')}>
               <ul className="space-y-2">
                 {verse.interpretiveNotes.map((n, idx) => (
                   <li key={idx} className="flex text-sattva-dim items-start text-sm md:text-base">
@@ -290,7 +303,7 @@ export default function VerseDetail() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Collapsible>
           )}
 
           <RelatedConceptsSection items={relatedConcepts} currentSystemId={system.id as string} />

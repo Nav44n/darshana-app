@@ -8,10 +8,12 @@ export const gitaEnPart1: any[] = [
     "devanagari": "धर्मक्षेत्रे कुरुक्षेत्रे सर्वक्षत्रसमागमे। मामकाः पाण्डवाश्चैव किमकुर्वत सञ्जय॥1.1॥",
     "iast": "dharmakṣetre kurukṣetre sarvakṣatrasamāgame māmakāḥ pāṇḍavāścaiva kimakurvata sañjaya",
     "conceptIds": ["gita-visada"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Rāmakantha pāṭha: Rāmakantha reads sarva-kṣatra-samāgame (assembly of all warriors) where Śaṅkara reads samavetā yuyutsavaḥ."}],
-    "translation": "Dhritarashtra asks what his sons and Pandu's sons did where dharma and warriors met.",
-    "commentary": "Plain: blind king asks Sanjaya about Kurukshetra. Sarvatobhadra: field is Self where jnana and karma meet for release.",
-    "keyPoints": ["dharma-field as Self", "seer asks deed"]
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Rāmakantha pāṭha (PDF pp.11–12, KSTS p.11): sarva-kṣatra-samāgame — 'at the assembly of all warriors' — where Śaṅkara reads samavetā yuyutsavaḥ. Mūla with Sarvatobhadra opening at dharmakṣetre."}, {"note": "Sarvatobhadra adhyāya-tātparya (PDF pp.14–16, KSTS pp.15–16): the whole Adhyāya establishes Arjuna-viṣāda as the pravṛtti-hetu (occasion) for the Bhagavān's teaching that śāstra-codita karma, samskṛta by jñāna, is itself the mokṣa-hetu, since kriyā-śakti never leaves Parameśvara or the jīvas."}],
+    "translation": "Dhṛtarāṣṭra said: O Sañjaya, assembled in Kurukṣetra, the field of dharma, at the gathering of all warriors, what did my sons and the sons of Pāṇḍu indeed do?",
+    "commentary": "Plain meaning, fully drawn out: the blind king Dhṛtarāṣṭra opens the entire poem with one anxious question addressed to Sañjaya, his seer-reporter gifted with divine sight. He names the place twice in the same breath — dharmakṣetra, the field of dharma, and kurukṣetra, the field of the Kurus — and names the occasion once: sarva-kṣatra-samāgame, at the assembly of all warriors. Then he names the two parties in deliberate asymmetry — māmakāḥ, 'my ones, my sons,' against pāṇḍavāḥ, 'the sons of Pāṇḍu' (not 'my brothers' sons') — and asks the one thing a blind, grasping father needs to know: kim akurvata, what did they do? The question is possessive (māmakāḥ first), fearful (he already suspects the answer), and total (eva binds both armies into one deed). Everything that follows — all eighteen chapters — is Sañjaya's answer to this single sentence. Sarvatobhadra meaning, fully drawn out: Rāmakantha reads this opening as the pūrva-pakṣa, the objector's thesis, of the whole śāstra. Just before the mūla begins, the edition places the daiva-sarga doctrine — śraddhāvān labhate jñānam (4.39), śraddhāvanto'nasūyanto mucyante (3.31), śraddadhānā matparamā bhaktāḥ (13.20), PDF p.11 — the godly issue among men for whom this teaching is meant; the question 'what did they do?' therefore already carries the śāstra's burden: what do beings who possess śraddhā do when the field is set? The 'field' (kṣetra) is the Self (ātman) itself — the ground where jñāna and karma meet — and Kurukṣetra is that ground made visible as history. Sarva-kṣatra, 'all warriors,' is Rāmakantha's chosen reading against samavetā yuyutsavaḥ: not some of the powers but every power of the heart is present, because every jīva shares, in truth, the Lord's own kriyā-śakti. That is the Sarvatobhadra's central axiom stated in the adhyāya-tātparya (PDF p.15): the Lord as sarva-kartā never loses kartṛtva, and by His māyā-vaibhava the divided jīvas are tad-ātmaka, of His very nature — so kriyā-śakti's non-absence (aviraha) stands forever, and total abandonment of karma (sarvātmanā pari-tyāga) is impossible (anupapatti). Hence what looks like a father's war-report question is really the karma-question of the Gītā: granted that action cannot be escaped, how is it to be performed so that it liberates? The answer, already struck like a keynote, is śāstra-codita karma, samskṛta by the coming jñāna, performed yathāśakti yathāvidhi according to adhikāra, place, time and state, as the hetu of samāpatti-mokṣa. And the grief this question will summon in Arjuna — viṣāda — is not an accident delaying the teaching but its pravṛtti-hetu, its occasioning cause: only a heart invaded by pity (1.28) and unstrung by delusion (2.1) can receive the combined path. So 1.1 contains the whole Gītā in seed: the field (Self), the parties (divided powers), the question (what is right action?), and the wound (grief) through which the answer will enter.",
+    "keyPoints": ["Dhṛtarāṣṭra's single anxious question opens all eighteen chapters", "Double naming: dharmakṣetra and kurukṣetra — dharma-field made history", "Asymmetry: māmakāḥ ('my ones') against pāṇḍavāḥ (not 'my nephews')", "sarva-kṣatra-samāgame: every power of the heart is present", "kim akurvata — the karma-question of the whole Gītā", "Pūrva-pakṣa of the śāstra; daiva-sarga context (4.39, 3.31, 13.20)", "Field is the Self where jñāna and karma meet", "kriyā-śakti never leaves Lord or jīvas — abandonment impossible", "Answer keynoted: śāstra-codita karma purified by jñāna", "viṣāda as pravṛtti-hetu — grief as the occasion of grace"],
+    "wordMeaning": "dhṛtarāṣṭraḥ uvāca (speaker line, PDF p.11) — Dhṛtarāṣṭra said; dharmakṣetre (locative singular neuter) — in the field of dharma; kurukṣetre (locative singular neuter) — in Kurukṣetra; sarva-kṣatra-samāgame (locative singular masculine, sam-ā-gam: assembly) — at the coming-together of all warriors; māmakāḥ (nominative plural masculine, mama + ka: my ones) — my sons, my party; pāṇḍavāḥ (nominative plural masculine, sons of Pāṇḍu) — the Pāṇḍavas; ca (indeclinable conjunction) — and; eva (emphatic particle) — indeed, also, both (stresses the two parties together); kim (interrogative pronoun, neuter accusative singular) — what; akurvata (imperfect 3rd person plural of √kṛ, with augment a-: they did) — they did; sañjaya (vocative singular masculine) — O Sañjaya. Sandhi: pāṇḍavāḥ + ca → pāṇḍavāś ca (visarga → ś before ca); ca + eva → caiva; kim + akurvata → kimakurvata.",
+    "variantNote": "Rāmakantha: sarva-kṣatra-samāgame for vulgate samavetā yuyutsavaḥ; the variant stresses totality — every power of the heart is present — fitting the Sarvatobhadra doctrine that all jīvas share the Lord's kriyā-śakti."
   },
   {
     "id": "1.2",
@@ -20,10 +22,11 @@ export const gitaEnPart1: any[] = [
     "devanagari": "दृष्ट्वा तु पाण्डवानीकं व्यूढं दुर्योधनस्तदा। आचार्यमुपसङ्गम्य राजा वचनमब्रवीत्॥1.2॥",
     "iast": "dṛṣṭvā tu pāṇḍavānīkṃ vyūḍhṃ duryodhanastadā ācāryamupasaṅgamya rājā vacanamabravīt",
     "conceptIds": ["gita-visada"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Seeing the Pandava army arrayed, King Duryodhana approached Drona and spoke.",
-    "commentary": "Plain: Duryodhana surveys enemy formation. Sarvatobhadra: ego surveys unified sattvic forces, seeks action-counsel.",
-    "keyPoints": ["ego takes stock", "action begins"]
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Sarvatobhadra (PDF pp.15–16): verses 1.2–1.19 are nigada-vyākhyāta — their purpose is karma-ghoratva-pratipādana, showing the terrible form of the very action Arjuna will want to abandon."}],
+    "translation": "Sañjaya said: But then, seeing the Pāṇḍava army drawn up in battle-array, King Duryodhana approached his teacher Droṇa and spoke these words.",
+    "commentary": "Plain meaning, fully drawn out: Sañjaya speaks at last, and his first word is tu — 'but, now' — the pivot from Dhṛtarāṣṭra's question to the field-report. What he reports is a single sequence of seeing, moving, and speaking. Duryodhana, whom Sañjaya pointedly calls rājā, 'the king,' first truly sees (dṛṣṭvā): the Pāṇḍava host not as scattered rebels but as anīkam vyūḍham, an army drawn into ordered battle-array — disciplined, ensouled, terrible in its coherence. The sight lands at tadā, 'then,' the moment the conches have not yet sounded but the lines stand formed. And the seeing produces fear disguised as protocol: Duryodhana, the suzerain who commands eleven akṣauhiṇīs, leaves his own post and goes (upasaṅgamya) to his employee — Droṇa the ācārya, the hired teacher of both houses — before he can speak a word of war. Vacanam abravīt, 'he spoke words,' hangs deliberately empty here; its content spills into 1.3–1.11, the longest single speech of the muster. So the verse's whole drama is in the order of acts: the ego surveys the unified enemy, feels its own mass already outshone, and seeks the voice of entrenched authority to steady itself before addressing its own side. Sarvatobhadra meaning, fully drawn out: Rāmakantha assigns this verse no word-gloss at all — with all of 1.2–1.19 it is nigada-vyākhyāta, self-evident in wording (PDF pp.15–16) — because its weight lies entirely in tātparya, purpose. And the purpose is karma-ghoratva-pratipādana: to display the terrible, ghora form of the very karma Arjuna is about to refuse. Before the Gītā can teach purified action, it must show action unpurified in its full massed dread — and Duryodhana's frightened inspection is the lens. Read inwardly, Duryodhana is ahaṃkāra-as-king, the ego-faction's crowned head; the vyūḍha Pāṇḍava host is the sattvic powers — jñāna and karma yoked to the Self — seen for the first time as one body rather than scattered virtues; Droṇa the ācārya is entrenched habit-counsel, action-knowledge without Self-knowledge, the convention that trained both sides and now must be consulted by delusion because delusion has no counsel of its own. Hence upasaṅgamya — the reverent approach-word, the same root-movement with which a śiṣya nears a guru — is here exact and inverted: delusion performs discipleship to convention, foreshadowing and perverting Arjuna's true discipleship to come (2.7: śiṣyaste'haṃ śādhi māṃ). The seeker will walk the same steps — approach, confess fear, ask for direction — but toward Kṛṣṇa, the inner Lord, instead of toward Droṇa, the outer habit. That is why Rāmakantha lets the verse stand uncommented yet places it first in the ghora-tableau: the ego's approach to its teacher is the photographic negative of the soul's approach to its Teacher, and both begin with the same honest act — seeing the ordered host and knowing oneself shaken. So 1.2 contains the Adhyāya's method in seed: the outer war-muster is staged so precisely because the inner surrender it mirrors must be total.",
+    "keyPoints": ["Sañjaya's first word tu pivots question into report", "dṛṣṭvā: the ego truly sees the ordered host for the first time", "vyūḍham anīkam — discipline that outshines mere mass", "rājā leaves his post: fear disguised as protocol", "upasaṅgamya — delusion performs discipleship to convention", "Droṇa as habit-counsel without Self-knowledge", "vacanam abravīt hangs open into the 1.3–1.11 muster", "nigada-vyākhyāta: weight in tātparya, not gloss", "karma-ghoratva: terror of action displayed before its purification", "photographic negative of Arjuna's surrender in 2.7"],
+    "wordMeaning": "sañjayaḥ uvāca (speaker line, PDF p.11) — Sañjaya said; dṛṣṭvā (absolutive of √dṛś: having seen) — having seen; tu (adversative particle) — but, now (pivots from question to report); pāṇḍava-anīkam (accusative singular neuter) — the Pāṇḍava army; vyūḍham (past participle of vi-√ūh, accusative singular neuter agreeing with anīkam) — drawn up, arrayed; duryodhanaḥ (nominative singular masculine) — Duryodhana; tadā (temporal indeclinable) — then; ācāryam (accusative singular masculine) — to the teacher (Droṇa); upasaṅgamya (absolutive of upa-sam-√gam: having approached) — approaching; rājā (nominative singular of rājan) — the king; vacanam (accusative singular neuter) — word, words; abravīt (imperfect 3rd singular of √brū: he said) — he spoke. Sandhi: duryodhanaḥ + tadā → duryodhanastadā; ācāryam + upasaṅgamya → ācāryamupasaṅgamya; vacanam + abravīt → vacanamabravīt. Print note: PDF scan shows व्यू for व्यूढं (line-break truncation, KSTS p.11) — no variant; our devanagari gives the full vyūḍham."
   },
   {
     "id": "1.3",
@@ -33,9 +36,10 @@ export const gitaEnPart1: any[] = [
     "iast": "paśyaitāṃ pāṇḍuputrāṇāmācārya mahatīṃ camūm vyūḍhāṃ drupadaputreṇa tava śiṣyeṇa dhīmatā",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Behold this great Pandava army arrayed by Drupada's wise son, your disciple.",
-    "commentary": "Plain: Duryodhana points to Dhrishtadyumna's array. Sarvatobhadra: disciple-knowledge turns against delusion, jnana arms karma.",
-    "keyPoints": ["knowledge confronts bias", "disciple surpasses"]
+    "translation": "Behold, O teacher, this great army of the sons of Pāṇḍu, arrayed by the wise son of Drupada, your own disciple.",
+    "commentary": "Plain meaning, fully drawn out: Duryodhana speaks at last, and his first word is an order given to his own teacher — paśya, 'behold!' The king who approached for steadiness now plays commander, pointing Droṇa's eyes at the field: etām mahatīm camūm, 'this great host' of the pāṇḍuputrāṇām, the sons of Pāṇḍu — named by their father, not as cousins, fixing them as the other house. Mahatīm does double work: the army is great in size, and Duryodhana needs Droṇa to feel its greatness as threat. Then the sting, placed last with surgical care: vyūḍhām drupadaputreṇa tava śiṣyeṇa dhīmatā — 'marshalled by Drupada's son, your wise disciple.' Every qualifier wounds. Drupadaputreṇa recalls the fire-born enemy, Dhṛṣṭadyumna, created by sacrifice for Droṇa's death; tava śiṣyeṇa twists the knife — your own pupil; dhīmatā concedes, with resentment, that the pupil is genuinely wise, genuinely competent, his array genuinely masterful. The sentence is flattery and accusation in one breath: honored teacher — see how your teaching has armed our ruin. Beneath it runs the confession Duryodhana cannot voice: the enemy's order proves my disorder; I came to steady myself and find only the proof of my danger. Sarvatobhadra meaning, fully drawn out: like all of 1.2–1.19 this verse carries no word-gloss — nigada-vyākhyāta — because Rāmakantha hears in it the whole doctrine's first turning: jñāna, trained by convention, turning against convention. Droṇa is karma-kaṇḍa expertise, the transmitted craft of action without Self-knowledge; Dhṛṣṭadyumna is that same craft after it has met dhī — discriminating intelligence — and crossed to the Self's side. The śiṣya outgrows the ācārya the moment discipline stops serving faction and starts serving truth; then the pupil's vyūha, his ordering of the powers, faces his teacher's ordering and outshines it. That is why Duryodhana's barb is theologically exact despite himself: your knowledge has indeed armed the other side — for knowledge, once yoked to viveka, cannot remain the servant of delusion. The verse thus stages, inside a taunt, the samuccaya-law in miniature: discipled craft (śiṣya) plus discriminative wisdom (dhīmat) becomes an army of awakening, and entrenched habit, surveying its own graduate in enemy colors, feels the first cold of the heart-rending to come (1.19: hṛdayāni vyadārayat). Duryodhana's flattery-censure is rajasic fear wearing courtly dress — and fear, here as everywhere in the Adhyāya, is the truest reporter of the field. So 1.3 contains the Gītā's pedagogy in seed: the teacher's own teaching deserts him for the taught, and the taught, arrayed in wisdom, becomes the teacher's teacher.",
+    "keyPoints": ["paśya: an order issued to his own teacher", "etām mahatīm camūm — greatness displayed as threat", "pāṇḍuputrāṇām: the other house, fixed as other", "drupadaputreṇa — the fire-born enemy, sacrifice-made", "tava śiṣyeṇa — your own pupil: the twisting knife", "dhīmatā — resentful concession of real mastery", "flattery and accusation in one breath", "jñāna trained by convention turns against convention", "śiṣya outgrows ācārya when dhī joins the Self", "fear as the truest reporter of the field"],
+    "wordMeaning": "paśya (imperative 2nd singular of √dṛś: behold!) — behold; etām (accusative singular feminine demonstrative, agreeing with camūm) — this; pāṇḍu-putrāṇām (genitive plural masculine) — of the sons of Pāṇḍu; ācārya (vocative singular masculine) — O teacher; mahatīm (accusative singular feminine adjective, agreeing with camūm) — great; camūm (accusative singular feminine) — army, host; vyūḍhām (past participle of vi-√ūh, accusative singular feminine agreeing with camūm) — arrayed, marshalled; drupada-putreṇa (instrumental singular masculine, agent) — by Drupada's son (Dhṛṣṭadyumna); tava (genitive singular of tvam: your) — your; śiṣyeṇa (instrumental singular masculine) — by the disciple; dhīmatā (instrumental singular masculine of dhīmat, wise, -mat possessive: endowed with dhī) — by the wise one. Sandhi: paśya + etām → paśyaitām; putrāṇām + ācārya → putrāṇāmācārya. Print note: PDF shows चम्म् for चमूम् (KSTS p.11 type defect) — no variant; our devanagari gives full camūm."
   },
   {
     "id": "1.4",
@@ -45,9 +49,10 @@ export const gitaEnPart1: any[] = [
     "iast": "atra śūrā maheṣvāsā bhīmārjunasamā yudhi yuyudhāno virāṭaśca drupadaśca mahārathḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Here are heroes, great bowmen equal to Bhima and Arjuna in battle.",
-    "commentary": "Plain: lists Yuyudhana, Virata, Drupada. Sarvatobhadra: sattvic powers are aspects of one Atman.",
-    "keyPoints": ["many heroes", "one Self"]
+    "translation": "Here are heroes, great bowmen, peers of Bhīma and Arjuna in battle — Yuyudhāna, Virāṭa, and Drupada the great charioteer.",
+    "commentary": "Plain meaning, fully drawn out: Duryodhana's pointing finger lands on three named seniors, and the verse is built as a general claim proved by three instances. The claim first — atra śūrā maheṣvāsāḥ, 'here are heroes, great bowmen': atra plants the flag on the enemy ground already surveyed, śūrāḥ concedes courage (the word he will deny himself by conduct), maheṣvāsāḥ concedes mastery, the great bow being the kṣatriya's measure of full formation. Then the measure itself — bhīmārjunasamā yudhi, 'peers of Bhīma and Arjuna in battle': Duryodhana, who commands the two greatest champions of his own house, admits the enemy holds their equals — Bhīma the measure of crushing strength, Arjuna the measure of infallible skill — and confines the equality with precision to yudhi, in battle, as if to reserve some other field where his side prevails. Then the three proofs, each a history in a name. Yuyudhāna — Sātyaki, the Vṛṣṇi devotee of Kṛṣṇa, the one Kaurava-era warrior who chose devotion over kinship and defected by love to the Pāṇḍava cause. Virāṭa — the Matsya king in whose palace the Pāṇḍavas hid their thirteenth year, who sheltered the disguised heroes and now shelters their war; the host who became an ally. Drupada — the Pāñcāla fire-king, Droṇa's childhood friend turned lifelong rival, father of Dhṛṣṭadyumna and Draupadī by sacrifice, the living proof that humiliation transmuted by tapas becomes an army. Each name reminds Droṇa of a bond he cannot claim: devotion he never inspired, shelter he never gave, sacrifice he never honored. And the line closes with the heaviest stone — mahārathaḥ, 'a great charioteer': in śāstra-measure, a commander worth ten thousand, the rank Droṇa himself holds, now granted to the enemy's grandsire-in-arms. Sarvatobhadra meaning, fully drawn out: the verse is nigada-vyākhyāta, needing no gloss, because Rāmakantha hears in the muster-catalogue the metaphysics of the whole: many heroes, one Ātman. Against the factional ear that counts three enemies, the nondual ear hears three śaktis of the one cit distributed as persons — Yuyudhāna as bhakti-śakti, devotion that defects from blood to truth; Virāṭa as āśraya-śakti, the sheltering power that hides the heroes in exile and returns them as an army; Drupada as tapas-śakti, humiliation transmuted by fire into sacrificial offspring, wisdom born of wound. Their samatva with Bhīma-Arjuna is then exact doctrine: Bhīma figures prāṇa-śakti, vital force, and Arjuna viveka-śakti, discriminative skill — and every faculty, when yoked to the Self rather than to faction, attains their stature; devotion hits as hard as strength, shelter aims as true as skill. Yudhi, 'in battle,' is the qualifying mercy of the verse: equality is claimed only where it matters — in the karma-field — leaving the jñāna-field, where the war will truly be decided, still to be opened by Kṛṣṇa. So Duryodhana, meaning to frighten his teacher with three names, unwittingly preaches Rāmakantha's axiom (PDF p.15): the jīvas are tad-ātmaka, of the Self's nature, and their powers, arrayed toward the Self, are Hrī — the Lord's own host wearing the faces of allies. The muster that begins here will run through 1.6, but its law is stated in 1.4 alone: when the Self is the center, every hero is its measure.",
+    "keyPoints": ["general claim proved by three instances", "atra śūrā maheṣvāsāḥ — courage and mastery conceded", "bhīmārjunasamā yudhi — equals by his own champions' measure", "yudhi confines equality to the battle-field", "Yuyudhāna: devotion defecting from blood to truth", "Virāṭa: the sheltering host become ally", "Drupada: humiliation transmuted by sacrifice-fire", "each name a bond Droṇa cannot claim", "mahārathaḥ — enemy granted Droṇa's own rank", "many heroes, one Ātman: every faculty attains full stature"],
+    "wordMeaning": "atra (adverb) — here; śūrāḥ (nominative plural masculine) — heroes; maheṣvāsāḥ (nominative plural masculine, mahā + iṣvāsa: great-bowed) — great bowmen; bhīma-arjuna-samāḥ (nominative plural masculine adjective, sama: equal) — peers of Bhīma and Arjuna; yudhi (locative singular feminine of yudh) — in battle; yuyudhānaḥ (nominative singular) — Yuyudhāna (Sātyaki); virāṭaḥ (nominative singular) — Virāṭa; ca (conjunction) — and; drupadaḥ (nominative singular) — Drupada; ca (conjunction) — and; mahārathaḥ (nominative singular masculine, mahā + ratha: great-charioteer, commander) — great charioteer (epithet of Drupada). Sandhi: virāṭaḥ + ca → virāṭaśca (visarga → ś); drupadaḥ + ca → drupadaśca. Print note: PDF shows विराटच for विराटश्च (KSTS p.11) — type defect, no variant."
   },
   {
     "id": "1.5",
@@ -57,9 +62,10 @@ export const gitaEnPart1: any[] = [
     "iast": "dhṛṣṭaketuścekitānḥ kāśirājaśca vīryavān purujitkuntibhojaśca śaibyaśca narapuṅgavḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Dhrishtaketu, Chekitana, valiant Kashiraja, Purujit, Kuntibhoja and Shaibya, best of men.",
-    "commentary": "Plain: further Pandava allies named. Sarvatobhadra: diverse faculties serve awakening when yoked to Self.",
-    "keyPoints": ["allied virtues", "manifold powers"]
+    "translation": "Dhṛṣṭaketu and Cekitāna, the valiant king of Kāśi, Purujit and Kuntibhoja, and Śaibya, a bull among men.",
+    "commentary": "Plain meaning, fully drawn out: the muster's second wave names six more allies in a single breathless line, bound by four ca's — and... and... and... and — the catalogue-effect itself doing the work of intimidation. Dhṛṣṭaketu, the Cedi prince, and Cekitāna, the Śṛñjaya-Yādava chieftain, open the pair: two professional warriors of the Vṛṣṇi orbit, men whose loyalty had to be chosen, not inherited. Then the Kāśirāja, the king of Kāśi, qualified alone in this verse by vīryavān — 'possessing vīrya, valiant': the sacred city's lord brings not just troops but lustre, the consecration-weight of the oldest throne in the valley. Then the maternal hinge of the whole alliance — Purujit and Kuntibhoja: Kuntibhoja the foster-father of Kuntī, who gave the Pāṇḍavas their mother, and Purujit his brother, the Kuntibhoja princes — blood of the mother, not the father, proof that this war is fought for the mother's honor as much as the father's throne. And the verse closes by singling out one old lion from the pack — Śaibya, the Śibi king, crowned narapuṅgavaḥ, 'a bull among men': the ancient bull-epithet (puṅgava, the lead bull of the herd) marking tested seniority, the one ally whose valor needs no army to prove it. Duryodhana's purpose is cumulative dread — kingdom after kingdom, kin after kin — but each name he utters tightens a second noose around his own case: every alliance he lists was earned by the Pāṇḍavas through marriage, consecration, fosterage, and honor, while his own were purchased by office, debt, and fear. Dharma, the verse shows without stating, gathers relations; adharma merely rents them. Sarvatobhadra meaning, fully drawn out: the verse is nigada-vyākhyāta, yet Rāmakantha's Kashmir Śaiva ear refuses to leave proper names proper — each is a differentiated capacity (śakti-bheda) of the one cit, distributed as persons so the teaching can be seen marching. Dhṛṣṭaketu ('firm-bannered') is dhṛti-śakti, resolve that holds the banner upright in wind; Cekitāna ('the mindful one') is smṛti-śakti, the memory-aid that keeps the teaching present in tumult; the vīryavān Kāśirāja is tejas-śakti, the lustre of the sacred center, valor consecrated rather than hired; Purujit ('conquering the stronghold') and Kuntibhoja ('enjoyed by Kuntī's line') together are poṣaka-śakti, the nourishing kinship-powers, maternal rather than paternal — grace received through the mother-line of surrender rather than seized through the father-line of claim; Śaibya narapuṅgavaḥ is dhurya-śakti, the lead-bull power that walks first into the yoke, seniority that pulls rather than pushes. Four ca's bind them because consciousness binds its powers with conjunction, not collection: each 'and' is a synapse, not an addition. And vīrya — the verse's single adjective, set like a lamp beside the Kāśi throne — names what all six share and what Duryodhana's own catalogue (1.8–1.9) will lack: vīrya as intrinsic potency, Spanda's own vigor, valor that belongs to the bearer rather than to his paymaster. So 1.5 contains the coalition-law in seed: the Self's army is recruited by honor and kinship of truth, rank after rank, 'and... and... and,' until even the extended family — the outermost, most worldly ring of relations — stands in formation as awakening.",
+    "keyPoints": ["second wave: six allies in one breathless line", "four ca's — conjunction as intimidation rhythm", "Dhṛṣṭaketu and Cekitāna: loyalty chosen, not inherited", "vīryavān Kāśirāja: consecration-weight of the sacred throne", "Purujit-Kuntibhoja: the maternal hinge, mother's honor", "Śaibya narapuṅgavaḥ: the lead-bull, seniority that pulls", "every alliance earned by honor; his own rented by fear", "dharma gathers relations, adharma rents them", "six names as six śaktis: resolve, memory, lustre, nurture, vanguard", "vīrya as intrinsic Spanda-vigor, the verse's single lamp"],
+    "wordMeaning": "dhṛṣṭaketuḥ (nominative singular) — Dhṛṣṭaketu (Cedi prince); ca (conjunction) — and; cekitānaḥ (nominative singular) — Cekitāna; kāśirājaḥ (nominative singular, Kāśi + rājan) — the Kāśi king; ca (conjunction) — and; vīryavān (nominative singular masculine of vīryavat, possessing vīrya) — valiant; purujit (nominative singular) — Purujit; kuntibhojaḥ (nominative singular) — Kuntibhoja; ca (conjunction) — and; śaibyaḥ (nominative singular) — Śaibya (Śibi king); ca (conjunction) — and; narapuṅgavaḥ (nominative singular masculine, nara + puṅgava: bull among men) — bull among men, best of men. Sandhi: ketuḥ + ca → ketuśca; rājaḥ + ca → rājaśca; bhojaḥ + ca → bhojaśca; śaibyaḥ + ca → śaibyaśca (visarga → ś); purujit + kuntibhojaḥ → purujitkuntibhojaḥ."
   },
   {
     "id": "1.6",
@@ -69,9 +75,10 @@ export const gitaEnPart1: any[] = [
     "iast": "yudhāmanyuśca vikrānta uttamaujāśca vīryavān saubhadro draupadeyāśca sarva eva mahārathāḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Valiant Yudhamanyu, strong Uttamaujas, Abhimanyu and Draupadi's sons, all great charioteers.",
-    "commentary": "Plain: younger generation completes allied count. Sarvatobhadra: fresh impulses of practice join knowledge-action.",
-    "keyPoints": ["new energies", "lineage of practice"]
+    "translation": "The valiant Yudhāmanyu and the strong Uttamaujas, Abhimanyu the son of Subhadrā, and the sons of Draupadī — all of them indeed great charioteers.",
+    "commentary": "Plain: Duryodhana closes his survey of the enemy with the younger generation — two Pāñcāla princes prized for single combat, plus Abhimanyu (Arjuna's son by Kṛṣṇa's sister) and the five Draupadeyas — and concedes the decisive point: sarva eva mahārathāḥ, every one a commander. Sarvatobhadra: youth here figures navāṅkura — fresh impulses of abhyāsa. That even the 'sons' (derivative practices, newly cultivated strengths) already rank as mahārathas shows jñāna-karma samuccaya reproducing itself: rightly yoked action generates heirs stronger than its origin. Duryodhana's praise is thus unwilling testimony that the Self's army renews itself.",
+    "keyPoints": ["younger generation completes the muster", "Abhimanyu (saubhadra) and the five Draupadeyas", "concession: sarve eva mahārathāḥ", "eva emphasises totality: every single one", "fresh abhyāsa-impulses as heirs of practice", "the Self's army renews itself"],
+    "wordMeaning": "yudhāmanyuḥ (nominative singular) — Yudhāmanyu; ca (conjunction) — and; vikrāntaḥ (nominative singular masculine, past participle of vi-√kram: striding forth) — valiant; uttamaujāḥ (nominative singular, uttama + ojas: highest vigour) — Uttamaujas; ca (conjunction) — and; vīryavān (nominative singular of vīryavat) — strong, valiant; saubhadraḥ (nominative singular, subhadrā + aṇ: descendant of Subhadrā) — Abhimanyu; draupadeyāḥ (nominative plural masculine, draupadī + ḍhak: descendants of Draupadī) — Draupadī's sons; ca (conjunction) — and; sarve (nominative plural of sarva) — all; eva (emphatic particle) — indeed, every one; mahārathāḥ (nominative plural masculine) — great charioteers. Sandhi: manyuḥ + ca → manyuśca; ujāḥ + ca → ujāśca; yāḥ + ca → yāśca (visarga → ś)."
   },
   {
     "id": "1.7",
@@ -81,9 +88,10 @@ export const gitaEnPart1: any[] = [
     "iast": "asmākṃ tu viśiṣṭā ye tānnibodha dvijottama nāyakā mama sainyasya sṃjñārthṃ tānbravīmi te",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Know also our chiefs, O best of brahmanas; I name my army's leaders for your note.",
-    "commentary": "Plain: Duryodhana lists his own side. Sarvatobhadra: tamasic-rajasic forces must also be known to be transcended.",
-    "keyPoints": ["know obstruction", "self-audit"]
+    "translation": "But know also, O best among the twice-born, those who are distinguished on our side. I name the leaders of my army for your information.",
+    "commentary": "Plain: pivoting with tu ('but'), Duryodhana turns from the enemy he fears to the party he commands, addressing Droṇa as dvijottama — flattery that also reminds the brahmin-teacher of caste duty. Saṃjñārtham ('for recognition') frames the coming list as staff-briefing. Sarvatobhadra: the turn inward is methodologically necessary. The tamasic-rājasic forces must also be known (nibodha) — not to be indulged but to be transcended. Self-audit precedes samuccaya: the seeker must catalogue the entrenched habit-powers (Bhīṣma, Karṇa, Kṛpa...) as precisely as the virtues, for śāstra-codita karma works upon exactly this material.",
+    "keyPoints": ["pivot from enemy to own muster", "flattering address: dvijottama", "saṃjñārtham — staff-briefing for recognition", "obstruction must also be known to be transcended", "self-audit precedes jñāna-karma union"],
+    "wordMeaning": "asmākam tu — but on our side; viśiṣṭāḥ ye — those distinguished; tān nibodha — know them; dvijottama — O best of twice-born; nāyakāḥ mama sainyasya — leaders of my army; saṃjñā-artham — for information; tān bravīmi te — I name them to you."
   },
   {
     "id": "1.8",
@@ -92,10 +100,12 @@ export const gitaEnPart1: any[] = [
     "devanagari": "भवान्भीष्मश्च कर्णश्च कृपः शल्यो जयद्रथः। अश्वत्थामा विकर्णश्च सौमदत्तिश्च वीर्यवान्॥1.8॥",
     "iast": "bhavānbhīṣmaśca karṇaśca kṛpḥ śalyo jayadrathḥ aśvatthāmā vikarṇaśca saumadattiśca vīryavān",
     "conceptIds": ["gita-visada"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Rāmakantha pāṭha: Rāmakantha: kṛpaḥ śalyo jayadrathaḥ (vs kṛpaś ca samitiñjayaḥ)."}],
-    "translation": "You, Bhishma, Karna, Kripa, Shalya, Jayadratha, Ashvatthama, Vikarna and valiant Saumadatti.",
-    "commentary": "Plain: Kaurava stalwarts named per Ramakantha. Sarvatobhadra: entrenched habit-powers guard ego's karma without jnana.",
-    "keyPoints": ["habit chiefs", "Ramakantha list"]
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Rāmakantha pāṭha (PDF p.12, KSTS p.12): kṛpaḥ śalyo jayadrathaḥ — Kṛpa, Śalya and Jayadratha — against vulgate kṛpaś ca samitiñjayaḥ."}],
+    "translation": "Yourself, and Bhīṣma, Karṇa, Kṛpa, Śalya, Jayadratha, Aśvatthāman, Vikarṇa, and the valiant son of Somadatta (Bhūriśravas).",
+    "commentary": "Plain: the Kaurava staff-list in Rāmakantha's recension — teacher first (bhavān), then the grandsire-vow (Bhīṣma), the tragic rival (Karṇa), the survivors of convention (Kṛpa, Śalya, Jayadratha), the brahmin-warrior heir (Aśvatthāman), the dissenting brother (Vikarṇa), and Bhūriśravas. Every name recalls a binding vow or wound. Sarvatobhadra: these are the entrenched habit-powers (saṃskāra-bala) guarding egoic karma without jñāna — seniority (Bhīṣma), emulation-envy (Karṇa), pity-convention (Kṛpa), wayward counsel (Śalya), possessive claim (Jayadratha), transmitted militancy (Aśvatthāman). Delusion's strength is precisely its seniority and training; hence it must be met, not ignored, by jñāna-saṃskṛta karma.",
+    "keyPoints": ["Kaurava staff-list per Rāmakantha recension", "bhavān first — deference as management", "each name a binding vow or wound", "habit-powers guarding egoic karma", "seniority of delusion must be met by purified action"],
+    "wordMeaning": "bhavān — yourself (Droṇa); bhīṣmaḥ karṇaḥ ca — Bhīṣma and Karṇa; kṛpaḥ śalyaḥ jayadrathaḥ — Kṛpa, Śalya, Jayadratha; aśvatthāmā vikarṇaḥ ca — Aśvatthāman and Vikarṇa; saumadattiḥ vīryavān — valiant son of Somadatta.",
+    "variantNote": "Rāmakantha reads kṛpaḥ śalyo jayadrathaḥ (three southern/western allies) where the vulgate has kṛpaś ca samitiñjayaḥ ('victorious in battle'); the Kashmir list stresses persons over epithets, suiting a catalogue of real obstructing tendencies."
   },
   {
     "id": "1.9",
@@ -105,9 +115,10 @@ export const gitaEnPart1: any[] = [
     "iast": "anye ca bahavḥ śūrā madarthe tyaktajīvitāḥ nānāśastrapraharaṇā nānāyuddhaviśāradāḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Many other heroes have staked life for me, wielding varied arms, skilled in varied warfare.",
-    "commentary": "Plain: countless allies vowed to Duryodhana. Sarvatobhadra: fragmented desires arm themselves with many instruments.",
-    "keyPoints": ["manifold cravings", "varied weapons"]
+    "translation": "And many other heroes, who have staked their lives for my sake, wielding many kinds of weapons and missiles, all skilled in many kinds of warfare.",
+    "commentary": "Plain: Duryodhana sweeps the remainder into a single boast — countless allies (anye ca bahavaḥ) vowed unto death (tyakta-jīvitāḥ) for 'my cause' (mad-arthe), technically proficient in every weapon (nānā-śastra-praharaṇāḥ) and tactic. Quantity compensates the quality conceded to the enemy in 1.6. Sarvatobhadra: this is the exact phenomenology of fragmented desire — bheda. Endless vikalpas arm themselves with endless instruments (śabda, sparśa, rūpa...) and endless proficiencies, all mortgaged to ahaṃkāra (mad-arthe). Their very multiplicity proves their weakness: lacking the one Self, they need many weapons; yoked to the Self, one needs none, for kriyā-śakti itself fights.",
+    "keyPoints": ["countless allies staked on mad-arthe", "many weapons, many expertises", "quantity compensates conceded quality", "fragmented desire: many vikalpas, many instruments", "multiplicity as symptom of missing unity"],
+    "wordMeaning": "anye ca bahavaḥ śūrāḥ — and many other heroes; mad-arthe tyakta-jīvitāḥ — who have staked life for my sake; nānā-śastra-praharaṇāḥ — wielding various weapons; nānā-yuddha-viśāradāḥ — skilled in various warfare."
   },
   {
     "id": "1.10",
@@ -116,10 +127,12 @@ export const gitaEnPart1: any[] = [
     "devanagari": "अपर्याप्तं तदस्माकं बलं भीमाभिरक्षितम्। पर्याप्तं त्विदमेतेषां बलं भीष्माभिरक्षितम्॥1.10॥",
     "iast": "aparyāptṃ tadasmākṃ balṃ bhīmābhirakṣitam paryāptṃ tvidameteṣāṃ balṃ bhīṣmābhirakṣitam",
     "conceptIds": ["gita-visada"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Rāmakantha pāṭha: Rāmakantha inverts the guardians: ours guarded by Bhīma is insufficient (bhīmābhirakṣitam), theirs by Bhīṣma sufficient — inverse of vulgate."}],
-    "translation": "Our strength guarded by Bhima is insufficient; their strength guarded by Bhishma is sufficient.",
-    "commentary": "Plain: Duryodhana anxiously compares armies, Ramakantha swapped reading. Sarvatobhadra: without Self-knowledge even vast action feels inadequate.",
-    "keyPoints": ["insecurity", "inverted reading"]
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Rāmakantha pāṭha (PDF p.12, KSTS p.12): ours guarded by Bhīma is aparyāptam (insufficient), theirs guarded by Bhīṣma is paryāptam — the inverse of the vulgate, which assigns Bhīṣma to 'ours' and Bhīma to 'theirs'."}],
+    "translation": "That army of ours, guarded by Bhīma, is insufficient; while this army of theirs, guarded by Bhīṣma, is sufficient.",
+    "commentary": "Plain: Duryodhana anxiously compares the hosts — but in Rāmakantha's recension the guardians are crossed: the Kaurava side is said to be 'guarded by Bhīma' (the enemy's champion!) and found wanting, while the Pāṇḍava side 'guarded by Bhīṣma' (the Kaurava grandsire!) is sufficient. The slip betrays his insecurity. Sarvatobhadra: Rāmakantha lets the inversion stand because it exposes the truth — without Self-knowledge even a vast apparatus of action feels aparyāpta (inadequate), while the side sheltered by established wisdom (Bhīṣma as sthita-prajñā figure) is already paryāpta. Delusion confesses, against its will, that sufficiency comes from jñāna, not numbers.",
+    "keyPoints": ["anxious comparison of the two hosts", "Rāmakantha's inverted guardians: Bhīma / Bhīṣma", "aparyāpta vs paryāpta — insufficiency vs sufficiency", "insecurity confesses the need for wisdom", "numbers without Self-knowledge feel inadequate"],
+    "wordMeaning": "tat asmākam balam — that army of ours; bhīma-abhirakṣitam — guarded by Bhīma; aparyāptam — insufficient; tu idam eteṣām balam — but this army of theirs; bhīṣma-abhirakṣitam — guarded by Bhīṣma; paryāptam — sufficient.",
+    "variantNote": "Vulgate inverts the guardians (ours–Bhīṣma / theirs–Bhīma). Rāmakantha's reading, printed in KSTS p.12, is theologically pointed: Duryodhana unwittingly admits the enemy's sufficiency."
   },
   {
     "id": "1.11",
@@ -128,10 +141,11 @@ export const gitaEnPart1: any[] = [
     "devanagari": "अयनेषु च सर्वेषु यथाभागमवस्थिताः। भीष्ममेवाभिरक्षन्तु भवन्तः सर्व एव हि॥1.11॥",
     "iast": "ayaneṣu ca sarveṣu yathābhāgamavasthitāḥ bhīṣmamevābhirakṣantu bhavantḥ sarva eva hi",
     "conceptIds": ["gita-visada"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Rāmakantha pāṭha: Inverse of 1.10: theirs bhīṣmābhirakṣitam in Rāmakantha."}],
-    "translation": "Stationed at every post as allotted, guard Bhishma alone on all sides.",
-    "commentary": "Plain: order to protect grandsire Bhishma. Sarvatobhadra: delusion guards its root convention; inverse of Self-protection.",
-    "keyPoints": ["guard delusion", "strategic fear"]
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
+    "translation": "Therefore, stationed at all the approaches in your allotted places, guard Bhīṣma alone on every side.",
+    "commentary": "Plain: Duryodhana issues the defensive order — every commander to his post (yathā-bhāgam), all converging on one task: protect the grandsire, the living wall of the Kaurava cause. If Bhīṣma falls, the faction's legitimacy falls. Sarvatobhadra: delusion guards its mūla — root convention, seniority, the vow that sustains faction. This is the exact inverse of the Self's protection: the wise guard the inner Bhīṣma (firm abiding in the Self) by posting every faculty at its ayana (approach-gate of sense and action). Duryodhana intuits strategy but misplaces its object, guarding the outer grandsire instead of the inner Self; Arjuna will learn the corrected form — sarva-karmāṇi mayi saṃnyasya — posting all actions in the Lord.",
+    "keyPoints": ["defensive order: every post manned", "single converging task: guard Bhīṣma", "delusion guards its root convention", "inverse of guarding the inner Self", "strategy intuits truth, misplaces object"],
+    "wordMeaning": "ayaneṣu sarveṣu — at all approaches; yathā-bhāgam avasthitāḥ — stationed in allotted places; bhīṣmam eva — Bhīṣma alone; abhirakṣantu — let them guard; bhavantaḥ sarve eva hi — all of you, indeed."
   },
   {
     "id": "1.12",
@@ -141,9 +155,10 @@ export const gitaEnPart1: any[] = [
     "iast": "tasya sañjanayanharṣṃ kuruvṛddhḥ pitāmahḥ siṃhanādṃ vinadyoccaiḥ śaṅkhṃ dadhmau pratāpavān",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "To cheer him, aged Kuru grandsire roared lion-like and blew his conch.",
-    "commentary": "Plain: Bhishma sounds conch to hearten Duryodhana. Sarvatobhadra: old habit roars to sustain rajasic effort.",
-    "keyPoints": ["rallying roar", "habit stirs"]
+    "translation": "To gladden him, the aged Kuru grandsire, the glorious Bhīṣma, roared aloud like a lion and blew his conch.",
+    "commentary": "Plain: Bhīṣma answers Duryodhana's order with a heroic gesture — a lion-roar (siṃha-nāda) and conch-blast meant to inject harṣa (cheer) into the frightened king. Old habit rallies to sustain rājasic effort. Sarvatobhadra: Rāmakantha reads this rally as conditioned response, not Self-confidence. The kuruvṛddha — aged convention — can make noise (nāda) but not bestow assurance, because assurance comes only from ātma-jñāna. The roar is the reverberation of past vows in the hollow of the present; it heartens momentarily, yet precisely summons the answering divine conches (1.14–1.19) that will shatter the Kaurava heart.",
+    "keyPoints": ["Bhīṣma rallies Duryodhana with lion-roar", "conch-blast to inject cheer", "aged convention sustains rājasic effort", "noise without Self-knowledge", "summons the answering divine reply"],
+    "wordMeaning": "tasya harṣam sañjanayan — gladdening him; kuruvṛddhaḥ pitāmahaḥ — aged Kuru grandsire; siṃhanādam vinadya uccaiḥ — roaring aloud like a lion; śaṅkham dadhmau — blew the conch; pratāpavān — the glorious one."
   },
   {
     "id": "1.13",
@@ -153,9 +168,10 @@ export const gitaEnPart1: any[] = [
     "iast": "tatḥ śaṅkhāśca bheryaśca paṇavānakagomukhāḥ sahasaivābhyahanyanta sa śabdastumulobhavat",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Then conches, drums, tabors and horns crashed at once in tumult.",
-    "commentary": "Plain: Kaurava war-music erupts. Sarvatobhadra: sense-organs make noise before discrimination dawns.",
-    "keyPoints": ["martial noise", "senses agitated"]
+    "translation": "Then, all at once, conches, kettledrums, tabors, trumpets and cow-horns were struck, and that noise became tumultuous.",
+    "commentary": "Plain: the single signal ignites the whole Kaurava war-music — every instrument at once (sahasā eva), swelling into tumula (tumult). Sañjaya's ear registers massed martial sound before any arrow flies. Sarvatobhadra: this is the uproar of the senses (karaṇa-kolāhala) before discrimination dawns — bherī (deep habit-drums), paṇava-ānaka (chattering small desires), gomukha (bellowing claims). Tumula names the mind's state when kriyā-śakti operates without jñāna: loud, simultaneous, directionless. The tumult is necessary dramatically — only against it will the Pāṇḍava conches (divine, named, distinct) register as order.",
+    "keyPoints": ["whole Kaurava orchestra erupts at once", "tumula — tumult as mental state", "uproar of senses before discrimination", "loudness without direction", "foil for the distinct divine conches"],
+    "wordMeaning": "tataḥ — then; śaṅkhāḥ bheryaḥ ca — conches and drums; paṇava-ānaka-gomukhāḥ — tabors, small drums, cow-horns; sahasā eva abhyahanyanta — were struck all at once; saḥ śabdaḥ tumulaḥ abhavat — that sound became tumultuous."
   },
   {
     "id": "1.14",
@@ -165,9 +181,10 @@ export const gitaEnPart1: any[] = [
     "iast": "tatḥ śvetairhayairyukte mahati syandane sthitau mādhavḥ pāṇḍavaścaiva divyau śaṅkhau pradadhmatuḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Then Krishna and Arjuna, on a great white-horsed chariot, blew divine conches.",
-    "commentary": "Plain: Pandava reply begins. Sarvatobhadra: pure sattva steeds carry jnana-karma union into action.",
-    "keyPoints": ["white steeds", "divine reply"]
+    "translation": "Then, stationed on their great chariot yoked with white horses, Mādhava (Kṛṣṇa) and the son of Pāṇḍu (Arjuna) blew their divine conches.",
+    "commentary": "Plain: the Pandava reply begins with deliberate contrast — two blasts, divine (divyau), from one chariot (mahati syandane), drawn by white steeds. Tataḥ ('then') answers tataḥ of 1.13: tumult answered by order. Sarvatobhadra: the white horses (śvetair hayaiḥ) are purified sattva-vṛttis; the great chariot is the body-mind yoked to the Lord as charioteer; Mādhava-Pāṇḍava together figure jñāna-karma samuccaya — the Lord (puruṣa/īśvara) and the jīva (mumukṣu) sounding as one Self. Where the Kaurava instruments were many and anonymous, these are two, divine and named — unity answering multiplicity.",
+    "keyPoints": ["tataḥ answers tataḥ — order answers tumult", "white horses as purified sattva", "one chariot: body yoked to the Lord", "Mādhava + Pāṇḍava as jñāna-karma union", "two divine blasts vs anonymous many"],
+    "wordMeaning": "tataḥ — then; śvetaiḥ hayaiḥ yukte mahati syandane sthitau — standing on the great chariot yoked with white horses; mādhavaḥ pāṇḍavaḥ ca eva — Kṛṣṇa and Arjuna; divyau śaṅkhau pradadhmatuḥ — blew the two divine conches."
   },
   {
     "id": "1.15",
@@ -177,9 +194,10 @@ export const gitaEnPart1: any[] = [
     "iast": "pāñcajanyṃ hṛṣīkeśo devadattṃ dhanañjayḥ pauṇḍrṃ dadhmau mahāśaṅkhṃ bhīmakarmā vṛkodarḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Krishna blew Panchajanya, Arjuna Devadatta, wolf-bellied Bhima his great Paundra.",
-    "commentary": "Plain: three blasts named. Sarvatobhadra: Lord of senses, wealth-winner, and vital force sound as one Self.",
-    "keyPoints": ["three conches", "body-mind-spirit"]
+    "translation": "Hṛṣīkeśa (Kṛṣṇa) blew Pāñcajanya, Dhanañjaya (Arjuna) blew Devadatta, and Vṛkodara (Bhīma) of terrible deeds blew the great conch Pauṇḍra.",
+    "commentary": "Plain: three blasts are named with three epithets — Hṛṣīkeśa (Lord of senses), Dhanañjaya (winner of wealth, Arjuna's sacrificial title), Vṛkodara-Bhīmakarmā (wolf-bellied doer of terrible deeds). Each warrior owns a named conch (Pāñcajanya from the Pañcajana demon, Devadatta god-given, Pauṇḍra the mighty). Sarvatobhadra: the triad figures body-mind-spirit sounding as one Self — Hṛṣīkeśa the indwelling controller of senses (puruṣa), Dhanañjaya the discriminating jīva that 'wins wealth' of experience, Bhīma the vital prāṇa-force whose terrible deeds are digestion of all duality (vṛka-udara). Named sound (nāda with mantra) replaces anonymous tumult: consciousness announces itself distinctly through each sheath.",
+    "keyPoints": ["three named conches, three epithets", "Hṛṣīkeśa: Lord of senses", "Dhanañjaya: winner of experience-wealth", "Bhīma: prāṇa digesting duality", "named mantra-sound vs anonymous tumult"],
+    "wordMeaning": "hṛṣīkeśaḥ pāñcajanyam — Kṛṣṇa (blew) Pāñcajanya; dhanañjayaḥ devadattam — Arjuna (blew) Devadatta; bhīmakarmā vṛkodaraḥ — wolf-bellied Bhīma of terrible deeds; pauṇḍram mahāśaṅkham dadhmau — blew the great Pauṇḍra."
   },
   {
     "id": "1.16",
@@ -189,9 +207,10 @@ export const gitaEnPart1: any[] = [
     "iast": "anantavijayṃ rājā kuntīputro yudhiṣṭhirḥ nakulḥ sahadevaśca sughoṣamaṇipuṣpakau",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Yudhishthira blew Anantavijaya, Nakula and Sahadeva Sughosha and Manipushpaka.",
-    "commentary": "Plain: other Pandavas sound. Sarvatobhadra: dharma, restraint and wisdom each voice endless victory of Atman.",
-    "keyPoints": ["dharma sounds", "endless victory"]
+    "translation": "King Yudhiṣṭhira, son of Kuntī, blew Anantavijaya (Unending Victory), while Nakula and Sahadeva blew Sughoṣa and Maṇipuṣpaka.",
+    "commentary": "Plain: the dharmic king and the twins sound — dharma (Yudhiṣṭhira), restraint-beauty (Nakula) and wisdom-companionship (Sahadeva) each voice the cause. Anantavijaya names the outcome in advance: victory without end. Sarvatobhadra: where the Kaurava side staked life on mad-arthe (1.9), the Pāṇḍava side announces ananta — the Ātman's endless victory that needs no staking because it cannot be lost. Dharma, self-restraint and discriminating wisdom are not contestants hoping to win; they are attestations that the Self has already won. The conch-names are upadeśa in miniature: Sughoṣa (good proclamation) and Maṇipuṣpaka (jewel-flower) figure śabda-brahman flowering as beauty when speech serves truth.",
+    "keyPoints": ["Yudhiṣṭhira's Anantavijaya — victory named in advance", "twins' Sughoṣa and Maṇipuṣpaka", "dharma, restraint and wisdom voice the cause", "ananta victory vs mad-arthe staking", "conch-names as miniature teaching"],
+    "wordMeaning": "rājā kuntīputraḥ yudhiṣṭhiraḥ — King Yudhiṣṭhira, Kuntī's son; anantavijayam — (blew) Unending Victory; nakulaḥ sahadevaḥ ca — Nakula and Sahadeva; sughoṣa-maṇipuṣpakau — Sughoṣa and Maṇipuṣpaka."
   },
   {
     "id": "1.17",
@@ -201,9 +220,10 @@ export const gitaEnPart1: any[] = [
     "iast": "kāśyaśca parameṣvāsḥ śikhaṇḍī ca mahārathḥ dhṛṣṭadyumno virāṭaśca sātyakiścāparājitḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Kashiraja the supreme bowman, Shikhandi, Dhrishtadyumna, Virata and invincible Satyaki.",
-    "commentary": "Plain: allies blow conches. Sarvatobhadra: all faculties resonate when Self is charioteer.",
-    "keyPoints": ["allied resonance", "many voices"]
+    "translation": "The king of Kāśi, the supreme bowman, and Śikhaṇḍī the great charioteer, Dhṛṣṭadyumna, Virāṭa, and the invincible Sātyaki.",
+    "commentary": "Plain: the allied chiefs complete the Pāṇḍava fanfare — Kāśya (supreme bow), Śikhaṇḍī (Bhīṣma's destined counterpart), Dhṛṣṭadyumna (the arrayer himself now sounding), Virāṭa and aparājita Sātyaki. Sarvatobhadra: when the Self is charioteer, all faculties resonate — even ambiguous ones. Śikhaṇḍī, the liminal figure, shows that no biography disqualifies a śakti once turned toward the whole; aparājita ('unconquered') Sātyaki figures bhakti that cannot be defeated because it has surrendered outcome. The list answers 1.4–1.6's silent muster with sounding assent: the same names now blow, not merely stand.",
+    "keyPoints": ["allied chiefs sound in turn", "Śikhaṇḍī — no biography disqualifies", "aparājita Sātyaki as unconquerable devotion", "same muster now sounding, not standing", "every faculty resonates with the Self"],
+    "wordMeaning": "kāśyaḥ parameṣvāsaḥ — Kāśi king, supreme bowman; śikhaṇḍī mahārathaḥ — Śikhaṇḍī, great charioteer; dhṛṣṭadyumnaḥ virāṭaḥ ca — Dhṛṣṭadyumna and Virāṭa; sātyakiḥ aparājitaḥ — invincible Sātyaki."
   },
   {
     "id": "1.18",
@@ -212,10 +232,11 @@ export const gitaEnPart1: any[] = [
     "devanagari": "द्रुपदो द्रौपदेयाश्च सर्वशः पृथिवीपते। सौभद्रश्च महाबाहुः शङ्खान्दध्मुः पृथक्पृथक्॥1.18॥",
     "iast": "drupado draupadeyāśca sarvaśḥ pṛthivīpate saubhadraśca mahābāhuḥ śaṅkhāndadhmuḥ pṛthakpṛthak",
     "conceptIds": ["gita-visada"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Drupada, Draupadi's sons and mighty Abhimanyu blew conches separately, O king.",
-    "commentary": "Plain: Sanjaya tells Dhritarashtra of full Pandava blast. Sarvatobhadra: every limb of practice affirms atmaivedam sarvam.",
-    "keyPoints": ["total affirmation", "witness king"]
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Rāmakantha pāṭha (PDF p.12): pāñcālaś ca maheṣvāso draupadeyāś ca pañca ye for vulgate second half; Rāmakantha names the Pāñcāla bowman alongside the five sons. Our devanagari follows the vulgate line as transmitted; sense identical."}],
+    "translation": "Drupada and the sons of Draupadī, O lord of earth, and the mighty-armed son of Subhadrā — blew their conches separately, each distinct.",
+    "commentary": "Plain: Sañjaya closes the Pāṇḍava fanfare addressing Dhṛtarāṣṭra directly (pṛthivīpate, 'lord of earth') — the blind 'witness-king' hears what he cannot see. Pṛthak pṛthak ('severally, each apart') contrasts 1.13's sahasā ('all at once'): distinct voices, not mass noise. Sarvatobhadra: pṛthak-but-united figures bhedābheda — every limb of practice (guru-line Drupada, sacrificial issue Draupadeyas, devotional heir Saubhadra) affirms ātmaivedam sarvam in its own tone. The direct address reminds the reader that the whole war is staged for the inner witness: the king who asks kim akurvata (1.1) is being taught to hear.",
+    "keyPoints": ["Sañjaya addresses the blind witness-king", "pṛthak pṛthak vs sahasā — distinct vs mass", "every limb of practice affirms", "bhedābheda: distinct tones, one Self", "war staged for the inner witness"],
+    "wordMeaning": "drupadaḥ draupadeyāḥ ca — Drupada and Draupadī's sons; sarvaśaḥ — altogether; pṛthivīpate — O lord of earth; saubhadraḥ mahābāhuḥ — mighty-armed Abhimanyu; śaṅkhān dadhmuḥ pṛthak pṛthak — blew conches severally."
   },
   {
     "id": "1.19",
@@ -225,9 +246,10 @@ export const gitaEnPart1: any[] = [
     "iast": "sa ghoṣo dhārtarāṣṭrāṇāṃ hṛdayāni vyadārayat nabhaśca pṛthivīṃ caiva tumulo vyanunādayan",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "That tumult rent the Kauravas' hearts, echoing through sky and earth.",
-    "commentary": "Plain: Pandava sound terrifies. Sarvatobhadra: Self-knowledge shakes ego's heart and elements.",
-    "keyPoints": ["heart rent", "truth terrifies"]
+    "translation": "That tumultuous proclamation, echoing through heaven and earth, rent the hearts of Dhṛtarāṣṭra's sons.",
+    "commentary": "Plain: the effect is instantaneous and inward — hṛdayāni vyadārayat, it tore hearts — while outwardly sky and earth resound (vyanunādayan). The Kaurava tumult (1.13) produced no stated effect; the Pāṇḍava ghoṣa wounds. Sarvatobhadra: Self-knowledge terrifies the ego before it consoles the seeker. The 'rent heart' (bhinna-hṛdaya) is the necessary piercing of ahaṃkāra's casing; heaven (aspiration) and earth (embodiment) both echo because the shock spans all tattvas from pṛthivī to khecarī. Rāmakantha's grouping ends here: 1.2–1.19 have displayed karma's ghoratva and its reversal — delusion's noise inflates, truth's sound pierces.",
+    "keyPoints": ["Pāṇḍava ghoṣa rends hearts", "sky and earth echo — all tattvas shaken", "truth terrifies ego before consoling", "bhinna-hṛdaya as necessary piercing", "close of the karma-ghoratva tableau"],
+    "wordMeaning": "saḥ ghoṣaḥ — that proclamation; dhārtarāṣṭrāṇām hṛdayāni vyadārayat — rent the hearts of Dhṛtarāṣṭra's sons; nabhaḥ ca pṛthivīm ca eva — heaven and earth; tumulaḥ vyanunādayan — tumultuously resounding."
   },
   {
     "id": "1.20",
@@ -236,10 +258,11 @@ export const gitaEnPart1: any[] = [
     "devanagari": "अथ व्यवस्थितान्दृष्ट्वा धार्तराष्ट्रान्कपिध्वजः। प्रवृत्ते शस्त्रसम्पाते धनुरुद्यम्य पाण्डवः॥1.20॥",
     "iast": "atha vyavasthitāndṛṣṭvā dhārtarāṣṭrānkapidhvajḥ pravṛtte śastrasampāte dhanurudyamya pāṇḍavḥ",
     "conceptIds": ["gita-visada"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Seeing the Kauravas arrayed as missiles were ready, monkey-bannered Arjuna raised his bow.",
-    "commentary": "Plain: Arjuna readies bow. Sarvatobhadra: seeker lifts effort while witness-flag of Hanuman-Shiva watches.",
-    "keyPoints": ["bow raised", "battle imminent"]
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Sarvatobhadra (PDF pp.15–16): with 1.20 begins the second movement — sainya-nirūpaṇa through Arjuna's and Sañjaya's words, leading to the viṣāda that occasions the teaching."}],
+    "translation": "Then, seeing the sons of Dhṛtarāṣṭra standing in order as missiles were about to fly, Arjuna, whose banner bears Hanumān, raised his bow.",
+    "commentary": "Plain: atha marks the turn — from sounding to seeing. The monkey-bannered (kapidhvaja) Pāṇḍava lifts his Gāṇḍīva exactly as combat becomes imminent (pravṛtte śastra-sampāte). Hanumān on the crest figures unstraying service and Śiva's witness. Sarvatobhadra: the seeker (mumukṣu-Arjuna) lifts the instrument of action (dhanus = disciplined effort) while the witness-flag already flies above him — grace precedes collapse. Rāmakantha stresses that this readiness is genuine: Arjuna is no coward evading karma; his coming refusal will be philosophical confusion (mithyā-jñāna), not timidity, and therefore curable by jñāna. The bow raised in 1.20 will be cast down in 1.47 — the arc of the Adhyāya.",
+    "keyPoints": ["atha — turn from sounding to seeing", "kapidhvaja: Hanumān-witness above effort", "bow raised as combat impends", "readiness proves refusal is confusion, not cowardice", "arc 1.20–1.47: raised bow to cast bow"],
+    "wordMeaning": "atha — then; vyavasthitān dhārtarāṣṭrān dṛṣṭvā — seeing the Kauravas standing ordered; pravṛtte śastra-sampāte — when missiles were about to fly; kapidhvajaḥ pāṇḍavaḥ — monkey-bannered Arjuna; dhanuḥ udyamya — raising the bow."
   },
   {
     "id": "1.21",
@@ -249,9 +272,10 @@ export const gitaEnPart1: any[] = [
     "iast": "hṛṣīkeśṃ tadā vākyamidamāha mahīpate arjuna uvāca senayorubhayormadhye rathṃ sthāpaya mecyuta",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Arjuna said: O Achyuta, halt my chariot between the two armies.",
-    "commentary": "Plain: Arjuna asks Krishna to position chariot. Sarvatobhadra: jiva asks Lord to reveal both paths, jnana and karma, clearly.",
-    "keyPoints": ["halt between", "seek clarity"]
+    "translation": "O lord of earth, Arjuna then spoke this word to Hṛṣīkeśa: Arjuna said — station my chariot, O Acyuta, between the two armies.",
+    "commentary": "Plain: Arjuna addresses Kṛṣṇa by two charged names — Hṛṣīkeśa (Lord of senses) and Acyuta (the Unfallen) — and asks to be placed 'between' (madhye) the hosts, to see clearly. Sañjaya's mahīpate keeps Dhṛtarāṣṭra as overhearer. Sarvatobhadra: the jīva commands the Lord as charioteer and the Lord obeys (1.24) — īśvara serves the seeker's viveka. 'Between the two armies' is the seeker's demand for Darśana: show me jñāna and karma, Self and kin, clearly distinguished before I act. Acyuta is invoked because only the Unfallen can hold the middle without falling into either faction — the middle that will become yoga (samatva).",
+    "keyPoints": ["Arjuna commands the Lord as charioteer", "Hṛṣīkeśa and Acyuta — senses' Lord, Unfallen", "madhye: demand to see clearly between", "Lord obeys — grace serves viveka", "the middle that will become yoga"],
+    "wordMeaning": "tadā — then; hṛṣīkeśam idam vākyam āha — spoke this word to Kṛṣṇa; mahīpate — O lord of earth; arjuna uvāca — Arjuna said; senayoḥ ubhayoḥ madhye — between the two armies; ratham sthāpaya me — station my chariot; acyuta — O Unfallen."
   },
   {
     "id": "1.22",
@@ -261,9 +285,10 @@ export const gitaEnPart1: any[] = [
     "iast": "yāvadetānnirīkṣehṃ yoddhukāmānavasthitān kairmayā saha yoddhavyamasminraṇasamudyame",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Till I survey these war-eager men and see with whom I must fight.",
-    "commentary": "Plain: Arjuna wants to see foes. Sarvatobhadra: discrimination inspects its own opposed tendencies before combined practice.",
-    "keyPoints": ["survey foes", "discern duty"]
+    "translation": "Until I have surveyed these men standing here eager for battle, and discerned with whom I must fight in this enterprise of war.",
+    "commentary": "Plain: Arjuna states the purpose of the halt — nirīkṣaṇa (close survey) of the yoddhu-kāmān (war-eager) and a decision (kaiḥ saha yoddhavyam) about the right opponent. The language is judicial: who ought to be fought, by whom, in what cause. Sarvatobhadra: this is viveka inspecting its own opposed tendencies before combined practice (samuccaya) can begin. The seeker rightly refuses blind action; he demands to know the adhikāra, deśa and kāla (PDF p.15: adhikāri-deśa-kāla-avasthā) of his śāstra-codita karma. The question is legitimate — its answer, however, will dissolve the questioner, when 'with whom must I fight' is revealed as 'with my own misreading.'",
+    "keyPoints": ["halt for judicial survey", "yoddhu-kāmān — the war-eager to be inspected", "kaiḥ saha: who ought to be fought", "viveka before samuccaya", "legitimate question that will dissolve its asker"],
+    "wordMeaning": "yāvat etān nirīkṣe aham — until I survey these; yoddhu-kāmān avasthitān — standing eager to fight; kaiḥ mayā saha yoddhavyam — with whom must I fight; asmin raṇa-samudyame — in this enterprise of war."
   },
   {
     "id": "1.23",
@@ -273,9 +298,10 @@ export const gitaEnPart1: any[] = [
     "iast": "yotsyamānānavekṣehṃ ya etetra samāgatāḥ dhārtarāṣṭrasya durbuddheryuddhe priyacikīrṣavḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "I would see those gathered here to please evil-minded Duryodhana in fight.",
-    "commentary": "Plain: Arjuna notes servitors of folly. Sarvatobhadra: seeker sees desires serving delusion, to be offered in knowledge-fire.",
-    "keyPoints": ["serve folly", "mark bondage"]
+    "translation": "I would observe those about to fight, who have assembled here desiring in battle to please the evil-minded son of Dhṛtarāṣṭra.",
+    "commentary": "Plain: Arjuna sharpens the survey — he wants to see (avekṣe) the yotsyamānān specifically as servants of a cause: priya-cikīrṣavaḥ, 'desiring to do what is dear' to durbuddhi Duryodhana. The moral judgment is already forming: the enemy fights to please folly. Sarvatobhadra: the seeker correctly perceives that desires (icchās) serving delusion (durbuddhi = ahaṃkāra unlit by ātman) are to be 'seen' before being offered. Rāmakantha's later doctrine of jñāna-saṃskṛta karma begins here as inspection: the sacrificial fire of knowledge (jñānāgni, 4.19+) will receive exactly these priya-seeking tendencies. Marking bondage precisely is the first step to burning it.",
+    "keyPoints": ["observe the about-to-fight as servants of a cause", "priya-cikīrṣavaḥ — pleasing folly", "moral judgment forming", "mark tendencies before offering them", "inspection precedes jñānāgni"],
+    "wordMeaning": "yotsyamānān avekṣe aham — I would observe those about to fight; ye ete atra samāgatāḥ — who have assembled here; dhārtarāṣṭrasya durbuddheḥ — of evil-minded Duryodhana; yuddhe priya-cikīrṣavaḥ — desiring to please in battle."
   },
   {
     "id": "1.24",
@@ -285,9 +311,10 @@ export const gitaEnPart1: any[] = [
     "iast": "sañjaya uvāca evamukto hṛṣīkeśo guḍākeśena bhārata senayorubhayormadhye sthāpayitvā rathottamam",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "So addressed by Arjuna, Krishna halted the best chariot between armies.",
-    "commentary": "Plain: Krishna obeys. Sarvatobhadra: Lord places jiva between pairs, witness to both, favoring neither.",
-    "keyPoints": ["Lord obeys", "middle path"]
+    "translation": "Sañjaya said: O descendant of Bharata, thus addressed by Guḍākeśa (Arjuna), Hṛṣīkeśa halted the excellent chariot between the two armies.",
+    "commentary": "Plain: Kṛṣṇa obeys instantly — the Lord as sārathi serves the warrior's request, placing the rathottama (best of chariots) in the middle (madhye). The paired epithets shine: Guḍākeśa (conqueror of sleep/fatigue, the ever-alert) addresses Hṛṣīkeśa (master of senses). Sañjaya's 'Bhārata' reminds Dhṛtarāṣṭra of the lineage both sides share. Sarvatobhadra: īśvara's obedience is grace — the Lord places the jīva between the pairs (dvandvas), witness to both, favouring neither, so that samatva can be learned. The middle position is the spatial icon of yoga: neither flight to one army nor merger with the other, but poised vision from the Self that holds both jñāna and karma.",
+    "keyPoints": ["Kṛṣṇa obeys — grace serves alertness", "Guḍākeśa addresses Hṛṣīkeśa", "rathottama halted in the middle", "Bhārata: shared lineage recalled", "middle as spatial icon of yoga"],
+    "wordMeaning": "sañjaya uvāca — Sañjaya said; evam uktaḥ — thus addressed; hṛṣīkeśaḥ — Kṛṣṇa; guḍākeśena — by Arjuna (conqueror of sleep); bhārata — O Bharata; senayoḥ ubhayoḥ madhye — between the two armies; sthāpayitvā rathottamam — having halted the best chariot."
   },
   {
     "id": "1.25",
@@ -297,9 +324,10 @@ export const gitaEnPart1: any[] = [
     "iast": "bhīṣmadroṇapramukhatḥ sarveṣāṃ ca mahīkṣitām uvāca pārtha paśyaitānsamavetānkurūniti",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Before Bhishma, Drona and all kings, he said: Behold these Kurus gathered.",
-    "commentary": "Plain: Krishna shows elders. Sarvatobhadra: teacher shows revered conventions as also Self, ripe for samuccaya.",
-    "keyPoints": ["face elders", "see bond"]
+    "translation": "Facing Bhīṣma, Droṇa and all the rulers of earth, he said: O Pārtha, behold these Kurus gathered here.",
+    "commentary": "Plain: Kṛṣṇa deliberately stations the chariot opposite (pramukhataḥ) the most revered elders — Bhīṣma, Droṇa, all kings — and commands vision: paśya, behold. The single imperative will detonate the crisis. Sarvatobhadra (PDF p.16): these Hṛṣīkeśa-vākyas are sphuṭārtha — their clarity is the teaching device. The teacher shows revered convention itself as also Self: samavetān kurūn — the gathered Kurus are the gathered powers of the one kula (family/whole). Ripe for samuccaya, the seeker must first face precisely those bonds he venerates; only what is beheld as kin can be recognised as Self. Kṛṣṇa's paśya is thus the first upadeśa-word of the Gītā.",
+    "keyPoints": ["stationed facing Bhīṣma-Droṇa-all kings", "paśya — the detonating imperative", "first upadeśa-word of the Gītā", "behold kin to recognise Self", "sphuṭārtha clarity as teaching device"],
+    "wordMeaning": "bhīṣma-droṇa-pramukhataḥ — facing Bhīṣma, Droṇa; sarveṣām mahīkṣitām ca — and all earth-rulers; uvāca — he said; pārtha — O son of Pṛthā; paśya etān samavetān kurūn iti — behold these Kurus gathered."
   },
   {
     "id": "1.26",
@@ -308,10 +336,11 @@ export const gitaEnPart1: any[] = [
     "devanagari": "तत्रापश्यत्स्थितान्पार्थः पितॄनथ पितामहान्। आचार्यान्मातुलान्भ्रातॄन्पुत्रान्पौत्रान्सखींस्तथा॥1.26॥",
     "iast": "tatrāpaśyatsthitānpārthḥ pitṝnatha pitāmahān ācāryānmātulānbhrātṝnputrānpautrānsakhīṃstathā",
     "conceptIds": ["gita-visada"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "There Arjuna saw fathers, grandsires, teachers, uncles, brothers, sons, grandsons and friends.",
-    "commentary": "Plain: Arjuna sees kin on both sides. Sarvatobhadra: seeker sees Self in all relations, hence confusion precedes recognition.",
-    "keyPoints": ["kin everywhere", "attachment rises"]
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Sarvatobhadra (PDF p.16, KSTS p.16): tatrāpaśyat... through sīdamāno'bravīt is pitṛ-pitāmahādi-bandhuvarga-darśana-kriyātmaka sañjaya-vākya, vyaktārtha — its clarity needs no word-gloss, only tātparya."}],
+    "translation": "There Pārtha saw arrayed fathers, grandsires, teachers, maternal uncles, brothers, sons, grandsons — and comrades too.",
+    "commentary": "Plain: Arjuna obeys Kṛṣṇa's paśya (1.25) and the catalogue falls in three generations plus the lateral bonds — pitṝn (fathers/Bhūriśravas-generation), pitāmahān (Bhīṣma-generation), ācāryān (Droṇa-Kṛpa), mātulān (Śalya-Śakuni), bhrātṝn (cousins-brothers), putrān-pautrān (Abhimanyu-Draupadeyas as seen from the elders' side), sakhīn (Sātyaki-friends). Tatra ('there') answers madhye (1.21, 1.24): the middle yields its vision. Sarvatobhadra: Rāmakantha calls this darśana-kriyā — an act of seeing, not yet judgment. The seeker for the first time sees the Self distributed as sarva-bandhu (all-kin). Confusion has not yet spoken; recognition has not yet dawned. The list's very completeness — seven categories — prefigures the Gītā's later completeness-doctrine: ātmaivedaṃ sarvam first appears as 'all are mine' (bondage) before it can be known as 'all am I' (freedom).",
+    "keyPoints": ["obeys paśya — the middle yields vision", "sevenfold kin-catalogue across generations", "trom seniors to comrades: completeness", "darśana-kriyā: seeing before judging", "'all are mine' precedes 'all am I'"],
+    "wordMeaning": "tatra — there; apaśyat sthitān pārthaḥ — Pārtha saw standing; pitṝn atha pitāmahān — fathers then grandsires; ācāryān mātulān bhrātṝn — teachers, uncles, brothers; putrān pautrān sakhīn tathā — sons, grandsons and friends too."
   },
   {
     "id": "1.27",
@@ -321,9 +350,10 @@ export const gitaEnPart1: any[] = [
     "iast": "śvaśurānsuhṛdaścaiva senayorubhayorapi tānsamīkṣya sa kaunteyḥ sarvānbandhūnavasthitān",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Fathers-in-law and comrades in both armies; seeing all kinsmen arrayed.",
-    "commentary": "Plain: ties extend across ranks. Sarvatobhadra: atmaivedam sarvam first appears as bondage before freedom.",
-    "keyPoints": ["both sides kin", "universal tie"]
+    "translation": "Fathers-in-law and well-wishers in both armies alike; surveying all these kinsmen drawn up, the son of Kuntī —",
+    "commentary": "Plain: the verse is deliberately incomplete — its verb comes in 1.28 (abravīt, 'he spoke'). The second half-line widens the net: śvaśurān (Drūpada-Śaibya generation by marriage), suhṛdaḥ (allied well-wishers with no blood claim), and the clincher senayor ubhayor api — in both armies alike. Samīkṣya (having surveyed closely) intensifies apaśyat (1.26): first seeing, then scrutiny. Sarvatobhadra: ubhayor api is the doctrinal hinge. The daiva issue and the deluded faction share one field because they share one Self (tad-ātmakatvāt, PDF p.15). The Kaunteya — son of the earth-mother Kuntī, embodiment of conditioned birth — stands as the divided knower confronting nonduality prematurely: he registers universality (sarvān bandhūn) but reads it as entrapment rather than identity. The sentence suspended across the verse-boundary enacts his suspended breath before grief speaks.",
+    "keyPoints": ["verse suspended — verb arrives in 1.28", "śvaśurān and suhṛdaḥ widen beyond blood", "senayor ubhayor api — both sides alike", "samīkṣya intensifies apaśyat", "universality misread as entrapment"],
+    "wordMeaning": "śvaśurān suhṛdaḥ ca eva — fathers-in-law and friends; senayoḥ ubhayoḥ api — in both armies alike; tān samīkṣya — surveying them; saḥ kaunteyaḥ — that son of Kuntī; sarvān bandhūn avasthitān — all kinsmen arrayed."
   },
   {
     "id": "1.28",
@@ -332,10 +362,11 @@ export const gitaEnPart1: any[] = [
     "devanagari": "कृपया परयाविष्टो विषीदन्निदमब्रवीत्। अर्जुन उवाच। दृष्ट्वेमं स्वजनं कृष्ण युयुत्सुं समुपस्थितम्॥1.28॥",
     "iast": "kṛpayā parayāviṣṭo viṣīdannidamabravīt arjuna uvāca dṛṣṭvemṃ svajanṃ kṛṣṇa yuyutsuṃ samupasthitam",
     "conceptIds": ["gita-visada"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Filled with pity, grieving, Arjuna said: Seeing my kin eager for battle.",
-    "commentary": "Plain: pity overwhelms Arjuna. Sarvatobhadra: compassion without wisdom is first grace, softening ego for teaching.",
-    "keyPoints": ["pity invades", "grief speaks"]
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Sarvatobhadra (PDF p.16): from dṛṣṭvemam svajanam through tan me kṣemataram (1.46) — manuṣya-svabhāva-sulabha mithyā-jñāna-pratipādaka-vākyāni, the natural-human false-knowledge speeches that present adharma as dharma; nigada-vyākhyāta, needing no gloss."}],
+    "translation": "Invaded by supreme pity, grieving, he spoke these words. Arjuna said: O Kṛṣṇa, seeing these kinsmen of mine standing here eager for battle —",
+    "commentary": "Plain: the suspended sentence lands — kṛpayā parayāviṣṭaḥ (invaded/possessed by highest pity), viṣīdan (sinking, desponding — the poem's titular viṣāda). Sañjaya diagnoses before Arjuna speaks; then Arjuna's own voice enters with Kṛṣṇa's most intimate name (Kṛṣṇa, the dark attractor) and the fateful word svajanam ('my own people'). Like 1.27, the utterance trails off — its completion is the bodily collapse of 1.29–1.30. Sarvatobhadra: Rāmakantha refuses both romanticising and condemnation. Karuṇā-āveśa-vivaśa (overpowered by inrushing compassion, PDF p.16) is simultaneously grace and error: grace, because only a softened ego can receive upadeśa (hence viṣāda is the pravṛtti-hetu of the whole śāstra); error, because pity without jñāna presents adharma as dharma — abstention from śāstra-codita karma disguised as virtue. The dṛṣṭvā ('having seen') that began as viveka (1.22) has curdled into confusion.",
+    "keyPoints": ["kṛpayā parayāviṣṭaḥ — invaded by pity", "viṣāda named: the Adhyāya's title-state", "svajanam — 'my own' as fateful word", "sentence trails into bodily collapse", "grace and error together: softened yet confused"],
+    "wordMeaning": "kṛpayā parayā āviṣṭaḥ — invaded by supreme pity; viṣīdan — grieving, desponding; idam abravīt — spoke this; arjuna uvāca — Arjuna said; dṛṣṭvā imam svajanam — seeing these my kinsmen; kṛṣṇa — O Kṛṣṇa; yuyutsum samupasthitam — standing eager to fight."
   },
   {
     "id": "1.29",
@@ -345,9 +376,10 @@ export const gitaEnPart1: any[] = [
     "iast": "sīdanti mama gātrāṇi mukhṃ ca pariśuṣyati vepathuśca śarīre me romaharṣaśca jāyate",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "My limbs sink, mouth dries, body trembles and hair bristles.",
-    "commentary": "Plain: bodily collapse described. Sarvatobhadra: Spanda tremor signals dissolution of limited body-idea.",
-    "keyPoints": ["body fails", "tremor sign"]
+    "translation": "My limbs sink down, my mouth dries up, trembling comes over my body, and my hair bristles.",
+    "commentary": "Plain: the completion of 1.28's suspended dṛṣṭvā — four somatic signatures in one śloka: sīdanti gātrāṇi (limbs give way), mukha-pariśoṣa (mouth parches — speech, the kṣatriya's command-medium, fails), vepathu (tremor through the frame), romaharṣa (hair bristling — the body's involuntary awe-signal). The warrior's instrument reports before his philosophy does. Sarvatobhadra: read through the Kashmir lens, these are spanda-cihnas — tremor-signs of the limited body-idea (dehābhimāna) dissolving. Sīdana (sinking) is the deha letting go its rigid 'I-can' posture; pariśoṣa the drying of rāgātmaka speech; vepathu the vibratory Self stirring beneath numb habit; romaharṣa the prāṇa rising. What Arjuna experiences as collapse, the śāstra will reveal as the first kriyā-śakti movement toward the teaching — the body confessing, before the mind consents, that the old kartā cannot continue.",
+    "keyPoints": ["four somatic signatures in one śloka", "limbs sink, mouth parches, tremor, bristling", "speech fails before philosophy speaks", "spanda-cihnas: dissolution of body-idea", "collapse as first movement toward teaching"],
+    "wordMeaning": "sīdanti mama gātrāṇi — my limbs sink; mukham ca pariśuṣyati — and mouth dries; vepathuḥ ca śarīre me — trembling in my body; romaharṣaḥ ca jāyate — and hair-bristling arises."
   },
   {
     "id": "1.30",
@@ -357,9 +389,10 @@ export const gitaEnPart1: any[] = [
     "iast": "gāṇḍīvṃ srṃsate hastāttvakcaiva paridahyate na ca śaknomyavasthātuṃ bhramatīva ca me manḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Gandiva slips from hand, skin burns, I cannot stand, mind reels.",
-    "commentary": "Plain: Arjuna cannot hold bow. Sarvatobhadra: action-instrument drops till knowledge steadies hand.",
-    "keyPoints": ["bow slips", "mind whirls"]
+    "translation": "Gāṇḍīva slips from my hand, my skin burns all over, I cannot even stand still, and my mind reels as if whirling.",
+    "commentary": "Plain: collapse completes — the bow (Gāṇḍīva, Arjuna's divine weapon-identity) falls, skin inflames (tvak-paridāha, fever of dread), posture fails (na śaknomi avasthātum), mind spins (bhramati iva). Four failures match 1.29's four signs: hand, skin, stance, mind. The kṣatriya's three supports — weapon, body, resolve — all give way together. Sarvatobhadra: the karaṇa (instrument) drops because the kartā-idea holding it has cracked. Rāmakantha's doctrine (PDF p.15) insists kriyā-śakti itself never leaves; what falls is only ahaṃkāra's grip on it. The hand must empty so that jñāna can re-place the bow there — 2.1–2.38 will re-arm exactly this hand. Bhramati (whirling) names the bheda-mind spinning among vikalpas before samatva steadies it.",
+    "keyPoints": ["Gāṇḍīva falls — weapon-identity fails", "burning skin, failing stance, whirling mind", "three kṣatriya supports give way together", "grip falls, śakti itself remains", "empty hand prepares re-arming by jñāna"],
+    "wordMeaning": "gāṇḍīvam sraṃsate hastāt — Gāṇḍīva slips from the hand; tvak ca eva paridahyate — skin burns all over; na ca śaknomi avasthātum — I cannot hold still; bhramati iva ca me manaḥ — mind reels as if whirling."
   },
   {
     "id": "1.31",
@@ -369,9 +402,10 @@ export const gitaEnPart1: any[] = [
     "iast": "nimittāni ca paśyāmi viparītāni keśava na ca śreyonupaśyāmi hatvā svajanamāhave",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "I see adverse omens, Krishna; I see no good in slaying kin in battle.",
-    "commentary": "Plain: Arjuna foresees evil. Sarvatobhadra: partial vision doubts samuccaya, mistaking killing-egos for killing-Self.",
-    "keyPoints": ["ill omens", "doubted good"]
+    "translation": "I see adverse omens, O Keśava, and I foresee no good in slaying my own people in battle.",
+    "commentary": "Plain: Arjuna turns from body to omen-reading — nimittāni viparītāni (inverted signs: twitching limbs, circling jackals of tradition) — and from omens to moral forecast: na śreyaḥ anupaśyāmi, 'I see no śreyas (highest good).' Keśava (slayer of Keśin, radiant-haired Lord) is invoked as witness to the forecast. Sarvatobhadra: this is the first fully philosophical sentence of the viṣāda — and the first mithyā-jñāna (PDF p.16). Partial vision (āṃśika-darśana) mistakes the killing of ego-enclosures for the killing of the Self, and therefore doubts samuccaya itself. The omens are real (the heart does tear), but their reading is inverted (viparītāni): what announces the death of delusion is read as warning against wisdom's battle. Kṛṣṇa's coming answer (2.11–2.38) will accept the śreyas-question and correct its premise: the Self is never slain.",
+    "keyPoints": ["from body to omens to moral forecast", "nimittāni viparītāni — inverted signs", "na śreyaḥ: no highest good foreseen", "first mithyā-jñāna sentence of viṣāda", "true tremor, inverted reading"],
+    "wordMeaning": "nimittāni viparītāni paśyāmi — I see adverse omens; keśava — O Keśava; na śreyaḥ anupaśyāmi — I foresee no good; hatvā svajanam āhave — slaying my own in battle."
   },
   {
     "id": "1.32",
@@ -381,9 +415,10 @@ export const gitaEnPart1: any[] = [
     "iast": "na kāṅkṣe vijayṃ kṛṣṇa na ca rājyṃ sukhāni ca kiṃ no rājyena govinda kiṃ bhogairjīvitena vā",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "I crave no victory, kingdom or pleasures; what use kingdom, enjoyments or life?",
-    "commentary": "Plain: Arjuna renounces fruits. Sarvatobhadra: dispassion dawns but without wisdom risks mere inaction.",
-    "keyPoints": ["reject fruit", "world-weariness"]
+    "translation": "I crave neither victory, O Kṛṣṇa, nor kingdom, nor pleasures. Of what use is kingdom to us, O Govinda — of what use enjoyments, or even life?",
+    "commentary": "Plain: triple renunciation — na kāṅkṣe vijayam (no victory), na rājyam (no kingdom), na sukhāni (no pleasures) — collapsing into three anguished questions: kiṃ rājyena, kiṃ bhogaiḥ, kiṃ jīvitena. The address shifts intimately: Kṛṣṇa (attractor) then Govinda (cowherd-protector, finder of earth/light). Sarvatobhadra: vairāgya dawns — but prematurely, without jñāna. Rāmakantha's order (PDF p.15) requires śāstra-codita karma performed yathāśakti, saṃskṛta by jñāna; Arjuna's renunciation skips the second term and lands in mere nivṛtti (withdrawal). The questions are nonetheless the true pūrva-pakṣa of niṣkāma-karma: 'for whom are fruits?' — 1.33 will answer 'for those now dying,' and chapters 2–5 will answer 'for the Self, desirelessly.' Dispassion is the right door approached from the wrong side.",
+    "keyPoints": ["triple renunciation: victory, kingdom, pleasures", "three anguished kiṃ-questions", "Kṛṣṇa then Govinda — intimacy deepens", "premature vairāgya without jñāna", "right door, wrong side: true pūrva-pakṣa"],
+    "wordMeaning": "na kāṅkṣe vijayam — I crave no victory; na rājyam sukhāni ca — nor kingdom nor pleasures; kiṃ naḥ rājyena — what use kingdom to us; govinda — O Govinda; kiṃ bhogaiḥ jīvitena vā — what use enjoyments or life."
   },
   {
     "id": "1.33",
@@ -393,9 +428,10 @@ export const gitaEnPart1: any[] = [
     "iast": "yeṣāmarthe kāṅkṣitṃ no rājyṃ bhogāḥ sukhāni ca ta imevasthitā yuddhe prāṇāṃstyaktvā dhanāni ca",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Those for whom we want kingdom and joys stand here staking life and wealth.",
-    "commentary": "Plain: purpose of kingdom undone if kin die. Sarvatobhadra: karma's fruits are vain if severed from Self-kin.",
-    "keyPoints": ["for whom enjoy", "stake life"]
+    "translation": "Those for whose sake we desire kingdom, enjoyments and pleasures — they stand here in battle, having staked their lives and riches.",
+    "commentary": "Plain: Arjuna answers his own kiṃ-questions — the bhoktāras (enjoyers) for whom fruits are meant are themselves the fuel: prāṇāṃs tyaktvā dhanāni ca, lives and wealth already staked. Means devour ends; the sacrifice consumes its beneficiaries. Sarvatobhadra: karma's fruits are vain when severed from Self-kin (PDF p.16: bandhu-vadha-paryavasāyi saṅgrāma-karma-vicikitsā). Arjuna reasons truly that phala divorced from sambandha is worthless, but concludes falsely that sambandha therefore cancels karma. Rāmakantha's correction to come: the true bhoktā is the one Self in all — tyaktvā in the verse (having staked) will be transfigured into tyaktvā phalam (having abandoned the fruit, 2.47+), staking no longer lives but possessiveness.",
+    "keyPoints": ["answers his own kiṃ-questions", "enjoyers become fuel", "means devour ends", "true premise, false conclusion", "tyaktvā lives prepares tyaktvā phalam"],
+    "wordMeaning": "yeṣām arthe — for whose sake; kāṅkṣitam naḥ rājyam bhogāḥ sukhāni ca — we desire kingdom, enjoyments, pleasures; te ime avasthitāḥ yuddhe — they stand here in battle; prāṇān tyaktvā dhanāni ca — staking lives and riches."
   },
   {
     "id": "1.34",
@@ -405,9 +441,10 @@ export const gitaEnPart1: any[] = [
     "iast": "ācāryāḥ pitarḥ putrāstathaiva ca pitāmahāḥ mātulāḥ śvaśurāḥ pautrāḥ śyālāḥ sambandhinastathā",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Teachers, fathers, sons, grandsires, uncles, fathers-in-law, grandsons, kin by marriage.",
-    "commentary": "Plain: kin catalogue repeated. Sarvatobhadra: all social nodes are Shiva's faces, misread as mere blood.",
-    "keyPoints": ["catalogue kin", "Shiva faces"]
+    "translation": "Teachers, fathers, sons, and likewise grandsires; maternal uncles, fathers-in-law, grandsons, brothers-in-law — and kinsmen besides.",
+    "commentary": "Plain: the catalogue of 1.26–1.27 returns, now from Arjuna's own mouth (not Sañjaya's report) — eight nodes plus sambandhinas (all connected). Repeating the list is itself the argument: each bond named tightens the noose. Ācāryās first — Droṇa-Kṛpa lead because gratitude binds hardest. Sarvatobhadra: every social node (saṃbandha) is Śiva's face (śivamukha) misread as mere blood. The repetition figures vikalpa-punarāvṛtti — delusion's circling rehearsal of ties. That Arjuna himself recites what Sañjaya already listed shows mithyā-jñāna's mechanism: the same content (sarvān bandhūn) seen first as vision (darśana, 1.26) is now re-seen as prison (bandhana). Liberation will not delete one name from this list; it will re-cognise each as Self.",
+    "keyPoints": ["catalogue returns in Arjuna's own voice", "ācāryās first — gratitude binds hardest", "repetition as argument: naming tightens", "darśana re-seen as bandhana", "liberation re-cognises, not deletes"],
+    "wordMeaning": "ācāryāḥ pitaraḥ putrāḥ — teachers, fathers, sons; tathā eva ca pitāmahāḥ — and grandsires; mātulāḥ śvaśurāḥ pautrāḥ — uncles, fathers-in-law, grandsons; śyālāḥ sambandhinaḥ tathā — brothers-in-law and kinsmen."
   },
   {
     "id": "1.35",
@@ -417,9 +454,10 @@ export const gitaEnPart1: any[] = [
     "iast": "etānna hantumicchāmi ghnatopi madhusūdana api trailokyarājyasya hetoḥ kiṃ nu mahīkṛte",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "I would not slay them even if slain, not for three worlds' rule, far less for earth.",
-    "commentary": "Plain: Arjuna refuses even defensive gain. Sarvatobhadra: non-harming intuition glimpses nondual Self, misapplied to bodies.",
-    "keyPoints": ["refuse slaying", "wider vision"]
+    "translation": "These I do not wish to slay, O Madhusūdana, even if they slay me — not for the sake of kingship over the three worlds, how much less for the earth.",
+    "commentary": "Plain: the vow-form refusal — na hantum icchāmi (I will not kill) even ghnato'pi (even being killed), scaled cosmically: api trailokya-rājyasya hetoḥ (not for three worlds), kiṃ nu mahīkṛte (far less for dirt-earth). Madhusūdana (slayer of Madhu, ignorance-demon) is begged to authorise non-slaying. Sarvatobhadra: ahiṃsā-intuition glimpses nonduality truly — the Self indeed cannot be slain (2.19–2.20 will confirm) — but misapplies it to bodies enjoined by śāstra to fight. Refusing trailed against trailokya measures how far mithyā-jñāna can inflate a partial truth: non-harming absolutised without adhikāra-viveka becomes parityāga of niyata-karma, which Rāmakantha (PDF p.15) declares anupapanna (impossible) for any adhikārin in any avasthā. The verse's grandeur is its danger.",
+    "keyPoints": ["vow-form refusal: na hantum icchāmi", "even being slain — non-resistance pledge", "trailokya scaled against mahī", "true ahiṃsā-intuition, misapplied", "partial truth inflated to parityāga"],
+    "wordMeaning": "etān na hantum icchāmi — these I will not slay; ghnataḥ api — even if slaying (me); madhusūdana — O slayer of Madhu; api trailokya-rājyasya hetoḥ — even for three worlds' kingship; kiṃ nu mahīkṛte — how much less for earth."
   },
   {
     "id": "1.36",
@@ -429,9 +467,10 @@ export const gitaEnPart1: any[] = [
     "iast": "nihatya dhārtarāṣṭrānnḥ kā prītiḥ syājjanārdana pāpamevāśrayedasmānhatvaitānātatāyinḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Slaying Dhritarashtra's sons, what joy? Killing these aggressors would stain us with sin.",
-    "commentary": "Plain: fear of sin. Sarvatobhadra: action without knowledge binds; knowledge without action neglects — both need union.",
-    "keyPoints": ["fear sin", "joy lost"]
+    "translation": "Slaying the sons of Dhṛtarāṣṭra, what joy could be ours, O Janārdana? Sin alone would possess us, having killed these aggressors.",
+    "commentary": "Plain: Arjuna weighs phala (fruit) — kā prītiḥ (what delight?) — and finds only pāpa (sin/evil Fall). He concedes the legal category ātatāyinaḥ (desperadoes, whom smṛti permits killing) yet insists the sin would still 'possess' (āśrayet) the slayers. Janārdana (stirrer of men, punisher) is asked to confirm the dread. Sarvatobhadra: the verse exposes the double-bind of karma without jñāna and jñāna without karma (PDF p.16: jñāna-saṃskṛta karma alone liberates). Action performed as ahaṃkāra's triumph binds (pāpa clings); action refused as ahaṃkāra's virtue also binds (parityāga is anupapanna, PDF p.15). Arjuna senses both horns but cannot yet see the third point — action performed as īśvara's pūjā, saṃskṛta by the knowledge 'I am not the slayer' (2.19–2.21). Prīti (joy) rightly demanded, wrongly despaired of: the Gītā will restore it as brahma-saṃsparśa sukham (6.28).",
+    "keyPoints": ["kā prītiḥ — what joy weighing", "concedes ātatāyin yet fears pāpa", "pāpa as possessing force", "double-bind: acting binds, refusing binds", "joy rightly demanded, to be restored as Brahman-touch"],
+    "wordMeaning": "nihatya dhārtarāṣṭrān — slaying Dhṛtarāṣṭra's sons; naḥ kā prītiḥ syāt — what joy would be ours; janārdana — O stirrer of men; pāpam eva āśrayet asmān — sin alone would possess us; hatvā etān ātatāyinaḥ — killing these aggressors."
   },
   {
     "id": "1.37",
@@ -441,9 +480,10 @@ export const gitaEnPart1: any[] = [
     "iast": "tasmānnārhā vayṃ hantuṃ dhārtarāṣṭrānsvabāndhavān svajanṃ hi kathṃ hatvā sukhinḥ syāma mādhava",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Hence we should not slay kinsmen; how could we be happy killing our own?",
-    "commentary": "Plain: Arjuna concludes abstention. Sarvatobhadra: happiness sought in relation, not yet in Self that holds all.",
-    "keyPoints": ["unfit to slay", "happiness doubt"]
+    "translation": "Therefore we ought not to slay the sons of Dhṛtarāṣṭra, our own kinsmen. For how could we be happy, O Mādhava, having killed our own people?",
+    "commentary": "Plain: tasmāt ('therefore') seals the inference — na arhā vayam hantum (we are not fit/entitled to kill), sva-bāndhavān (own kin). The second line turns prīti (1.36) into sukha (happiness): kathaṃ syāma sukhinaḥ — how could happiness survive kin-slaying? Mādhava (descendant of Madhu, Kṛṣṇa as kinsman Himself) is reminded of kinship. Sarvatobhadra: happiness (sukha) is sought in sambandha (relation) instead of in the Self that holds all relations (PDF p.15: sarvakartā parameśvara). The inference is valid on its premise — if the Self were the body-kin, kin-slaying would murder happiness — and invalid in its premise, which 2.11–2.30 will dissolve: dehāntara-prāpti and avināśi-ātman re-ground sukha beyond birth and death. Arha (fitness/adhikāra) is the right category; Arjuna misjudges his own adhikāra, which is śāstra-codita ghora-karma performed with jñāna.",
+    "keyPoints": ["tasmāt seals the false inference", "na arhā — adhikāra rightly invoked", "prīti becomes sukha: happiness at stake", "Mādhava addressed as Kinsman", "sukha sought in relation, not Self"],
+    "wordMeaning": "tasmāt — therefore; na arhā vayam hantum — we ought not slay; dhārtarāṣṭrān sva-bāndhavān — Dhṛtarāṣṭra's sons, our kin; svajanam hatvā — killing our own; katham syāma sukhinaḥ — how could we be happy; mādhava — O Mādhava."
   },
   {
     "id": "1.38",
@@ -453,9 +493,10 @@ export const gitaEnPart1: any[] = [
     "iast": "yadyapyete na paśyanti lobhopahatacetasḥ kulakṣayakṛtṃ doṣṃ mitradrohe ca pātakam",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Though greed-blinded they see no evil in family ruin or treason to friends.",
-    "commentary": "Plain: foes blinded by greed. Sarvatobhadra: greed veils Spanda freedom, reducing Self to faction.",
-    "keyPoints": ["greed blinds", "unseen fault"]
+    "translation": "Even if these men, their minds smitten by greed, see no evil in the ruin of the family and no crime in treason to friends —",
+    "commentary": "Plain: Arjuna grants the enemy's blindness — lobha-upahata-cetasaḥ (minds struck down by greed) cannot see (na paśyanti) kula-kṣaya-kṛta doṣa (the evil wrought by family-destruction) or mitra-droha pātaka (the mortal sin of betraying friends). Yadyapi ('even if') opens a concessive sentence completed in 1.39 ('why should we not know to turn?'). Sarvatobhadra: lobha (greed) is the contraction (saṃkoca) of the infinite cit into faction — Spanda-freedom veiled, the whole reduced to 'ours.' That the deluded cannot see is precisely why the seer must: Arjuna's diagnosis of the enemy is accurate, and will be confirmed by 16.6–16.21 on āsura-sampad. His error lies not in seeing their fault but in imagining his own seeing exempts him from śāstra-codita karma rather than qualifying him to perform it purely.",
+    "keyPoints": ["concedes enemy's greed-blindness", "lobha-upahata-cetasaḥ — smitten minds", "two unseen evils: kula-ruin, friend-betrayal", "yadyapi opens sentence completed in 1.39", "accurate diagnosis, false exemption"],
+    "wordMeaning": "yadi api ete — even if these; na paśyanti — do not see; lobha-upahata-cetasaḥ — minds smitten by greed; kula-kṣaya-kṛtam doṣam — evil of family ruin; mitra-drohe pātakam — crime of friend-treason."
   },
   {
     "id": "1.39",
@@ -465,9 +506,10 @@ export const gitaEnPart1: any[] = [
     "iast": "kathṃ na jñeyamasmābhiḥ pāpādasmānnivartitum kulakṣayakṛtṃ doṣṃ prapaśyadbhirjanārdana",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Why should we who see family-ruin's evil not turn from this sin?",
-    "commentary": "Plain: Arjuna claims discernment. Sarvatobhadra: partial discernment must mature into full recognition through both paths.",
-    "keyPoints": ["we who see", "turn from sin"]
+    "translation": "Why should we not know to turn back from this sin — we who perceive the evil wrought by the ruin of the family, O Janārdana?",
+    "commentary": "Plain: the yadyapi of 1.38 lands — kathaṃ na jñeyam asmābhiḥ (why should it not be known by us?), pāpād nivartitum (to turn from sin). Prapaśyadbhiḥ (clearly perceiving) claims the viveka the enemy lacks. Janārdana is recalled as moral arbiter. Sarvatobhadra: āṃśika-viveka (partial discernment) speaks its proudest sentence — and thereby qualifies itself for correction. Perceiving kula-kṣaya-doṣa truly is śāstra-śravaṇa's fruit; concluding nivṛtti (withdrawal) from it is mithyā-jñāna's leap (PDF p.16: adharmam eva dharmatvena vyapadiśataḥ). Rāmakantha's coming correction: the same perception must mature (paripāka) through jñāna-karma-samuccaya into recognition — nivṛtti from pāpa means nivṛtti from ahaṃkāra-mamatā within karma, not from karma itself, whose parityāga is anupapanna (PDF p.15). The question 'why should we not know' will be answered: you know half; learn the whole.",
+    "keyPoints": ["yadyapi lands: why should we not know", "prapaśyadbhiḥ claims discerning sight", "partial viveka's proudest sentence", "true perception, false withdrawal-leap", "nivṛtti from ego within karma, not from karma"],
+    "wordMeaning": "katham na jñeyam asmābhiḥ — why should we not know; pāpāt nivartitum — to turn from sin; kula-kṣaya-kṛtam doṣam prapaśyadbhiḥ — perceiving family-ruin's evil; janārdana — O Janārdana."
   },
   {
     "id": "1.40",
@@ -477,9 +519,10 @@ export const gitaEnPart1: any[] = [
     "iast": "kulakṣaye praṇaśyanti kuladharmāḥ sanātanāḥ dharme naṣṭe kulṃ kṛtsnamadharmobhibhavatyuta",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "With family ruin perish eternal family dharmas; dharma lost, adharma overwhelms the clan.",
-    "commentary": "Plain: social dharma collapses. Sarvatobhadra: when lineage-wisdom breaks, lower vikalpas flood consciousness.",
-    "keyPoints": ["dharma lost", "adharma floods"]
+    "translation": "With the ruin of the family perish the immemorial dharmas of the family; when dharma is lost, adharma overwhelms the whole clan.",
+    "commentary": "Plain: Arjuna's sociology of decline begins — kula-kṣaya destroys sanātanāḥ kula-dharmāḥ (eternal family norms: initiation, marriage-law, śrāddha-order), and dharma-naṣṭa invites wholesale adharma-abhibhava (overwhelming). Cause chains to effect across 1.40–1.43 like a smṛti sermon. Sarvatobhadra: read inwardly, kula is the lineage of consciousness (jñāna-paramparā) and kula-dharma its stable order (sthiti-krama); kṣaya is the breaking of saṃpradāya-transmission, after which lower vikalpas (adharma) flood (abhibhava) the cit. Arjuna describes accurately what happens when wisdom-lineage breaks — the Gītā will agree (4.1–4.8: yogo naṣṭaḥ, dharma-glāni) — but mislocates the break: it is not the coming battle that breaks the kula but the refusal of śāstra-codita karma that would.",
+    "keyPoints": ["sociology of decline begins", "sanātanāḥ kula-dharmāḥ perish", "dharma lost invites adharma-flood", "kula as wisdom-lineage, inwardly", "true description, mislocated cause"],
+    "wordMeaning": "kula-kṣaye — with family ruin; praṇaśyanti kula-dharmāḥ sanātanāḥ — eternal family dharmas perish; dharme naṣṭe — dharma lost; kulam kṛtsnam — the whole clan; adharmaḥ abhibhavati uta — adharma overwhelms."
   },
   {
     "id": "1.41",
@@ -489,9 +532,10 @@ export const gitaEnPart1: any[] = [
     "iast": "adharmābhibhavātkṛṣṇa praduṣyanti kulastriyḥ strīṣu duṣṭāsu vārṣṇeya jāyate varṇasaṅkarḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Adharma prevailing, women are corrupted; corrupted women breed caste-confusion.",
-    "commentary": "Plain: traditional sociology of decline. Sarvatobhadra: Shakti-powers defiled, produce mixed, confused cognitions.",
-    "keyPoints": ["Shakti defiled", "confusion born"]
+    "translation": "With adharma prevailing, O Kṛṣṇa, the women of the family are corrupted; when women are corrupted, O Vārṣṇeya, caste-confusion arises.",
+    "commentary": "Plain: the traditional chain continues — strī-duṣṭi (corruption of women, guardians of seed and rite) yields varṇa-saṃkara (mixture of orders/duties). Two intimate addresses — Kṛṣṇa, Vārṣṇeya (descendant of Vṛṣṇi, Kṛṣṇa as clansman) — plead for kin-feeling. Sarvatobhadra, without evading the verse's patriarchal sociology, reads śakti inwardly: kula-striyaḥ are the śakti-powers (jñāna-kriyā-icchā) of consciousness; when adharma (bheda-vikalpas) prevails they are duṣṭā (defiled, turned outward toward faction), and their mixture (saṃkara) breeds saṃkīrṇa-pratyayas — confused cognitions in which duty-orders (varṇa as functional clarity: brāhmaṇa-knowing, kṣatriya-acting...) collapse into each other. The verse thus describes, in social metaphor, exactly the psychic saṃkara Arjuna is exhibiting: knower's work confused with deserter's flight.",
+    "keyPoints": ["strī-duṣṭi yields varṇa-saṃkara", "guardians of seed and rite", "Kṛṣṇa-Vārṣṇeya: kin-pleading", "śaktis defiled and mixed, inwardly", "Arjuna exhibits the saṃkara he fears"],
+    "wordMeaning": "adharma-abhibhavāt — with adharma prevailing; kṛṣṇa — O Kṛṣṇa; praduṣyanti kula-striyaḥ — family women are corrupted; strīṣu duṣṭāsu — women corrupted; vārṣṇeya — O Vṛṣṇi-descendant; jāyate varṇa-saṃkaraḥ — caste-confusion arises."
   },
   {
     "id": "1.42",
@@ -501,9 +545,10 @@ export const gitaEnPart1: any[] = [
     "iast": "saṅkaro narakāyaiva kulaghnānāṃ kulasya ca patanti pitaro hyeṣāṃ luptapiṇḍodakakriyāḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Confusion drags clan-slayers and clan to hell; ancestors fall, deprived of rites.",
-    "commentary": "Plain: ancestors fall. Sarvatobhadra: severed from source-tradition, past wisdom starves without knowledge-offering.",
-    "keyPoints": ["ancestors fall", "rites lost"]
+    "translation": "Confusion drags to hell the slayers of the clan and the clan itself; for their ancestors fall, deprived of rice-ball and water offerings.",
+    "commentary": "Plain: saṃkara's fruit — naraka (hell, downward fall) for kula-ghnān (clan-slayers) and kula itself; pitaraḥ (fathers/ancestors) patanti (fall) when lupta-piṇḍa-udaka-kriyāḥ (offerings cut). The rite-feeding chain — living nourish dead, dead bless living — snaps. Sarvatobhadra: severed from srotas (source-tradition), past wisdom (pitaraḥ as pūrva-jñāna) starves: without jñāna-offering (the true piṇḍa-udaka, 4.24–4.32's dravya-jñāna-yajñas), ancestors — accumulated merit-insights — fall from efficacy. Naraka here is adho-gati, consciousness sinking toward deha-mamatā. Arjuna fears starving his fathers; the Gītā will answer that the true śrāddha is brahmārpaṇa — offering all action into Brahman (3.9–3.16, 4.24) — which no battle can cut.",
+    "keyPoints": ["saṃkara's fruit: naraka for slayers and clan", "pitaraḥ fall when offerings cut", "rite-chain snaps: living-dead bond", "past wisdom starves without jñāna-offering", "true śrāddha is brahmārpaṇa"],
+    "wordMeaning": "saṃkaraḥ narakāya eva — confusion leads to hell; kula-ghnānām kulasya ca — of clan-slayers and clan; patanti pitaraḥ hi eṣām — ancestors fall; lupta-piṇḍa-udaka-kriyāḥ — deprived of rice-water rites."
   },
   {
     "id": "1.43",
@@ -513,9 +558,10 @@ export const gitaEnPart1: any[] = [
     "iast": "doṣairetaiḥ kulaghnānāṃ varṇasaṅkarakārakaiḥ utsādyante jātidharmā kuladharmāśca śāśvatāḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "By these clan-slayers' faults making confusion, caste and family dharmas perish.",
-    "commentary": "Plain: eternal norms uprooted. Sarvatobhadra: fragmented karma without jnana uproots stable order of consciousness.",
-    "keyPoints": ["norms uprooted", "fault spreads"]
+    "translation": "By these evils of the clan-slayers, which breed caste-confusion, the dharmas of caste and clan — the eternal ones — are uprooted.",
+    "commentary": "Plain: the chain's sum — etaiḥ doṣaiḥ (by these faults) varṇa-saṃkara-kārakaiḥ (confusion-making), utsādyante (are uprooted, pulled from the seat) jāti-dharmāḥ (order-duties) and śāśvatāḥ kula-dharmāḥ (perennial family norms). Utsad (uproot) is stronger than praṇaś (perish, 1.40): the seat itself is torn out. Sarvatobhadra: fragmented karma without jñāna uproots the sthiti-krama (stable order) of consciousness — jāti (functional stations of knowing/acting) and kula (lineage-continuity) both. Śāśvata (perennial) marks what belongs to the Self's order, not mere custom; hence its 'uprooting' is the precise symptom of bheda taking the throne. Arjuna's sermon is orthodox in content — smṛti says the same — and pūrva-pakṣa in conclusion: from 'confusion uproots order' he will infer 'therefore I must not act,' where the śāstra infers 'therefore act purified by knowledge.'",
+    "keyPoints": ["chain's sum: uprooting, not mere perishing", "utsad stronger than praṇaś", "jāti and kula orders torn from seat", "śāśvata marks Self's order", "orthodox content, pūrva-pakṣa conclusion"],
+    "wordMeaning": "doṣaiḥ etaiḥ — by these evils; kula-ghnānām varṇa-saṃkara-kārakaiḥ — of clan-slayers, confusion-making; utsādyante — are uprooted; jāti-dharmāḥ kula-dharmāḥ ca śāśvatāḥ — caste-dharmas and eternal clan-dharmas."
   },
   {
     "id": "1.44",
@@ -525,9 +571,10 @@ export const gitaEnPart1: any[] = [
     "iast": "utsannakuladharmāṇāṃ manuṣyāṇāṃ janārdana narake niyatṃ vāso bhavatītyanuśuśruma",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Men whose family dharma is ruined must dwell in hell, we have heard.",
-    "commentary": "Plain: appeal to scripture. Sarvatobhadra: scripture-hearsay binds till direct recognition frees through combined path.",
-    "keyPoints": ["heard hell", "fear binds"]
+    "translation": "For men whose family-dharma is destroyed, a fixed dwelling in hell must follow — so we have heard from the sacred tradition.",
+    "commentary": "Plain: Arjuna caps the sermon with śruti-smṛti appeal — iti anuśuśruma ('thus we have heard repeatedly'). Utsanna (destroyed, laid waste) intensifies naṣṭa (1.40) and utsad (1.43): the field lies waste. Niyataṃ vāsaḥ (fixed dwelling) answers the wandering armies with a grimmer fixity. Sarvatobhadra: śruta (hearsay-scripture) binds until pratyabhijñā (recognition) frees. Rāmakantha honours the citation — the tradition truly says this — while preparing its transfiguration: niyata will return transfigured as niyataṃ kuru karma (3.8, 'do your appointed action') and niyata-vāsa as brahma-nirvāṇa's fixed abode. Hearsay-knowledge (parokṣa) must ripen into direct (aparokṣa) through the combined path (PDF p.15); Arjuna quotes rightly but stands outside what he quotes.",
+    "keyPoints": ["caps sermon with iti anuśuśruma", "utsanna: field laid waste", "niyataṃ vāsaḥ — grim fixity", "parokṣa must ripen to aparokṣa", "niyata to return as niyataṃ kuru karma"],
+    "wordMeaning": "utsanna-kula-dharmāṇām manuṣyāṇām — of men whose family-dharma is destroyed; janārdana — O Janārdana; narake niyatam vāsaḥ bhavati — fixed dwelling in hell follows; iti anuśuśruma — thus we have heard."
   },
   {
     "id": "1.45",
@@ -537,9 +584,10 @@ export const gitaEnPart1: any[] = [
     "iast": "aho bata mahatpāpṃ kartuṃ vyavasitā vayam yadrājyasukhalobhena hantuṃ svajanamudyatāḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Alas, we resolve great sin, ready to kill kin from greed for kingdom-joy.",
-    "commentary": "Plain: Arjuna laments resolve. Sarvatobhadra: remorse is Shiva's grace turning rajasic resolve inward.",
-    "keyPoints": ["alas sin", "greed exposed"]
+    "translation": "Alas, what a great sin we have resolved to commit — that, greedy for the joys of kingship, we stand ready to slay our own people.",
+    "commentary": "Plain: the lament breaks — aho bata (alas, oh horror), mahat pāpam (great sin), vyavasitā vayam (we have resolved). The first person plural confesses collectively: not 'they' but 'we.' Yat... udyatāḥ (that we are ready — udyata,ORD: the war-effort word turned against itself) rājya-sukha-lobhena (from greed for kingdom-joy). Sarvatobhadra: remorse (anutāpa) is Śiva's grace (anugraha) turning rājasic vyavasāya (resolve) inward — the resolve-energy that marched to war now marches toward self-questioning. Vyavasāya is the exact word Kṛṣṇa will redeem (2.41: vyavasāyātmikā buddhiḥ, resolute intelligence). Arjuna's vyavasita (resolved to sin) stands one syllable from vyavasāya (resolved in wisdom); the Adhyāya's despair is thus the womb of Adhyāya 2's resolve-doctrine. His self-accusation of lobha (greed) ironically acquits him: the greedy do not accuse themselves of greed.",
+    "keyPoints": ["aho bata — lament breaks", "vyavasitā vayam: collective confession", "rājya-sukha-lobhena named as motive", "remorse as grace turning resolve inward", "vyavasita one syllable from vyavasāya"],
+    "wordMeaning": "aho bata — alas, oh horror; mahat pāpam kartum — to commit great sin; vyavasitā vayam — we have resolved; yat rājya-sukha-lobhena — that from greed for kingdom-joy; hantum svajanam udyatāḥ — ready to slay our own."
   },
   {
     "id": "1.46",
@@ -549,9 +597,10 @@ export const gitaEnPart1: any[] = [
     "iast": "yadi māmapratīkāramaśastrṃ śastrapāṇayḥ dhārtarāṣṭrā raṇe hanyustanme kṣematarṃ bhavet",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "If weaponless and unresisting I am slain by armed Kauravas, that were better for me.",
-    "commentary": "Plain: Arjuna prefers passive death. Sarvatobhadra: premature renunciation of karma; true peace needs jnana-karma union.",
-    "keyPoints": ["prefer death", "quit action"]
+    "translation": "If the sons of Dhṛtarāṣṭra, weapons in hand, were to slay me in battle — me, unresisting and weaponless — that would be greater welfare for me.",
+    "commentary": "Plain: Arjuna's alternative resolves into passive martyrdom — apratīkāram (unresisting, offering no counter), aśastram (weaponless, disarmed), hanyuḥ (let them kill). Kṣematara ('greater welfare/peace') is weighed against the warrior's dharma and found in death-without-action. Sarvatobhadra: premature nivṛtti (withdrawal) masquerading as kṣama (forbearance). True kṣema, Rāmakantha insists (PDF p.15), is samāpatti-mokṣa through jñāna-saṃskṛta karma — not the body's survival nor its abandonment, but the Self's recognition through rightly performed action. Arjuna offers his body to the enemy to save his conscience; the Gītā will teach him to offer his actions to the Self instead (mayi sarvāṇi karmāṇi saṃnyasya, 3.30). The verse's pathos is genuine; its metaphysics is the exact inversion of 2.19–2.21 (the Self neither slays nor is slain).",
+    "keyPoints": ["passive martyrdom proposed", "apratīkāram, aśastram — no counter, no weapon", "kṣematara weighed and misfound", "body offered to enemy instead of actions to Self", "exact inversion of 2.19–2.21"],
+    "wordMeaning": "yadi mām — if me; apratīkāram aśastram — unresisting, weaponless; śastra-pāṇayaḥ — weapons in hand; dhārtarāṣṭrāḥ raṇe hanyuḥ — Dhṛtarāṣṭra's sons slay in battle; tat me kṣemataram bhavet — that were greater welfare for me."
   },
   {
     "id": "1.47",
@@ -561,9 +610,10 @@ export const gitaEnPart1: any[] = [
     "iast": "evamuktvārjunḥ saṅkhye rathopastha upāviśat visṛjya saśarṃ cāpṃ śokasṃvignamānasḥ",
     "conceptIds": ["gita-visada"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "So speaking, Arjuna sat on the chariot-seat, casting bow and arrows, mind stung by grief.",
-    "commentary": "Plain: Arjuna collapses. Sarvatobhadra: despair prepares vessel; grief empties ego for Sarvatobhadra teaching.",
-    "keyPoints": ["bow cast", "grief teaches"]
+    "translation": "Having spoken thus on the battlefield, Arjuna sank down onto the chariot-seat, casting away his bow together with its arrows — his mind stung and trembling with grief.",
+    "commentary": "Plain: the Adhyāya's closing tableau mirrors its arc — evam uktvā (having said this, the whole 1.28–1.46 speech), saṅkhye (in the very battle-line), rathopasthe upāviśat (sank onto the seat, not the warrior's standing foot). Visṛjya sa-śaraṃ cāpam (casting the bow with arrows — the weapon-identity of 1.20 deliberately un-held), śoka-saṃvigna-mānasaḥ (mind stung, agitated, trembling with śoka). Sañjaya reports; Dhṛtarāṣṭra hears. Sarvatobhadra (PDF p.16): iti... gatārtham eva — this Sañjaya-vākya needs no gloss, only tātparya: evaṃ prathamo'dhyāyaḥ... arjuna-viṣāda-pratipādanārthaḥ samāptaḥ — thus the First Adhyāya, establishing Arjuna's grief as the Bhagavān's pravṛtti-hetu, concludes. The cast bow is the śāstra's empty vessel: only the disarmed hand can receive the Gītā. Rāmakantha's colophon-verse celebrates this 'proposal' (prastāvanā) of the Lord's gracious drama (anugraha-nīti-nāṭaka) — grief as overture to grace. Adhyāya 1 ends seated; Adhyāya 2 will raise the fallen.",
+    "keyPoints": ["closing tableau mirrors 1.20's raised bow", "sank onto seat, not warrior's stance", "bow cast with arrows — identity un-held", "śoka-saṃvigna-mānasaḥ: stung trembling mind", "grief as overture: prastāvanā to grace"],
+    "wordMeaning": "evam uktvā — having spoken thus; arjunaḥ saṅkhye — Arjuna on the battlefield; rathopasthe upāviśat — sank on the chariot-seat; visṛjya sa-śaram cāpam — casting bow with arrows; śoka-saṃvigna-mānasaḥ — mind stung with grief."
   },
   {
     "id": "2.1",
@@ -572,10 +622,11 @@ export const gitaEnPart1: any[] = [
     "devanagari": "तं तथा कृपयाविष्टमश्रुपूर्णाकुलेक्षणम्। विषीदन्तमिदं वाक्यमुवाच मधुसूदनः॥2.1॥",
     "iast": "tṃ tathā kṛpayāviṣṭamaśrupūrṇākulekṣaṇam viṣīdantamidṃ vākyamuvāca madhusūdanḥ",
     "conceptIds": ["gita-sankhya"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "To him pity-filled, tear-eyed, grieving, Krishna spoke these words.",
-    "commentary": "Plain: Krishna begins. Sarvatobhadra: Lord addresses softened heart where both paths can enter.",
-    "keyPoints": ["tears seen", "Teacher speaks"]
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Sarvatobhadra (PDF p.17, KSTS p.17): spaṣṭārthaḥ ślokaḥ — the verse is self-evident; with it begin the parārtha-upadeśa-prakrama-piśuna-vākyāni, the words heralding the Lord's supreme teaching to Arjuna, unstrung by delusion yet ripened for grace (sañjāta-anujighṛkṣa)."}],
+    "translation": "To him, thus invaded by pity, his eyes filled and troubled with tears, desponding — Madhusūdana spoke these words.",
+    "commentary": "Plain: Sañjaya's bridge-verse — taṃ tathā (to him, in that fallen state of 1.47), kṛpayāviṣṭam (invaded by pity), aśru-pūrṇa-ākula-īkṣaṇam (eyes full and turbulent with tears), viṣīdantam (desponding). Madhusūdana (slayer of the Madhu-demon of ignorance) now speaks; the Teaching that grief occasioned begins. Sarvatobhadra: Rāmakantha marks this as prakrama — commencement. The Lord's anujighṛkṣā (desire to grace) awakens precisely because Arjuna is vyāmoha-vaśa-visaṃsthula (unstrung by delusion, PDF p.17): the softened, tear-washed heart is the adhikārin's vessel in which jñāna and karma can jointly enter. Tears (aśru) here are not weakness but śodhana — washing the eye that will behold the viśvarūpa in Adhyāya 11.",
+    "keyPoints": ["bridge from fallen seat to Teaching", "tear-filled turbulent eyes as vessel", "Madhusūdana invoked as ignorance-slayer", "anujighṛkṣā awakens at delusion's depth", "tears as washing for viśvarūpa-vision"],
+    "wordMeaning": "tam tathā — to him thus (fallen); kṛpayā āviṣṭam — invaded by pity; aśru-pūrṇa-ākula-īkṣaṇam — eyes full, troubled with tears; viṣīdantam — desponding; idam vākyam uvāca madhusūdanaḥ — Madhusūdana spoke these words."
   },
   {
     "id": "2.2",
@@ -584,10 +635,11 @@ export const gitaEnPart1: any[] = [
     "devanagari": "श्रीभगवानुवाच। कुतस्त्वा कश्मलमिदं विषमे समुपस्थितम्। अनार्यजुष्टमस्वर्ग्यमकीर्तिकरमर्जुन॥2.2॥",
     "iast": "śrībhagavānuvāca kutastvā kaśmalamidṃ viṣame samupasthitam anāryajuṣṭamasvargyamakīrtikaramarjuna",
     "conceptIds": ["gita-sankhya"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Whence this taint in danger, un-Aryan, heaven-barring, shameful?",
-    "commentary": "Plain: Krishna rebukes unworthy grief. Sarvatobhadra: grief severing jnana from karma is impurity, not compassion.",
-    "keyPoints": ["rebuke taint", "unworthy grief"]
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Sarvatobhadra ad 2.2 (PDF pp.17–18): idam = evaṃvidha-prastuta-āvaśyaka-karaṇīya-svakarma-karaṇa-avasāda-kāraka-vyāmoha-ātmakam kaśmalaṃ pāpam; Arjuna-śabda and tvac-chabda carry garbhīkāra — the former recalling prakṛṣṭa-abhijana-prajñā-parākrama, the latter the mohādi-mala-vivikta ātman, so that the taint's contact with the Self is prakāśasya tamasā iva atyantam asambhāvya (like darkness touching light)."}],
+    "translation": "The Blessed Lord said: Whence has this taint come over you in the hour of peril — this delusion that keeps you from your necessary duty — resorted to by the ignoble, barring heaven, bringing disgrace, O Arjuna?",
+    "commentary": "Plain: the first rebuke — kutaḥ (whence? with what cause?), kaśmala (stain/taint/sin), viṣame (in the strait, the uneven place of crisis). Three condemnations: anārya-juṣṭam (practised by non-nobles), asvargyam (opposing heaven-attainment), akīrti-karam (manufacturing infamy). Sarvatobhadra (PDF pp.17–18): idam kaśmalam is precisely the vyāmoha that produces avasāda (sinking) regarding prastuta-āvaśyaka-karaṇīya-sva-karma (the presented, necessary, to-be-done own-action). The deep point lies in the vocatives: 'Arjuna' here recalls his prakṛṣṭa-abhijana-prajñā-parākrama (eminent birth, wisdom, valour) and 'tvā/tvam' denotes the ātman in truth free of moha-mala — so the contact of this stain with you is as impossible as darkness touching light. The rebuke is thus already the teaching: you are not the stained; the stain cannot touch you.",
+    "keyPoints": ["kutaḥ — whence, with what cause", "kaśmala as duty-sinking delusion", "triple condemnation: ignoble, heaven-barring, infamous", "Arjuna/tvam carry garbhīkāra of true Self", "stain touching light: already the 2.11–2.30 doctrine in seed"],
+    "wordMeaning": "śrībhagavān uvāca — the Lord said; kutaḥ tvā — whence over you; idam kaśmalam — this taint; viṣame samupasthitam — come in peril; anārya-juṣṭam — resorted by ignoble; asvargyam — heaven-barring; akīrti-karam — disgrace-making; arjuna — O Arjuna."
   },
   {
     "id": "2.3",
@@ -596,10 +648,11 @@ export const gitaEnPart1: any[] = [
     "devanagari": "क्लैब्यं मा स्म गमः पार्थ नैतत्त्वय्युपपद्यते। क्षुद्रं हृदयदौर्बल्यं त्यक्त्वोत्तिष्ठ परन्तप॥2.3॥",
     "iast": "klaibyṃ mā sma gamḥ pārtha naitattvayyupapadyate kṣudrṃ hṛdayadaurbalyṃ tyaktvottiṣṭha parantapa",
     "conceptIds": ["gita-sankhya"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Yield not to impotence; petty heart-weakness abandon, rise, scorcher of foes.",
-    "commentary": "Plain: call to rise. Sarvatobhadra: rise with combined strength; Spanda vigor is neither mere act nor torpor.",
-    "keyPoints": ["drop weakness", "rise to act"]
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Sarvatobhadra ad 2.3 (PDF p.18): he parantapa śatrujana-jvara-janaka — O fever-bringer to foes; klaibya-śabda carries viveka-śūnyatva-garbhīkāra; tvac-chabda again denotes the mala-free ātman; the command is tyaktvā āśaya-kāryam — abandoning the heart's impotent product — and gṛhṇīṣva udyamam in svaprastuta-śāstra-saṅgrāma-karmaṇi."}],
+    "translation": "Yield not to impotence, O Pārtha — this does not befit you. Casting off this petty weakness of heart, rise, O scorcher of foes.",
+    "commentary": "Plain: the positive command follows the rebuke — mā sma gamaḥ klaibyam (do not go to unmanliness/impotence), na etat tvayi upapadyate (this does not fit you), tyaktvā... uttiṣṭha (having cast off... rise). Parantapa (scorcher of foes) recalls Arjuna's terror-name; Pārtha (Pṛthā's son) his nurtured nobility. Sarvatobhadra: klaibya here inwardly means viveka-śūnyatva (voidness of discrimination) — impotence is the intellect's failure, not the arm's; hṛdaya-daurbalyam is āśaya-kāryam, the heart-store's morbid product; kṣudram (petty) marks it as asāra (essenceless). Against it stands uttiṣṭha — take up udyama (exertion) in sva-prastuta śāstra-saṅgrāma-karman, the presented scriptural battle-action. The verse is therefore not mere martial pep-talk but the samuccaya-order in miniature: abandon the mala-product, exert the śakti that never left (PDF p.15).",
+    "keyPoints": ["mā sma gamaḥ klaibyam — do not go impotent", "na upapadyate: unfitting the mala-free Self", "Pārtha and Parantapa recall true stature", "klaibya as viveka-voidness", "uttiṣṭha: samuccaya-order in miniature"],
+    "wordMeaning": "klaibyam mā sma gamaḥ — yield not to impotence; pārtha — O son of Pṛthā; na etat tvayi upapadyate — this befits you not; kṣudram hṛdaya-daurbalyam tyaktvā — casting petty heart-weakness; uttiṣṭha parantapa — rise, O foe-scorcher."
   },
   {
     "id": "2.4",
@@ -608,10 +661,11 @@ export const gitaEnPart1: any[] = [
     "devanagari": "अर्जुन उवाच। कथं भीष्ममहं सङ्ख्ये द्रोणं च मधुसूदन। इषुभिः प्रतियोत्स्यामि पूजार्हावरिसूदन॥2.4॥",
     "iast": "arjuna uvāca kathṃ bhīṣmamahṃ saṅkhye droṇṃ ca madhusūdana iṣubhiḥ pratiyotsyāmi pūjārhāvarisūdana",
     "conceptIds": ["gita-sankhya"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "How shall I fight Bhishma and Drona, worshipful ones, with arrows?",
-    "commentary": "Plain: Arjuna objects to striking elders. Sarvatobhadra: how does awakened action honor yet transcend past teachers?",
-    "keyPoints": ["honor elders", "how fight"]
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Sarvatobhadra ad 2.4 (PDF pp.18–19): ataḥ saṃprati anāvirbhūta-ātmānātma-svarūpa-vivecana-kṣama-prajñatvāt dehādikam eva ātmatvena pratipadyamānaḥ — Arjuna, his discriminative wisdom not yet arisen, takes body-kin itself as Self; katham = kena śāstra-upapannena prakāreṇa — by what scripture-warranted means; pūjārhau, vidyā-abhidhāna-dhana-pradāna-paramopakāriṇau, prāṇair api paritoṣaṇīya-hṛdayau."}],
+    "translation": "Arjuna said: How, O Madhusūdana, shall I strike Bhīṣma and Droṇa in battle with arrows — they who deserve worship, O slayer of foes?",
+    "commentary": "Plain: Arjuna's counter-question — katham (how? by what warranted means?) iṣubhiḥ pratiyotsyāmi (shall I return fight with arrows?) against pūjārhau (the worship-worthy): Bhīṣma the grandsire-vow, Droṇa the brāhmaṇa-teacher. Two Madhu-names frame it: Madhusūdana (You slew ignorance-demons — shall I slay wisdom-givers?). Sarvatobhadra: Arjuna speaks as one whose ātmānātma-vivecana-kṣama-prajñā is anāvirbhūta (not yet arisen, PDF p.18) — hence dehādikam eva ātmatvena pratipadyamānaḥ, taking body-and-kin itself as the Self. His katham subtly answers Kṛṣṇa's kaśmalam: your 'taint' charge fails, he implies, for dharma-viṣaya-abandonment is itself dharma-violation — refraining is warranted, striking is not. The objection's hidden strength (gratitude, vidyā-dhana-upakāra) is real; its hidden error (deha-ātma-bhrama) is what 2.11–2.30 will dissolve.",
+    "keyPoints": ["katham: by what scripture-warrant", "pūjārhau — worship-worthy grandsire and teacher", "gratitude's real claim: vidyā-dhana-upakāra", "deha mistaken for Self: hidden error", "objection answers kaśmala-charge"],
+    "wordMeaning": "arjuna uvāca — Arjuna said; katham — how; bhīṣmam droṇam ca — Bhīṣma and Droṇa; aham saṅkhye — I in battle; madhusūdana — O slayer of Madhu; iṣubhiḥ pratiyotsyāmi — shall counter-fight with arrows; pūjārhau arisūdana — worship-worthy, O foe-slayer."
   },
   {
     "id": "2.5",
@@ -620,10 +674,11 @@ export const gitaEnPart1: any[] = [
     "devanagari": "गुरूनहत्वा हि महानुभावाञ्छ्रेयो भोक्तुं भैक्ष्यमपीह लोके। हत्वार्थकामांस्तु गुरूनिहैव भुञ्जीय भोगान्रुधिरप्रदिग्धान्॥2.5॥",
     "iast": "gurūnahatvā hi mahānubhāvāñchreyo bhoktuṃ bhaikṣyamapīha loke hatvārthakāmāṃstu gurūnihaiva bhuñjīya bhogānrudhirapradigdhān",
     "conceptIds": ["gita-sankhya"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Better to beg than slay noble gurus; slaying them I would enjoy blood-stained gains.",
-    "commentary": "Plain: begging preferred to guru-slaying. Sarvatobhadra: begging wisdom without acting still stains; union alone is clean.",
-    "keyPoints": ["beg better", "blood-stained gain"]
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Sarvatobhadra ad 2.5 (PDF p.19): yasmāt saṅgrāma-parihāreṇa gurūṇāṃ vadhaḥ parihṛto bhavati, tāṃś ca ahatvā bhikṣānnam api abhyavahartum praśasyaṃ syān mama — refraining from battle avoids the slaying, and begging-food uneaten-by-slaying would be praiseworthy; the alternative is tac-choṇita-upacitān iṣṭān viṣayān — desired objects fattened with their blood."}],
+    "translation": "Without slaying these noble elders, it is better to eat even begged food in this world. But slaying the elders, desirous of wealth and power, I would enjoy here pleasures smeared with blood.",
+    "commentary": "Plain: Arjuna's ledger — ahatvā + bhaikṣyam (not-slaying plus beggary) outweighs hatvā + bhogāḥ (slaying plus enjoyment), for the latter are rudhira-pradigdhān (blood-smeared). Mahānubhāvān (great-souled) concedes their stature; artha-kāmān (desiring wealth/power) concedes, uncomfortably, that the elders too stand on the desiring side. Sarvatobhadra: yasmāt parihāreṇa parihṛtaḥ — the logic 'by avoiding battle the slaying is avoided' is formally true and materially ruinous, for śāstra-niyata-karma's parityāga is itself the doṣa (PDF p.15). Bhikṣā (begging) figures jñāna-without-karma — wisdom living on alms, untested in the field; rudhira-bhogas figure karma-without-jñāna — enjoyment fattened on unrecognised Self-blood. Both are half-paths; the verse unwittingly proves that only jñāna-saṃskṛta-bhoga (enjoyment purified by knowledge) escapes the smear — the doctrine of 5.7–5.12.",
+    "keyPoints": ["ledger: beggary outweighs blood-enjoyment", "mahānubhāvān concedes stature", "rudhira-pradigdhān — blood-smeared pleasures", "bhikṣā as jñāna-without-karma", "both halves prove need for union"],
+    "wordMeaning": "gurūn ahatvā hi — not slaying elders; mahānubhāvān — great-souled; śreyaḥ bhoktum bhaikṣyam api — better to eat begged food; iha loke — in this world; hatvā artha-kāmān gurūn — slaying wealth-desiring elders; bhuñjīya bhogān rudhira-pradigdhān — enjoy blood-smeared pleasures."
   },
   {
     "id": "2.6",
