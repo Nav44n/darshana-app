@@ -1,0 +1,161 @@
+// Bhagavad Gītā — adhika-padyāni (appendix verses, p.431 of KSTS LXIV).
+// Extra couplets the Kashmir edition lists beyond the 700 mūla-ślokas,
+// with the adhyāya each belongs to. English renderings original to this project.
+export const gitaEnAdhika: any[] = [
+  {
+    "id": "adhika.1",
+    "number": "App.1 (→1.7)",
+    "section": "Appendix — Adhika-padyāni",
+    "devanagari": "सैन्ये महति ये सर्वे नेतारः शूरसंमताः ॥",
+    "iast": "sainye mahati ye sarve netāraḥ śūrasaṃmatāḥ",
+    "conceptIds": ["gita-recension"],
+    "interpretiveNotes": [{"note": "KSTS LXIV p.431: adhika-pāda attached to 1.7; extra half-line naming all leaders honoured as heroes in the great army."}],
+    "translation": "All those leaders in the great army who are honoured as heroes.",
+    "commentary": "Plain: An extra half-line extending Duryodhana's roll of chiefs. Sarvatobhadra: the crowded muster of habit-powers shows why both knowledge and action are needed against them.",
+    "keyPoints": ["appendix half-verse to 1.7", "muster of opposing powers"]
+  },
+  {
+    "id": "adhika.2",
+    "number": "App.2 (→1.18)",
+    "section": "Appendix — Adhika-padyāni",
+    "devanagari": "पाञ्चालश्च महेश्वासो द्रौपदेयाश्च पञ्च ये ॥",
+    "iast": "pāñcālaś ca maheṣvāso draupadeyāś ca pañca ye",
+    "conceptIds": ["gita-recension"],
+    "interpretiveNotes": [{"note": "KSTS LXIV p.431: adhika-pāda attached to 1.18; Rāmakantha reads Draupadeyāś ca pañca ye where the vulgate distributes the line differently."}],
+    "translation": "And the great-bowed king of Pañcāla, and the five sons of Draupadī.",
+    "commentary": "Plain: An extra muster-line for the Pāṇḍava conch-blowers. Sarvatobhadra: every limb of sattvic practice sounds its note in the Self.",
+    "keyPoints": ["appendix line to 1.18", "Rāmakantha recension reading"]
+  },
+  {
+    "id": "adhika.3",
+    "number": "App.3 (→3.38)",
+    "section": "Appendix — Adhika-padyāni",
+    "devanagari": "भवत्येष कथं कृष्ण कथं चैव विवर्धते । किमात्मकः किमाचारस्तन्ममाचक्ष्व पृच्छतः ॥",
+    "iast": "bhavaty eṣa kathaṃ kṛṣṇa kathaṃ caiva vivardhate kimātmakaḥ kimācāras tan mamācakṣva pṛcchataḥ",
+    "conceptIds": ["gita-karma"],
+    "interpretiveNotes": [{"note": "KSTS LXIV p.431: Arjuna's extra question opening the kāma-cluster in Adhyāya 3 — how does this foe arise, how grow, what is its nature and conduct?"}],
+    "translation": "How does this foe come to be, Krishna, and how does it grow? What is its nature, what its conduct — tell me who asks?",
+    "commentary": "Plain: Arjuna asks for the origin, growth, essence and behaviour of desire-anger. Sarvatobhadra: diagnosing the foe precedes the combined discipline that starves it.",
+    "keyPoints": ["extra question on kāma", "origin, growth, nature, conduct"]
+  },
+  {
+    "id": "adhika.4",
+    "number": "App.4 (→3.39)",
+    "section": "Appendix — Adhika-padyāni",
+    "devanagari": "एष सूक्ष्मः परः शत्रुर्देहिनामिन्द्रियैः सह । सुखतन्त्र इवासीनो मोहयन्पार्थ तिष्ठति ॥",
+    "iast": "eṣa sūkṣmaḥ paraḥ śatrur dehinām indriyaiḥ saha sukhatantra ivāsīno mohayan pārtha tiṣṭhati",
+    "conceptIds": ["gita-karma"],
+    "interpretiveNotes": [{"note": "KSTS LXIV p.431: extra verse on the subtle supreme foe seated with the senses, seeming to depend on pleasure while deluding."}],
+    "translation": "This subtle supreme foe of the embodied, together with the senses, sits as if hanging on pleasure, deluding men.",
+    "commentary": "Plain: Desire poses as pleasure's servant while ruling the senses. Sarvatobhadra: the foe is subtle because it borrows Shiva's own delight to bind.",
+    "keyPoints": ["subtle foe with senses", "pleasure-mask deludes"]
+  },
+  {
+    "id": "adhika.5",
+    "number": "App.5 (→3.40)",
+    "section": "Appendix — Adhika-padyāni",
+    "devanagari": "कामक्रोधमयो घोरः स्तम्भहर्षसमुद्भवः । अहङ्कारोऽभिमानात्मा दुस्तरः पापकर्मभिः ॥",
+    "iast": "kāmakrodhamayo ghoraḥ stambhaharṣasamudbhavaḥ ahaṅkāroʼbhimānātmā dustaraḥ pāpakarmabhiḥ",
+    "conceptIds": ["gita-karma"],
+    "interpretiveNotes": [{"note": "KSTS LXIV p.431: extra verse — the foe as terrible, made of lust and wrath, born of rigidity and excitement, ego-centred, hard for evil-doers to cross."}],
+    "translation": "Terrible, made of lust and wrath, sprung from obstinacy and excitement, ego-centred in pride, hard to cross by evil deeds.",
+    "commentary": "Plain: The anatomy of ahaṅkāra as consolidated craving. Sarvatobhadra: rigidity (stambha) is frozen Spanda; only offered action thaws it.",
+    "keyPoints": ["lust-wrath complex", "ego-pride hard to cross"]
+  },
+  {
+    "id": "adhika.6",
+    "number": "App.6 (→3.41)",
+    "section": "Appendix — Adhika-padyāni",
+    "devanagari": "हर्षमस्य निवर्तयञ्छोकमस्य ददाति च । भयं चास्य करोत्येष मोहस्तु मुहुर्मुहुः ॥",
+    "iast": "harṣam asya nivartayañ chokam asya dadāti ca bhayaṃ cāsya karoty eṣa mohas tu muhurmuhuḥ",
+    "conceptIds": ["gita-karma"],
+    "interpretiveNotes": [{"note": "KSTS LXIV p.431: extra verse — delusion repeatedly withdraws joy, gives grief and spreads fear."}],
+    "translation": "It withdraws his joy and gives him grief instead; it breeds his fear — delusion, again and again.",
+    "commentary": "Plain: Moha oscillates the mind between elation, sorrow and dread. Sarvatobhadra: the wheel of pairs spins until sameness (samatva) brakes it.",
+    "keyPoints": ["joy withdrawn, grief given", "recurrent delusion"]
+  },
+  {
+    "id": "adhika.7",
+    "number": "App.7 (→3.42)",
+    "section": "Appendix — Adhika-padyāni",
+    "devanagari": "स एष कलुषः क्षुद्रश्छिद्रप्रेक्षी धनञ्जय । रजःप्रवृत्तो मोहात्मा मनुष्याणामुपद्रवः ॥",
+    "iast": "sa eṣa kaluṣaḥ kṣudraś chidraprekṣī dhanañjaya rajaḥpravṛtto mohātmā manuṣyāṇām upadravaḥ",
+    "conceptIds": ["gita-karma"],
+    "interpretiveNotes": [{"note": "KSTS LXIV p.431: extra verse closing the cluster — turbid, mean, hole-watching, set in motion by rajas, delusion-natured, a torment to men."}],
+    "translation": "Turbid, petty, watching for weak spots, driven by rajas, delusion-natured — a torment to mankind.",
+    "commentary": "Plain: The foe summarised as rajas-driven inner saboteur. Sarvatobhadra: hole-watching is vikalpa spying on resolve; vigilance of samuccaya closes the holes.",
+    "keyPoints": ["rajas-driven tormentor", "watches for weak spots"]
+  },
+  {
+    "id": "adhika.8",
+    "number": "App.8 (→4.50)",
+    "section": "Appendix — Adhika-padyāni",
+    "devanagari": "यस्य सर्वे समारम्भा निराशीर्बन्धनास्त्विह । त्यागे यस्य हुतं सर्वं स त्यागी स च बुद्धिमान् ॥",
+    "iast": "yasya sarve samārambhā nirāśīr bandhanās tv iha tyāge yasya hutaṃ sarvaṃ sa tyāgī sa ca buddhimān",
+    "conceptIds": ["gita-moksa"],
+    "interpretiveNotes": [{"note": "KSTS LXIV p.431: extra verse on the true renouncer — all undertakings free from craving-bondage, all offered in relinquishment."}],
+    "translation": "Whose every undertaking is free from the bondage of craving, whose all is offered up in relinquishment — he is the renouncer, he the wise.",
+    "commentary": "Plain: Tyāga defined as craving-free offering rather than act-abandonment. Sarvatobhadra: this is samuccaya in one line — karma continued, fruit-bond burnt.",
+    "keyPoints": ["renouncer defined", "craving-bond burnt in offering"]
+  },
+  {
+    "id": "adhika.9",
+    "number": "App.9 (→6.38)",
+    "section": "Appendix — Adhika-padyāni",
+    "devanagari": "लिप्समानः सतां मार्गं प्रमूढो ब्रह्मणः पथि । अनेकचित्तो विभ्रान्तो मोहस्यैव वशं गतः ॥",
+    "iast": "lipsamānaḥ satāṃ mārgaṃ pramūḍho brahmaṇaḥ pathi anekacitto vibhrānto mohasyaiva vaśaṃ gataḥ",
+    "conceptIds": ["gita-dhyana"],
+    "interpretiveNotes": [{"note": "KSTS LXIV p.431: adhika lines on the straying yogi — craving the good path yet bewildered on Brahman's road, many-minded, fallen to delusion."}],
+    "translation": "Craving the path of the good, bewildered on Brahman's road, many-minded and straying, fallen wholly under delusion.",
+    "commentary": "Plain: The fallen striver's inner state between two paths. Sarvatobhadra: many-mindedness is unyoked buddhi; yet even this fall is held by Shiva's grace (cf. 6.40).",
+    "keyPoints": ["bewildered between paths", "many-minded delusion"]
+  },
+  {
+    "id": "adhika.10",
+    "number": "App.10 (→9.7)",
+    "section": "Appendix — Adhika-padyāni",
+    "devanagari": "एवं हि सर्वभूतेषु चराम्यनभिलक्षितः । भूतप्रकृतिमास्थाय सदैव च विनैव च ॥",
+    "iast": "evaṃ hi sarvabhūteṣu carāmy anabhilakṣitaḥ bhūtaprakṛtim āsthāya sadaiva ca vinaiva ca",
+    "conceptIds": ["gita-rajaguhya"],
+    "interpretiveNotes": [{"note": "KSTS LXIV p.431: adhika verse on the Lord moving unmarked among beings, resting on elemental nature — ever with and ever without."}],
+    "translation": "Thus I move among all beings unmarked, resting on elemental nature — ever with form and ever without.",
+    "commentary": "Plain: The paradox of immanence and transcendence restated. Sarvatobhadra: sad-aiva ca vin-aiva ca is Shaiva svātantrya — Shiva with the world yet never bound.",
+    "keyPoints": ["unmarked immanence", "ever with, ever without"]
+  },
+  {
+    "id": "adhika.11",
+    "number": "App.11 (→11.28)",
+    "section": "Appendix — Adhika-padyāni",
+    "devanagari": "नानारूपैः पुरुषैर्वाध्यमाना विशन्ति ते वक्त्रमचिन्त्यरूपम् । यौधिष्ठिरा धार्तराष्ट्राश्च योधाः शस्त्रैः कृत्ता विविधैः सर्व एव ॥",
+    "iast": "nānārūpaiḥ puruṣair vādhya mānā viśanti te vaktram acintyarūpam yaudhiṣṭhirā dhārtarāṣṭrāś ca yodhāḥ śastraiḥ kṛttā vividhaiḥ sarva eva",
+    "conceptIds": ["gita-vishvarupa"],
+    "interpretiveNotes": [{"note": "KSTS LXIV p.431: adhika verse expanding 11.28 — warriors of both sides, cut by many weapons, in many forms enter the unthinkable mouth."}],
+    "translation": "In many forms, driven by fate, they enter Your unthinkable mouth — Yudhiṣṭhira's men and Dhṛtarāṣṭra's fighters alike, mangled by all manner of weapons.",
+    "commentary": "Plain: Both hosts stream into the cosmic maw. Sarvatobhadra: time as Shiva's hunger consumes both jñāna-side and karma-side partialities into wholeness.",
+    "keyPoints": ["both hosts enter", "time as cosmic mouth"]
+  },
+  {
+    "id": "adhika.12",
+    "number": "App.12 (→11.28)",
+    "section": "Appendix — Adhika-padyāni",
+    "devanagari": "त्वत्तेजसा निहता नूनमेते तथा हि मे त्वच्छरीरे प्रविष्टाः ॥",
+    "iast": "tvattejasā nihatā nūnam ete tathā hi me tvaccharīre praviṣṭāḥ",
+    "conceptIds": ["gita-vishvarupa"],
+    "interpretiveNotes": [{"note": "KSTS LXIV p.431: adhika half-verse — already slain by Your radiance, they have entered Your body."}],
+    "translation": "Surely slain already by Your radiance, they have entered into Your body — so it appears to me.",
+    "commentary": "Plain: Arjuna sees the slain already absorbed in the Lord. Sarvatobhadra: grace shows the end at the beginning so action becomes nimitta-mātra (11.33).",
+    "keyPoints": ["already slain by radiance", "nimitta-mātra preview"]
+  },
+  {
+    "id": "adhika.13",
+    "number": "App.13 (→3.35)",
+    "section": "Appendix — Adhika-padyāni",
+    "devanagari": "स्वधर्मे निधनं श्रेयः परधर्मोदयादपि ॥",
+    "iast": "svadharme nidhanaṃ śreyaḥ paradharmodayād api",
+    "conceptIds": ["gita-karma", "gita-recension"],
+    "interpretiveNotes": [{"note": "KSTS LXIV p.431: adhika half-verse confirming the Rāmakantha 3.35 pāṭha — death in one's own dharma is better than even the rise of another's."}],
+    "translation": "Death in one's own dharma is better, even than the flourishing of another's.",
+    "commentary": "Plain: The Rāmakantha close of 3.35 in compressed form. Sarvatobhadra: svadharma is the samuccaya assigned to one's adhikāra; borrowed paths, however thriving, bind.",
+    "keyPoints": ["svadharma over paradharma", "confirms 3.35 pāṭha"]
+  }
+];
