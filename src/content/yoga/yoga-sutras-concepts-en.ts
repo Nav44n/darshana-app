@@ -3,7 +3,7 @@ export const yogaSutrasConceptsEn: any[] = [
     "id": "citta-vritti-nirodha",
     "diagramId": "citta-vritti",
     "title": "Citta-vṛtti-nirodha — stilling the mind",
-    "summary": "Patañjali's formal definition of yoga itself: the complete stilling of the mind's (citta) fluctuations (vṛttis). Once stilled, the seer (puruṣa) — assumed here in the same dualist terms Sāṃkhya sets out — rests in its own true nature instead of appearing to take on the mind's changing content."
+    "summary": "Patañjali's formal definition of yoga itself: the complete stilling of the mind's (citta) fluctuations (vṛttis). Once stilled, the seer (puruṣa) — assumed here in the same dualist terms Sāṃkhya sets out — rests in its own true nature instead of appearing to take on the mind's changing content. Satyananda stresses chitta as total individual consciousness (sense-objective, astral-subjective, unconscious-dormant; atman plus chitta is jivatman), so nirodha blocks patterns, not awareness itself — a practical redirection verified in meditation and sleep, not suppression."
   },
   {
     "id": "abhyasa-vairagya",
@@ -15,7 +15,7 @@ export const yogaSutrasConceptsEn: any[] = [
     "id": "five-klesas",
     "diagramId": "five-klesas",
     "title": "The five kleśas — root afflictions",
-    "summary": "Avidyā (ignorance), asmitā (ego), rāga (attachment), dveṣa (aversion), and abhiniveśa (fear of death) — five obstacles to yoga, with avidyā as the root soil the other four grow from."
+    "summary": "Avidyā (ignorance), asmitā (ego), rāga (attachment), dveṣa (aversion), and abhiniveśa (fear of death) — five obstacles to yoga, with avidyā as the root soil the other four grow from. Satyananda treats the tree as inverted (dvesha to raga to asmita to avidya): first attenuate active kleshas by observant dhyana/antar-mouna and kriya-yoga, then scorch seeds by viveka, using seclusion and karma/bhakti lifebelts for eruptions."
   },
   {
     "id": "eight-limbs",
@@ -32,7 +32,7 @@ export const yogaSutrasConceptsEn: any[] = [
   {
     "id": "kaivalya-yoga",
     "title": "Kaivalya — absolute independence",
-    "summary": "The text's final teaching: liberation as puruṣa's awareness resting in its own nature alone, entirely uncoupled from prakṛti — not a new state added to the self, but the end of a false identification that, properly speaking, never really touched it."
+    "summary": "The text's final teaching: liberation as puruṣa's awareness resting in its own nature alone, entirely uncoupled from prakṛti — not a new state added to the self, but the end of a false identification that, properly speaking, never really touched it. Satyananda: yoga's direct work is removing avidya-layers and karmic impressions; kaivalya is discovered, not manufactured — the jivanmukta sees prakriti from outside, the 196 sutras forming one faultlessly sequenced mala from definition to resolution."
   },
   {
     "id": "ishvara",
@@ -42,7 +42,7 @@ export const yogaSutrasConceptsEn: any[] = [
   {
     "id": "kriya-yoga",
     "title": "Kriyā-yoga — the path of action",
-    "summary": "Self-discipline (tapas), study (svādhyāya), and dedication to the Lord (Īśvara-praṇidhāna) — a more accessible, action-oriented path for a mind still governed by rajas and tamas, offered alongside the subtler practice-and-dispassion method."
+    "summary": "Self-discipline (tapas), study (svādhyāya), and dedication to the Lord (Īśvara-praṇidhāna) — a more accessible, action-oriented path for a mind still governed by rajas and tamas, offered alongside the subtler practice-and-dispassion method. Satyananda reads tapas as inner fire burning the dross and the whole karmic stock (accumulated, current, sacrificed), preparing the unready mind for samadhi and thinning the kleshas."
   },
   {
     "id": "satkaryavada",
@@ -266,7 +266,7 @@ export const yogaSutrasConceptsEn: any[] = [
   {
     "id": "dharma-megha",
     "title": "The cloud of dharma — discernment's climax",
-    "summary": "Mind colored by both Seer and seen is all-objected (IV.23); though painted by countless traces, it works for another as an assemblage (IV.24). For the distinction-seer, self-inclination ceases (IV.25); then mind dips toward discernment, weighted toward kaivalya (IV.26) — with saṃskāra-born intrusions in its gaps (IV.27), abandoned like kleśas (IV.28). Even in exaltation, the non-craving one abides in utter discernment: dharma-megha samādhi, the cloud that rains dharma (IV.29), ending kleśa and karma (IV.30) — after which the knowable thins to almost nothing (IV.31)."
+    "summary": "Mind colored by both Seer and seen is all-objected (IV.23); though painted by countless traces, it works for another as an assemblage (IV.24). For the distinction-seer, self-inclination ceases (IV.25); then mind dips toward discernment, weighted toward kaivalya (IV.26) — with saṃskāra-born intrusions in its gaps (IV.27), abandoned like kleśas (IV.28). Even in exaltation, the non-craving one abides in utter discernment: dharma-megha samādhi, the cloud that rains dharma (IV.29), ending kleśa and karma (IV.30) — after which the knowable thins to almost nothing (IV.31). Satyananda: akusida — no expectation of gain, even the thirst for kaivalya dropped; dharma as sat-chit-ananda showered homogenously like a cloud, the last moment before liberation."
   },
   {
     "id": "guna-pratiprasava",

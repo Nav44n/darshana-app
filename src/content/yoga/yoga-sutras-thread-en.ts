@@ -7,7 +7,7 @@ export const yogaSutrasThreadEn = [
     content: {
       en: {
         title: "The Beginning of Inquiry: What is Yoga?",
-        narrative: "Unlike Sāṃkhya, which builds a cosmological model first, Patañjali opens with immediate action: Yoga is the stilling of the mind's changing states (citta-vṛtti-nirodha). This is not just a calming exercise; it is an epistemological necessity. Only when the mind is as still as a clear lake can the Seer (Puruṣa) rest in its own true nature, rather than identifying with the ripples on the surface."
+        narrative: "Unlike Sāṃkhya, which builds a cosmological model first, Patañjali opens with immediate action: Yoga is the stilling of the mind's changing states (citta-vṛtti-nirodha). This is not just a calming exercise; it is an epistemological necessity. Only when the mind is as still as a clear lake can the Seer (Puruṣa) rest in its own true nature, rather than identifying with the ripples on the surface. Satyananda frames chitta as total individual consciousness — sense-objective, astral-subjective and unconscious-dormant together — so nirodha blocks patterns, not awareness itself, to be verified through sadhana-experience."
       }
     }
   },
@@ -139,7 +139,7 @@ export const yogaSutrasThreadEn = [
     content: {
       en: {
         title: "The five Kleśas",
-        narrative: "If stillness is our true nature, why is the mind so turbulent? Chapter II identifies the five Kleśas (afflictions): ignorance, egoism, attachment, aversion, and fear of death. Ignorance (avidyā) is the fertile soil for the other four — mistaking the temporary for the eternal, the painful for the pleasant, and the non-self (Prakṛti) for the true Self (Puruṣa). They sleep, thin out, break apart or rage at full strength; the subtle ones dissolve only in involution."
+        narrative: "If stillness is our true nature, why is the mind so turbulent? Chapter II identifies the five Kleśas (afflictions): ignorance, egoism, attachment, aversion, and fear of death. Ignorance (avidyā) is the fertile soil for the other four — mistaking the temporary for the eternal, the painful for the pleasant, and the non-self (Prakṛti) for the true Self (Puruṣa). They sleep, thin out, break apart or rage at full strength; the subtle ones dissolve only in involution. Satyananda's method: first attenuate the active kleshas by observant dhyana (antar mouna) and kriya-yoga, then scorch the seeds by viveka — with karma and bhakti as lifebelts."
       }
     }
   },
@@ -271,7 +271,7 @@ export const yogaSutrasThreadEn = [
     content: {
       en: {
         title: "The Cloud of Dharma",
-        narrative: "Kaivalya Pāda dismantles the last subtleties: powers come by birth, herbs, mantra, austerity or samādhi while nature herself fills in the change; constructed minds multiply without residue; beginningless traces hold bondage together without any first moment; past and future are real, one object tints many minds, and changeless awareness knows mind by reflection — never by turning. Then mind dips toward discernment, gaps still intruded by saṃskāras, until even exaltation is declined: dharma-megha samādhi, the cloud raining dharma, ends kleśa and karma — and the knowable thins to almost nothing."
+        narrative: "Kaivalya Pāda dismantles the last subtleties: powers come by birth, herbs, mantra, austerity or samādhi while nature herself fills in the change; constructed minds multiply without residue; beginningless traces hold bondage together without any first moment; past and future are real, one object tints many minds, and changeless awareness knows mind by reflection — never by turning. Then mind dips toward discernment, gaps still intruded by saṃskāras, until even exaltation is declined: dharma-megha samādhi, the cloud raining dharma, ends kleśa and karma — and the knowable thins to almost nothing. Satyananda: akusida — no expectation of gain, even the thirst for kaivalya dropped — the cloud showering homogeneous sat-chit-ananda, the last moment before liberation."
       }
     }
   },
@@ -283,7 +283,7 @@ export const yogaSutrasThreadEn = [
     content: {
       en: {
         title: "Kaivalya — absolute independence",
-        narrative: "When the mind is as pure and luminous as Puruṣa itself, the purpose of their union is fulfilled. The Guṇas, purpose-served, end their transformation-sequence and resolve back into their unmanifest state (pratiprasava). This is Kaivalya: absolute independence. The Seer rests entirely in its own nature, eternally free from the machinery of the mind, action, and time."
+        narrative: "When the mind is as pure and luminous as Puruṣa itself, the purpose of their union is fulfilled. The Guṇas, purpose-served, end their transformation-sequence and resolve back into their unmanifest state (pratiprasava). This is Kaivalya: absolute independence. The Seer rests entirely in its own nature, eternally free from the machinery of the mind, action, and time. Satyananda closes the arc from I.1: 196 sutras as one faultlessly sequenced mala — complete instructions uncovered, not manufactured, the map ending where sadhana-experience begins."
       }
     }
   }
