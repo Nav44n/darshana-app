@@ -214,7 +214,7 @@ export const gitaEnPart5: any[] = [
     "conceptIds": ["gita-ksetra"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.18 = vulgate 13.17."}],
     "translation": "Light of lights beyond darkness, knowledge itself, the knowable and goal of knowledge, seated in every heart.",
-    "commentary": "Hridaya-stha jyotis is directly realizable. Ramakantha: heart is samvit-pitha.",
+    "commentary": "Hridaya-stha jyotis is directly realisable. Ramakantha: heart is samvit-pitha.",
     "keyPoints": ["jyotir-jyotis", "hridi-sthita"]
   },
   {
@@ -717,7 +717,7 @@ export const gitaEnPart5: any[] = [
     "iast": "mānāpamānayostulyastulyo mitrāripakṣayoḥ sarvārambhaparityāgī guṇātītḥ sa ucyate",
     "conceptIds": ["gita-guna"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Equal in honor-dishonor, friend-foe, renouncing all undertakings, is called beyond gunas.",
+    "translation": "Equal in honour-dishonour, friend-foe, renouncing all undertakings, is called beyond gunas.",
     "commentary": "Sarvarambha-tyaga is phala-tyaga, not karma-tyaga. Ramakantha: crucial for samuccaya.",
     "keyPoints": ["mana-apamana-sama", "arambha-tyaga"]
   },

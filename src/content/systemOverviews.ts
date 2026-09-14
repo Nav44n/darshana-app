@@ -48,13 +48,13 @@ export const systemOverviews: Record<string, SystemOverviewData> = {
         {
           title: 'The Fourfold Medical Model',
           sanskritTerm: 'Caturvyūha-Śāstra (चतुर्व्यूह-शास्त्र)',
-          summary: 'Modeled after Āyurvedic medicine: (1) Heya (the disease: suffering), (2) Hāna (the cure: permanent cessation), (3) Upāya (the medicine: the 16 categories and true knowledge), and (4) Adhigantavya (the return to supreme health: Apavarga).',
+          summary: 'Modelled after Āyurvedic medicine: (1) Heya (the disease: suffering), (2) Hāna (the cure: permanent cessation), (3) Upāya (the medicine: the 16 categories and true knowledge), and (4) Adhigantavya (the return to supreme health: Apavarga).',
           conceptId: 'caturvyuha-shastra'
         },
         {
           title: 'The Twenty-One Kinds of Suffering',
           sanskritTerm: 'Ekaviṃśati-Duḥkha (एकविंशति-दुःख)',
-          summary: 'Uddyotakara catalogs the 21 roots of suffering: the physical body, the six sense organs, the six sense objects, the six forms of awareness, intrinsic pain, and mundane pleasure (which is fragile, craving-laden, and destined for loss).',
+          summary: 'Uddyotakara catalogues the 21 roots of suffering: the physical body, the six sense organs, the six sense objects, the six forms of awareness, intrinsic pain, and mundane pleasure (which is fragile, craving-laden, and destined for loss).',
           conceptId: 'ekavimshati-duhkha'
         },
         {
@@ -224,7 +224,7 @@ export const systemOverviews: Record<string, SystemOverviewData> = {
       ml: 'ഉറങ്ങുന്ന സർപ്പശക്തിയും ചക്രഗോവണിയും ഉണർവ്വിന്റെ ശാസ്ത്രവും'
     },
     summary: {
-      en: "Kundalini Tantra synthesizes Tantra and Yoga into one program: a dormant force at the spine-base (kundalini-shakti) rises through the chakra-switches via sushumna to light the sleeping brain and unite with Shiva in sahasrara — then descends, returning the realised being to ordinary life as play. The teaching maps ten methods of awakening, the ethics of preparation (guru, twelve years, sushumna first, diet, seclusion, karma yoga), the phenomenology of the crisis, a full chakra-by-chakra and kriya-by-kriya sadhana, and a closing research dossier on nadis, chakras and cross-cultural evidence. This app encodes it as a concepts-only text: original summaries in our own words, no borrowed prose.",
+      en: "Kundalini Tantra synthesizes Tantra and Yoga into one programme: a dormant force at the spine-base (kundalini-shakti) rises through the chakra-switches via sushumna to light the sleeping brain and unite with Shiva in sahasrara — then descends, returning the realised being to ordinary life as play. The teaching maps ten methods of awakening, the ethics of preparation (guru, twelve years, sushumna first, diet, seclusion, karma yoga), the phenomenology of the crisis, a full chakra-by-chakra and kriya-by-kriya sadhana, and a closing research dossier on nadis, chakras and cross-cultural evidence. This app encodes it as a concepts-only text: original summaries in our own words, no borrowed prose.",
       ml: "തന്ത്രത്തെയും യോഗത്തെയും ഒരൊറ്റ പരിപാടിയായി സമന്വയിപ്പിക്കുന്നു കുണ്ഡലിനീതന്ത്രം: നട്ടെല്ലിന്റെ അടിയിലെ ഉറങ്ങുന്ന ശക്തി (കുണ്ഡലിനീശക്തി) സുഷുമ്നയിലൂടെ ചക്രസ്വിച്ചുകളിലൂടെ ഉയർന്ന് ഉറങ്ങുന്ന മസ്തിഷ്കത്തെ പ്രകാശിപ്പിച്ച് സഹസ്രാരത്തിൽ ശിവനുമായി യോഗം ചെയ്യുന്നു — പിന്നെ ഇറങ്ങിവന്ന്, സാക്ഷാത്കരിച്ചവൻ സാധാരണ ജീവിതത്തിലേക്ക് ലീലയായി മടങ്ങുന്നു. ഉണർവ്വിന്റെ പത്ത് മാർഗ്ഗങ്ങൾ, ഒരുക്കത്തിന്റെ നൈതികത (ഗുരു, പന്ത്രണ്ട് വർഷം, ആദ്യം സുഷുമ്ന, ആഹാരം, ഏകാന്തവാസം, കർമ്മയോഗം), പ്രതിസന്ധിയുടെ പ്രതിഭാസശാസ്ത്രം, ചക്രംതോറും ക്രിയതോറുമുള്ള പൂർണ്ണ സാധന, നാഡീ-ചക്ര ഗവേഷണരേഖ എന്നിവയെല്ലാം ഇവിടെ മാപ്പ് ചെയ്യപ്പെടുന്നു."
     },
     pillars: {

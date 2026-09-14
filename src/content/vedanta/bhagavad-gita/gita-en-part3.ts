@@ -21,7 +21,7 @@ export const gitaEnPart3: any[] = [
     "iast": "jñānṃ tehṃ savijñānamidṃ vakṣyāmyaśeṣatḥ yajjñātvā neha bhūyonyajjñātavyamavaśiṣyate",
     "conceptIds": ["gita-vijnana"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "I shall teach you knowledge together with realization in full, knowing which nothing further remains to be known.",
+    "translation": "I shall teach you knowledge together with realisation in full, knowing which nothing further remains to be known.",
     "commentary": "Plain: jnana plus vijnana exhausts the knowable. Ramakantha: vijnana is applied living-through in action, hence jnana alone is incomplete without karma.",
     "keyPoints": ["jnana+vijnana pair", "nothing outside Shiva-knowing"]
   },
@@ -166,7 +166,7 @@ export const gitaEnPart3: any[] = [
     "conceptIds": ["gita-vijnana"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
     "translation": "This divine guna-made maya of mine is hard to cross, but those who surrender to me cross it.",
-    "commentary": "Plain: surrender crosses maya. Ramakantha: explicitly via Spanda Karika 46 — maya is Shiva's own freedom-power, crossed by recognizing her as one's own spanda while acting, not by fleeing action.",
+    "commentary": "Plain: surrender crosses maya. Ramakantha: explicitly via Spanda Karika 46 — maya is Shiva's own freedom-power, crossed by recognising her as one's own spanda while acting, not by fleeing action.",
     "keyPoints": ["maya as svatantrya", "prapatti + spanda recognition"]
   },
   {
@@ -214,7 +214,7 @@ export const gitaEnPart3: any[] = [
     "conceptIds": ["gita-vijnana"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
     "translation": "All these are noble, but the knower is my very self, abiding yoked to me as the supreme goal.",
-    "commentary": "Plain: jnani identified with Lord. Ramakantha: identity is pratyabhijna — self recognized as Shiva while still acting.",
+    "commentary": "Plain: jnani identified with Lord. Ramakantha: identity is pratyabhijna — self recognised as Shiva while still acting.",
     "keyPoints": ["jnani = atma", "supreme gati in life"]
   },
   {
@@ -310,7 +310,7 @@ export const gitaEnPart3: any[] = [
     "conceptIds": ["gita-vijnana"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
     "translation": "I know past, present and future beings, but none knows me.",
-    "commentary": "Plain: omniscience yet hiddenness. Ramakantha: trikala-knowing is Shiva's citi, unknown until self-recognized.",
+    "commentary": "Plain: omniscience yet hiddenness. Ramakantha: trikala-knowing is Shiva's citi, unknown until self-recognised.",
     "keyPoints": ["omniscience", "hidden subject"]
   },
   {
@@ -586,7 +586,7 @@ export const gitaEnPart3: any[] = [
     "conceptIds": ["gita-aksara"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
     "translation": "This same host of beings helplessly recurs, dissolving at night, emerging at day.",
-    "commentary": "Plain: helpless repetition under prakriti. Ramakantha: helplessness ends when emission is recognized as self's freedom.",
+    "commentary": "Plain: helpless repetition under prakriti. Ramakantha: helplessness ends when emission is recognised as self's freedom.",
     "keyPoints": ["bhutagrama", "avasha repetition"]
   },
   {
@@ -705,7 +705,7 @@ export const gitaEnPart3: any[] = [
     "iast": "śrībhagavānuvāca idṃ tu te guhyatamṃ pravakṣyāmyanasūyave jñānṃ vijñānasahitṃ yajjñātvā mokṣyaseśubhāt",
     "conceptIds": ["gita-rajaguhya"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "To you ungrudging I shall declare the most secret knowledge with realization, knowing which you shall be freed from evil.",
+    "translation": "To you ungrudging I shall declare the most secret knowledge with realisation, knowing which you shall be freed from evil.",
     "commentary": "Plain: secret wisdom for the receptive. Ramakantha: guhyatama is Shiva-recognition hidden in plain action.",
     "keyPoints": ["guhyatama", "anasuya adhikara"]
   },

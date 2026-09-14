@@ -46,7 +46,7 @@ export const gitaEnPart4: any[] = [
     "conceptIds": ["gita-vibhuti"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
     "translation": "Intellect, knowledge, undelusion, patience, truth, restraint, calm, pleasure, pain, birth, non-being, fear and fearlessness.",
-    "commentary": "Plain: states from Lord (to be completed next). Ramakantha: opposites as Shiva's powers to be recognized in experience.",
+    "commentary": "Plain: states from Lord (to be completed next). Ramakantha: opposites as Shiva's powers to be recognised in experience.",
     "keyPoints": ["mental states", "divine source"]
   },
   {
@@ -538,7 +538,7 @@ export const gitaEnPart4: any[] = [
     "conceptIds": ["gita-vishvarupa"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
     "translation": "So it is as you say, supreme Lord, yet I wish to see your lordly form.",
-    "commentary": "Plain: request for vision. Ramakantha: seeing crowns hearing — knowledge seeks direct realization in vision-action.",
+    "commentary": "Plain: request for vision. Ramakantha: seeing crowns hearing — knowledge seeks direct realisation in vision-action.",
     "keyPoints": ["request vision", "aishvara rupa"]
   },
   {

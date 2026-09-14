@@ -110,7 +110,7 @@ export const gitaThreadEn: any[] = [
     "conceptId": "gita-daivasura",
     "verseIds": ["16.1", "16.5", "16.21", "16.24"],
     "title": "Two natures",
-    "narrative": "Ch.16 sorts the two creature-orders for self-diagnosis: divine wealth — fearlessness to modesty — leads to release; demonic — hypocrisy to ignorance — to bondage. The demonic monologue of endless grabbing is quoted at length, then the triple hell-gate (lust, wrath, greed) is named with its remedy: the scriptural ordinance as lamp, lest willfulness ruin perfection, happiness and the goal."
+    "narrative": "Ch.16 sorts the two creature-orders for self-diagnosis: divine wealth — fearlessness to modesty — leads to release; demonic — hypocrisy to ignorance — to bondage. The demonic monologue of endless grabbing is quoted at length, then the triple hell-gate (lust, wrath, greed) is named with its remedy: the scriptural ordinance as lamp, lest wilfulness ruin perfection, happiness and the goal."
   },
   {
     "id": "gita-t17",

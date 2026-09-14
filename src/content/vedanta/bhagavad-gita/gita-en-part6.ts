@@ -273,7 +273,7 @@ export const gitaEnPart6: any[] = [
     "iast": "yḥ śāstravidhimutsṛjya vartate kāmakāratḥ na sa siddhimavāpnoti na sukhṃ na parāṃ gatim",
     "conceptIds": ["gita-daivasura"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Who discards scriptural ordinance acting willfully attains neither perfection, happiness nor supreme goal.",
+    "translation": "Who discards scriptural ordinance acting wilfully attains neither perfection, happiness nor supreme goal.",
     "commentary": "Shastra-vidhi pramanya. Ramakantha: shastra includes Shaiva agama vidhi.",
     "keyPoints": ["shastra-utsarga", "a-siddhi"]
   },
@@ -370,7 +370,7 @@ export const gitaEnPart6: any[] = [
     "conceptIds": ["gita-shraddha"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
     "translation": "Food dear to each is threefold, as are sacrifice, austerity, charity; hear their distinctions.",
-    "commentary": "Ahara-yajna-tapo-dana vibhaga program. Ramakantha: ahara-shuddhi is samuccaya-mula.",
+    "commentary": "Ahara-yajna-tapo-dana vibhaga programme. Ramakantha: ahara-shuddhi is samuccaya-mula.",
     "keyPoints": ["ahara-trividha", "yajna-bheda"]
   },
   {
@@ -501,7 +501,7 @@ export const gitaEnPart6: any[] = [
     "iast": "satkāramānapūjārthṃ tapo dambhena caiva yat kriyate tadiha proktṃ rājasṃ calamadhruvam",
     "conceptIds": ["gita-shraddha"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Done for honor-respect-worship with hypocrisy is rajasic, unstable, impermanent.",
+    "translation": "Done for honour-respect-worship with hypocrisy is rajasic, unstable, impermanent.",
     "commentary": "Rajasa-tapas. Ramakantha: cala-adhruva phala warns karma-sanga.",
     "keyPoints": ["satkara-artha", "cala"]
   },
@@ -1125,7 +1125,7 @@ export const gitaEnPart6: any[] = [
     "iast": "śamo damastapḥ śaucṃ kṣāntirārjavameva ca jñānṃ vijñānamāstikyṃ brahmakarma svabhāvajam",
     "conceptIds": ["gita-moksa"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Calm, restraint, austerity, purity, patience, honesty, knowledge, realization, faith is brahmin nature-duty.",
+    "translation": "Calm, restraint, austerity, purity, patience, honesty, knowledge, realisation, faith is brahmin nature-duty.",
     "commentary": "Brahma-karma. Ramakantha: jnana-vijnana is agama-viveka.",
     "keyPoints": ["shama-dama", "jnana-vijnana"]
   },
@@ -1137,7 +1137,7 @@ export const gitaEnPart6: any[] = [
     "iast": "śauryṃ tejo dhṛtirdākṣyṃ yuddhe cāpyapalāyanam dānamīśvarabhāvaśca kṣātrṃ karma svabhāvajam",
     "conceptIds": ["gita-moksa"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Valor, radiance, resolve, skill, non-flight in battle, charity, lordliness is kshatra nature-duty.",
+    "translation": "Valour, radiance, resolve, skill, non-flight in battle, charity, lordliness is kshatra nature-duty.",
     "commentary": "Kshatra-karma. Ramakantha: Arjuna sva-dharma hence yuddha as samuccaya-karma.",
     "keyPoints": ["shaurya-tejas", "apalayana"]
   },

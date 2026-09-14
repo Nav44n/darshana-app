@@ -406,7 +406,7 @@ export const gitaEnPart2: any[] = [
     "conceptIds": ["gita-karma"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
     "translation": "Love-hate lurk for each sense-object; come not under them; they waylay.",
-    "commentary": "Plain: avoid raga-dvesha. Sarvatobhadra: pairs waylay samuccaya traveler; witness them as Shiva-shadows.",
+    "commentary": "Plain: avoid raga-dvesha. Sarvatobhadra: pairs waylay samuccaya traveller; witness them as Shiva-shadows.",
     "keyPoints": ["love-hate lurk", "waylayers"]
   },
   {
@@ -645,9 +645,9 @@ export const gitaEnPart2: any[] = [
     "iast": "ye yathā māṃ prapadyante tāṃstathaiva bhajāmyaham mama vartmānuvartante manuṣyāḥ pārtha sarvaśḥ",
     "conceptIds": ["gita-jnana"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "As men approach Me, so I favor; all follow My path in every way.",
+    "translation": "As men approach Me, so I favour; all follow My path in every way.",
     "commentary": "Plain: divine reciprocity. Sarvatobhadra: Shiva meets jnana-path and karma-path alike; Sarvatobhadra indeed.",
-    "keyPoints": ["as approach", "so favor"]
+    "keyPoints": ["as approach", "so favour"]
   },
   {
     "id": "4.12",
@@ -813,7 +813,7 @@ export const gitaEnPart2: any[] = [
     "iast": "daivamevāpare yajñṃ yoginḥ paryupāsate brahmāgnāvapare yajñṃ yajñenaivopajuhvati",
     "conceptIds": ["gita-jnana"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Some yogins honor deva-sacrifice; others offer sacrifice in Brahman-fire by sacrifice.",
+    "translation": "Some yogins honour deva-sacrifice; others offer sacrifice in Brahman-fire by sacrifice.",
     "commentary": "Plain: sacrifice types. Sarvatobhadra: lower deva-rite and higher Self-fire both steps to union.",
     "keyPoints": ["deva-rite", "Self-fire"]
   },
@@ -1342,7 +1342,7 @@ export const gitaEnPart2: any[] = [
     "conceptIds": ["gita-sannyasa"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
     "translation": "Placing outer touches outside, gaze between brows, equalizing breaths in nostrils.",
-    "commentary": "Plain: yoga technique. Sarvatobhadra: gathering Shakti inward to Shiva-center before re-acting.",
+    "commentary": "Plain: yoga technique. Sarvatobhadra: gathering Shakti inward to Shiva-centre before re-acting.",
     "keyPoints": ["touches outside", "breaths equal"]
   },
   {
@@ -1449,7 +1449,7 @@ export const gitaEnPart2: any[] = [
     "iast": "jitātmanḥ praśāntasya paramātmā samāhitḥ śītoṣṇasukhaduḥkheṣu tathā mānāpamānayoḥ",
     "conceptIds": ["gita-dhyana"],
     "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}],
-    "translation": "Conquered, calm Self, Supreme poised in cold-heat, joy-pain, honor-dishonor.",
+    "translation": "Conquered, calm Self, Supreme poised in cold-heat, joy-pain, honour-dishonour.",
     "commentary": "Plain: Supreme poised. Sarvatobhadra: Shiva-Paramatman steady while pairs play in karma.",
     "keyPoints": ["conquered calm", "Supreme poised"]
   },
