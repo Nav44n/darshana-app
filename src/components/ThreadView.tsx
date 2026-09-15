@@ -1,14 +1,17 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useParams, Link, useSearchParams } from 'react-router';
+import { createPortal } from 'react-dom';
 import { getSystem } from '../content';
-import { ChevronRight, ChevronLeft, ArrowLeft } from 'lucide-react';
+import { ChevronRight, ChevronLeft, ArrowLeft, List as ListIcon, X as CloseIcon } from 'lucide-react';
 import RichText from './RichText';
 import ReadingControls from './ReadingControls';
-import { BottomBar, Notice, Card, CardBody, ChipLink, PageShell, SectionTitle, Breadcrumb } from './Primitives';
+import { BottomBar, Notice, Card, CardBody, ChipLink, PageShell, SectionTitle, Breadcrumb, CountBadge, accentTint } from './Primitives';
 import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
+import { getSystemAccent } from '../utils/theme';
+import { getThreadStepTitle } from '../utils/references';
 import { getThreadProgress, setThreadProgress } from '../utils/threadProgress';
 import { usePagerKeys } from '../utils/pagerKeys';
 
@@ -18,6 +21,9 @@ export default function ThreadView() {
   const system = getSystem(systemId || '');
   const [searchParams, setSearchParams] = useSearchParams();
   const totalSteps = system?.thread?.length ?? 0;
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
   const [stepIndex, setStepIndex] = useState(() => {
     // Explicit deep link wins; otherwise restore the furthest visited step
     // so a returning reader continues where they left off, not at Step 1.
@@ -43,10 +49,37 @@ export default function ThreadView() {
     setStepIndex((prev) => Math.min(prev, Math.max(totalSteps - 1, 0)));
   }, [systemId, totalSteps]);
 
-  // Remember the furthest visited step per system (never throws).
+  // Remember the furthest visited step per system (never throws). Taking
+  // the max keeps back-navigation from erasing progress, so the contents
+  // list can honestly distinguish reached steps from unreached ones.
   useEffect(() => {
-    if (systemId) setThreadProgress(systemId, Math.min(stepIndex, Math.max(totalSteps - 1, 0)));
+    if (systemId) {
+      const clamped = Math.min(stepIndex, Math.max(totalSteps - 1, 0));
+      const prev = getThreadProgress(systemId) ?? 0;
+      setThreadProgress(systemId, Math.max(prev, clamped));
+    }
   }, [systemId, stepIndex, totalSteps]);
+
+  // Drawer behaviour: initial focus on the close control, Escape dismisses,
+  // background scroll locks, and focus returns to the trigger on close.
+  useEffect(() => {
+    if (!drawerOpen) return;
+    closeRef.current?.focus();
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setDrawerOpen(false);
+        triggerRef.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [drawerOpen]);
 
   if (!system || !system.thread || system.thread.length === 0) {
     return <div className="text-center py-12">{t(language, 'threadNotFound')}</div>;
@@ -87,6 +120,16 @@ export default function ThreadView() {
   const stepConceptSummary =
     stepConcept?.content[language]?.summary || stepConcept?.content.en?.summary;
   const systemDisplay = getSystemDisplay(system, language);
+  const accent = getSystemAccent(system.id);
+  const percent = Math.round(((clampedIndex + 1) / totalSteps) * 100);
+  // Reached vs unreached styling follows the furthest stored step, so a
+  // reader who steps back still sees honest progress in the contents list.
+  const furthest = Math.max(clampedIndex, getThreadProgress(system.id) ?? clampedIndex);
+
+  const closeDrawer = () => {
+    setDrawerOpen(false);
+    triggerRef.current?.focus();
+  };
 
   return (
     <PageShell>
@@ -98,9 +141,25 @@ export default function ThreadView() {
           />
         </div>
         <div className="flex items-center gap-2 shrink-0">
-          <span className="font-medium text-tamas whitespace-nowrap">
-            {t(language, 'stepOf', { current: clampedIndex + 1, total: totalSteps })}
-          </span>
+          {/* Step counter doubles as the contents trigger: one control
+              instead of two keeps the narrow-viewport header honest. */}
+          <button
+            ref={triggerRef}
+            type="button"
+            onClick={() => setDrawerOpen(true)}
+            aria-haspopup="dialog"
+            title={t(language, 'threadContents')}
+            className="inline-flex items-center gap-1.5 min-h-11 px-3 rounded-lg bg-avyakta-3 border border-tamas-deep text-sm text-sattva-dim hover:text-sattva transition-colors motion-reduce:transition-none"
+          >
+            <ListIcon aria-hidden="true" className="w-4 h-4 shrink-0" />
+            <span className="font-medium whitespace-nowrap">
+              {t(language, 'stepOf', { current: clampedIndex + 1, total: totalSteps })}
+            </span>
+            <span aria-hidden="true" className="text-tamas tabular-nums">
+              {percent}%
+            </span>
+            <span className="sr-only">{t(language, 'threadProgress', { percent })}</span>
+          </button>
           <ReadingControls />
         </div>
       </div>
@@ -110,23 +169,32 @@ export default function ThreadView() {
       )}
 
       <Card>
-        {/* Progress bar */}
-        <div aria-hidden="true" className="h-1.5 w-full bg-avyakta-3">
+        {/* Progress bar doubles as the accessible progress indicator. */}
+        <div
+          role="progressbar"
+          aria-label={t(language, 'threadContents')}
+          aria-valuemin={1}
+          aria-valuemax={totalSteps}
+          aria-valuenow={clampedIndex + 1}
+          aria-valuetext={t(language, 'threadProgress', { percent })}
+          className="h-1.5 w-full bg-avyakta-3"
+        >
           <div
+            aria-hidden="true"
             className="h-full bg-rajas transition-all duration-300 ease-out motion-reduce:transition-none"
-            style={{ width: `${((clampedIndex + 1) / totalSteps) * 100}%` }}
+            style={{ width: `${percent}%` }}
           />
         </div>
 
         <CardBody>
           {content?.title && (
-            <h2 className="text-3xl font-serif font-bold text-sattva leading-tight">
+            <h2 className="t-display2 text-sattva">
               {content.title}
             </h2>
           )}
 
           {content?.narrative && (
-            <div className="text-lg md:text-xl text-sattva leading-relaxed font-serif">
+            <div className="t-body-serif text-sattva">
               <RichText
                 text={content.narrative}
                 systemId={system.id as string}
@@ -207,6 +275,85 @@ export default function ThreadView() {
           )}
         </CardBody>
       </Card>
+
+      {drawerOpen &&
+        createPortal(
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={t(language, 'threadContents')}
+            className="fixed inset-0 z-50"
+          >
+            <div
+              aria-hidden="true"
+              onClick={closeDrawer}
+              className="absolute inset-0 bg-overlay"
+            />
+            <div className="relative max-w-lg mx-auto mt-[8vh] px-4">
+              <div className="bg-avyakta-2 border border-tamas-deep rounded-2xl shadow-lg overflow-hidden animate-fade-in">
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-tamas-deep">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-sm font-bold text-sattva truncate">
+                      {t(language, 'threadContents')}
+                    </div>
+                    <div className="text-xs text-sattva-dim tabular-nums">
+                      {t(language, 'stepOf', { current: clampedIndex + 1, total: totalSteps })} · {t(language, 'threadProgress', { percent })}
+                    </div>
+                  </div>
+                  <button
+                    ref={closeRef}
+                    type="button"
+                    onClick={closeDrawer}
+                    aria-label={t(language, 'closeLabel')}
+                    className="flex items-center justify-center min-h-11 min-w-11 rounded-lg text-sattva-dim hover:text-sattva hover:bg-avyakta-3 transition-colors motion-reduce:transition-none"
+                  >
+                    <CloseIcon aria-hidden="true" className="w-5 h-5" />
+                  </button>
+                </div>
+                <div className="max-h-[60vh] overflow-y-auto p-2">
+                  {system.thread.map((s, i) => {
+                    const title = getThreadStepTitle(s, language);
+                    const isCurrent = i === clampedIndex;
+                    const reached = i <= furthest;
+                    return (
+                      <button
+                        key={s.id as string}
+                        type="button"
+                        onClick={() => {
+                          goToStep(i);
+                          setDrawerOpen(false);
+                        }}
+                        aria-current={isCurrent ? 'step' : undefined}
+                        className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl min-h-11 text-left transition-colors motion-reduce:transition-none ${
+                          isCurrent ? '' : 'hover:bg-avyakta-3'
+                        }`}
+                        style={isCurrent ? { backgroundColor: accentTint(accent.primary) } : undefined}
+                      >
+                        <CountBadge
+                          accentPrimary={isCurrent ? accent.primary : undefined}
+                          variant="tile"
+                          className={isCurrent || reached ? '' : 'opacity-60'}
+                        >
+                          {i + 1}
+                        </CountBadge>
+                        <span className="flex-1 min-w-0">
+                          <span
+                            className={`block text-sm truncate ${
+                              isCurrent ? 'font-semibold text-sattva' : reached ? 'text-sattva' : 'text-tamas'
+                            }`}
+                          >
+                            {title}
+                          </span>
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>,
+          document.body,
+        )}
 
       <BottomBar>
         {clampedIndex > 0 ? (

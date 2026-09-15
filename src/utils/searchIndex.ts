@@ -12,11 +12,14 @@ export interface IndexedVerseItem {
   iastLower: string;
   normIast: string;
   devanagari: string;
+  devanagariCanon: string;
   enTranslationLower: string;
   normEnTranslation: string;
   enCommentaryLower: string;
   mlTranslation: string;
+  mlTranslationCanon: string;
   mlCommentary: string;
+  mlCommentaryCanon: string;
 }
 
 export interface SearchResult {
@@ -25,6 +28,23 @@ export interface SearchResult {
 }
 
 let corpusIndex: IndexedVerseItem[] | null = null;
+
+/**
+ * Canonical form for Indic-script matching. Devanagari and Malayalam source
+ * strings carry hard line breaks (verses are stored multi-line) and Malayalam
+ * often carries invisible joiners (ZWJ/ZWNJ) that keyboards may or may not
+ * emit. Collapsing both sides to joiner-free, single-spaced text lets a typed
+ * query match across a line break it cannot see. Lowercasing is a no-op for
+ * these scripts but keeps the contract uniform with the other index fields.
+ */
+export function canonIndic(text: string): string {
+  if (!text) return '';
+  return text
+    .replace(/[‌‍﻿]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
 
 export function getOrBuildSearchIndex(): IndexedVerseItem[] {
   if (corpusIndex) return corpusIndex;
@@ -57,11 +77,14 @@ export function getOrBuildSearchIndex(): IndexedVerseItem[] {
           iastLower: iast.toLowerCase(),
           normIast: normalizeSanskrit(iast),
           devanagari: verse.devanagari || '',
+          devanagariCanon: canonIndic(verse.devanagari || ''),
           enTranslationLower: enTranslation.toLowerCase(),
           normEnTranslation: normalizeSanskrit(enTranslation),
           enCommentaryLower: enCommentary.toLowerCase(),
           mlTranslation: mlTranslation.toLowerCase(),
+          mlTranslationCanon: canonIndic(mlTranslation),
           mlCommentary: mlCommentary.toLowerCase(),
+          mlCommentaryCanon: canonIndic(mlCommentary),
         });
       }
     }
@@ -83,6 +106,10 @@ export function searchVerses(
 
   const rawQuery = query.trim().toLowerCase();
   const normQuery = normalizeSanskrit(query.trim());
+  // Joiner-free, single-spaced form for the Indic-script paths. Empty when
+  // the query held nothing but whitespace or joiners — callers must skip the
+  // canon paths then, since every string includes ''.
+  const canonQuery = canonIndic(query);
   const index = getOrBuildSearchIndex();
 
   const results: SearchResult[] = [];
@@ -109,8 +136,9 @@ export function searchVerses(
       score += 40;
     }
 
-    // 3. Devanagari script match
-    if (item.devanagari && item.devanagari.includes(rawQuery)) {
+    // 3. Devanagari script match (canonical form bridges source line
+    // breaks and stray joiners the query cannot reproduce).
+    if (canonQuery && item.devanagariCanon && item.devanagariCanon.includes(canonQuery)) {
       score += 50;
     }
 
@@ -122,12 +150,15 @@ export function searchVerses(
     }
 
     // 5. Malayalam Translation match
-    if (item.mlTranslation && item.mlTranslation.includes(rawQuery)) {
+    if (canonQuery && item.mlTranslationCanon && item.mlTranslationCanon.includes(canonQuery)) {
       score += 35;
     }
 
     // 6. Commentary match
-    if (item.enCommentaryLower.includes(rawQuery) || item.mlCommentary.includes(rawQuery)) {
+    if (
+      item.enCommentaryLower.includes(rawQuery) ||
+      (canonQuery && item.mlCommentaryCanon && item.mlCommentaryCanon.includes(canonQuery))
+    ) {
       score += 15;
     }
 

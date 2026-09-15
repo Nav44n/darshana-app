@@ -1,14 +1,15 @@
 import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router';
 import { X as RemoveIcon, Map as ThreadIcon, Quote as VerseIcon, Sparkles as ConceptIcon } from 'lucide-react';
-import { systems } from '../content';
+import { systems, getSystem } from '../content';
 import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
 import { getRecentVisits, resolveVerseRefs } from '../utils/readingHistory';
 import { getBookmarks, removeBookmark } from '../utils/bookmarks';
-import { chipBase } from './Primitives';
+import { getThreadProgress } from '../utils/threadProgress';
+import { ActionLink, Card, CardBody, Eyebrow, chipBase } from './Primitives';
 
 const ONBOARD_KEY = 'darsana_onboarding_seen';
 
@@ -39,6 +40,69 @@ export default function Home() {
     removeBookmark(systemId, textId, verseId);
     setShelf(resolveVerseRefs(getBookmarks()));
   };
+  // Continuity hero: the most-recent verse wins, paired with its system's
+  // thread resume when one exists. Thread-only readers fall back to their
+  // furthest thread by completion fraction; otherwise the latest bookmark.
+  // Additive only — the shelf and trail sections below stay untouched.
+  const continueTarget = useMemo(() => {
+    const threadResumeFor = (sid: string) => {
+      const sys = getSystem(sid);
+      const total = sys?.thread?.length ?? 0;
+      if (!sys || total === 0) return null;
+      const stored = getThreadProgress(sid);
+      if (stored === null || stored <= 0 || stored >= total) return null;
+      const step = sys.thread[stored];
+      const title = step.content[language]?.title || step.content.en?.title || step.id;
+      return { total, stored, title };
+    };
+    if (recent.length > 0) {
+      const r = recent[0];
+      const sys = getSystem(r.systemId);
+      const context = sys ? getSystemDisplay(sys, language).title : r.systemId;
+      return {
+        kind: 'verse' as const,
+        systemId: r.systemId,
+        title: `${r.term} ${r.number} · ${r.textTitle}`,
+        context,
+        verseHref: `/system/${r.systemId}/text/${r.textId}/verse/${r.verseId}`,
+        thread: threadResumeFor(r.systemId),
+      };
+    }
+    let best: { sid: string; total: number; stored: number; title: string; fraction: number } | null = null;
+    for (const sys of systems) {
+      const resume = threadResumeFor(sys.id as string);
+      if (!resume) continue;
+      const fraction = (resume.stored + 1) / resume.total;
+      if (!best || fraction > best.fraction) {
+        best = { sid: sys.id as string, ...resume, fraction };
+      }
+    }
+    if (best) {
+      const sys = getSystem(best.sid);
+      const context = sys ? getSystemDisplay(sys, language).title : best.sid;
+      return {
+        kind: 'thread' as const,
+        systemId: best.sid,
+        title: best.title,
+        context: `${context} · ${t(language, 'stepOf', { current: best.stored + 1, total: best.total })}`,
+        threadHref: `/system/${best.sid}/thread?step=${best.stored + 1}`,
+      };
+    }
+    if (shelf.length > 0) {
+      const r = shelf[shelf.length - 1];
+      const sys = getSystem(r.systemId);
+      const context = sys ? getSystemDisplay(sys, language).title : r.systemId;
+      return {
+        kind: 'verse' as const,
+        systemId: r.systemId,
+        title: `${r.term} ${r.number} · ${r.textTitle}`,
+        context,
+        verseHref: `/system/${r.systemId}/text/${r.textId}/verse/${r.verseId}`,
+        thread: threadResumeFor(r.systemId),
+      };
+    }
+    return null;
+  }, [language, recent, shelf]);
   return (
     <div className="space-y-8">
       <div className="text-center py-12">
@@ -53,6 +117,42 @@ export default function Home() {
           {t(language, 'introTab')} →
         </Link>
       </div>
+
+      {continueTarget && (
+        <section aria-label={t(language, 'continueReading')} className="animate-fade-in">
+          <Card>
+            <CardBody>
+              <Eyebrow accentPrimary={getSystemAccent(continueTarget.systemId).primary} className="mb-3">
+                {t(language, 'continueReading')}
+              </Eyebrow>
+              <h2 className="t-display2 text-sattva">{continueTarget.title}</h2>
+              <p className="t-subtitle text-sattva-dim">{continueTarget.context}</p>
+              <div className="flex flex-wrap gap-2 pt-1">
+                {continueTarget.kind === 'verse' ? (
+                  <>
+                    <ActionLink to={continueTarget.verseHref} variant="primary" label={t(language, 'openVerseLabel')}>
+                      {t(language, 'openVerseLabel')}
+                    </ActionLink>
+                    {continueTarget.thread && (
+                      <ActionLink
+                        to={`/system/${continueTarget.systemId}/thread?step=${continueTarget.thread.stored + 1}`}
+                        variant="ghost"
+                        label={`${t(language, 'resumeThread')} · ${t(language, 'stepOf', { current: continueTarget.thread.stored + 1, total: continueTarget.thread.total })}`}
+                      >
+                        {t(language, 'resumeThread')} · {t(language, 'stepOf', { current: continueTarget.thread.stored + 1, total: continueTarget.thread.total })}
+                      </ActionLink>
+                    )}
+                  </>
+                ) : (
+                  <ActionLink to={continueTarget.threadHref} variant="primary" label={t(language, 'resumeThread')}>
+                    {t(language, 'resumeThread')} →
+                  </ActionLink>
+                )}
+              </div>
+            </CardBody>
+          </Card>
+        </section>
+      )}
 
       {showOnboard && (
         <section
@@ -178,6 +278,14 @@ export default function Home() {
             system.texts.length === 1
               ? `/system/${system.id}/text/${system.texts[0].id}`
               : `/system/${system.id}`;
+          // Per-card thread footprint, shown only past Step 1 to mirror the
+          // resume convention elsewhere. Display only, never a nested link —
+          // the card itself already navigates to the resume doorway.
+          const totalSteps = system.thread?.length ?? 0;
+          const storedRaw = getThreadProgress(system.id);
+          const storedStep = storedRaw !== null && storedRaw < totalSteps ? storedRaw : -1;
+          const showProgress = totalSteps > 0 && storedStep > 0;
+          const percent = showProgress ? Math.round(((storedStep + 1) / totalSteps) * 100) : 0;
           return (
             <Link
               key={system.id}
@@ -217,6 +325,22 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+              {showProgress && (
+                <div className="mt-4 pt-3 border-t border-tamas-deep">
+                  <div className="flex items-center justify-between gap-2 text-xs">
+                    <span className="min-w-0 truncate font-medium text-sattva-dim">
+                      {t(language, 'resumeThread')} · {t(language, 'stepOf', { current: storedStep + 1, total: totalSteps })}
+                    </span>
+                    <span className="shrink-0 tabular-nums text-tamas">{percent}%</span>
+                  </div>
+                  <div aria-hidden="true" className="mt-1.5 h-1 overflow-hidden rounded-full bg-avyakta-3">
+                    <div
+                      className="h-full rounded-full forced-colors:bg-[Highlight]"
+                      style={{ width: `${percent}%`, backgroundColor: accent.primary }}
+                    />
+                  </div>
+                </div>
+              )}
             </Link>
           );
         })}

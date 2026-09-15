@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { createPortal } from 'react-dom';
-import { Search as SearchIcon, X as ClearIcon } from 'lucide-react';
+import { Search as SearchIcon, X as ClearIcon, History as HistoryIcon } from 'lucide-react';
 import { systems, getSystem, getText } from '../content';
 import { searchVerses } from '../utils/searchIndex';
-import { getConceptTitle, getThreadStepTitle, type ConceptHit } from '../utils/references';
+import { getConceptTitle, getConceptSummary, getThreadStepTitle, type ConceptHit } from '../utils/references';
+import { getRecentSearches, recordSearch, clearSearches } from '../utils/searchHistory';
 import { getVerseTerm } from '../utils/textTerminology';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
@@ -39,6 +40,7 @@ export default function SearchPalette() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [active, setActive] = useState(0);
+  const [recents, setRecents] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
@@ -47,6 +49,19 @@ export default function SearchPalette() {
     setOpen(false);
     setQuery('');
     setActive(0);
+  };
+
+  // A followed result redeems its query: remember it for the empty-state
+  // shortcuts. Blanks are ignored by the store itself.
+  const recordCurrentQuery = () => {
+    const q = query.trim();
+    if (!q) return;
+    recordSearch(q);
+  };
+
+  const handleResultClick = () => {
+    recordCurrentQuery();
+    dismiss();
   };
 
   const closeReturnFocus = () => {
@@ -66,9 +81,11 @@ export default function SearchPalette() {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-  // Autofocus + lock background scroll while open.
+  // Autofocus + lock background scroll while open. Recents refresh on
+  // every opening since the palette stays mounted in the header.
   useEffect(() => {
     if (!open) return;
+    setRecents(getRecentSearches());
     inputRef.current?.focus();
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -134,8 +151,10 @@ export default function SearchPalette() {
             concept: c,
           };
           const title = getConceptTitle(hit, language);
+          const summary = getConceptSummary(hit, language) || '';
           if (
             title.toLowerCase().includes(q) ||
+            summary.toLowerCase().includes(q) ||
             (c.category || '').toLowerCase().includes(q) ||
             (c.id as string).toLowerCase().includes(q)
           ) {
@@ -213,6 +232,7 @@ export default function SearchPalette() {
       const row = flat[active];
       if (row) {
         e.preventDefault();
+        recordCurrentQuery();
         dismiss();
         navigate(row.href);
       }
@@ -233,7 +253,7 @@ export default function SearchPalette() {
               key={row.key}
               to={row.href}
               data-idx={idx}
-              onClick={dismiss}
+              onClick={handleResultClick}
               onMouseEnter={() => setActive(idx)}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-xl min-h-11 transition-colors motion-reduce:transition-none ${
                 idx === active ? 'bg-avyakta-3' : ''
@@ -328,6 +348,44 @@ export default function SearchPalette() {
                 <div ref={listRef} className="max-h-[55vh] overflow-y-auto p-2">
                   {!groups && (
                     <>
+                      {recents.length > 0 && (
+                        <div>
+                          <div className="px-3 pt-3 pb-1 flex items-center justify-between gap-2">
+                            <span className="text-xs font-semibold uppercase tracking-wider text-tamas">
+                              {t(language, 'recentSearches')} ({recents.length})
+                            </span>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                clearSearches();
+                                setRecents([]);
+                                inputRef.current?.focus();
+                              }}
+                              aria-label={t(language, 'clearLabel')}
+                              className="flex items-center justify-center min-h-9 min-w-9 rounded-lg text-sattva-dim hover:text-sattva hover:bg-avyakta-3 transition-colors motion-reduce:transition-none"
+                            >
+                              <ClearIcon aria-hidden="true" className="w-4 h-4" />
+                            </button>
+                          </div>
+                          {recents.map((r) => (
+                            <button
+                              key={`recent:${r}`}
+                              type="button"
+                              onClick={() => {
+                                setQuery(r);
+                                setActive(0);
+                                inputRef.current?.focus();
+                              }}
+                              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl min-h-11 text-left hover:bg-avyakta-3 transition-colors motion-reduce:transition-none"
+                            >
+                              <HistoryIcon aria-hidden="true" className="w-4 h-4 shrink-0 text-tamas" />
+                              <span className="flex-1 min-w-0 block text-sm text-sattva truncate">
+                                {r}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                      )}
                       <div className="px-3 pt-3 pb-1 text-xs font-semibold uppercase tracking-wider text-tamas">
                         {t(language, 'systemsLabel')}
                       </div>
@@ -336,7 +394,7 @@ export default function SearchPalette() {
                           key={row.key}
                           to={row.href}
                           data-idx={i}
-                          onClick={dismiss}
+                          onClick={handleResultClick}
                           onMouseEnter={() => setActive(i)}
                           className={`flex items-center gap-3 px-3 py-2.5 rounded-xl min-h-11 transition-colors motion-reduce:transition-none ${
                             i === active ? 'bg-avyakta-3' : ''

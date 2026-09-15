@@ -35,6 +35,18 @@ function FallbackText() {
   return <>{t(language, 'loading')}</>;
 }
 
+function SkipLink() {
+  const { language } = useLanguage();
+  return (
+    <a
+      href="#main-content"
+      className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-2 focus:rounded-lg focus:bg-avyakta-2 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-sattva focus:outline-none focus-visible:outline-2 focus-visible:outline-sattva"
+    >
+      {t(language, 'skipToContent')}
+    </a>
+  );
+}
+
 
 function HeaderNav() {
   const { language, setLanguage } = useLanguage();
@@ -116,6 +128,7 @@ export default function App() {
       <HashRouter>
         <ScrollToTop />
         <div className="min-h-screen bg-avyakta text-sattva font-sans">
+          <SkipLink />
           <HeaderNav />
           <main id="main-content" tabIndex={-1} className="max-w-4xl mx-auto px-4 py-8 focus:outline-none">
             <ErrorBoundary>

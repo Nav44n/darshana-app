@@ -165,7 +165,9 @@ export default function VerseDetail() {
 
   return (
     <PageShell className="select-text">
-      <div className="flex items-center justify-between gap-3">
+      {/* Breadcrumb on its own row; controls wrap below on narrow
+          viewports so neither squeezes the other on phones. */}
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-w-0 flex-1">
           <Breadcrumb
             trail={[
@@ -176,7 +178,7 @@ export default function VerseDetail() {
           />
         </div>
 
-        <div className="flex items-center space-x-1.5 shrink-0 ml-2">
+        <div className="flex flex-wrap items-center gap-x-1.5 gap-y-2 sm:justify-end sm:shrink-0 sm:ms-2">
           <ReadingControls />
           <button
             type="button"
@@ -252,20 +254,20 @@ export default function VerseDetail() {
             </h2>
             
             {verse.devanagari && (
-              <div className="text-3xl md:text-4xl text-sattva leading-normal font-serif">
+              <div lang="sa" className="t-devanagari text-3xl md:text-4xl text-sattva">
                 {verse.devanagari.split('\n').map((line, i) => (
                   <div key={i}>{line}</div>
                 ))}
               </div>
             )}
             
-            <div className="text-xl md:text-2xl text-sattva italic leading-relaxed">
-              {verse.iast ? (
-                verse.iast.split('\n').map((line, i) => (
+            {verse.iast && (
+            <div lang="sa-Latn" className="text-xl md:text-2xl text-sattva italic leading-relaxed">
+              {verse.iast.split('\n').map((line, i) => (
                   <div key={i}>{line}</div>
-                ))
-              ) : null}
+                ))}
             </div>
+            )}
           </div>
 
           {translation && (
@@ -275,8 +277,9 @@ export default function VerseDetail() {
                   ? `${t(language, 'translationLabel')} (Translation)`
                   : t(language, 'translationLabel')
               }
+              defaultOpen
             >
-              <div className="text-lg md:text-xl text-sattva leading-relaxed font-serif">
+              <div className="t-body-serif text-sattva">
                 <Markdown>{translation}</Markdown>
               </div>
             </CollapsibleSection>
@@ -289,8 +292,9 @@ export default function VerseDetail() {
                   ? `${t(language, 'wordMeaningLabel')} (Word by Word)`
                   : t(language, 'wordMeaningLabel')
               }
+              defaultOpen={false}
             >
-              <div className="text-base md:text-lg text-sattva-dim leading-relaxed">
+              <div className="t-body-sans text-sattva-dim">
                 <Markdown>{wordMeaning}</Markdown>
               </div>
             </CollapsibleSection>
@@ -303,6 +307,7 @@ export default function VerseDetail() {
                   ? `${t(language, 'commentaryLabel')} (Commentary)`
                   : t(language, 'commentaryLabel')
               }
+              defaultOpen={false}
             >
               <div className="prose max-w-none text-sattva">
                 <RichText
@@ -340,15 +345,15 @@ export default function VerseDetail() {
           )}
 
           {variantNote && (
-            <CollapsibleSection title={t(language, 'variantNoteLabel')}>
-              <div className="text-sm md:text-base text-sattva-dim leading-relaxed">
+            <CollapsibleSection title={t(language, 'variantNoteLabel')} defaultOpen={false}>
+              <div className="t-body-sans text-sattva-dim">
                 <Markdown>{variantNote}</Markdown>
               </div>
             </CollapsibleSection>
           )}
 
           {verse.interpretiveNotes && verse.interpretiveNotes.length > 0 && (
-            <CollapsibleSection title={t(language, 'variantNoteLabel')}>
+            <CollapsibleSection title={t(language, 'variantNoteLabel')} defaultOpen={false}>
               <ul className="space-y-2">
                 {verse.interpretiveNotes.map((n, idx) => (
                   <li key={idx} className="flex text-sattva-dim items-start text-sm md:text-base">
