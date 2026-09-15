@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { useParams, Link } from 'react-router';
+import { useMemo, useState } from 'react';
+import { useParams, Link, useNavigate } from 'react-router';
 import { getConcept, getText, getSystem } from '../content';
 import { ChevronRight, ChevronLeft, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -7,6 +7,8 @@ import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
 import RichText from './RichText';
+import ReadingControls from './ReadingControls';
+import { usePagerKeys } from '../utils/pagerKeys';
 import { BottomBar, Notice, Card, CardBody, Breadcrumb, PageShell, SectionTitle } from './Primitives';
 import {
   RelatedConceptsSection,
@@ -42,6 +44,16 @@ export default function ConceptDetail() {
     };
   }, [text, concept]);
 
+  const navigate = useNavigate();
+  usePagerKeys(
+    nav.next && system && text
+      ? () => navigate(`/system/${system.id}/text/${text.id}/concept/${nav.next?.id}`)
+      : null,
+    nav.prev && system && text
+      ? () => navigate(`/system/${system.id}/text/${text.id}/concept/${nav.prev?.id}`)
+      : null,
+  );
+
   const verses = useMemo(
     () => (system && text && concept ? getVersesForConcept(system.id as string, text.id as string, concept.id as string) : []),
     [system, text, concept],
@@ -58,6 +70,9 @@ export default function ConceptDetail() {
     () => (system && concept ? getCrossSystemConcepts(concept.id as string, { systemId: system.id as string }) : []),
     [system, concept],
   );
+  // Long defining-verse lists collapse to 12 with an explicit expander —
+  // the heading always states the true total, so nothing is silently lost.
+  const [versesExpanded, setVersesExpanded] = useState(false);
 
   if (!system || !text || !concept) {
     return <div className="text-center py-12">{t(language, 'conceptNotFound')}</div>;
@@ -73,13 +88,18 @@ export default function ConceptDetail() {
 
   return (
     <PageShell className="select-text">
-      <Breadcrumb
-        trail={[
-          { to: `/system/${system.id}`, label: systemDisplay.title },
-          { to: `/system/${system.id}/text/${text.id}`, label: text.transliteratedTitle },
-        ]}
-        current={title}
-      />
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0 flex-1">
+          <Breadcrumb
+            trail={[
+              { to: `/system/${system.id}`, label: systemDisplay.title },
+              { to: `/system/${system.id}/text/${text.id}`, label: text.transliteratedTitle },
+            ]}
+            current={title}
+          />
+        </div>
+        <ReadingControls />
+      </div>
 
       <Card>
         {isMlFallback && (
@@ -112,7 +132,7 @@ export default function ConceptDetail() {
                 {t(language, 'definingLabel', { term: verseTermPlural, count: verses.length })}
               </SectionTitle>
               <div className="space-y-3">
-                {verses.slice(0, 12).map(({ verse }) => {
+                {(versesExpanded ? verses : verses.slice(0, 12)).map(({ verse }) => {
                   const translation =
                     verse.content[language]?.translation || verse.content.en?.translation;
                   return (
@@ -133,6 +153,18 @@ export default function ConceptDetail() {
                   );
                 })}
               </div>
+              {verses.length > 12 && (
+                <button
+                  type="button"
+                  onClick={() => setVersesExpanded((v) => !v)}
+                  aria-expanded={versesExpanded}
+                  className="mt-3 w-full px-4 min-h-11 rounded-xl bg-avyakta-3/50 hover:bg-avyakta-3 text-sm font-medium text-sattva-dim hover:text-sattva transition-colors motion-reduce:transition-none"
+                >
+                  {versesExpanded
+                    ? t(language, 'collapseAll')
+                    : `${t(language, 'expandAll')} (${verses.length})`}
+                </button>
+              )}
             </div>
           )}
 
@@ -146,10 +178,11 @@ export default function ConceptDetail() {
         {nav.prev ? (
           <Link
             to={`/system/${system.id}/text/${text.id}/concept/${nav.prev.id}`}
-            className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
+            aria-label={`${t(language, 'previous')}: ${(nav.prev.content[language]?.title || nav.prev.content.en?.title || nav.prev.id) as string}`}
+            className="flex items-center shrink-0 min-h-11 min-w-11 px-2 text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
           >
             <ChevronLeft aria-hidden="true" className="w-5 h-5 mr-1" />
-            <span className="hidden sm:inline max-w-40 truncate">
+            <span className="max-w-24 truncate sm:max-w-40">
               {(nav.prev.content[language]?.title || nav.prev.content.en?.title || nav.prev.id) as string}
             </span>
           </Link>
@@ -159,18 +192,20 @@ export default function ConceptDetail() {
 
         <Link
           to={`/system/${system.id}/text/${text.id}`}
-          className="flex flex-col items-center justify-center p-2 rounded-full hover:bg-avyakta-3 transition-colors motion-reduce:transition-none text-sattva-dim"
+          className="flex items-center gap-1.5 px-4 min-h-11 min-w-0 max-w-[46vw] rounded-full hover:bg-avyakta-3 transition-colors motion-reduce:transition-none text-sattva-dim hover:text-sattva"
           title={t(language, 'backToIndex')}
         >
-          <ArrowLeft aria-hidden="true" className="w-5 h-5" />
+          <ArrowLeft aria-hidden="true" className="w-4 h-4 shrink-0" />
+          <span className="text-sm font-medium truncate">{t(language, 'backToIndex')}</span>
         </Link>
 
         {nav.next ? (
           <Link
             to={`/system/${system.id}/text/${text.id}/concept/${nav.next.id}`}
-            className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
+            aria-label={`${t(language, 'next')}: ${(nav.next.content[language]?.title || nav.next.content.en?.title || nav.next.id) as string}`}
+            className="flex items-center shrink-0 min-h-11 min-w-11 px-2 text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
           >
-            <span className="hidden sm:inline max-w-40 truncate">
+            <span className="max-w-24 truncate sm:max-w-40">
               {(nav.next.content[language]?.title || nav.next.content.en?.title || nav.next.id) as string}
             </span>
             <ChevronRight aria-hidden="true" className="w-5 h-5 ml-1" />

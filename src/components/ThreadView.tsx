@@ -3,11 +3,14 @@ import { useParams, Link, useSearchParams } from 'react-router';
 import { getSystem } from '../content';
 import { ChevronRight, ChevronLeft, ArrowLeft } from 'lucide-react';
 import RichText from './RichText';
-import { BreadcrumbChevron, BottomBar, Notice, Card, CardBody, ChipLink, PageShell, SectionTitle } from './Primitives';
+import ReadingControls from './ReadingControls';
+import { BottomBar, Notice, Card, CardBody, ChipLink, PageShell, SectionTitle, Breadcrumb } from './Primitives';
 import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
+import { getThreadProgress, setThreadProgress } from '../utils/threadProgress';
+import { usePagerKeys } from '../utils/pagerKeys';
 
 export default function ThreadView() {
   const { systemId } = useParams();
@@ -16,12 +19,20 @@ export default function ThreadView() {
   const [searchParams, setSearchParams] = useSearchParams();
   const totalSteps = system?.thread?.length ?? 0;
   const [stepIndex, setStepIndex] = useState(() => {
-    const raw = Number(searchParams.get('step') ?? 1);
-    if (!Number.isFinite(raw)) return 0;
-    return Math.min(Math.max(Math.floor(raw) - 1, 0), Math.max(totalSteps - 1, 0));
+    // Explicit deep link wins; otherwise restore the furthest visited step
+    // so a returning reader continues where they left off, not at Step 1.
+    if (searchParams.get('step') !== null) {
+      const raw = Number(searchParams.get('step') ?? 1);
+      if (!Number.isFinite(raw)) return 0;
+      return Math.min(Math.max(Math.floor(raw) - 1, 0), Math.max(totalSteps - 1, 0));
+    }
+    const stored = getThreadProgress(systemId || '');
+    if (stored !== null) return Math.min(stored, Math.max(totalSteps - 1, 0));
+    return 0;
   });
 
   useEffect(() => {
+    if (searchParams.get('step') === null) return;
     const raw = Number(searchParams.get('step') ?? 1);
     if (!Number.isFinite(raw)) return;
     const idx = Math.min(Math.max(Math.floor(raw) - 1, 0), Math.max(totalSteps - 1, 0));
@@ -31,6 +42,11 @@ export default function ThreadView() {
   useEffect(() => {
     setStepIndex((prev) => Math.min(prev, Math.max(totalSteps - 1, 0)));
   }, [systemId, totalSteps]);
+
+  // Remember the furthest visited step per system (never throws).
+  useEffect(() => {
+    if (systemId) setThreadProgress(systemId, Math.min(stepIndex, Math.max(totalSteps - 1, 0)));
+  }, [systemId, stepIndex, totalSteps]);
 
   if (!system || !system.thread || system.thread.length === 0) {
     return <div className="text-center py-12">{t(language, 'threadNotFound')}</div>;
@@ -42,10 +58,17 @@ export default function ThreadView() {
   const goToStep = (next: number) => {
     const clamped = Math.min(Math.max(next, 0), totalSteps - 1);
     setStepIndex(clamped);
-    setSearchParams({ step: String(clamped + 1) }, { replace: true });
+    // Push (not replace) so browser Back/Forward steps through visited
+    // steps as readers expect. ScrollToTop + focus reset listen to search
+    // changes, so history traversal re-orients exactly like button taps.
+    setSearchParams({ step: String(clamped + 1) });
   };
   const handleNext = () => goToStep(clampedIndex + 1);
   const handlePrev = () => goToStep(clampedIndex - 1);
+  usePagerKeys(
+    clampedIndex < totalSteps - 1 ? handleNext : null,
+    clampedIndex > 0 ? handlePrev : null,
+  );
 
   const content = step.content[language] ?? step.content.en;
   const isFallback = language === 'ml' && !step.content.ml;
@@ -67,16 +90,18 @@ export default function ThreadView() {
 
   return (
     <PageShell>
-      <div className="flex items-center justify-between text-sm text-sattva-dim mb-2">
-        <div className="flex items-center space-x-2">
-          <Link to={`/system/${system.id}`} className="hover:text-rajas transition-colors motion-reduce:transition-none">
-            {systemDisplay.title}
-          </Link>
-          <BreadcrumbChevron />
-          <span className="text-sattva font-medium">{t(language, 'threadLabel')}</span>
+      <div className="flex items-center justify-between gap-3 mb-2">
+        <div className="min-w-0 flex-1">
+          <Breadcrumb
+            trail={[{ to: `/system/${system.id}`, label: systemDisplay.title }]}
+            current={t(language, 'threadLabel')}
+          />
         </div>
-        <div className="font-medium text-tamas">
-          {t(language, 'stepOf', { current: clampedIndex + 1, total: totalSteps })}
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="font-medium text-tamas whitespace-nowrap">
+            {t(language, 'stepOf', { current: clampedIndex + 1, total: totalSteps })}
+          </span>
+          <ReadingControls />
         </div>
       </div>
 
@@ -187,10 +212,11 @@ export default function ThreadView() {
         {clampedIndex > 0 ? (
           <button
             onClick={handlePrev}
-            className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none px-4 py-2"
+            aria-label={t(language, 'previous')}
+            className="flex items-center shrink-0 min-h-11 min-w-11 px-4 py-2 text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
           >
             <ChevronLeft aria-hidden="true" className="w-5 h-5 mr-1" />
-            <span className="hidden sm:inline">{t(language, 'previous')}</span>
+            <span className="whitespace-nowrap">{t(language, 'previous')}</span>
           </button>
         ) : (
           <div className="w-24" />
@@ -198,18 +224,20 @@ export default function ThreadView() {
 
         <Link
           to={`/system/${system.id}`}
-          className="flex flex-col items-center justify-center p-2 rounded-full hover:bg-avyakta-3 transition-colors motion-reduce:transition-none text-sattva-dim"
+          className="flex items-center gap-1.5 px-4 min-h-11 min-w-0 max-w-[46vw] rounded-full hover:bg-avyakta-3 transition-colors motion-reduce:transition-none text-sattva-dim hover:text-sattva"
           title={t(language, 'backToSystem')}
         >
-          <ArrowLeft aria-hidden="true" className="w-5 h-5" />
+          <ArrowLeft aria-hidden="true" className="w-4 h-4 shrink-0" />
+          <span className="text-sm font-medium truncate">{t(language, 'backToSystem')}</span>
         </Link>
 
         {clampedIndex < totalSteps - 1 ? (
           <button
             onClick={handleNext}
-            className="flex items-center text-sm font-medium text-rajas hover:text-rajas-dim transition-colors motion-reduce:transition-none px-4 py-2"
+            aria-label={t(language, 'next')}
+            className="flex items-center shrink-0 min-h-11 min-w-11 px-4 py-2 text-sm font-medium text-rajas hover:text-rajas-dim transition-colors motion-reduce:transition-none"
           >
-            <span className="hidden sm:inline">{t(language, 'next')}</span>
+            <span className="whitespace-nowrap">{t(language, 'next')}</span>
             <ChevronRight aria-hidden="true" className="w-5 h-5 ml-1" />
           </button>
         ) : (

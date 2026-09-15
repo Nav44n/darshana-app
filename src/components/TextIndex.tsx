@@ -8,6 +8,7 @@ import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
 import { CountBadge, DisclosureChevron, RowChevron, Breadcrumb, accentTint } from './Primitives';
+import { getThreadProgress } from '../utils/threadProgress';
 
 type Panel = 'thread' | 'concepts' | null;
 
@@ -33,6 +34,20 @@ export default function TextIndex() {
       .map((step, globalIndex) => ({ step, globalIndex }))
       .filter(({ step }) => (step.textId || system.texts[0]?.id) === text.id);
   }, [system, text]);
+
+  // Resume entry: furthest visited system-thread step, shown only when it
+  // belongs to this text and lies beyond Step 1 (otherwise it is noise).
+  const resumeStep = useMemo(() => {
+    if (!system || !text) return null;
+    const total = system.thread?.length ?? 0;
+    const stored = getThreadProgress(system.id);
+    if (stored === null || stored <= 0 || stored >= total) return null;
+    const step = system.thread[stored];
+    if (!step) return null;
+    if ((step.textId || system.texts[0]?.id) !== text.id) return null;
+    const content = step.content[language] ?? step.content.en;
+    return { index: stored, total, title: content?.title || step.id };
+  }, [system, text, language]);
 
   const verseSections = useMemo(() => {
     const verses = text?.verses ?? [];
@@ -81,9 +96,15 @@ export default function TextIndex() {
     setOpenSections((cur) => (cur.includes(section) ? cur : [...cur, section]));
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
+        // Motion-sensitive readers must never receive a forced glide:
+        // mirror the global reduced-motion guard in index.css.
+        const reduced =
+          typeof window !== 'undefined' &&
+          typeof window.matchMedia === 'function' &&
+          window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         document
           .getElementById(`section-${section || 'unsectioned'}`)
-          ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          ?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
       });
     });
   };
@@ -254,6 +275,22 @@ export default function TextIndex() {
 
           {openPanel === 'thread' && (
             <div className="px-3 pb-3 space-y-1 border-t border-tamas-deep pt-3">
+              {resumeStep !== null && (
+                <Link
+                  key="resume-thread"
+                  to={`/system/${system.id}/thread?step=${resumeStep.index + 1}`}
+                  className="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-colors motion-reduce:transition-none group"
+                  style={{ backgroundColor: accentTint(accent.primary) }}
+                >
+                  <CountBadge accentPrimary={accent.primary} variant="tile">
+                    {resumeStep.index + 1}
+                  </CountBadge>
+                  <span className="text-sm font-semibold text-sattva truncate flex-1">
+                    {t(language, 'resumeThread')} · {t(language, 'stepOf', { current: resumeStep.index + 1, total: resumeStep.total })}: {resumeStep.title}
+                  </span>
+                  <RowChevron />
+                </Link>
+              )}
               {threadSteps.map(({ step, globalIndex }) => {
                 const content = step.content[language] ?? step.content.en;
                 return (

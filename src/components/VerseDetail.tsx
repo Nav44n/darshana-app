@@ -1,10 +1,11 @@
-import { useState, useMemo } from 'react';
-import { useParams, Link } from 'react-router';
+import { useState, useMemo, useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router';
 import { getVerse, getText, getSystem } from '../content';
-import { ChevronRight, ChevronLeft, ArrowLeft, Share2, Check } from 'lucide-react';
+import { ChevronRight, ChevronLeft, ArrowLeft, Share2, Check, Bookmark } from 'lucide-react';
 import Markdown from 'react-markdown';
 import RichText from './RichText';
-import { BreadcrumbChevron, BottomBar, Notice, CollapsibleSection, Card, CardBody, PageShell } from './Primitives';
+import ReadingControls from './ReadingControls';
+import { Breadcrumb, BottomBar, Notice, CollapsibleSection, Card, CardBody, PageShell } from './Primitives';
 import {
   RelatedConceptsSection,
   RelatedVersesSection,
@@ -15,6 +16,9 @@ import {
   getRelatedVerses,
   getThreadStepsForVerse,
 } from '../utils/references';
+import { usePagerKeys } from '../utils/pagerKeys';
+import { recordVerseVisit } from '../utils/readingHistory';
+import { isBookmarked, toggleBookmark } from '../utils/bookmarks';
 import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
@@ -23,7 +27,7 @@ import { getSystemDisplay } from '../i18n/systems';
 export default function VerseDetail() {
   const { systemId, textId, verseId } = useParams();
   const { language, setLanguage } = useLanguage();
-  const [copied, setCopied] = useState(false);
+  const [shareState, setShareState] = useState<'idle' | 'copied' | 'shared'>('idle');
   const system = getSystem(systemId || '');
   const text = getText(systemId || '', textId || '');
   const verse = getVerse(systemId || '', textId || '', verseId || '');
@@ -42,6 +46,26 @@ export default function VerseDetail() {
       nextVerse: currentIndex >= 0 && currentIndex < text.verses.length - 1 ? text.verses[currentIndex + 1] : null,
     };
   }, [text.verses, verse.id]);
+
+  const navigate = useNavigate();
+  usePagerKeys(
+    nextVerse ? () => navigate(`/system/${system.id}/text/${text.id}/verse/${nextVerse.id}`) : null,
+    prevVerse ? () => navigate(`/system/${system.id}/text/${text.id}/verse/${prevVerse.id}`) : null,
+  );
+
+  // Feed the Home continuity strip (deduped, most-recent-first) and keep
+  // the bookmark toggle honest across prev/next walks of the same mount.
+  const [saved, setSaved] = useState(() =>
+    isBookmarked(system.id as string, text.id as string, verse.id as string),
+  );
+  useEffect(() => {
+    recordVerseVisit(system.id as string, text.id as string, verse.id as string);
+    setSaved(isBookmarked(system.id as string, text.id as string, verse.id as string));
+  }, [system.id, text.id, verse.id]);
+
+  const handleBookmark = () => {
+    setSaved(toggleBookmark(system.id as string, text.id as string, verse.id as string));
+  };
 
   const activeContent = verse.content[language] ?? verse.content.en;
   const fallbackContent = verse.content.en;
@@ -71,8 +95,57 @@ export default function VerseDetail() {
     [system.id, text.id, verse.id],
   );
 
-  const handleCopy = async () => {
-    const textToCopy = `${getSystemDisplay(system, language).title} - ${text.transliteratedTitle}\n${verseTerm} ${verse.number}\n${verse.devanagari ? verse.devanagari + '\n' : ''}${verse.iast || ''}\n\n${translation || ''}\n\n${commentary || ''}`;
+  const flashShareState = (state: 'copied' | 'shared') => {
+    setShareState(state);
+    setTimeout(() => setShareState('idle'), 2000);
+  };
+
+  // Chat-ready citation: reference + source text + translation + deep link.
+  // Commentary stays behind the link — pasting pages of it into a chat was
+  // the old behaviour and buried the verse itself.
+  const toPlain = (markdown: string): string =>
+    markdown
+      .replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, '$2')
+      .replace(/\[\[([^\]]+)\]\]/g, '$1')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/(\*\*|__)(.*?)\1/g, '$2')
+      .replace(/(^|\s)[*_]([^*_]+)[*_](?=\s|$)/g, '$1$2')
+      .replace(/^#{1,6}\s+/gm, '')
+      .replace(/^>\s?/gm, '')
+      .trim();
+
+  const handleShare = async () => {
+    const systemTitle = getSystemDisplay(system, language).title;
+    const body = [
+      `${systemTitle} — ${text.transliteratedTitle}`,
+      `${verse.section ? `${verse.section} • ` : ''}${verseTerm} ${verse.number}`,
+      verse.devanagari?.trim(),
+      verse.iast?.trim(),
+      translation ? toPlain(translation) : '',
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    // System share sheet first (mobile expectation: WhatsApp, mail, …).
+    // Clipboard is the fallback, never a surprise after a dismissed sheet.
+    const nav = navigator as Navigator & {
+      share?: (data: ShareData) => Promise<void>;
+    };
+    if (nav.share) {
+      try {
+        await nav.share({
+          title: `${verseTerm} ${verse.number} · ${text.transliteratedTitle}`,
+          text: body,
+          url: window.location.href,
+        });
+        flashShareState('shared');
+        return;
+      } catch (err) {
+        if ((err as Error)?.name === 'AbortError') return;
+      }
+    }
+
+    const textToCopy = `${body}\n\n${window.location.href}`;
     try {
       if (navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(textToCopy);
@@ -84,29 +157,43 @@ export default function VerseDetail() {
         document.execCommand('copy');
         document.body.removeChild(ta);
       }
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      flashShareState('copied');
     } catch {
-      setCopied(false);
+      setShareState('idle');
     }
   };
 
   return (
     <PageShell className="select-text">
-      <div className="flex items-center justify-between text-sm text-sattva-dim">
-        <div className="flex items-center space-x-2 truncate">
-          <Link to={`/system/${system.id}`} className="hover:text-rajas transition-colors motion-reduce:transition-none">
-            {getSystemDisplay(system, language).title}
-          </Link>
-          <BreadcrumbChevron />
-          <Link to={`/system/${system.id}/text/${text.id}`} className="hover:text-rajas transition-colors motion-reduce:transition-none truncate">
-            {text.transliteratedTitle}
-          </Link>
-          <BreadcrumbChevron />
-          <span className="text-sattva font-medium whitespace-nowrap">{verseTerm} {verse.number}</span>
+      <div className="flex items-center justify-between gap-3">
+        <div className="min-w-0 flex-1">
+          <Breadcrumb
+            trail={[
+              { to: `/system/${system.id}`, label: getSystemDisplay(system, language).title },
+              { to: `/system/${system.id}/text/${text.id}`, label: text.transliteratedTitle },
+            ]}
+            current={`${verseTerm} ${verse.number}`}
+          />
         </div>
 
         <div className="flex items-center space-x-1.5 shrink-0 ml-2">
+          <ReadingControls />
+          <button
+            type="button"
+            onClick={handleBookmark}
+            aria-pressed={saved}
+            title={saved ? t(language, 'savedLabel') : t(language, 'saveLabel')}
+            className="flex items-center justify-center min-h-9 min-w-9 rounded-lg bg-avyakta-3 hover:bg-avyakta-4 transition-colors motion-reduce:transition-none"
+          >
+            <Bookmark
+              aria-hidden="true"
+              fill={saved ? 'currentColor' : 'none'}
+              className={`w-4 h-4 ${saved ? 'text-rajas' : 'text-sattva-dim'}`}
+            />
+            <span className="sr-only">
+              {saved ? t(language, 'savedLabel') : t(language, 'saveLabel')}
+            </span>
+          </button>
           {verse.content.en && (
             <button
               onClick={() => setLanguage('en')}
@@ -132,14 +219,16 @@ export default function VerseDetail() {
           )}
 
           <button
-            onClick={handleCopy}
+            onClick={handleShare}
             className="flex items-center space-x-1 text-xs px-2.5 py-1 rounded bg-avyakta-3 hover:bg-avyakta-4 text-sattva font-medium transition-colors motion-reduce:transition-none"
             title={t(language, 'copyShareTitle')}
           >
-            {copied ? (
+            {shareState !== 'idle' ? (
               <>
                 <Check aria-hidden="true" className="w-3.5 h-3.5 text-teal" />
-                <span className="text-teal">{t(language, 'copiedLabel')}</span>
+                <span className="text-teal">
+                  {shareState === 'shared' ? t(language, 'sharedLabel') : t(language, 'copiedLabel')}
+                </span>
               </>
             ) : (
               <>
@@ -287,10 +376,11 @@ export default function VerseDetail() {
         {prevVerse ? (
           <Link
             to={`/system/${system.id}/text/${text.id}/verse/${prevVerse.id}`}
-            className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
+            aria-label={`${t(language, 'previous')}: ${verseTerm} ${prevVerse.number}`}
+            className="flex items-center shrink-0 min-h-11 min-w-11 px-2 text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
           >
             <ChevronLeft aria-hidden="true" className="w-5 h-5 mr-1" />
-            <span className="hidden sm:inline">{verseTerm}</span> {prevVerse.number}
+            <span className="whitespace-nowrap">{verseTerm} {prevVerse.number}</span>
           </Link>
         ) : (
           <div className="w-20" />
@@ -298,18 +388,20 @@ export default function VerseDetail() {
 
         <Link
           to={`/system/${system.id}/text/${text.id}`}
-          className="flex flex-col items-center justify-center p-2 rounded-full hover:bg-avyakta-3 transition-colors motion-reduce:transition-none text-sattva-dim"
+          className="flex items-center gap-1.5 px-4 min-h-11 min-w-0 max-w-[46vw] rounded-full hover:bg-avyakta-3 transition-colors motion-reduce:transition-none text-sattva-dim hover:text-sattva"
           title={t(language, 'backToIndex')}
         >
-          <ArrowLeft aria-hidden="true" className="w-5 h-5" />
+          <ArrowLeft aria-hidden="true" className="w-4 h-4 shrink-0" />
+          <span className="text-sm font-medium truncate">{t(language, 'backToIndex')}</span>
         </Link>
 
         {nextVerse ? (
           <Link
             to={`/system/${system.id}/text/${text.id}/verse/${nextVerse.id}`}
-            className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
+            aria-label={`${t(language, 'next')}: ${verseTerm} ${nextVerse.number}`}
+            className="flex items-center shrink-0 min-h-11 min-w-11 px-2 text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
           >
-            <span className="hidden sm:inline">{verseTerm}</span> {nextVerse.number}
+            <span className="whitespace-nowrap">{verseTerm} {nextVerse.number}</span>
             <ChevronRight aria-hidden="true" className="w-5 h-5 ml-1" />
           </Link>
         ) : (

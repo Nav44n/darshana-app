@@ -1,0 +1,32 @@
+{
+  "name": "Darśana — Indian Philosophy Library",
+  "short_name": "Darśana",
+  "description": "Guided threads, root verses and concepts of the classical Indian philosophical systems, in English and Malayalam. Works offline.",
+  "lang": "en",
+  "dir": "ltr",
+  "id": "./",
+  "scope": "./",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#141420",
+  "theme_color": "#141420",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

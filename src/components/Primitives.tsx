@@ -257,7 +257,7 @@ export function BottomBar({
       aria-label={label}
       className="fixed inset-x-0 bottom-0 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] bg-avyakta-2/80 backdrop-blur-md border-t border-tamas-deep forced-colors:bg-[Canvas] forced-colors:border-[CanvasText]"
     >
-      <div className={`${max} mx-auto flex justify-between items-center`}>{children}</div>
+      <div className={`${max} mx-auto flex justify-between items-center gap-2 min-w-0`}>{children}</div>
     </nav>
   );
 }
@@ -329,7 +329,7 @@ export function Breadcrumb({
           <li key={`${item.to}-${index}`} className="flex min-w-0 items-center gap-1.5">
             <Link
               to={item.to}
-              className="inline-flex min-h-6 min-w-0 items-center rounded-sm hover:text-rajas hover:underline hover:decoration-rajas/40 hover:underline-offset-4 transition-colors motion-reduce:transition-none"
+              className="inline-flex min-h-11 min-w-0 items-center rounded-sm hover:text-rajas hover:underline hover:decoration-rajas/40 hover:underline-offset-4 transition-colors motion-reduce:transition-none"
             >
               <span className="truncate">{item.label}</span>
             </Link>

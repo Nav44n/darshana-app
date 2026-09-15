@@ -4,10 +4,15 @@
  */
 
 import React, { Suspense, lazy } from 'react';
-import { HashRouter, Routes, Route, Link } from 'react-router';
+import { HashRouter, Routes, Route, Link, useLocation, useNavigate } from 'react-router';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import { ReadingProvider } from './context/ReadingContext';
+import { systems } from './content';
 import { t } from './i18n/ui';
+import { getSystemDisplay } from './i18n/systems';
 import ErrorBoundary from './components/ErrorBoundary';
+import ScrollToTop from './components/ScrollToTop';
+import SearchPalette from './components/SearchPalette';
 
 const Home = lazy(() => import('./components/Home'));
 const Intro = lazy(() => import('./components/Intro'));
@@ -33,13 +38,42 @@ function FallbackText() {
 
 function HeaderNav() {
   const { language, setLanguage } = useLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
+  // Current system from the route (works for system/text/verse/concept/thread
+  // paths alike) so the jump control always reflects where the reader is.
+  const segments = location.pathname.split('/');
+  const currentSystemId = segments[1] === 'system' ? (segments[2] ?? '') : '';
 
   return (
     <header className="bg-avyakta-2 border-b border-tamas-deep sticky top-0 z-10">
-      <div className="max-w-4xl mx-auto px-4 py-3.5 flex items-center justify-between">
-        <Link to="/" className="text-xl font-serif font-bold tracking-tight text-sattva hover:text-sattva-dim transition-colors motion-reduce:transition-none">
+      <div className="max-w-4xl mx-auto px-4 py-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+        <Link to="/" className="mr-auto text-xl font-serif font-bold tracking-tight text-sattva hover:text-sattva-dim transition-colors motion-reduce:transition-none">
           {language === 'ml' ? 'ദർശന' : 'Darśana'}
         </Link>
+        {/* Row 2 on phones (search + system jump side by side); dissolves
+            into the header row on wider screens. */}
+        <div className="order-3 basis-full flex min-w-0 gap-2 sm:contents">
+          <SearchPalette />
+          <label htmlFor="system-jump" className="sr-only">
+            {t(language, 'systemsLabel')}
+          </label>
+          <select
+            id="system-jump"
+            value={currentSystemId}
+            onChange={(e) => {
+              if (e.target.value) navigate(`/system/${e.target.value}`);
+            }}
+            className="flex-1 min-w-0 sm:w-44 sm:flex-none min-h-11 rounded-lg bg-avyakta-3 border border-tamas-deep px-2.5 text-sm text-sattva-dim hover:text-sattva transition-colors motion-reduce:transition-none"
+          >
+          <option value="">{t(language, 'systemsLabel')}…</option>
+          {systems.map((s) => (
+            <option key={s.id} value={s.id}>
+              {getSystemDisplay(s, language).title}
+            </option>
+          ))}
+          </select>
+        </div>
         <div className="flex items-center space-x-3">
           <Link
             to="/intro"
@@ -78,10 +112,12 @@ function HeaderNav() {
 export default function App() {
   return (
     <LanguageProvider>
+      <ReadingProvider>
       <HashRouter>
+        <ScrollToTop />
         <div className="min-h-screen bg-avyakta text-sattva font-sans">
           <HeaderNav />
-          <main className="max-w-4xl mx-auto px-4 py-8">
+          <main id="main-content" tabIndex={-1} className="max-w-4xl mx-auto px-4 py-8 focus:outline-none">
             <ErrorBoundary>
             <Suspense fallback={<ScreenFallback />}>
               <Routes>
@@ -98,6 +134,7 @@ export default function App() {
           </main>
         </div>
       </HashRouter>
+      </ReadingProvider>
     </LanguageProvider>
   );
 }
