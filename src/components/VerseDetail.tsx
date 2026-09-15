@@ -236,7 +236,7 @@ export default function VerseDetail() {
               <ul className="space-y-2">
                 {keyPoints.map((point, idx) => (
                   <li key={idx} className="flex text-sattva items-start">
-                    <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 mr-3 shrink-0"></span>
+                    <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 me-3 shrink-0 forced-colors:bg-[CanvasText]"></span>
                     <span className="flex-1">
                       <RichText
                         text={point}
@@ -263,7 +263,7 @@ export default function VerseDetail() {
               <ul className="space-y-2">
                 {verse.interpretiveNotes.map((n, idx) => (
                   <li key={idx} className="flex text-sattva-dim items-start text-sm md:text-base">
-                    <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 mr-3 shrink-0"></span>
+                    <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 me-3 shrink-0 forced-colors:bg-[CanvasText]"></span>
                     <span className="flex-1">
                       <RichText
                         text={n.note}

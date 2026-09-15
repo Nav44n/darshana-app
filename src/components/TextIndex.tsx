@@ -203,7 +203,7 @@ export default function TextIndex() {
                           to={`/system/${system.id}/text/${text.id}/verse/${verse.id}`}
                           className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-avyakta-3 transition-colors motion-reduce:transition-none group"
                         >
-                          <CountBadge accentPrimary={accent.primary} className="min-w-10 px-2">
+                          <CountBadge accentPrimary={accent.primary} variant="numeral">
                             {verse.number}
                           </CountBadge>
                           <span className="flex-1 min-w-0">
@@ -233,6 +233,7 @@ export default function TextIndex() {
         <section className="bg-avyakta-2 rounded-2xl border border-tamas-deep shadow-xs overflow-hidden">
           <button
             onClick={() => togglePanel('thread')}
+            aria-expanded={openPanel === 'thread'}
             className="w-full flex items-center gap-4 p-5 text-left hover:bg-avyakta transition-colors motion-reduce:transition-none"
           >
             <span
@@ -261,7 +262,7 @@ export default function TextIndex() {
                     to={`/system/${system.id}/thread?step=${globalIndex + 1}`}
                     className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-avyakta-3 transition-colors motion-reduce:transition-none group"
                   >
-                    <CountBadge accentPrimary={accent.primary} className="w-7 h-7 p-0">
+                    <CountBadge accentPrimary={accent.primary} variant="tile">
                       {globalIndex + 1}
                     </CountBadge>
                     <span className="text-sm text-sattva truncate flex-1">
@@ -281,6 +282,7 @@ export default function TextIndex() {
         <section className="bg-avyakta-2 rounded-2xl border border-tamas-deep shadow-xs overflow-hidden">
           <button
             onClick={() => togglePanel('concepts')}
+            aria-expanded={openPanel === 'concepts'}
             className="w-full flex items-center gap-4 p-5 text-left hover:bg-avyakta transition-colors motion-reduce:transition-none"
           >
             <span

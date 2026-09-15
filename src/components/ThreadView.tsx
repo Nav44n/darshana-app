@@ -3,7 +3,7 @@ import { useParams, Link, useSearchParams } from 'react-router';
 import { getSystem } from '../content';
 import { ChevronRight, ChevronLeft, ArrowLeft } from 'lucide-react';
 import RichText from './RichText';
-import { BreadcrumbChevron, BottomBar, Notice, Card, CardBody, PageShell } from './Primitives';
+import { BreadcrumbChevron, BottomBar, Notice, Card, CardBody, ChipLink, PageShell, SectionTitle } from './Primitives';
 import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
@@ -112,9 +112,7 @@ export default function ThreadView() {
 
           {stepConcept && (
             <div className="pt-6 border-t border-tamas">
-              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">
-                {t(language, 'coreConcept')}
-              </h3>
+              <SectionTitle className="mb-4">{t(language, 'coreConcept')}</SectionTitle>
               <Link
                 to={`/system/${system.id}/text/${targetTextId}/concept/${stepConcept.id}`}
                 className="block p-4 rounded-xl bg-avyakta-3/50 hover:bg-avyakta-3 transition-colors motion-reduce:transition-none"
@@ -136,7 +134,7 @@ export default function ThreadView() {
 
           {content?.summary && (
             <div className="pt-6 border-t border-tamas">
-              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">{t(language, 'summaryLabel')}</h3>
+              <SectionTitle className="mb-4">{t(language, 'summaryLabel')}</SectionTitle>
               <div className="prose max-w-none text-sattva-dim">
                 <RichText
                   text={content.summary}
@@ -149,11 +147,11 @@ export default function ThreadView() {
           
           {content?.keyPoints && content.keyPoints.length > 0 && (
             <div className="pt-6 border-t border-tamas">
-              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">{t(language, 'keyInsights')}</h3>
+              <SectionTitle className="mb-4">{t(language, 'keyInsights')}</SectionTitle>
               <ul className="space-y-3">
                 {content.keyPoints.map((point, idx) => (
                   <li key={idx} className="flex text-sattva items-start">
-                    <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 mr-3 shrink-0"></span>
+                    <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 me-3 shrink-0 forced-colors:bg-[CanvasText]"></span>
                     <span className="flex-1">
                       <RichText
                         text={point}
@@ -169,16 +167,15 @@ export default function ThreadView() {
           
           {step.verseIds && step.verseIds.length > 0 && targetTextId && (
             <div className="pt-6 border-t border-tamas">
-              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">{t(language, 'relatedVerses')} ({verseTermPlural})</h3>
+              <SectionTitle className="mb-4">{t(language, 'relatedVerses')} ({verseTermPlural})</SectionTitle>
               <div className="flex flex-wrap gap-2">
                 {step.verseIds.map((vId) => (
-                  <Link 
-                    key={vId} 
+                  <ChipLink
+                    key={vId}
                     to={`/system/${system.id}/text/${targetTextId}/verse/${vId}`}
-                    className="inline-flex items-center px-3 py-1.5 rounded-full bg-avyakta-3 text-sattva text-sm hover:bg-avyakta-4 transition-colors motion-reduce:transition-none"
                   >
                     {verseTermSingular} {vId}
-                  </Link>
+                  </ChipLink>
                 ))}
               </div>
             </div>

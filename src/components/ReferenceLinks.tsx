@@ -8,10 +8,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
-import { CollapsibleSection } from './Primitives';
-
-const chipClass =
-  'inline-flex items-center px-3 py-1.5 rounded-full bg-avyakta-3 text-sattva text-sm hover:bg-avyakta-4 transition-colors motion-reduce:transition-none';
+import { CollapsibleSection, chipBase } from './Primitives';
 
 export function RefSection({
   icon,
@@ -52,12 +49,12 @@ export function ConceptChips({
           <Link
             key={key}
             to={`/system/${hit.systemId}/text/${hit.textId}/concept/${hit.concept.id}`}
-            className={chipClass}
+            className={chipBase}
             title={crossSystem ? `${getConceptTitle(hit, language)} — ${systemTitle}` : getConceptTitle(hit, language)}
           >
             {getConceptTitle(hit, language)}
             {crossSystem && systemTitle && (
-              <span className="ml-1.5 text-[10px] uppercase font-semibold text-sattva-dim">
+              <span className="ms-1.5 text-[11px] uppercase font-semibold text-sattva-dim">
                 {systemTitle}
               </span>
             )}
@@ -82,7 +79,7 @@ export function VerseChips({ items }: { items: VerseHit[] }) {
           <Link
             key={`${hit.systemId}:${hit.textId}:${hit.verse.id}`}
             to={`/system/${hit.systemId}/text/${hit.textId}/verse/${hit.verse.id}`}
-            className={chipClass}
+            className={chipBase}
             title={tip?.slice(0, 120)}
           >
             {term} {hit.verse.number}
@@ -104,7 +101,7 @@ export function ThreadStepLinks({ steps }: { steps: ThreadStepHit[] }) {
         <Link
           key={`${systemId}:${step.id}:thread`}
           to={`/system/${systemId}/thread?step=${stepIndex + 1}`}
-          className={chipClass}
+          className={chipBase}
         >
           {stepLabel} {stepIndex + 1}: {getThreadStepTitle(step, language).slice(0, 42)}
           {getThreadStepTitle(step, language).length > 42 ? '…' : ''}

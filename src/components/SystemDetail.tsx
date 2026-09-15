@@ -57,7 +57,7 @@ export default function SystemDetail() {
                   )}
                 </span>
               </span>
-              <RowChevron className="w-5 h-5" />
+              <RowChevron />
             </Link>
           ))}
         </div>

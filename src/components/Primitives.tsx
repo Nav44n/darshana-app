@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import { Link } from 'react-router';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 
@@ -66,17 +66,25 @@ export function SectionTitle({
   children,
   icon,
   count,
+  as = 'h3',
+  className = '',
 }: {
   children: React.ReactNode;
   icon?: React.ReactNode;
   count?: number;
+  /** h3 for static labels; span when nested inside a toggle button (where
+   *  the outer heading wraps the button instead — buttons admit only
+   *  phrasing content, so an h3 must never sit inside one). */
+  as?: 'h3' | 'span';
+  className?: string;
 }) {
+  const Tag = as === 'span' ? 'span' : 'h3';
   return (
-    <h3 className="text-sm font-bold text-tamas uppercase tracking-wider flex items-center">
-      {icon && <span className="mr-2 inline-flex">{icon}</span>}
+    <Tag className={`text-sm font-bold text-tamas uppercase tracking-wider flex items-center forced-colors:text-[CanvasText] ${className}`}>
+      {icon && <span className="me-2 inline-flex">{icon}</span>}
       {children}
-      {count !== undefined && <span className="ml-1.5 font-medium">({count})</span>}
-    </h3>
+      {count !== undefined && <span className="ms-1.5 font-medium">({count})</span>}
+    </Tag>
   );
 }
 
@@ -89,14 +97,18 @@ export function Eyebrow({
   accentPrimary?: string;
   className?: string;
 }) {
+  // Typography converges on the .t-eyebrow type token instead of re-deriving
+  // eyebrow metrics ad hoc (the component ran 12px/0.05em against the token's
+  // 11px/0.14em). Accent arrives as a --accent var so the forced-colours
+  // rules can genuinely override it (sessions 4–5 pattern); the ring exists
+  // only in forced colours, so normal-mode rendering is unchanged.
+  const tone = accentPrimary
+    ? 'bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] text-(--accent) forced-colors:bg-[Canvas] forced-colors:text-[CanvasText]'
+    : 'text-sattva-dim';
   return (
     <span
-      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider ${className}`}
-      style={
-        accentPrimary
-          ? { backgroundColor: accentTint(accentPrimary, 12), color: accentPrimary }
-          : undefined
-      }
+      className={`t-eyebrow inline-flex items-center rounded-full px-2.5 py-0.5 forced-colors:ring-1 forced-colors:ring-inset forced-colors:ring-[CanvasText] ${tone} ${className}`}
+      style={accentPrimary ? ({ '--accent': accentPrimary } as React.CSSProperties) : undefined}
     >
       {children}
     </span>
@@ -106,28 +118,40 @@ export function Eyebrow({
 export function CountBadge({
   children,
   accentPrimary,
+  variant = 'pill',
   className = '',
 }: {
   children: React.ReactNode;
   accentPrimary?: string;
+  /** pill: section counts · numeral: verse numbers · tile: square step numbers. */
+  variant?: 'pill' | 'numeral' | 'tile';
   className?: string;
 }) {
+  const shape =
+    variant === 'tile'
+      ? 'h-7 w-7 p-0'
+      : variant === 'numeral'
+        ? 'min-w-10 px-2 py-1.5'
+        : 'px-2.5 py-1.5';
+  // Accent arrives as a --accent var rather than an inline backgroundColor
+  // so the forced-colours rules below can genuinely override it (session-4
+  // pattern). The 12% tint matches the pre-var rendering exactly; srgb is
+  // deliberate, since mixing with transparent preserves hue in any space.
+  const tone = accentPrimary
+    ? 'bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] text-(--accent) forced-colors:bg-[Canvas] forced-colors:text-[CanvasText]'
+    : '';
   return (
     <span
-      className={`text-xs font-bold tabular-nums px-2.5 py-1.5 rounded-lg shrink-0 inline-flex items-center justify-center ring-1 ring-inset ring-white/10 ${className}`}
-      style={
-        accentPrimary
-          ? { backgroundColor: accentTint(accentPrimary, 12), color: accentPrimary }
-          : undefined
-      }
+      className={`inline-flex shrink-0 items-center justify-center rounded-lg text-xs font-bold tabular-nums ring-1 ring-inset ring-white/10 forced-colors:ring-[CanvasText] ${shape} ${tone} ${className}`}
+      style={accentPrimary ? ({ '--accent': accentPrimary } as React.CSSProperties) : undefined}
     >
       {children}
     </span>
   );
 }
 
-const chipBase =
-  'inline-flex items-center px-3 py-1.5 rounded-full bg-avyakta-3 text-sattva text-sm hover:bg-avyakta-4 transition-colors motion-reduce:transition-none min-h-11';
+export const chipBase =
+  'inline-flex items-center px-3 py-1.5 rounded-full bg-avyakta-3 text-sattva text-sm hover:bg-avyakta-4 transition-colors motion-reduce:transition-none min-h-11 forced-colors:ring-1 forced-colors:ring-inset forced-colors:ring-[CanvasText]';
 
 export function ChipLink({
   to,
@@ -152,10 +176,14 @@ export function Notice({
   children: React.ReactNode;
   tone?: 'amber' | 'neutral';
 }) {
+  // role="status" is deliberate: every caller discloses a Malayalam-fallback
+  // at page load, and screen-reader users must hear that the content they are
+  // about to read is a fallback. Forced-colours pins keep the boundary and
+  // the message legible when author tints collapse to Canvas.
   const cls =
     tone === 'amber'
-      ? 'bg-amber-dim/20 border-amber-dim text-amber'
-      : 'bg-avyakta-3 border-tamas-deep text-sattva-dim';
+      ? 'bg-amber-dim/20 border-amber-dim text-amber forced-colors:bg-[Canvas] forced-colors:border-[CanvasText] forced-colors:text-[CanvasText]'
+      : 'bg-avyakta-3 border-tamas-deep text-sattva-dim forced-colors:bg-[Canvas] forced-colors:border-[CanvasText] forced-colors:text-[CanvasText]';
   return (
     <div role="status" className={`p-3 border rounded-lg text-xs ${cls}`}>
       {children}
@@ -163,9 +191,11 @@ export function Notice({
   );
 }
 
-/** Unified collapsible section replacing the duplicated Collapsible /
- *  RefSection patterns. Button carries aria-expanded; chevron rotates
- *  with motion-safe transition only. */
+/** APG disclosure section: outer h3 wraps the toggle button (valid —
+ *  buttons admit only phrasing content, so the heading must contain the
+ *  button, never the reverse), with aria-expanded + aria-controls pairing
+ *  the button to its panel. The chevron speaks the single app-wide
+ *  disclosure language (DisclosureChevron, down/up). */
 export function CollapsibleSection({
   title,
   icon,
@@ -180,32 +210,55 @@ export function CollapsibleSection({
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(defaultOpen);
+  const buttonId = useId();
+  const panelId = useId();
   return (
     <div className="pt-6 border-t border-tamas">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        className="w-full flex items-center justify-between mb-4 cursor-pointer"
-      >
-        <SectionTitle icon={icon} count={count}>
-          {title}
-        </SectionTitle>
-        <ChevronDown
-          aria-hidden="true"
-          className={`w-4 h-4 text-tamas shrink-0 ml-2 transition-transform duration-base motion-reduce:transition-none ${open ? '' : '-rotate-90'}`}
-        />
-      </button>
-      {open && <div>{children}</div>}
+      <h3 className="mb-4">
+        <button
+          type="button"
+          id={buttonId}
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls={panelId}
+          className="w-full flex items-center justify-between cursor-pointer"
+        >
+          <SectionTitle as="span" icon={icon} count={count}>
+            {title}
+          </SectionTitle>
+          <DisclosureChevron open={open} className="ms-2" />
+        </button>
+      </h3>
+      {open && (
+        <div id={panelId} aria-labelledby={buttonId}>
+          {children}
+        </div>
+      )}
     </div>
   );
 }
 
-export function BottomBar({ children }: { children: React.ReactNode }) {
+// Fixed prev/index/next bar. Height budget (~76px, ~94px with a large
+// home-indicator inset) must stay under PageShell's pb-24 (96px) clearance —
+// keep the two in sync. Rendered as a labelled nav landmark since every
+// caller fills it with page navigation.
+export function BottomBar({
+  children,
+  width = 'narrow',
+  label = 'Page navigation',
+}: {
+  children: React.ReactNode;
+  width?: 'narrow' | 'wide';
+  label?: string;
+}) {
+  const max = width === 'wide' ? 'max-w-4xl' : 'max-w-3xl';
   return (
-    <div className="fixed bottom-0 left-0 right-0 p-4 bg-avyakta-2/80 backdrop-blur-md border-t border-tamas-deep">
-      <div className="max-w-3xl mx-auto flex justify-between items-center">{children}</div>
-    </div>
+    <nav
+      aria-label={label}
+      className="fixed inset-x-0 bottom-0 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] bg-avyakta-2/80 backdrop-blur-md border-t border-tamas-deep forced-colors:bg-[Canvas] forced-colors:border-[CanvasText]"
+    >
+      <div className={`${max} mx-auto flex justify-between items-center`}>{children}</div>
+    </nav>
   );
 }
 
@@ -270,18 +323,27 @@ export function Breadcrumb({
   current: string;
 }) {
   return (
-    <nav aria-label="Breadcrumb" className="flex items-center text-sm text-sattva-dim space-x-2 truncate">
-      {trail.map((item) => (
-        <React.Fragment key={item.to}>
-          <Link to={item.to} className="hover:text-rajas transition-colors motion-reduce:transition-none truncate">
-            {item.label}
-          </Link>
-          <BreadcrumbChevron />
-        </React.Fragment>
-      ))}
-      <span aria-current="page" className="text-sattva font-medium truncate">
-        {current}
-      </span>
+    <nav aria-label="Breadcrumb" className="text-sm text-sattva-dim min-w-0">
+      <ol className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-1">
+        {trail.map((item, index) => (
+          <li key={`${item.to}-${index}`} className="flex min-w-0 items-center gap-1.5">
+            <Link
+              to={item.to}
+              className="inline-flex min-h-6 min-w-0 items-center rounded-sm hover:text-rajas hover:underline hover:decoration-rajas/40 hover:underline-offset-4 transition-colors motion-reduce:transition-none"
+            >
+              <span className="truncate">{item.label}</span>
+            </Link>
+            <span aria-hidden="true" className="inline-flex shrink-0">
+              <BreadcrumbChevron />
+            </span>
+          </li>
+        ))}
+        <li className="flex min-w-0 items-center">
+          <span aria-current="page" className="truncate font-medium text-sattva">
+            {current}
+          </span>
+        </li>
+      </ol>
     </nav>
   );
 }
@@ -291,6 +353,10 @@ export function Breadcrumb({
 // aria-hidden with state exposed via the parent button's aria-expanded.
 // Sizes, colour, and motion stay consistent to optimise scanning
 // behaviour; hover and keyboard focus receive the same brightening.
+// Row chevrons add a 2px motion-safe forward nudge (mirrored in RTL)
+// so navigation is never signalled by colour alone. Disclosure chevrons
+// rotate on the vertical axis, which is direction-neutral, so they
+// carry no RTL flip.
 
 export function DisclosureChevron({
   open,
@@ -302,7 +368,8 @@ export function DisclosureChevron({
   return (
     <ChevronDown
       aria-hidden="true"
-      className={`w-5 h-5 text-tamas shrink-0 transition-transform duration-base motion-reduce:transition-none ${open ? 'rotate-180' : ''} ${className}`}
+      focusable="false"
+      className={`w-5 h-5 text-tamas shrink-0 transition-transform duration-base motion-reduce:transition-none forced-colors:text-[CanvasText] ${open ? 'rotate-180' : ''} ${className}`}
     />
   );
 }
@@ -311,7 +378,8 @@ export function RowChevron({ className = '' }: { className?: string }) {
   return (
     <ChevronRight
       aria-hidden="true"
-      className={`w-4 h-4 text-tamas shrink-0 group-hover:text-sattva group-focus-visible:text-sattva transition-colors duration-base motion-reduce:transition-none forced-colors:text-[CanvasText] ${className}`}
+      focusable="false"
+      className={`h-4 w-4 shrink-0 text-tamas transition-all duration-base motion-reduce:transition-none motion-safe:group-hover:translate-x-0.5 motion-safe:rtl:group-hover:-translate-x-0.5 group-hover:text-sattva group-focus-visible:text-sattva forced-colors:text-[CanvasText] forced-colors:group-hover:text-[CanvasText] forced-colors:group-focus-visible:text-[CanvasText] rtl:rotate-180 ${className}`}
     />
   );
 }
@@ -320,7 +388,8 @@ export function BreadcrumbChevron({ className = '' }: { className?: string }) {
   return (
     <ChevronRight
       aria-hidden="true"
-      className={`w-4 h-4 shrink-0 ${className}`}
+      focusable="false"
+      className={`h-4 w-4 shrink-0 text-tamas forced-colors:text-[CanvasText] rtl:rotate-180 ${className}`}
     />
   );
 }

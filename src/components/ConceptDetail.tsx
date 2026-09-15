@@ -7,7 +7,7 @@ import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
 import RichText from './RichText';
-import { BottomBar, Notice, Card, CardBody, Breadcrumb, PageShell } from './Primitives';
+import { BottomBar, Notice, Card, CardBody, Breadcrumb, PageShell, SectionTitle } from './Primitives';
 import {
   RelatedConceptsSection,
   RelatedVersesSection,
@@ -108,9 +108,9 @@ export default function ConceptDetail() {
 
           {verses.length > 0 && (
             <div className="pt-6 border-t border-tamas">
-              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">
+              <SectionTitle className="mb-4">
                 {t(language, 'definingLabel', { term: verseTermPlural, count: verses.length })}
-              </h3>
+              </SectionTitle>
               <div className="space-y-3">
                 {verses.slice(0, 12).map(({ verse }) => {
                   const translation =

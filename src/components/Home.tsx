@@ -35,8 +35,8 @@ export default function Home() {
             >
               <div
                 aria-hidden="true"
-                className="absolute top-0 left-0 right-0 h-1.5 opacity-90 group-hover:opacity-100 group-focus-visible:opacity-100 group-focus-within:opacity-100 transition-opacity motion-reduce:transition-none forced-colors:bg-[Highlight]"
-                style={{ backgroundColor: accent.primary }}
+                className="absolute top-0 left-0 right-0 h-1.5 bg-(--accent) opacity-90 group-hover:opacity-100 group-focus-visible:opacity-100 group-focus-within:opacity-100 transition-opacity motion-reduce:transition-none forced-colors:bg-[Highlight]"
+                style={{ '--accent': accent.primary } as React.CSSProperties}
               />
               <h2
                 className="text-2xl font-serif font-bold text-sattva mb-2"
@@ -58,8 +58,8 @@ export default function Home() {
                     <div className="flex items-center min-w-0">
                       <span
                         aria-hidden="true"
-                        className="w-2 h-2 rounded-full mr-2.5 shrink-0 ring-1 ring-inset ring-white/10"
-                        style={{ backgroundColor: accent.primary }}
+                        className="w-2 h-2 rounded-full me-2.5 shrink-0 bg-(--accent) ring-1 ring-inset ring-white/10 forced-colors:bg-[CanvasText]"
+                        style={{ '--accent': accent.primary } as React.CSSProperties}
                       ></span>
                       {text.transliteratedTitle}
                     </div>
