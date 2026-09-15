@@ -4,7 +4,7 @@ import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
-import { RowChevron } from './Primitives';
+import { RowChevron, Eyebrow } from './Primitives';
 import { getVerseTerm } from '../utils/textTerminology';
 
 // System page: header plus the plain list of texts (subsystems).
@@ -23,15 +23,12 @@ export default function SystemDetail() {
   const display = getSystemDisplay(system, language);
 
   return (
-    <div className="space-y-4 animate-in fade-in duration-500 pb-16 max-w-3xl mx-auto">
+    <div className="space-y-4 animate-fade-in pb-16 max-w-3xl mx-auto">
       {/* Header */}
       <div className="py-6 border-b border-tamas-deep">
-        <div
-          className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3"
-          style={{ backgroundColor: `${accent.primary}15`, color: accent.primary }}
-        >
+        <Eyebrow accentPrimary={accent.primary} className="mb-3">
           {system.id.toUpperCase()} DARŚANA
-        </div>
+        </Eyebrow>
         <h1 className="text-4xl font-serif font-bold text-sattva mb-2">{display.title}</h1>
         <p className="text-xl text-sattva-dim">{display.subtitle}</p>
       </div>
@@ -46,7 +43,7 @@ export default function SystemDetail() {
             <Link
               key={text.id}
               to={`/system/${system.id}/text/${text.id}`}
-              className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl hover:bg-avyakta-3 transition-colors group"
+              className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl hover:bg-avyakta-3 transition-colors motion-reduce:transition-none group"
             >
               <span className="min-w-0">
                 <span className="block font-semibold text-sattva truncate">{text.transliteratedTitle}</span>

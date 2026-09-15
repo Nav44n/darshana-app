@@ -7,7 +7,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
-import { CountBadge, DisclosureChevron, RowChevron, BreadcrumbChevron } from './Primitives';
+import { CountBadge, DisclosureChevron, RowChevron, Breadcrumb, accentTint } from './Primitives';
 
 type Panel = 'thread' | 'concepts' | null;
 
@@ -95,13 +95,12 @@ export default function TextIndex() {
   };
 
   return (
-    <div className="space-y-4 animate-in fade-in duration-500 max-w-3xl mx-auto pb-16">
-      <div className="flex items-center text-sm text-sattva-dim mb-2 space-x-2">
-        <Link to={`/system/${system.id}`} className="hover:text-rajas transition-colors">
-          {systemDisplay?.title ?? system.title}
-        </Link>
-        <BreadcrumbChevron />
-        <span className="text-sattva">{text.transliteratedTitle}</span>
+    <div className="space-y-4 animate-fade-in max-w-3xl mx-auto pb-16">
+      <div className="mb-2">
+        <Breadcrumb
+          trail={[{ to: `/system/${system.id}`, label: systemDisplay?.title ?? system.title }]}
+          current={text.transliteratedTitle}
+        />
       </div>
 
       <div className="py-4 border-b border-tamas-deep">
@@ -124,14 +123,14 @@ export default function TextIndex() {
             <div className="flex items-center gap-2 text-xs font-medium">
               <button
                 onClick={() => setOpenSections(verseSections.map((g) => g.section))}
-                className="text-sattva-dim hover:text-sattva transition-colors"
+                className="text-sattva-dim hover:text-sattva transition-colors motion-reduce:transition-none"
               >
                 {t(language, 'expandAll')}
               </button>
               <span className="text-tamas">•</span>
               <button
                 onClick={() => setOpenSections([])}
-                className="text-sattva-dim hover:text-sattva transition-colors"
+                className="text-sattva-dim hover:text-sattva transition-colors motion-reduce:transition-none"
               >
                 {t(language, 'collapseAll')}
               </button>
@@ -145,7 +144,7 @@ export default function TextIndex() {
                   key={g.section || 'unsectioned'}
                   onClick={() => jumpToSection(g.section)}
                   aria-expanded={openSections.includes(g.section)}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors motion-reduce:transition-none ${
                     active
                       ? 'text-avyakta border-transparent'
                       : 'bg-avyakta-3 text-sattva-dim border-tamas-deep hover:text-sattva hover:border-tamas'
@@ -175,7 +174,7 @@ export default function TextIndex() {
                 <button
                   onClick={() => toggleSection(g.section)}
                   aria-expanded={expanded}
-                  className="w-full flex items-center gap-4 p-5 text-left hover:bg-avyakta transition-colors"
+                  className="w-full flex items-center gap-4 p-5 text-left hover:bg-avyakta transition-colors motion-reduce:transition-none"
                 >
                   <CountBadge accentPrimary={accent.primary}>{g.verses.length}</CountBadge>
                   <span className="flex-1 min-w-0">
@@ -202,7 +201,7 @@ export default function TextIndex() {
                         <Link
                           key={verse.id}
                           to={`/system/${system.id}/text/${text.id}/verse/${verse.id}`}
-                          className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-avyakta-3 transition-colors group"
+                          className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-avyakta-3 transition-colors motion-reduce:transition-none group"
                         >
                           <CountBadge accentPrimary={accent.primary} className="min-w-10 px-2">
                             {verse.number}
@@ -234,13 +233,13 @@ export default function TextIndex() {
         <section className="bg-avyakta-2 rounded-2xl border border-tamas-deep shadow-xs overflow-hidden">
           <button
             onClick={() => togglePanel('thread')}
-            className="w-full flex items-center gap-4 p-5 text-left hover:bg-avyakta transition-colors"
+            className="w-full flex items-center gap-4 p-5 text-left hover:bg-avyakta transition-colors motion-reduce:transition-none"
           >
             <span
               className="flex items-center justify-center w-10 h-10 rounded-xl shrink-0"
-              style={{ backgroundColor: `${accent.primary}15`, color: accent.primary }}
+              style={{ backgroundColor: accentTint(accent.primary), color: accent.primary }}
             >
-              <MapIcon className="w-5 h-5" />
+              <MapIcon aria-hidden="true" className="w-5 h-5" />
             </span>
             <span className="flex-1 min-w-0">
               <span className="block text-lg font-serif font-bold text-sattva">
@@ -260,7 +259,7 @@ export default function TextIndex() {
                   <Link
                     key={step.id}
                     to={`/system/${system.id}/thread?step=${globalIndex + 1}`}
-                    className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-avyakta-3 transition-colors group"
+                    className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-avyakta-3 transition-colors motion-reduce:transition-none group"
                   >
                     <CountBadge accentPrimary={accent.primary} className="w-7 h-7 p-0">
                       {globalIndex + 1}
@@ -282,13 +281,13 @@ export default function TextIndex() {
         <section className="bg-avyakta-2 rounded-2xl border border-tamas-deep shadow-xs overflow-hidden">
           <button
             onClick={() => togglePanel('concepts')}
-            className="w-full flex items-center gap-4 p-5 text-left hover:bg-avyakta transition-colors"
+            className="w-full flex items-center gap-4 p-5 text-left hover:bg-avyakta transition-colors motion-reduce:transition-none"
           >
             <span
               className="flex items-center justify-center w-10 h-10 rounded-xl shrink-0"
-              style={{ backgroundColor: `${accent.primary}15`, color: accent.primary }}
+              style={{ backgroundColor: accentTint(accent.primary), color: accent.primary }}
             >
-              <Sparkles className="w-5 h-5" />
+              <Sparkles aria-hidden="true" className="w-5 h-5" />
             </span>
             <span className="flex-1 min-w-0">
               <span className="block text-lg font-serif font-bold text-sattva">
@@ -307,7 +306,7 @@ export default function TextIndex() {
                   <Link
                     key={concept.id}
                     to={`/system/${system.id}/text/${text.id}/concept/${concept.id}`}
-                    className="flex items-center justify-between gap-3 px-4 py-2.5 rounded-xl hover:bg-avyakta-3 transition-colors group"
+                    className="flex items-center justify-between gap-3 px-4 py-2.5 rounded-xl hover:bg-avyakta-3 transition-colors motion-reduce:transition-none group"
                   >
                     <span className="text-sm text-sattva truncate">
                       {localized?.title || concept.id}

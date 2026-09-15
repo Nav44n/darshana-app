@@ -1,6 +1,6 @@
 /**
- * Normalizes Sanskrit transliteration (IAST) into standard ASCII
- * by removing diacritical marks and normalizing common variants
+ * Normalises Sanskrit transliteration (IAST) into standard ASCII
+ * by removing diacritical marks and normalising common variants
  * so user queries like 'purusha', 'sankhya', 'pramana' match 'puruṣa', 'sāṃkhya', 'pramāṇa'.
  */
 export function normalizeSanskrit(text: string): string {

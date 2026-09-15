@@ -25,7 +25,7 @@ function InlineMarkdown({ source }: { source: string }) {
 function RefRouterLink({ link, label, fallback }: { link: RefLink; label?: string; fallback: string }) {
   const { language } = useLanguage();
   const linkClass =
-    'text-rajas hover:text-rajas-dim underline decoration-rajas/40 underline-offset-2 transition-colors';
+    'text-rajas hover:text-rajas-dim underline decoration-rajas/40 underline-offset-2 transition-colors motion-reduce:transition-none';
 
   if (link.kind === 'verse') {
     return (

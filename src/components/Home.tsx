@@ -17,7 +17,7 @@ export default function Home() {
         </p>
         <Link
           to="/intro"
-          className="inline-flex items-center mt-6 px-5 py-2.5 rounded-xl bg-avyakta-2 border border-tamas-deep text-sm font-semibold text-sattva hover:bg-avyakta-3 transition-colors"
+          className="inline-flex items-center mt-6 px-5 py-2.5 rounded-xl bg-avyakta-2 border border-tamas-deep text-sm font-semibold text-sattva hover:bg-avyakta-3 transition-colors motion-reduce:transition-none"
         >
           {t(language, 'introTab')} →
         </Link>
@@ -39,7 +39,7 @@ export default function Home() {
                 style={{ backgroundColor: accent.primary }}
               />
               <h2
-                className="text-2xl font-serif font-bold text-sattva transition-colors mb-2"
+                className="text-2xl font-serif font-bold text-sattva mb-2"
               >
                 {display.title}
               </h2>

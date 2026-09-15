@@ -1,9 +1,8 @@
 import { Link } from 'react-router';
-import { Compass, Library } from 'lucide-react';
+import { Compass, Library, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
 import { introSchools, introSections, introSchoolName, introText } from '../content/introduction';
-import { RowChevron } from './Primitives';
 
 // General introduction to Indian philosophy: the nine-school map,
 // common ground, means of knowledge, and how to use the app.
@@ -33,7 +32,7 @@ export default function Intro() {
   );
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500 pb-16 max-w-3xl mx-auto">
+    <div className="space-y-8 animate-fade-in pb-16 max-w-3xl mx-auto">
       <div className="py-6 border-b border-tamas-deep text-center">
         <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-avyakta-2 border border-tamas-deep mb-4">
           <Compass className="w-6 h-6 text-sattva" />

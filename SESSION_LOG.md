@@ -120,3 +120,43 @@ credentials in this environment). Push + Pages deploy left for next session.
   II.55 (his own footnote; noted in app II.55). ML files untouched.
 - Verified: `tsc --noEmit` clean, integrity suite 174/174 pass,
   `npm run build` clean.
+
+## 2026-09-15 — UI primitives pass, continued (verified)
+
+- Fixed `Intro.tsx` missing `ChevronRight` import (`tsc` was red).
+- Migrated remaining screens onto `src/components/Primitives.tsx`:
+  VerseDetail (deleted local `Collapsible` → `CollapsibleSection` ×6),
+  ReferenceLinks (`RefSection` now an alias over `CollapsibleSection`),
+  ConceptDetail/TextIndex (`Breadcrumb`), ConceptDetail/VerseDetail/
+  ThreadView (`Card`+`CardBody`, `BottomBar`, `Notice`),
+  SystemDetail (`Eyebrow`), TextIndex icon tiles (`accentTint()` —
+  no `${accent}15` tints remain in components).
+- Dead `animate-in fade-in` (no animate plugin installed) → real
+  `.animate-fade-in` on all six screens; `motion-reduce:transition-none`
+  on every transition; `aria-hidden="true"` on decorative icons/dots.
+- `AGENTS.md` §4 updated: it forbade `Primitives.tsx`, which now exists
+  and is mandatory for new screens.
+- Verified: `tsc --noEmit` clean, vitest 182/182 pass, `vite build` clean.
+- Sandbox note: default npm cache is corrupt (`_cacache ENOENT`);
+  `npm --cache /tmp/npm-cache-fresh ci` works.
+- Parity snapshot (probed 2026-09-15, EN-full/ML): samkhya-karika
+  73/73, samkhya-sutra 522/522, yoga 195/195, nyaya 436/436,
+  vaisesika EN 0/231 (partial) ML 231, mimamsa 224/224, brahma-sutras
+  EN 0/552 (partial) ML 552, adhyatma-ramayana 119/119, gita 714/714,
+  vishnu-sahasranama EN-full ML 0 (144 verses, 1000 concepts),
+  devi-mahatmya 184/184, lalita EN-full ML 0 (335 verses, 1000
+  concepts), shiva-sutras 77/77, spanda 53/53, vijnanabhairava 118/118,
+  tantraloka 83/83. Thread ML gaps: vedanta 46/60, tantra 77/91.
+- Left uncommitted in working tree (user did not ask for a commit).
+
+## 2026-09-15 (later) — PageShell + prose audit (verified)
+
+- `PageShell` adopted on ConceptDetail/ThreadView/VerseDetail (exact-fit;
+  `select-text` kept via `className`). pb-16 screens (Intro/TextIndex/
+  SystemDetail) stay custom — `PageShell` has no spacing variant.
+- Indian English audit: UI chrome (`src/i18n`, `src/context`) is clean;
+  fixed 3 American-form code comments (`crossref`/`references`/`sanskrit`
+  utils). Content corpus still holds ~250 American tokens (recognised 80,
+  realised 54, honoured 46, labour 19, organised 17, coloured 11, …) in
+  reviewed translations — left untouched; bulk pass needs approval.
+- Verified: `tsc` clean, 182/182 tests, `vite build` clean.

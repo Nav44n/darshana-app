@@ -7,6 +7,7 @@ import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
 import RichText from './RichText';
+import { BottomBar, Notice, Card, CardBody, Breadcrumb, PageShell } from './Primitives';
 import {
   RelatedConceptsSection,
   RelatedVersesSection,
@@ -71,29 +72,22 @@ export default function ConceptDetail() {
   const isMlFallback = language === 'ml' && !concept.content.ml;
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500 max-w-3xl mx-auto pb-24 select-text">
-      <div className="flex items-center text-sm text-sattva-dim space-x-2 truncate">
-        <Link to={`/system/${system.id}`} className="hover:text-rajas transition-colors">
-          {systemDisplay.title}
-        </Link>
-        <ChevronRight className="w-4 h-4 shrink-0" />
-        <Link
-          to={`/system/${system.id}/text/${text.id}`}
-          className="hover:text-rajas transition-colors truncate"
-        >
-          {text.transliteratedTitle}
-        </Link>
-        <ChevronRight className="w-4 h-4 shrink-0" />
-        <span className="text-sattva font-medium truncate">{title}</span>
-      </div>
+    <PageShell className="select-text">
+      <Breadcrumb
+        trail={[
+          { to: `/system/${system.id}`, label: systemDisplay.title },
+          { to: `/system/${system.id}/text/${text.id}`, label: text.transliteratedTitle },
+        ]}
+        current={title}
+      />
 
-      <div className="bg-avyakta-2 rounded-2xl shadow-xs border border-tamas-deep overflow-hidden">
+      <Card>
         {isMlFallback && (
-          <div className="mx-8 mt-8 md:mx-10 p-3 bg-amber-dim/20 border border-amber-dim rounded-lg text-xs text-amber">
-            {t(language, 'mlFallbackThread')}
+          <div className="mx-8 mt-8 md:mx-10">
+            <Notice tone="amber">{t(language, 'mlFallbackThread')}</Notice>
           </div>
         )}
-        <div className="p-8 md:p-10 space-y-8">
+        <CardBody>
           <div className="space-y-3">
             <div className="text-xs font-semibold text-tamas uppercase tracking-widest">
               {t(language, 'conceptLabel')} • {text.transliteratedTitle}
@@ -125,7 +119,7 @@ export default function ConceptDetail() {
                     <Link
                       key={verse.id as string}
                       to={`/system/${system.id}/text/${text.id}/verse/${verse.id}`}
-                      className="block p-4 rounded-xl bg-avyakta-3/50 hover:bg-avyakta-3 transition-colors group"
+                      className="block p-4 rounded-xl bg-avyakta-3/50 hover:bg-avyakta-3 transition-colors motion-reduce:transition-none group"
                     >
                       <div className="text-sm font-semibold text-rajas mb-1">
                         {verseTermSingular} {verse.number}
@@ -145,48 +139,46 @@ export default function ConceptDetail() {
           <RelatedConceptsSection items={related} currentSystemId={system.id as string} />
           <ThreadMentionsSection steps={threadSteps} />
           <CrossSystemSection items={crossSystem} />
-        </div>
-      </div>
+        </CardBody>
+      </Card>
 
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-avyakta-2/80 backdrop-blur-md border-t border-tamas-deep">
-        <div className="max-w-3xl mx-auto flex justify-between items-center">
-          {nav.prev ? (
-            <Link
-              to={`/system/${system.id}/text/${text.id}/concept/${nav.prev.id}`}
-              className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors"
-            >
-              <ChevronLeft className="w-5 h-5 mr-1" />
-              <span className="hidden sm:inline max-w-40 truncate">
-                {(nav.prev.content[language]?.title || nav.prev.content.en?.title || nav.prev.id) as string}
-              </span>
-            </Link>
-          ) : (
-            <div className="w-20" />
-          )}
-
+      <BottomBar>
+        {nav.prev ? (
           <Link
-            to={`/system/${system.id}/text/${text.id}`}
-            className="flex flex-col items-center justify-center p-2 rounded-full hover:bg-avyakta-3 transition-colors text-sattva-dim"
-            title={t(language, 'backToIndex')}
+            to={`/system/${system.id}/text/${text.id}/concept/${nav.prev.id}`}
+            className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ChevronLeft aria-hidden="true" className="w-5 h-5 mr-1" />
+            <span className="hidden sm:inline max-w-40 truncate">
+              {(nav.prev.content[language]?.title || nav.prev.content.en?.title || nav.prev.id) as string}
+            </span>
           </Link>
+        ) : (
+          <div className="w-20" />
+        )}
 
-          {nav.next ? (
-            <Link
-              to={`/system/${system.id}/text/${text.id}/concept/${nav.next.id}`}
-              className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors"
-            >
-              <span className="hidden sm:inline max-w-40 truncate">
-                {(nav.next.content[language]?.title || nav.next.content.en?.title || nav.next.id) as string}
-              </span>
-              <ChevronRight className="w-5 h-5 ml-1" />
-            </Link>
-          ) : (
-            <div className="w-20" />
-          )}
-        </div>
-      </div>
-    </div>
+        <Link
+          to={`/system/${system.id}/text/${text.id}`}
+          className="flex flex-col items-center justify-center p-2 rounded-full hover:bg-avyakta-3 transition-colors motion-reduce:transition-none text-sattva-dim"
+          title={t(language, 'backToIndex')}
+        >
+          <ArrowLeft aria-hidden="true" className="w-5 h-5" />
+        </Link>
+
+        {nav.next ? (
+          <Link
+            to={`/system/${system.id}/text/${text.id}/concept/${nav.next.id}`}
+            className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
+          >
+            <span className="hidden sm:inline max-w-40 truncate">
+              {(nav.next.content[language]?.title || nav.next.content.en?.title || nav.next.id) as string}
+            </span>
+            <ChevronRight aria-hidden="true" className="w-5 h-5 ml-1" />
+          </Link>
+        ) : (
+          <div className="w-20" />
+        )}
+      </BottomBar>
+    </PageShell>
   );
 }

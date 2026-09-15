@@ -1,10 +1,10 @@
-import { getSystemAccent } from '../utils/theme';
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router';
 import { getVerse, getText, getSystem } from '../content';
-import { ChevronRight, ChevronLeft, ChevronDown, ArrowLeft, Share2, Check } from 'lucide-react';
+import { ChevronRight, ChevronLeft, ArrowLeft, Share2, Check } from 'lucide-react';
 import Markdown from 'react-markdown';
 import RichText from './RichText';
+import { BreadcrumbChevron, BottomBar, Notice, CollapsibleSection, Card, CardBody, PageShell } from './Primitives';
 import {
   RelatedConceptsSection,
   RelatedVersesSection,
@@ -19,33 +19,6 @@ import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
-
-function Collapsible({
-  title,
-  defaultOpen = true,
-  children,
-}: {
-  title: React.ReactNode;
-  defaultOpen?: boolean;
-  children: React.ReactNode;
-}) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
-  return (
-    <div className="pt-6 border-t border-tamas">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        aria-expanded={isOpen}
-        className="w-full flex items-center justify-between mb-4 group cursor-pointer"
-      >
-        <h3 className="text-sm font-bold text-tamas uppercase tracking-wider text-left">{title}</h3>
-        <ChevronDown
-          className={`w-4 h-4 text-tamas shrink-0 ml-2 transition-transform duration-200 ${isOpen ? '' : '-rotate-90'}`}
-        />
-      </button>
-      {isOpen && <div>{children}</div>}
-    </div>
-  );
-}
 
 export default function VerseDetail() {
   const { systemId, textId, verseId } = useParams();
@@ -119,17 +92,17 @@ export default function VerseDetail() {
   };
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500 max-w-3xl mx-auto pb-24 select-text">
+    <PageShell className="select-text">
       <div className="flex items-center justify-between text-sm text-sattva-dim">
         <div className="flex items-center space-x-2 truncate">
-          <Link to={`/system/${system.id}`} className="hover:text-rajas transition-colors">
+          <Link to={`/system/${system.id}`} className="hover:text-rajas transition-colors motion-reduce:transition-none">
             {getSystemDisplay(system, language).title}
           </Link>
-          <ChevronRight className="w-4 h-4 shrink-0" />
-          <Link to={`/system/${system.id}/text/${text.id}`} className="hover:text-rajas transition-colors truncate">
+          <BreadcrumbChevron />
+          <Link to={`/system/${system.id}/text/${text.id}`} className="hover:text-rajas transition-colors motion-reduce:transition-none truncate">
             {text.transliteratedTitle}
           </Link>
-          <ChevronRight className="w-4 h-4 shrink-0" />
+          <BreadcrumbChevron />
           <span className="text-sattva font-medium whitespace-nowrap">{verseTerm} {verse.number}</span>
         </div>
 
@@ -137,7 +110,7 @@ export default function VerseDetail() {
           {verse.content.en && (
             <button
               onClick={() => setLanguage('en')}
-              className={`text-xs px-2 py-1 rounded font-medium transition-colors ${
+              className={`text-xs px-2 py-1 rounded font-medium transition-colors motion-reduce:transition-none ${
                 language === 'en' ? 'bg-avyakta-4 text-sattva shadow-xs' : 'bg-avyakta-3 hover:bg-avyakta-4 text-sattva'
               }`}
               title="English translation"
@@ -149,7 +122,7 @@ export default function VerseDetail() {
           {verse.content.ml && (
             <button
               onClick={() => setLanguage('ml')}
-              className={`text-xs px-2 py-1 rounded font-medium transition-colors ${
+              className={`text-xs px-2 py-1 rounded font-medium transition-colors motion-reduce:transition-none ${
                 language === 'ml' ? 'bg-avyakta-4 text-sattva shadow-xs' : 'bg-avyakta-3 hover:bg-avyakta-4 text-sattva'
               }`}
               title={t(language, 'malayalamTranslationTitle')}
@@ -160,17 +133,17 @@ export default function VerseDetail() {
 
           <button
             onClick={handleCopy}
-            className="flex items-center space-x-1 text-xs px-2.5 py-1 rounded bg-avyakta-3 hover:bg-avyakta-4 text-sattva font-medium transition-colors"
+            className="flex items-center space-x-1 text-xs px-2.5 py-1 rounded bg-avyakta-3 hover:bg-avyakta-4 text-sattva font-medium transition-colors motion-reduce:transition-none"
             title={t(language, 'copyShareTitle')}
           >
             {copied ? (
               <>
-                <Check className="w-3.5 h-3.5 text-teal" />
+                <Check aria-hidden="true" className="w-3.5 h-3.5 text-teal" />
                 <span className="text-teal">{t(language, 'copiedLabel')}</span>
               </>
             ) : (
               <>
-                <Share2 className="w-3.5 h-3.5" />
+                <Share2 aria-hidden="true" className="w-3.5 h-3.5" />
                 <span>{t(language, 'shareLabel')}</span>
               </>
             )}
@@ -179,13 +152,11 @@ export default function VerseDetail() {
       </div>
 
       {isShowingFallback && (
-        <div className="p-3 bg-amber-dim/20 border border-amber-dim rounded-lg text-xs text-amber flex items-center justify-between">
-          <span>{t(language, 'mlFallbackVerse')}</span>
-        </div>
+        <Notice tone="amber">{t(language, 'mlFallbackVerse')}</Notice>
       )}
 
-      <div className="bg-avyakta-2 rounded-2xl shadow-xs border border-tamas-deep overflow-hidden">
-        <div className="p-8 md:p-10 space-y-8">
+      <Card>
+        <CardBody>
           <div className="text-center space-y-6">
             <h2 className="text-lg font-medium text-tamas tracking-widest uppercase">
               {verse.section ? `${verse.section} • ` : ''} {verseTerm} {verse.number}
@@ -209,7 +180,7 @@ export default function VerseDetail() {
           </div>
 
           {translation && (
-            <Collapsible
+            <CollapsibleSection
               title={
                 language === 'ml' && verse.content.ml?.translation
                   ? `${t(language, 'translationLabel')} (Translation)`
@@ -219,11 +190,11 @@ export default function VerseDetail() {
               <div className="text-lg md:text-xl text-sattva leading-relaxed font-serif">
                 <Markdown>{translation}</Markdown>
               </div>
-            </Collapsible>
+            </CollapsibleSection>
           )}
 
           {wordMeaning && (
-            <Collapsible
+            <CollapsibleSection
               title={
                 language === 'ml' && (verse.content.ml as any)?.wordMeaning
                   ? `${t(language, 'wordMeaningLabel')} (Word by Word)`
@@ -233,11 +204,11 @@ export default function VerseDetail() {
               <div className="text-base md:text-lg text-sattva-dim leading-relaxed">
                 <Markdown>{wordMeaning}</Markdown>
               </div>
-            </Collapsible>
+            </CollapsibleSection>
           )}
 
           {commentary && (
-            <Collapsible
+            <CollapsibleSection
               title={
                 language === 'ml' && verse.content.ml?.commentary
                   ? `${t(language, 'commentaryLabel')} (Commentary)`
@@ -251,11 +222,11 @@ export default function VerseDetail() {
                   textId={text.id as string}
                 />
               </div>
-            </Collapsible>
+            </CollapsibleSection>
           )}
 
           {keyPoints && keyPoints.length > 0 && (
-            <Collapsible
+            <CollapsibleSection
               title={
                 language === 'ml' && verse.content.ml?.keyPoints
                   ? `${t(language, 'keyPoints')} (Key Points)`
@@ -265,7 +236,7 @@ export default function VerseDetail() {
               <ul className="space-y-2">
                 {keyPoints.map((point, idx) => (
                   <li key={idx} className="flex text-sattva items-start">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 mr-3 shrink-0"></span>
+                    <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 mr-3 shrink-0"></span>
                     <span className="flex-1">
                       <RichText
                         text={point}
@@ -276,23 +247,23 @@ export default function VerseDetail() {
                   </li>
                 ))}
               </ul>
-            </Collapsible>
+            </CollapsibleSection>
           )}
 
           {variantNote && (
-            <Collapsible title={t(language, 'variantNoteLabel')}>
+            <CollapsibleSection title={t(language, 'variantNoteLabel')}>
               <div className="text-sm md:text-base text-sattva-dim leading-relaxed">
                 <Markdown>{variantNote}</Markdown>
               </div>
-            </Collapsible>
+            </CollapsibleSection>
           )}
 
           {verse.interpretiveNotes && verse.interpretiveNotes.length > 0 && (
-            <Collapsible title={t(language, 'variantNoteLabel')}>
+            <CollapsibleSection title={t(language, 'variantNoteLabel')}>
               <ul className="space-y-2">
                 {verse.interpretiveNotes.map((n, idx) => (
                   <li key={idx} className="flex text-sattva-dim items-start text-sm md:text-base">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 mr-3 shrink-0"></span>
+                    <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 mr-3 shrink-0"></span>
                     <span className="flex-1">
                       <RichText
                         text={n.note}
@@ -303,51 +274,49 @@ export default function VerseDetail() {
                   </li>
                 ))}
               </ul>
-            </Collapsible>
+            </CollapsibleSection>
           )}
 
           <RelatedConceptsSection items={relatedConcepts} currentSystemId={system.id as string} />
           <RelatedVersesSection items={relatedVerses} />
           <ThreadMentionsSection steps={threadSteps} />
-        </div>
-      </div>
+        </CardBody>
+      </Card>
 
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-avyakta-2/80 backdrop-blur-md border-t border-tamas-deep">
-        <div className="max-w-3xl mx-auto flex justify-between items-center">
-          {prevVerse ? (
-            <Link
-              to={`/system/${system.id}/text/${text.id}/verse/${prevVerse.id}`}
-              className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors"
-            >
-              <ChevronLeft className="w-5 h-5 mr-1" />
-              <span className="hidden sm:inline">{verseTerm}</span> {prevVerse.number}
-            </Link>
-          ) : (
-            <div className="w-20" />
-          )}
-
+      <BottomBar>
+        {prevVerse ? (
           <Link
-            to={`/system/${system.id}/text/${text.id}`}
-            className="flex flex-col items-center justify-center p-2 rounded-full hover:bg-avyakta-3 transition-colors text-sattva-dim"
-            title={t(language, 'backToIndex')}
+            to={`/system/${system.id}/text/${text.id}/verse/${prevVerse.id}`}
+            className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ChevronLeft aria-hidden="true" className="w-5 h-5 mr-1" />
+            <span className="hidden sm:inline">{verseTerm}</span> {prevVerse.number}
           </Link>
+        ) : (
+          <div className="w-20" />
+        )}
 
-          {nextVerse ? (
-            <Link
-              to={`/system/${system.id}/text/${text.id}/verse/${nextVerse.id}`}
-              className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors"
-            >
-              <span className="hidden sm:inline">{verseTerm}</span> {nextVerse.number}
-              <ChevronRight className="w-5 h-5 ml-1" />
-            </Link>
-          ) : (
-            <div className="w-20" />
-          )}
-        </div>
-      </div>
-    </div>
+        <Link
+          to={`/system/${system.id}/text/${text.id}`}
+          className="flex flex-col items-center justify-center p-2 rounded-full hover:bg-avyakta-3 transition-colors motion-reduce:transition-none text-sattva-dim"
+          title={t(language, 'backToIndex')}
+        >
+          <ArrowLeft aria-hidden="true" className="w-5 h-5" />
+        </Link>
+
+        {nextVerse ? (
+          <Link
+            to={`/system/${system.id}/text/${text.id}/verse/${nextVerse.id}`}
+            className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
+          >
+            <span className="hidden sm:inline">{verseTerm}</span> {nextVerse.number}
+            <ChevronRight aria-hidden="true" className="w-5 h-5 ml-1" />
+          </Link>
+        ) : (
+          <div className="w-20" />
+        )}
+      </BottomBar>
+    </PageShell>
   );
 }
 

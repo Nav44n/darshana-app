@@ -37,20 +37,20 @@ function HeaderNav() {
   return (
     <header className="bg-avyakta-2 border-b border-tamas-deep sticky top-0 z-10">
       <div className="max-w-4xl mx-auto px-4 py-3.5 flex items-center justify-between">
-        <Link to="/" className="text-xl font-serif font-bold tracking-tight text-sattva hover:text-sattva-dim transition-colors">
+        <Link to="/" className="text-xl font-serif font-bold tracking-tight text-sattva hover:text-sattva-dim transition-colors motion-reduce:transition-none">
           {language === 'ml' ? 'ദർശന' : 'Darśana'}
         </Link>
         <div className="flex items-center space-x-3">
           <Link
             to="/intro"
-            className="text-sm font-medium text-sattva-dim hover:text-sattva transition-colors"
+            className="text-sm font-medium text-sattva-dim hover:text-sattva transition-colors motion-reduce:transition-none"
           >
             {t(language, 'introTab')}
           </Link>
         <div className="flex items-center space-x-1 bg-avyakta-3 p-1 rounded-lg border border-tamas-deep text-xs font-medium">
           <button
             onClick={() => setLanguage('en')}
-            className={`px-2.5 py-1 rounded transition-colors ${
+            className={`px-2.5 py-1 rounded transition-colors motion-reduce:transition-none ${
               language === 'en'
                 ? 'bg-avyakta-4 text-sattva shadow-xs font-semibold'
                 : 'text-sattva-dim hover:text-sattva'
@@ -60,7 +60,7 @@ function HeaderNav() {
           </button>
           <button
             onClick={() => setLanguage('ml')}
-            className={`px-2.5 py-1 rounded transition-colors ${
+            className={`px-2.5 py-1 rounded transition-colors motion-reduce:transition-none ${
               language === 'ml'
                 ? 'bg-avyakta-4 text-sattva shadow-xs font-semibold'
                 : 'text-sattva-dim hover:text-sattva'

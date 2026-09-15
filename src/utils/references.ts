@@ -43,7 +43,7 @@ export interface ThreadStepHit {
   step: ThreadStep;
 }
 
-/** Normalize an id for fuzzy matching: strip diacritics, lowercase, unify separators. */
+/** Normalise an id for fuzzy matching: strip diacritics, lowercase, unify separators. */
 export function normalizeRefId(id: string): string {
   return id
     .normalize('NFD')

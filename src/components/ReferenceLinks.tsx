@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 import { Network, Quote, ListTree, Globe2 } from 'lucide-react';
 import type { ConceptHit, ThreadStepHit, VerseHit } from '../utils/references';
@@ -8,10 +8,10 @@ import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
-import { DisclosureChevron } from './Primitives';
+import { CollapsibleSection } from './Primitives';
 
 const chipClass =
-  'inline-flex items-center px-3 py-1.5 rounded-full bg-avyakta-3 text-sattva text-sm hover:bg-avyakta-4 transition-colors';
+  'inline-flex items-center px-3 py-1.5 rounded-full bg-avyakta-3 text-sattva text-sm hover:bg-avyakta-4 transition-colors motion-reduce:transition-none';
 
 export function RefSection({
   icon,
@@ -24,23 +24,10 @@ export function RefSection({
   count?: number;
   children: React.ReactNode;
 }) {
-  const [open, setOpen] = useState(true);
   return (
-    <div className="pt-6 border-t border-tamas">
-      <button
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-        className="w-full flex items-center justify-between mb-4 group cursor-pointer"
-      >
-        <h3 className="text-sm font-bold text-tamas uppercase tracking-wider flex items-center">
-          <span className="mr-2 inline-flex">{icon}</span>
-          {title}
-          {count !== undefined && <span className="ml-1.5 font-medium">({count})</span>}
-        </h3>
-        <DisclosureChevron open={open} className="w-4 h-4 ml-2" />
-      </button>
-      {open && <div>{children}</div>}
-    </div>
+    <CollapsibleSection title={title} icon={icon} count={count}>
+      {children}
+    </CollapsibleSection>
   );
 }
 
@@ -137,7 +124,7 @@ export function RelatedConceptsSection({
   const { language } = useLanguage();
   if (items.length === 0) return null;
   return (
-    <RefSection icon={<Network className="w-4 h-4" />} title={t(language, 'relatedConcepts')} count={items.length}>
+    <RefSection icon={<Network aria-hidden="true" className="w-4 h-4" />} title={t(language, 'relatedConcepts')} count={items.length}>
       <ConceptChips items={items} currentSystemId={currentSystemId} />
     </RefSection>
   );
@@ -147,7 +134,7 @@ export function RelatedVersesSection({ items, title }: { items: VerseHit[]; titl
   const { language } = useLanguage();
   if (items.length === 0) return null;
   return (
-    <RefSection icon={<Quote className="w-4 h-4" />} title={title || t(language, 'relatedVerses')} count={items.length}>
+    <RefSection icon={<Quote aria-hidden="true" className="w-4 h-4" />} title={title || t(language, 'relatedVerses')} count={items.length}>
       <VerseChips items={items} />
     </RefSection>
   );
@@ -157,7 +144,7 @@ export function ThreadMentionsSection({ steps }: { steps: ThreadStepHit[] }) {
   const { language } = useLanguage();
   if (steps.length === 0) return null;
   return (
-    <RefSection icon={<ListTree className="w-4 h-4" />} title={t(language, 'exploredInThread')} count={steps.length}>
+    <RefSection icon={<ListTree aria-hidden="true" className="w-4 h-4" />} title={t(language, 'exploredInThread')} count={steps.length}>
       <ThreadStepLinks steps={steps} />
     </RefSection>
   );
@@ -167,7 +154,7 @@ export function CrossSystemSection({ items }: { items: ConceptHit[] }) {
   const { language } = useLanguage();
   if (items.length === 0) return null;
   return (
-    <RefSection icon={<Globe2 className="w-4 h-4" />} title={t(language, 'alsoInOtherDarshanas')} count={items.length}>
+    <RefSection icon={<Globe2 aria-hidden="true" className="w-4 h-4" />} title={t(language, 'alsoInOtherDarshanas')} count={items.length}>
       <ConceptChips items={items} currentSystemId="" />
     </RefSection>
   );

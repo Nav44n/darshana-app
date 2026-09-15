@@ -4,7 +4,7 @@ import { findConcept } from './references';
 /**
  * Wikipedia-style reference linkifier.
  *
- * Recognizes three families of inline references in commentary / narrative /
+ * Recognises three families of inline references in commentary / narrative /
  * summary prose and resolves each against the compiled content registry, so a
  * stale or out-of-range reference never renders as a dead link:
  *
