@@ -1,8 +1,9 @@
 import { Link } from 'react-router';
-import { Compass, Library, ChevronRight } from 'lucide-react';
+import { Compass, Library } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
 import { introSchools, introSections, introSchoolName, introText } from '../content/introduction';
+import { RowChevron } from './Primitives';
 
 // General introduction to Indian philosophy: the nine-school map,
 // common ground, means of knowledge, and how to use the app.

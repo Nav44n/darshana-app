@@ -10,6 +10,7 @@
   /* Sāṃkhya principles (The Guṇas) */
   --color-sattva: #f4ecd8;
   --color-sattva-dim: #c4baa6;
+  --color-sattva-bright: #f5e9c8;
   --color-sattva-glow: rgba(244, 236, 216, 0.12);
 
   --color-rajas: #c66c55;
@@ -52,14 +53,201 @@
 
   /* Additional */
   --color-hair: #2c2f40;
+  --color-bg: #05060a;
+  --color-overlay: rgba(5, 6, 10, 0.72);
+  --color-shadow: rgba(0, 0, 0, 0.45);
+
+  /* Spacing — mirrors tokens.ts spacing. Additive only: enables
+     p-xs, m-xs, gap-xs etc. without altering existing p-4, gap-6. */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.375rem;
+  --spacing-xxl: 1.75rem;
+  --spacing-xxxl: 2.25rem;
+
+  /* Shape — tokens.ts radius sm 8 / md 12 / lg 16 already map to
+     Tailwind rounded-lg / rounded-xl / rounded-2xl via defaults,
+     so do not override those. Pill alias is additive only. */
+  --radius-pill: 999px;
+
+  /* Motion — mirrors tokens.ts motion. Enables duration-fast/base/slow
+     and ease-standard/spring utilities. Serious tone: gentle settle,
+     no bounce. */
+  --duration-fast: 140ms;
+  --duration-base: 220ms;
+  --duration-slow: 340ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 
 body {
   background-color: var(--color-avyakta);
   color: var(--color-sattva);
   font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Honour reduced-motion requests: non-essential motion collapses to
+   near-zero whilst keeping state changes functional. Infinite loops
+   must still offer a visible pause where used. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Global keyboard focus (0.5) ──────────────────────────────
+   Meets WCAG 2.4.7 Visible and aims for 2.4.13 Appearance:
+   2px perimeter with 3:1 change via sattva on avyakta ground.
+   Mouse focus stays clean; keyboard focus is unmistakable. */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-sattva);
+  outline-offset: 2px;
+}
+
+/* Keep anchored sections clear of the sticky header. */
+:target {
+  scroll-margin-top: 5rem;
+}
+
+@media (forced-colors: active) {
+  :focus-visible {
+    outline-color: Highlight;
+  }
+}
+
+/* ── Entrance motion ──────────────────────────────────────────
+   Single fade-rise used by shells. Global reduced-motion guard
+   collapses it; keep duration/ease tokenised. */
+@keyframes darshana-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-fade-in {
+  animation: var(--duration-slow) var(--ease-standard) both darshana-fade-in;
 }
 
 .font-sanskrit {
   font-family: var(--font-sanskrit);
+  line-height: 1.9;
+}
+
+/* ── Centralised type scale (0.2) ─────────────────────────────
+   Web truth for roles. Serif (Cormorant) for text to be read,
+   display (Fraunces) for titles, sans (Inter) for chrome.
+   Fluid sizes minimise reflow on small screens; Malayalam and
+   Devanagari favour taller leading and no tight tracking. */
+
+.t-display1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 1.6rem + 2vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.t-display2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 1.3rem + 1vw, 1.875rem);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+
+.t-h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.0625rem;
+  line-height: 1.375rem;
+}
+
+.t-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.t-body-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.t-body-sans {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.t-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.t-caption {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.t-label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.t-devanagari {
+  font-family: var(--font-sanskrit);
+  line-height: 1.9;
+}
+
+/* Malayalam and Devanagari need taller leading and open tracking
+   to keep conjuncts legible; never apply tight tracking there. */
+:lang(ml) .t-display1,
+:lang(ml) .t-display2,
+:lang(ml) .t-body-serif,
+:lang(ml) .t-body-sans {
+  line-height: 1.85;
+  letter-spacing: 0;
 }

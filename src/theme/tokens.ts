@@ -26,27 +26,28 @@ export type ColorPalette = typeof darkColors;
 export const darkColors = {
   // Ground — avyakta, the unmanifest. Not flat black: a near-black indigo,
   // because prakṛti is never truly void, only unresolved.
-  avyakta: '#12141c',
-  avyakta2: '#1a1d29',
-  avyakta3: '#232636',
-  avyakta4: '#2c2f45', // highest elevation: modals, popovers, active chips
+  // Synced with src/index.css (@theme) — web truth. 0.1.
+  avyakta: '#141420',
+  avyakta2: '#1c1d2c',
+  avyakta3: '#242538',
+  avyakta4: '#2b2d42', // highest elevation: modals, popovers, active chips
 
   // Sattva — clarity, illumination, the guṇa of knowledge. Warm parchment-gold.
-  sattva: '#e8d9b0',
-  sattvaDim: '#c9b98a',
+  sattva: '#f4ecd8',
+  sattvaDim: '#c4baa6',
   sattvaBright: '#f5e9c8', // one or two moments per screen that should feel lit from within — pair with glowText, never used at body-text scale
-  sattvaGlow: 'rgba(232, 217, 176, 0.16)',
+  sattvaGlow: 'rgba(244, 236, 216, 0.12)',
 
   // Rajas — activity, passion, the guṇa of motion. Terracotta / oxide-copper,
   // like a temple seal stamped in red ochre.
-  rajas: '#a8452b',
-  rajasDim: '#7a3220',
-  rajasGlow: 'rgba(168, 69, 43, 0.20)',
+  rajas: '#c66c55',
+  rajasDim: '#a65541',
+  rajasGlow: 'rgba(198, 108, 85, 0.2)',
 
   // Tamas — inertia, obscuration, the guṇa of weight and shadow. A dim slate,
   // never a "muted grey" — it should read as substance withheld, not absence.
-  tamas: '#5b5f72',
-  tamasDeep: '#3f4252',
+  tamas: '#62687a',
+  tamasDeep: '#494d5a',
 
   // Puruṣa — the witness-consciousness Sāṃkhya sets opposite prakṛti:
   // still, single, uninflected by the three guṇas. A cool amethyst-violet,
@@ -92,24 +93,34 @@ export const darkColors = {
 export const colors = darkColors;
 
 export const fonts = {
-  display: 'Fraunces_500Medium',
-  displaySemibold: 'Fraunces_600SemiBold',
-  serif: 'CormorantGaramond_400Regular',
-  serifItalic: 'CormorantGaramond_400Regular_Italic',
-  sanskrit: 'NotoSerifDevanagari_400Regular',
-  sans: 'Inter_400Regular',
-  sansMedium: 'Inter_500Medium',
-  sansBold: 'Inter_600SemiBold',
+  // Web truth lives in src/index.css (@theme) + Google Fonts in index.html.
+  // Legacy native loader names retained in comments for reference.
+  display: '"Fraunces", serif', // Fraunces_500Medium
+  displaySemibold: '"Fraunces", serif', // Fraunces_600SemiBold — use weight 600
+  serif: '"Cormorant Garamond", serif', // CormorantGaramond_400Regular
+  serifItalic: '"Cormorant Garamond", serif', // CormorantGaramond_400Regular_Italic — use italic style
+  sanskrit: '"Noto Serif Devanagari", serif', // NotoSerifDevanagari_400Regular
+  sans: '"Inter", sans-serif', // Inter_400Regular
+  sansMedium: '"Inter", sans-serif', // Inter_500Medium — use weight 500
+  sansBold: '"Inter", sans-serif', // Inter_600SemiBold — use weight 600
 };
 
 export const spacing = { xs: 4, sm: 8, md: 12, lg: 16, xl: 22, xxl: 28, xxxl: 36 };
+// Web truth: src/index.css @theme --spacing-xs … --spacing-xxxl (same px,
+// in rem). Web components may use p-xs / gap-md etc. or existing p-4 / gap-6.
 export const radius = { sm: 8, md: 12, lg: 16, xl: 20, pill: 999 };
+// Web truth: Tailwind defaults already align — rounded-lg 8 = sm,
+// rounded-xl 12 = md, rounded-2xl 16 = lg. Use those; rounded-pill /
+// --radius-pill mirrors pill 999. Do not override radius-sm/md/lg.
 
 // ─────────────────────────────────────────────────────────────────────────
 // Type scale — one place that fixes family + size + line-height + tracking
 // per role, so screens stop re-deriving the same numbers ad hoc. Serif for
 // anything that is text-to-be-read (translation, commentary, narrative);
 // display for titles; sans for interface chrome (labels, buttons, counts).
+// Web truth: src/index.css (.t-display1, .t-body-serif, etc., fluid with
+// clamp). Values below mirror those roles for shared logic; web components
+// should favour the CSS classes to optimise behaviour across viewports.
 // ─────────────────────────────────────────────────────────────────────────
 export const type = {
   eyebrow: { fontFamily: fonts.sansBold, fontSize: 10.5, letterSpacing: 1.8, textTransform: 'uppercase' as const },
@@ -220,6 +231,12 @@ export const motion = {
   fast: 140,
   base: 220,
   slow: 340,
+  // Web truth: src/index.css @theme --duration-fast/base/slow (same ms)
+  // plus --ease-standard / --ease-spring. Web components should favour
+  // duration-fast / duration-base / ease-spring utilities to optimise
+  // behaviour and keep physics consistent across screens.
+  easeStandard: 'cubic-bezier(0.2, 0, 0, 1)',
+  easeSpring: 'cubic-bezier(0.34, 1.4, 0.64, 1)',
 };
 
 // A soft luminous halo behind a display title — spend this on the one or

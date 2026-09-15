@@ -1,10 +1,10 @@
 import { useParams, Link } from 'react-router';
 import { getSystem } from '../content';
-import { ChevronRight } from 'lucide-react';
 import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
+import { RowChevron } from './Primitives';
 import { getVerseTerm } from '../utils/textTerminology';
 
 // System page: header plus the plain list of texts (subsystems).
@@ -60,7 +60,7 @@ export default function SystemDetail() {
                   )}
                 </span>
               </span>
-              <ChevronRight className="w-5 h-5 text-tamas shrink-0 group-hover:text-sattva transition-colors" />
+              <RowChevron className="w-5 h-5" />
             </Link>
           ))}
         </div>

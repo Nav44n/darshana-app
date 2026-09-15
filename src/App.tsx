@@ -7,6 +7,7 @@ import React, { Suspense, lazy } from 'react';
 import { HashRouter, Routes, Route, Link } from 'react-router';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { t } from './i18n/ui';
+import ErrorBoundary from './components/ErrorBoundary';
 
 const Home = lazy(() => import('./components/Home'));
 const Intro = lazy(() => import('./components/Intro'));
@@ -81,6 +82,7 @@ export default function App() {
         <div className="min-h-screen bg-avyakta text-sattva font-sans">
           <HeaderNav />
           <main className="max-w-4xl mx-auto px-4 py-8">
+            <ErrorBoundary>
             <Suspense fallback={<ScreenFallback />}>
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -92,6 +94,7 @@ export default function App() {
                 <Route path="/system/:systemId/text/:textId/concept/:conceptId" element={<ConceptDetail />} />
               </Routes>
             </Suspense>
+            </ErrorBoundary>
           </main>
         </div>
       </HashRouter>

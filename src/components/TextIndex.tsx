@@ -1,12 +1,13 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useParams, Link } from 'react-router';
 import { getText, getSystem } from '../content';
-import { Map as MapIcon, Sparkles, ChevronRight, ChevronDown } from 'lucide-react';
+import { Map as MapIcon, Sparkles } from 'lucide-react';
 import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
+import { CountBadge, DisclosureChevron, RowChevron, BreadcrumbChevron } from './Primitives';
 
 type Panel = 'thread' | 'concepts' | null;
 
@@ -99,7 +100,7 @@ export default function TextIndex() {
         <Link to={`/system/${system.id}`} className="hover:text-rajas transition-colors">
           {systemDisplay?.title ?? system.title}
         </Link>
-        <ChevronRight className="w-4 h-4" />
+        <BreadcrumbChevron />
         <span className="text-sattva">{text.transliteratedTitle}</span>
       </div>
 
@@ -176,12 +177,7 @@ export default function TextIndex() {
                   aria-expanded={expanded}
                   className="w-full flex items-center gap-4 p-5 text-left hover:bg-avyakta transition-colors"
                 >
-                  <span
-                    className="text-xs font-bold tabular-nums px-2.5 py-1.5 rounded-lg shrink-0"
-                    style={{ backgroundColor: `${accent.primary}15`, color: accent.primary }}
-                  >
-                    {g.verses.length}
-                  </span>
+                  <CountBadge accentPrimary={accent.primary}>{g.verses.length}</CountBadge>
                   <span className="flex-1 min-w-0">
                     <span className="block text-lg font-serif font-bold text-sattva truncate" title={g.section || undefined}>
                       {sectionTitle(g.section, g.verses.length)}
@@ -190,9 +186,7 @@ export default function TextIndex() {
                       {g.verses.length} {verseTermPlural} — {t(language, 'versesFunction')}
                     </span>
                   </span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-tamas shrink-0 transition-transform ${expanded ? 'rotate-180' : ''}`}
-                  />
+                  <DisclosureChevron open={expanded} />
                 </button>
 
                 {expanded && (
@@ -210,12 +204,9 @@ export default function TextIndex() {
                           to={`/system/${system.id}/text/${text.id}/verse/${verse.id}`}
                           className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-avyakta-3 transition-colors group"
                         >
-                          <span
-                            className="text-xs font-bold tabular-nums min-w-10 px-2 py-1.5 flex items-center justify-center rounded-lg shrink-0"
-                            style={{ backgroundColor: `${accent.primary}15`, color: accent.primary }}
-                          >
+                          <CountBadge accentPrimary={accent.primary} className="min-w-10 px-2">
                             {verse.number}
-                          </span>
+                          </CountBadge>
                           <span className="flex-1 min-w-0">
                             <span className="block text-xs font-semibold uppercase tracking-wider text-tamas">
                               {verseTermSingular} {verse.number}
@@ -226,7 +217,7 @@ export default function TextIndex() {
                               </span>
                             )}
                           </span>
-                          <ChevronRight className="w-4 h-4 text-tamas shrink-0 group-hover:text-sattva transition-colors" />
+                          <RowChevron />
                         </Link>
                       );
                     })}
@@ -258,9 +249,7 @@ export default function TextIndex() {
               </span>
               <span className="block text-sm text-sattva-dim mt-0.5">{t(language, 'threadFunction')}</span>
             </span>
-            <ChevronDown
-              className={`w-5 h-5 text-tamas shrink-0 transition-transform ${openPanel === 'thread' ? 'rotate-180' : ''}`}
-            />
+            <DisclosureChevron open={openPanel === 'thread'} />
           </button>
 
           {openPanel === 'thread' && (
@@ -273,16 +262,13 @@ export default function TextIndex() {
                     to={`/system/${system.id}/thread?step=${globalIndex + 1}`}
                     className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-avyakta-3 transition-colors group"
                   >
-                    <span
-                      className="text-xs font-bold tabular-nums w-7 h-7 flex items-center justify-center rounded-lg shrink-0"
-                      style={{ backgroundColor: `${accent.primary}15`, color: accent.primary }}
-                    >
+                    <CountBadge accentPrimary={accent.primary} className="w-7 h-7 p-0">
                       {globalIndex + 1}
-                    </span>
+                    </CountBadge>
                     <span className="text-sm text-sattva truncate flex-1">
                       {content?.title || step.id}
                     </span>
-                    <ChevronRight className="w-4 h-4 text-tamas shrink-0 group-hover:text-sattva transition-colors" />
+                    <RowChevron />
                   </Link>
                 );
               })}
@@ -310,9 +296,7 @@ export default function TextIndex() {
               </span>
               <span className="block text-sm text-sattva-dim mt-0.5">{t(language, 'conceptsFunction')}</span>
             </span>
-            <ChevronDown
-              className={`w-5 h-5 text-tamas shrink-0 transition-transform ${openPanel === 'concepts' ? 'rotate-180' : ''}`}
-            />
+            <DisclosureChevron open={openPanel === 'concepts'} />
           </button>
 
           {openPanel === 'concepts' && (
@@ -328,7 +312,7 @@ export default function TextIndex() {
                     <span className="text-sm text-sattva truncate">
                       {localized?.title || concept.id}
                     </span>
-                    <ChevronRight className="w-4 h-4 text-tamas shrink-0 group-hover:text-sattva transition-colors" />
+                    <RowChevron />
                   </Link>
                 );
               })}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router';
-import { Network, Quote, ListTree, Globe2, ChevronDown } from 'lucide-react';
+import { Network, Quote, ListTree, Globe2 } from 'lucide-react';
 import type { ConceptHit, ThreadStepHit, VerseHit } from '../utils/references';
 import { getConceptTitle, getThreadStepTitle } from '../utils/references';
 import { getText, getSystem } from '../content';
@@ -8,6 +8,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
+import { DisclosureChevron } from './Primitives';
 
 const chipClass =
   'inline-flex items-center px-3 py-1.5 rounded-full bg-avyakta-3 text-sattva text-sm hover:bg-avyakta-4 transition-colors';
@@ -36,9 +37,7 @@ export function RefSection({
           {title}
           {count !== undefined && <span className="ml-1.5 font-medium">({count})</span>}
         </h3>
-        <ChevronDown
-          className={`w-4 h-4 text-tamas shrink-0 transition-transform duration-200 ${open ? '' : '-rotate-90'}`}
-        />
+        <DisclosureChevron open={open} className="w-4 h-4 ml-2" />
       </button>
       {open && <div>{children}</div>}
     </div>

@@ -31,10 +31,11 @@ export default function Home() {
             <Link
               key={system.id}
               to={`/system/${system.id}`}
-              className={`block group bg-avyakta-2 rounded-xl shadow-xs border border-tamas-deep hover:shadow-md transition-all p-6 relative overflow-hidden`}
+              className={`block group bg-avyakta-2 rounded-xl shadow-xs border border-tamas-deep hover:shadow-md transition-all motion-reduce:transition-none p-6 relative overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sattva/70 focus-visible:ring-offset-2 focus-visible:ring-offset-avyakta`}
             >
-              <div 
-                className="absolute top-0 left-0 right-0 h-1 opacity-80 group-hover:opacity-100 transition-opacity"
+              <div
+                aria-hidden="true"
+                className="absolute top-0 left-0 right-0 h-1.5 opacity-90 group-hover:opacity-100 group-focus-visible:opacity-100 group-focus-within:opacity-100 transition-opacity motion-reduce:transition-none forced-colors:bg-[Highlight]"
                 style={{ backgroundColor: accent.primary }}
               />
               <h2
@@ -54,9 +55,10 @@ export default function Home() {
               <ul className="space-y-1">
                 {system.texts.map((text) => (
                   <li key={text.id} className="text-sattva flex items-center justify-between text-sm">
-                    <div className="flex items-center">
-                      <span 
-                        className="w-1.5 h-1.5 rounded-full mr-2"
+                    <div className="flex items-center min-w-0">
+                      <span
+                        aria-hidden="true"
+                        className="w-2 h-2 rounded-full mr-2.5 shrink-0 ring-1 ring-inset ring-white/10"
                         style={{ backgroundColor: accent.primary }}
                       ></span>
                       {text.transliteratedTitle}
