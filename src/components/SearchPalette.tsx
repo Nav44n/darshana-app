@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { createPortal } from 'react-dom';
 import { Search as SearchIcon, X as ClearIcon, History as HistoryIcon } from 'lucide-react';
 import { systems, getSystem, getText } from '../content';
 import { searchVerses } from '../utils/searchIndex';
+import { matchesSanskritQuery } from '../utils/sanskrit';
 import { getConceptTitle, getConceptSummary, getThreadStepTitle, type ConceptHit } from '../utils/references';
 import { getRecentSearches, recordSearch, clearSearches } from '../utils/searchHistory';
 import { getVerseTerm } from '../utils/textTerminology';
@@ -40,6 +41,9 @@ export default function SearchPalette() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [active, setActive] = useState(0);
+  // Deferred so each keystroke paints first and the full-corpus scan
+  // (thousands of verses and concepts) follows without blocking input.
+  const deferredQuery = useDeferredValue(query);
   const [recents, setRecents] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -107,16 +111,19 @@ export default function SearchPalette() {
   );
 
   const groups = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q) return null;
+    // Diacritic-normalised matching throughout (matchesSanskritQuery), so a
+    // plain-ASCII query like "samkhya" still finds "Sāṃkhya" — the same
+    // behaviour the ranked verse engine already offers.
+    const raw = deferredQuery.trim();
+    if (!raw) return null;
 
     const nav: PaletteRow[] = [];
     for (const s of systems) {
       const display = getSystemDisplay(s, language);
       if (
-        display.title.toLowerCase().includes(q) ||
-        s.title.toLowerCase().includes(q) ||
-        (s.id as string).includes(q)
+        matchesSanskritQuery(display.title, raw) ||
+        matchesSanskritQuery(s.title, raw) ||
+        matchesSanskritQuery(s.id as string, raw)
       ) {
         nav.push({
           key: `sys:${s.id}`,
@@ -127,8 +134,8 @@ export default function SearchPalette() {
       }
       for (const txt of s.texts) {
         if (
-          txt.transliteratedTitle.toLowerCase().includes(q) ||
-          (txt.id as string).includes(q)
+          matchesSanskritQuery(txt.transliteratedTitle, raw) ||
+          matchesSanskritQuery(txt.id as string, raw)
         ) {
           nav.push({
             key: `txt:${s.id}:${txt.id}`,
@@ -153,10 +160,10 @@ export default function SearchPalette() {
           const title = getConceptTitle(hit, language);
           const summary = getConceptSummary(hit, language) || '';
           if (
-            title.toLowerCase().includes(q) ||
-            summary.toLowerCase().includes(q) ||
-            (c.category || '').toLowerCase().includes(q) ||
-            (c.id as string).toLowerCase().includes(q)
+            matchesSanskritQuery(title, raw) ||
+            matchesSanskritQuery(summary, raw) ||
+            matchesSanskritQuery(c.category || '', raw) ||
+            matchesSanskritQuery(c.id as string, raw)
           ) {
             concepts.push({
               key: `con:${s.id}:${txt.id}:${c.id}`,
@@ -170,13 +177,22 @@ export default function SearchPalette() {
       }
     }
 
+    // Thread steps match their narrative and summary as well as the title,
+    // so a query for an idea ("release", "pramana") finds the step that
+    // teaches it rather than only steps that name it in the heading.
     const steps: PaletteRow[] = [];
     for (const s of systems) {
       const total = s.thread?.length ?? 0;
       (s.thread || []).forEach((step, i) => {
         if (steps.length >= 6) return;
         const title = getThreadStepTitle(step, language);
-        if (title.toLowerCase().includes(q)) {
+        const narrative = step.content[language]?.narrative || step.content.en?.narrative || '';
+        const summary = step.content[language]?.summary || step.content.en?.summary || '';
+        if (
+          matchesSanskritQuery(title, raw) ||
+          matchesSanskritQuery(narrative, raw) ||
+          matchesSanskritQuery(summary, raw)
+        ) {
           steps.push({
             key: `thr:${s.id}:${i}`,
             href: `/system/${s.id}/thread?step=${i + 1}`,
@@ -187,7 +203,7 @@ export default function SearchPalette() {
       });
     }
 
-    const verses: PaletteRow[] = searchVerses(query.trim())
+    const verses: PaletteRow[] = searchVerses(raw)
       .slice(0, 12)
       .map(({ item }) => {
         const translation =
@@ -205,7 +221,7 @@ export default function SearchPalette() {
       });
 
     return { nav, concepts, steps, verses };
-  }, [query, language]);
+  }, [deferredQuery, language]);
 
   const flat: PaletteRow[] = groups
     ? [...groups.nav, ...groups.concepts, ...groups.steps, ...groups.verses]

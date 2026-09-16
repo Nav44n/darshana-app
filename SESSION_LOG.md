@@ -160,3 +160,79 @@ credentials in this environment). Push + Pages deploy left for next session.
   realised 54, honoured 46, labour 19, organised 17, coloured 11, …) in
   reviewed translations — left untouched; bulk pass needs approval.
 - Verified: `tsc` clean, 182/182 tests, `vite build` clean.
+
+## 2026-09-15 (later) — Discovery, Continuity, Docs/Deploy pass (verified)
+
+- Discovery (`SearchPalette.tsx`): concept/system/text matching now uses
+  `matchesSanskritQuery` (diacritic-normalised, so `samkhya` finds
+  `Sāṃkhya`) — previously raw lowercase `includes`, inconsistent with the
+  verse engine; thread steps match narrative/summary as well as title;
+  palette query deferred via `useDeferredValue` so the per-keystroke
+  full-corpus scan no longer blocks input.
+- Continuity: `VerseDetail.tsx` hooks-order fix — the not-found early
+  return sat above `useMemo`/`usePagerKeys`/`useState`/`useEffect`, so a
+  valid→missing navigation changed the hook count (React violation);
+  all hooks are now guarded and unconditional (`ConceptDetail.tsx` already
+  was). `bookmarks.ts`: a full 200-shelf retired the oldest entry
+  (`slice(-STORE_MAX)`); previously the just-added verse was silently
+  dropped while the toggle reported saved.
+- Docs/Deploy: `README.md` rewritten — 8 systems with texts, Guna palette
+  (the old "Light + Guna-dark dual theme" claim violated the no-generic-
+  theme law), real scripts/architecture/continuity stores; `deploy.yml`
+  now runs the vitest suite between typecheck and build; this log updated
+  (prior "21 ahead / uncommitted" state is spent — tree was clean/synced).
+- Verified: `tsc --noEmit` clean, vitest 193/193 pass (new:
+  `matchesSanskritQuery` diacritic tests, bookmark capacity/retirement
+  tests), `vite build` clean (pre-existing chunk-size warning only).
+
+## 2026-09-16 — Content: stotra thread ML parity (verified)
+
+- Probed exact gaps (esbuild-bundled census, scripts in `/tmp/opencode/`,
+  not committed): EN translation/commentary complete everywhere; the two
+  `partial` texts (vaisesika 231, brahma-sutras 552) lack only EN
+  keyPoints. Verse/concept ML complete except the two stotras
+  (vishnu: 144 verses + 1000 concepts; lalita: 335 + 1000 — untouched,
+  still EN-only with graceful fallback).
+- Filled the feasible slice: 28 ML thread steps (vs-thread-01…14,
+  ls-thread-01…14) as genuine Malayalam paraphrases in two new files
+  (`vishnu-sahasranama-thread-ml.ts`, `lalita-sahasranama-thread-ml.ts`),
+  wired via `buildSystemThread` `ml:` overlay. Vedanta thread ML 46/60 →
+  60/60, tantra 77/91 → 91/91 (probe confirms zero missing ML titles/
+  narratives in both systems).
+- Left for later: stotra verse/concept ML (479 + 2000 entries), EN
+  keyPoints for the two partial texts (231 + 552), Kashmir EN-only
+  decision, American-token bulk pass (still unapproved).
+- Verified: `tsc --noEmit` clean, 193/193 tests, `vite build` clean.
+
+## 2026-09-16 (later) — Content: Vaiśeṣika keyPoints, graduated to complete
+
+- New `vaisesika-sutras-keypoints-en.ts`: original EN key-point
+  distillations for all 231 sutras (books 1, 3–10; book 2 has no sutras),
+  merged in `vaisesika-sutras.ts` via an id-keyed overlay following the
+  ML-overlay convention (raw book files untouched). Style matches the
+  Nyāya nominal-phrase key points.
+- `vaisesika-sutras` `contentStatus: 'partial'` → `'complete'`; the
+  strict integrity gate (translation + commentary + keyPoints on every
+  verse) now enforces it in the suite.
+- Verified with an id-sync probe (231 verses, 231 keys, zero missing/
+  extra/empty, zero compiled verses without keyPoints; probe scripts live
+  in `/tmp/opencode/`, not the repo), then `tsc` clean, 193/193 tests,
+  `vite build` clean.
+- Left for later: stotra verse/concept ML (479 + 2000 entries), EN
+  keyPoints for Brahma-sutras (552 — the last `partial` text), Kashmir
+  EN-only decision, American-token bulk pass (still unapproved).
+
+## 2026-09-16 (later) — Content: Brahma-sutra keyPoints, last text graduates
+
+- New `brahma-sutras-keypoints-en.ts`: original EN key-point
+  distillations for all 552 sutras (1:134, 2:156, 3:184, 4:78),
+  authored Adhyāya by Adhyāya from the Śaṅkara-paraphrase commentaries
+  and merged in `brahma-sutras.ts` (`normalizeSutra` gains
+  `keyPoints: brahmaSutrasKeyPointsEn[id]`); raw Adhyāya files untouched.
+- `brahma-sutras` `contentStatus: 'partial'` → `'complete'` — no
+  `partial` text remains; the strict gate now covers the whole corpus.
+- Verified per-Adhyāya with the id-sync probe (552 verses, 552 keys,
+  zero missing/extra), then `tsc` clean, 193/193 tests, `vite build`
+  clean (pre-existing chunk-size warning only).
+- Left for later: stotra verse/concept ML (479 + 2000 entries), Kashmir
+  EN-only decision, American-token bulk pass (still unapproved).

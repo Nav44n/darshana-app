@@ -1,4 +1,5 @@
 import { canonIndic, getOrBuildSearchIndex, searchVerses } from '../searchIndex';
+import { matchesSanskritQuery } from '../sanskrit';
 import { getRecentSearches, recordSearch, clearSearches } from '../searchHistory';
 
 describe('canonIndic', () => {
@@ -45,6 +46,21 @@ describe('searchVerses indic matching', () => {
     expect(query).not.toBe('');
     const hits = searchVerses(query);
     expect(hits.some((h) => h.item.verse === multi.verse)).toBe(true);
+  });
+});
+
+describe('matchesSanskritQuery (palette behaviour)', () => {
+  it('matches plain-ASCII queries against diacritic targets', () => {
+    expect(matchesSanskritQuery('satkāryavāda', 'satkarya')).toBe(true);
+    expect(matchesSanskritQuery('Sāṃkhya', 'samkhya')).toBe(true);
+    expect(matchesSanskritQuery('pramāṇa', 'pramana')).toBe(true);
+    expect(matchesSanskritQuery('Puruṣa', 'PURUSA')).toBe(true);
+  });
+
+  it('rejects non-matches and empty targets, accepts empty queries', () => {
+    expect(matchesSanskritQuery('puruṣa', 'prakriti')).toBe(false);
+    expect(matchesSanskritQuery('', 'dharma')).toBe(false);
+    expect(matchesSanskritQuery('dharma', '')).toBe(true);
   });
 });
 

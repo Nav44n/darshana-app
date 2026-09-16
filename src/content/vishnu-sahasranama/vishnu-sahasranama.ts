@@ -6,6 +6,7 @@ import { vsStotraC } from './vs-stotra-c';
 import { vsFrameEn } from './frame/vs-frame-verses-en';
 import { vishnuSahasranamaConceptsEn } from './vishnu-sahasranama-concepts-en';
 import { vishnuSahasranamaThreadEn } from './vishnu-sahasranama-thread-en';
+import { vishnuSahasranamaThreadMl } from './vishnu-sahasranama-thread-ml';
 
 // Viṣṇu Sahasranāma — the thousand-name hymn of Viṣṇu as Para-Brahman
 // (Mahābhārata, Anuśāsana-Parva, Bhīṣma to Yudhiṣṭhira).
@@ -35,4 +36,5 @@ export const vishnuSahasranamaText: ClassicalText = buildClassicalText(
 
 export const vishnuSahasranamaThread = buildSystemThread('vishnu-sahasranama', {
   en: vishnuSahasranamaThreadEn,
+  ml: vishnuSahasranamaThreadMl,
 });

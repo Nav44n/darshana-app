@@ -6,6 +6,7 @@ import { lsUttaraVersesEnA } from './frame/ls-uttara-verses-en-a';
 import { lsUttaraVersesEnB } from './frame/ls-uttara-verses-en-b';
 import { lalitaSahasranamaConceptsEn } from './lalita-sahasranama-concepts-en';
 import { lalitaSahasranamaThreadEn } from './lalita-sahasranama-thread-en';
+import { lalitaSahasranamaThreadMl } from './lalita-sahasranama-thread-ml';
 
 // Lalitā Sahasranāma — the thousand-name hymn of Lalitā Tripurasundarī
 // (Brahmāṇḍa Purāṇa, Lalitopākhyāna; composed by the eight Vāc Devis).
@@ -34,4 +35,5 @@ export const lalitaSahasranamaText: ClassicalText = buildClassicalText(
 
 export const lalitaSahasranamaThread = buildSystemThread('lalita-sahasranama', {
   en: lalitaSahasranamaThreadEn,
+  ml: lalitaSahasranamaThreadMl,
 });

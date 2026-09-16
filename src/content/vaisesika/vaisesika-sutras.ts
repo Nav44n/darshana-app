@@ -4,6 +4,7 @@ import { vaisesikaSutrasEn } from './vaisesika-sutras-en';
 import { vaisesikaSutrasBooks4To8 } from './vaisesika-sutras-en-books4-8';
 import { vaisesikaSutrasBooks9And10 } from './vaisesika-sutras-en-books9-10';
 import { vaisesikaSutrasBook8 } from './vaisesika-sutras-en-book8';
+import { vaisesikaKeyPointsEn } from './vaisesika-sutras-keypoints-en';
 import { vaisesikaSutrasMl } from './vaisesika-sutras-ml';
 import { vaisesikaConceptsEn } from './vaisesika-sutras-concepts-en';
 import { vaisesikaConceptsMl } from './vaisesika-sutras-concepts-ml';
@@ -20,7 +21,8 @@ const mappedVaisesikaEn = allVaisesikaVersesEn.map((v: any) => ({
   diagramId: v.diagramId,
   conceptIds: v.conceptIds,
   translation: v.text,
-  commentary: v.commentary
+  commentary: v.commentary,
+  keyPoints: vaisesikaKeyPointsEn[v.id]
 }));
 
 const mappedVaisesikaMl = vaisesikaSutrasMl.map((m: any) => ({
@@ -37,7 +39,7 @@ export const vaisesikaSutrasText: ClassicalText = buildClassicalText(
     author: 'Maharṣi Kaṇāda',
     system: 'vaisesika',
     verseTerm: 'Sūtra',
-    contentStatus: 'partial'
+    contentStatus: 'complete'
   },
   {
     en: mappedVaisesikaEn,

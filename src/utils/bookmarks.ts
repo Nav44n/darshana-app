@@ -45,9 +45,10 @@ export function toggleBookmark(
     const ref = { systemId, textId, verseId };
     const prev = readStored();
     const exists = prev.some((v) => same(v, ref));
+    // A full shelf retires the oldest bookmark, never the just-added one:
+    // slicing the tail keeps the newest entry whatever the prior length.
     const next = (exists ? prev.filter((v) => !same(v, ref)) : [...prev, ref]).slice(
-      0,
-      STORE_MAX,
+      -STORE_MAX,
     );
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
     return !exists;

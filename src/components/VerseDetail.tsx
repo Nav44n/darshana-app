@@ -34,34 +34,66 @@ export default function VerseDetail() {
 
   const verseTerm = getVerseTerm(text, 1);
 
-  if (!system || !text || !verse) {
-    return <div className="text-center py-12">{t(language, 'verseNotFoundFallback', { term: getVerseTerm(text, 1) })}</div>;
-  }
-
-  // Memoize next/prev verses so we don't scan the entire array on every render
+  // Cache next/prev verses so the pager does not scan the array on every
+  // render. Guarded: all hooks in this component stay unconditional so a
+  // hop from a valid verse to a missing id never changes the hook order.
   const { prevVerse, nextVerse } = useMemo(() => {
+    if (!text || !verse) return { prevVerse: null, nextVerse: null };
     const currentIndex = text.verses.findIndex(v => v.id === verse.id);
     return {
       prevVerse: currentIndex > 0 ? text.verses[currentIndex - 1] : null,
       nextVerse: currentIndex >= 0 && currentIndex < text.verses.length - 1 ? text.verses[currentIndex + 1] : null,
     };
-  }, [text.verses, verse.id]);
+  }, [text, verse]);
 
   const navigate = useNavigate();
+  const nextHref = system && text && nextVerse
+    ? `/system/${system.id}/text/${text.id}/verse/${nextVerse.id}`
+    : null;
+  const prevHref = system && text && prevVerse
+    ? `/system/${system.id}/text/${text.id}/verse/${prevVerse.id}`
+    : null;
   usePagerKeys(
-    nextVerse ? () => navigate(`/system/${system.id}/text/${text.id}/verse/${nextVerse.id}`) : null,
-    prevVerse ? () => navigate(`/system/${system.id}/text/${text.id}/verse/${prevVerse.id}`) : null,
+    nextHref ? () => navigate(nextHref) : null,
+    prevHref ? () => navigate(prevHref) : null,
   );
 
   // Feed the Home continuity strip (deduped, most-recent-first) and keep
   // the bookmark toggle honest across prev/next walks of the same mount.
   const [saved, setSaved] = useState(() =>
-    isBookmarked(system.id as string, text.id as string, verse.id as string),
+    system && text && verse
+      ? isBookmarked(system.id as string, text.id as string, verse.id as string)
+      : false,
   );
   useEffect(() => {
+    if (!system || !text || !verse) return;
     recordVerseVisit(system.id as string, text.id as string, verse.id as string);
     setSaved(isBookmarked(system.id as string, text.id as string, verse.id as string));
-  }, [system.id, text.id, verse.id]);
+  }, [system, text, verse]);
+
+  // Wikipedia-style interlinks, resolved against the reference graph.
+  const relatedConcepts = useMemo(
+    () => (system && text && verse
+      ? getConceptsForVerse(system.id as string, text.id as string, verse.id as string)
+      : []),
+    [system, text, verse],
+  );
+  const relatedVerses = useMemo(
+    () => (system && text && verse
+      ? getRelatedVerses(system.id as string, text.id as string, verse.id as string)
+      : []),
+    [system, text, verse],
+  );
+  const threadSteps = useMemo(
+    () => (system && text && verse
+      ? getThreadStepsForVerse(system.id as string, text.id as string, verse.id as string)
+      : []),
+    [system, text, verse],
+  );
+
+  if (!system || !text || !verse) {
+    return <div className="text-center py-12">{t(language, 'verseNotFoundFallback', { term: getVerseTerm(text, 1) })}</div>;
+  }
 
   const handleBookmark = () => {
     setSaved(toggleBookmark(system.id as string, text.id as string, verse.id as string));
@@ -81,20 +113,8 @@ export default function VerseDetail() {
   const isCurrentLangAvailable = !!verse.content[language];
   const isShowingFallback = !isCurrentLangAvailable && language === 'ml';
 
-  // Wikipedia-style interlinks, resolved against the reference graph.
-  const relatedConcepts = useMemo(
-    () => getConceptsForVerse(system.id as string, text.id as string, verse.id as string),
-    [system.id, text.id, verse.id],
-  );
-  const relatedVerses = useMemo(
-    () => getRelatedVerses(system.id as string, text.id as string, verse.id as string),
-    [system.id, text.id, verse.id],
-  );
-  const threadSteps = useMemo(
-    () => getThreadStepsForVerse(system.id as string, text.id as string, verse.id as string),
-    [system.id, text.id, verse.id],
-  );
-
+  // Interlink sections above (kept with the other hooks so hook order is
+  // stable); the narrowed system/text/verse below are safe to dereference.
   const flashShareState = (state: 'copied' | 'shared') => {
     setShareState(state);
     setTimeout(() => setShareState('idle'), 2000);

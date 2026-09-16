@@ -9,6 +9,7 @@ import { brahmaSutrasMl } from './brahma-sutras-ml';
 import { brahmaSutrasConceptsEn } from './brahma-sutras-concepts-en';
 import { brahmaSutrasConceptsMl } from './brahma-sutras-concepts-ml';
 import { brahmaSutrasThreadEn } from './brahma-sutras-thread-en';
+import { brahmaSutrasKeyPointsEn } from './brahma-sutras-keypoints-en';
 
 // The Brahma Sūtra source files use a compact legacy shape
 // ({ id: "1.1.1", sanskrit, adhyaya, pada, translation }) which does not
@@ -30,6 +31,7 @@ function normalizeSutra(raw: any) {
     ...raw,
     id,
     number: raw.number ?? id,
+    keyPoints: brahmaSutrasKeyPointsEn[id],
     section,
     devanagari: raw.devanagari ?? raw.sanskrit,
     // No IAST source for this text; keep empty string (never undefined)
@@ -64,7 +66,7 @@ export const brahmaSutrasText: ClassicalText = buildClassicalText(
     author: 'Bādarāyaṇa (with Śaṅkara Bhāṣya)',
     system: 'vedanta',
     verseTerm: 'Sūtra',
-    contentStatus: 'partial'
+    contentStatus: 'complete'
   },
   {
     en: allEnVerses,

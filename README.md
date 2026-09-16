@@ -1,35 +1,32 @@
 # Darśana App
 
-A Vite + React web application designed for deep, structured exploration of classical Indian philosophical systems (Darśanas). The app moves beyond flat text reading to provide guided threads, bidirectional concept-to-verse linking, and interactive ontology diagrams.
+A Vite + React web application for deep, structured exploration of classical Indian philosophical systems (Darśanas). The app moves beyond flat text reading to provide guided threads, bidirectional concept-to-verse linking, and interactive ontology diagrams.
 
-> Note: The legacy Expo/React-Native shell has been officially retired. The web client in `src/` is the supported target. `App.tsx` at the repo root and `AuroraGlow`/`GunaRule`/`ErrorBoundary` native imports are retained only as reference until the Phase A web cleanup replaces them.
+> Note: the web client in `src/` is the shipped target (`src/main.tsx`, HashRouter, `vite.config.ts`). The root `App.tsx` is a legacy Expo/RN entry, retained only as reference; it is not typechecked or built.
 
-## Current Systems Integrated
+## Systems & Texts (8 systems)
 
-1. **Sāṃkhya**
-   - Text: *Sāṃkhyakārikā*
-   - Includes full verses, conceptual breakdowns (Tattvas, Guṇas, etc.), and a guided thread.
-2. **Nyāya**
-   - Text: *Nyāyasūtra*
-   - Includes core epistemological concepts (Pramāṇas) and syllogism structures.
-3. **Kashmir Shaivism**
-   - Text: *Tantrāloka* (Ahnika 1, Verses 1-80)
-   - Includes full verses with rich, multi-layered English commentary (Traditional Context, Beginner Notes, Syncretic Application).
+1. **Sāṃkhya** — *Sāṃkhyakārikā*, *Sāṅkhya-Pravacana-Sūtra*
+2. **Yoga** — *Yoga Sūtras*
+3. **Nyāya** — *Nyāya Sūtra*
+4. **Vaiśeṣika** — *Vaiśeṣika Sūtra* (English compilation in progress)
+5. **Mīmāṃsā** — *Mīmāṃsā Sūtras*
+6. **Vedānta** — *Brahma Sutras* (English compilation in progress), *Adhyātma Rāmāyaṇa*, *Viṣṇusahasranāma*, *Bhagavad Gita*
+7. **Tantra** — *Devīmāhātmyam*, *Kundalini Tantra*, *Lalitāsahasranāma*
+8. **Kashmir Shaivism** — *Śiva-sūtras*, *Spanda-kārikās*, *Vijñānabhairava-tantra*, *Tantrāloka*
 
 ## Features
 
-- **Guided Concept Threads**: Curated pathways through a system's core ideas, connecting abstract concepts directly to their foundational verses.
-- **Ontology Diagrams**: Interactive SVG visualizations of complex philosophical structures (e.g., the 25 Tattvas, the Guṇa interplay).
-- **Cross-Reference Engine**: Smart auto-linking of internal verse citations across commentaries and notes.
-- **Bilingual Support**: Toggle between English and Malayalam translations.
-- **Reading Preferences**: Light + Guna-dark dual theme, scalable typography, and persistent bookmarking.
-- **Web-first**: Fully responsive static web via GitHub Pages. No server, no API keys — all content ships locally.
+- **Guided Concept Threads**: curated, step-by-step pathways through each system's core ideas, linking concepts directly to their source verses, with per-system progress that resumes where you left off.
+- **Ontology Diagrams**: interactive SVG visualisations of complex structures (e.g. the 25 Tattvas), organised through a central diagram registry.
+- **Cross-Reference Engine**: smart auto-linking of internal verse and concept citations across commentaries and notes.
+- **Corpus Search**: command palette (`Ctrl/⌘K`) with ranked verse search — Devanagari, IAST (diacritic-normalised, so `sankhya` finds `Sāṃkhya`), translations and commentary — alongside concept, thread-step and text jumps.
+- **Bilingual Support**: English and Malayalam translations with graceful fallback where a Malayalam rendering is still pending.
+- **Reading Preferences**: Guna-palette interface with scalable typography (100 / 112.5 / 125%), persisted locally.
+- **Continuity**: persistent bookmarks shelf, recently viewed trail, recent searches, and a Home "continue reading" card — all stored locally, all fail-silent in private mode.
+- **Web-first**: fully responsive static web via GitHub Pages. No server, no API keys — all content ships locally.
 
 ## Development
-
-The app is built with Vite + React + Tailwind v4 as a fully static client. All philosophical content ships as local TypeScript data — no backend, no API keys, no chatbot.
-
-### Running Locally
 
 ```bash
 # Install dependencies
@@ -38,17 +35,22 @@ npm install
 # Dev server with hot reload
 npm run dev
 
-# Production build + preview
+# Typecheck, tests, production build
+npm run lint
+npm run test
 npm run build
 npm run preview
 ```
 
-### Deployment
+## Deployment
 
-- **GitHub Pages (static):** `npm run build` emits `dist/`, served with `base: '/darshana-app/'`. Any static host works — no server component exists.
+- **GitHub Pages (static):** `.github/workflows/deploy.yml` runs `tsc --noEmit`, the vitest suite, and `vite build` on every push to `main`, then publishes `dist/`. The Vite `base` is relative (`./`), so any static host works — no server component exists.
 
 ## Architecture
 
-- **Data Layer (`src/content`)**: Pure TypeScript definitions of systems, texts, verses, and concepts.
-- **Compiler (`src/content/factory.ts`)**: An O(1) bi-directional stitcher that connects verses to concepts dynamically at runtime.
-- **UI Layer (`src/components` & `src/screens`)**: Theming respects the philosophical "Guṇa" palette (Sattva, Rajas, Tamas, Avyakta) ensuring the design language matches the subject matter.
+- **Data Layer (`src/content`)**: pure TypeScript definitions of systems, texts, verses, and concepts. One directory per text; no mixing of systems. See `AGENTS.md` for the strict content laws (Guṇa palette, flat threads, ID synchronisation).
+- **Compiler (`src/content/factory.ts`)**: bi-directional stitcher that connects verses to concepts dynamically at runtime.
+- **Reference Graph (`src/utils/references.ts`)**: central Wikipedia-style interlink layer (verse ↔ concept, thread backlinks, cross-darśana links). UI components query it rather than building ad-hoc lookups.
+- **UI Layer (`src/components`)**: shared `Primitives.tsx` (cards, shells, collapsibles, chevrons, badges, bottom bars) and Guna Tailwind classes from `src/index.css`; system accents via `src/utils/theme.ts`.
+- **Localisation (`src/i18n`)**: UI chrome strings in English + Malayalam; content translations stay in `src/content/*`.
+- **Continuity Stores (`src/utils/bookmarks.ts`, `readingHistory.ts`, `searchHistory.ts`, `threadProgress.ts`)**: small localStorage-backed modules behind a fail-silent contract.
