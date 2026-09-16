@@ -20,5 +20,19 @@ export default defineConfig(() => {
       hmr: process.env.DISABLE_HMR !== 'true',
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
     },
+    build: {
+      // Local-first corpus ships in the bundle (~12 MB), so the default
+      // 500 kB warning is noise. Vendor split keeps framework bytes cached
+      // across content edits; behaviour is unchanged, only file boundaries.
+      chunkSizeWarningLimit: 13000,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom', 'react-router'],
+            ui: ['lucide-react', 'react-markdown'],
+          },
+        },
+      },
+    },
   };
 });

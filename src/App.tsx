@@ -96,6 +96,7 @@ function HeaderNav() {
         <div className="flex items-center space-x-1 bg-avyakta-3 p-1 rounded-lg border border-tamas-deep text-xs font-medium">
           <button
             onClick={() => setLanguage('en')}
+            aria-pressed={language === 'en'}
             className={`px-2.5 py-1 rounded transition-colors motion-reduce:transition-none ${
               language === 'en'
                 ? 'bg-avyakta-4 text-sattva shadow-xs font-semibold'
@@ -106,6 +107,7 @@ function HeaderNav() {
           </button>
           <button
             onClick={() => setLanguage('ml')}
+            aria-pressed={language === 'ml'}
             className={`px-2.5 py-1 rounded transition-colors motion-reduce:transition-none ${
               language === 'ml'
                 ? 'bg-avyakta-4 text-sattva shadow-xs font-semibold'

@@ -24,6 +24,7 @@ export default function ThreadView() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
   const [stepIndex, setStepIndex] = useState(() => {
     // Explicit deep link wins; otherwise restore the furthest visited step
     // so a returning reader continues where they left off, not at Step 1.
@@ -60,8 +61,10 @@ export default function ThreadView() {
     }
   }, [systemId, stepIndex, totalSteps]);
 
-  // Drawer behaviour: initial focus on the close control, Escape dismisses,
-  // background scroll locks, and focus returns to the trigger on close.
+  // Drawer behaviour: initial focus on the close control, Tab containment
+  // inside the dialogue, Escape dismisses, background scroll locks, and
+  // focus returns to the trigger on close. Containment honours the APG
+  // dialogue pattern so keyboard behaviour matches mouse behaviour.
   useEffect(() => {
     if (!drawerOpen) return;
     closeRef.current?.focus();
@@ -72,6 +75,28 @@ export default function ThreadView() {
         e.preventDefault();
         setDrawerOpen(false);
         triggerRef.current?.focus();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const root = dialogRef.current;
+      if (!root) return;
+      const focusables = Array.from(
+        root.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+      if (focusables.length === 0) {
+        e.preventDefault();
+        return;
+      }
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
       }
     };
     window.addEventListener('keydown', onKey);
@@ -148,6 +173,7 @@ export default function ThreadView() {
             type="button"
             onClick={() => setDrawerOpen(true)}
             aria-haspopup="dialog"
+            aria-expanded={drawerOpen}
             title={t(language, 'threadContents')}
             className="inline-flex items-center gap-1.5 min-h-11 px-3 rounded-lg bg-avyakta-3 border border-tamas-deep text-sm text-sattva-dim hover:text-sattva transition-colors motion-reduce:transition-none"
           >
@@ -290,7 +316,10 @@ export default function ThreadView() {
               className="absolute inset-0 bg-overlay"
             />
             <div className="relative max-w-lg mx-auto mt-[8vh] px-4">
-              <div className="bg-avyakta-2 border border-tamas-deep rounded-2xl shadow-lg overflow-hidden animate-fade-in">
+              <div
+                ref={dialogRef}
+                className="bg-avyakta-2 border border-tamas-deep rounded-2xl shadow-lg overflow-hidden animate-fade-in"
+              >
                 <div className="flex items-center gap-2 px-4 py-3 border-b border-tamas-deep">
                   <div className="flex-1 min-w-0">
                     <div className="text-sm font-bold text-sattva truncate">
@@ -322,6 +351,7 @@ export default function ThreadView() {
                         onClick={() => {
                           goToStep(i);
                           setDrawerOpen(false);
+                          triggerRef.current?.focus();
                         }}
                         aria-current={isCurrent ? 'step' : undefined}
                         className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl min-h-11 text-left transition-colors motion-reduce:transition-none ${

@@ -219,6 +219,7 @@ export default function VerseDetail() {
           {verse.content.en && (
             <button
               onClick={() => setLanguage('en')}
+              aria-pressed={language === 'en'}
               className={`text-xs px-2 py-1 rounded font-medium transition-colors motion-reduce:transition-none ${
                 language === 'en' ? 'bg-avyakta-4 text-sattva shadow-xs' : 'bg-avyakta-3 hover:bg-avyakta-4 text-sattva'
               }`}
@@ -231,6 +232,7 @@ export default function VerseDetail() {
           {verse.content.ml && (
             <button
               onClick={() => setLanguage('ml')}
+              aria-pressed={language === 'ml'}
               className={`text-xs px-2 py-1 rounded font-medium transition-colors motion-reduce:transition-none ${
                 language === 'ml' ? 'bg-avyakta-4 text-sattva shadow-xs' : 'bg-avyakta-3 hover:bg-avyakta-4 text-sattva'
               }`}
@@ -259,6 +261,14 @@ export default function VerseDetail() {
               </>
             )}
           </button>
+          {/* Screen-reader confirmation for the visual tick above (WCAG 4.1.3).
+              Sighted behaviour is unchanged; the visual label stays the
+              single source of truth, mirrored here for announcements. */}
+          {shareState !== 'idle' && (
+            <span role="status" className="sr-only">
+              {shareState === 'shared' ? t(language, 'sharedLabel') : t(language, 'copiedLabel')}
+            </span>
+          )}
         </div>
       </div>
 

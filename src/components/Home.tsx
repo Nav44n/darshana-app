@@ -9,7 +9,7 @@ import { getSystemDisplay } from '../i18n/systems';
 import { getRecentVisits, resolveVerseRefs } from '../utils/readingHistory';
 import { getBookmarks, removeBookmark } from '../utils/bookmarks';
 import { getThreadProgress } from '../utils/threadProgress';
-import { ActionLink, Card, CardBody, Eyebrow, chipBase } from './Primitives';
+import { ActionLink, Card, CardBody, Eyebrow, SectionTitle, chipBase } from './Primitives';
 
 const ONBOARD_KEY = 'darsana_onboarding_seen';
 
@@ -218,9 +218,9 @@ export default function Home() {
 
       {shelf.length > 0 && (
         <section aria-label={t(language, 'savedLabel')}>
-          <div className="text-sm font-medium text-sattva-dim uppercase tracking-wider mb-2">
+          <SectionTitle count={shelf.length} className="mb-2">
             {t(language, 'savedLabel')}
-          </div>
+          </SectionTitle>
           <div className="flex flex-wrap gap-2">
             {shelf.map((r) => (
               <span
@@ -249,9 +249,9 @@ export default function Home() {
 
       {recent.length > 0 && (
         <section aria-label={t(language, 'recentlyViewed')}>
-          <div className="text-sm font-medium text-sattva-dim uppercase tracking-wider mb-2">
+          <SectionTitle count={recent.length} className="mb-2">
             {t(language, 'recentlyViewed')}
-          </div>
+          </SectionTitle>
           <div className="flex flex-wrap gap-2">
             {recent.map((r) => (
               <Link

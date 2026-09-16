@@ -227,6 +227,17 @@ export default function SearchPalette() {
     ? [...groups.nav, ...groups.concepts, ...groups.steps, ...groups.verses]
     : [];
 
+  // Screen-reader status for the ranked result set (WCAG 4.1.3). Sighted
+  // readers perceive counts via group headings; without a live region the
+  // same update is silent. Deferred query keeps the announcement in step
+  // with the rendered list. Empty query announces nothing — the dialogue
+  // label plus browse shortcuts already orient the reader.
+  const statusMessage = !groups
+    ? ''
+    : flat.length === 0
+      ? t(language, 'searchNoResults', { query: deferredQuery.trim() })
+      : t(language, 'searchResultsCount', { count: flat.length, query: deferredQuery.trim() });
+
   // Keep the keyboard-active row in view.
   useEffect(() => {
     listRef.current
@@ -296,6 +307,8 @@ export default function SearchPalette() {
         ref={triggerRef}
         type="button"
         onClick={() => setOpen(true)}
+        aria-haspopup="dialog"
+        aria-expanded={open}
         aria-keyshortcuts="Control+k Meta+k"
         className="flex flex-1 sm:w-56 sm:flex-none min-w-0 items-center gap-2 min-h-11 px-3 rounded-lg bg-avyakta-3 border border-tamas-deep text-sm text-sattva-dim hover:text-sattva transition-colors motion-reduce:transition-none"
       >
@@ -361,6 +374,9 @@ export default function SearchPalette() {
                   )}
                 </div>
 
+                <div role="status" aria-live="polite" className="sr-only">
+                  {statusMessage}
+                </div>
                 <div ref={listRef} className="max-h-[55vh] overflow-y-auto p-2">
                   {!groups && (
                     <>

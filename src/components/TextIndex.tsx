@@ -184,8 +184,12 @@ export default function TextIndex() {
       {/* Sections as dropdowns — each expands to its clickable ślokas. */}
       {hasVerses && (
         <div className="space-y-3">
-          {verseSections.map((g) => {
+          {verseSections.map((g, idx) => {
             const expanded = openSections.includes(g.section);
+            // Index-based panel id: section names carry spaces and
+            // diacritics, so they cannot serve as id fragments directly.
+            // Mirrors the CollapsibleSection button/panel pairing.
+            const panelId = `verses-panel-${idx}`;
             return (
               <div
                 key={g.section || 'unsectioned'}
@@ -195,6 +199,7 @@ export default function TextIndex() {
                 <button
                   onClick={() => toggleSection(g.section)}
                   aria-expanded={expanded}
+                  aria-controls={panelId}
                   className="w-full flex items-center gap-4 p-5 text-left hover:bg-avyakta transition-colors motion-reduce:transition-none"
                 >
                   <CountBadge accentPrimary={accent.primary}>{g.verses.length}</CountBadge>
@@ -210,7 +215,7 @@ export default function TextIndex() {
                 </button>
 
                 {expanded && (
-                  <div className="px-3 pb-3 space-y-1 border-t border-tamas-deep pt-3">
+                  <div id={panelId} className="px-3 pb-3 space-y-1 border-t border-tamas-deep pt-3">
                     {g.verses.map((verse) => {
                       const active = verse.content[language] ?? verse.content.en;
                       const preview =
@@ -255,6 +260,7 @@ export default function TextIndex() {
           <button
             onClick={() => togglePanel('thread')}
             aria-expanded={openPanel === 'thread'}
+            aria-controls="thread-panel"
             className="w-full flex items-center gap-4 p-5 text-left hover:bg-avyakta transition-colors motion-reduce:transition-none"
           >
             <span
@@ -274,7 +280,7 @@ export default function TextIndex() {
           </button>
 
           {openPanel === 'thread' && (
-            <div className="px-3 pb-3 space-y-1 border-t border-tamas-deep pt-3">
+            <div id="thread-panel" className="px-3 pb-3 space-y-1 border-t border-tamas-deep pt-3">
               {resumeStep !== null && (
                 <Link
                   key="resume-thread"
@@ -320,6 +326,7 @@ export default function TextIndex() {
           <button
             onClick={() => togglePanel('concepts')}
             aria-expanded={openPanel === 'concepts'}
+            aria-controls="concepts-panel"
             className="w-full flex items-center gap-4 p-5 text-left hover:bg-avyakta transition-colors motion-reduce:transition-none"
           >
             <span
@@ -338,7 +345,7 @@ export default function TextIndex() {
           </button>
 
           {openPanel === 'concepts' && (
-            <div className="px-3 pb-3 space-y-1 border-t border-tamas-deep pt-3">
+            <div id="concepts-panel" className="px-3 pb-3 space-y-1 border-t border-tamas-deep pt-3">
               {text.concepts.map((concept) => {
                 const localized = concept.content[language] ?? concept.content.en;
                 return (
