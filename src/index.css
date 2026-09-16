@@ -94,6 +94,28 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── Phone ergonomics (touch batch) ─────────────────────────────
+   The app is read one-handed on phones: honour the notch/home
+   indicator, keep vertical scroll and pinch-zoom native, and remove
+   tap delays without ever disabling zoom (WCAG 1.4.4). Swipe surfaces
+   opt into `pan-y` inline so horizontal paging never fights the
+   browser; buttons and links use `manipulation` so taps feel instant.
+   Horizontal overscroll chaining is contained so a reading swipe never
+   triggers browser back/forward by accident. Indian English: behaviour. */
+html,
+body {
+  overscroll-behavior-x: none;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
 /* Honour reduced-motion requests: non-essential motion collapses to
    near-zero whilst keeping state changes functional. Infinite loops
    must still offer a visible pause where used. */

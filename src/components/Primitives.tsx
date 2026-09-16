@@ -262,6 +262,17 @@ export function BottomBar({
   );
 }
 
+// Phone-friendly swipe discovery (Batch 2): a single whisper-quiet line
+// under the reading card. Redundant with the BottomBar for screen readers,
+// hence aria-hidden; sighted thumb readers get the cue. Guna tone only.
+export function SwipeHint({ text }: { text: string }) {
+  return (
+    <p aria-hidden="true" className="pt-1 text-center text-xs text-tamas select-none">
+      {text}
+    </p>
+  );
+}
+
 export function ActionButton({
   children,
   onClick,

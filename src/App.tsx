@@ -58,7 +58,7 @@ function HeaderNav() {
   const currentSystemId = segments[1] === 'system' ? (segments[2] ?? '') : '';
 
   return (
-    <header className="bg-avyakta-2 border-b border-tamas-deep sticky top-0 z-10">
+    <header className="bg-avyakta-2 border-b border-tamas-deep sticky top-0 z-10 pt-[env(safe-area-inset-top)]">
       <div className="max-w-4xl mx-auto px-4 py-3 flex flex-wrap items-center gap-x-3 gap-y-2">
         <Link to="/" className="mr-auto text-xl font-serif font-bold tracking-tight text-sattva hover:text-sattva-dim transition-colors motion-reduce:transition-none">
           {language === 'ml' ? 'ദർശന' : 'Darśana'}

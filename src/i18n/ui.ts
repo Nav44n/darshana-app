@@ -111,6 +111,7 @@ const en = {
   conceptNotFound: 'Concept not found',
   verseNotFoundFallback: '{term} not found',
   skipToContent: 'Skip to main content',
+  swipeHint: 'Tip: swipe left for the next, right for the previous. The buttons below always work.',
 } as const;
 
 const ml: Record<keyof typeof en, string> = {
@@ -216,6 +217,7 @@ const ml: Record<keyof typeof en, string> = {
   conceptNotFound: 'ആശയം കണ്ടെത്താനായില്ല',
   verseNotFoundFallback: '{term} കണ്ടെത്താനായില്ല',
   skipToContent: 'പ്രധാന ഉള്ളടക്കത്തിലേക്ക് പോകുക',
+  swipeHint: 'സൂചന: അടുത്തതിന് ഇടത്തേക്ക്, മുമ്പത്തേതിന് വലത്തേക്ക് സ്വൈപ്പ് ചെയ്യൂ. താഴെയുള്ള ബട്ടണുകൾ എപ്പോഴും ലഭ്യമാണ്.',
 };
 
 export type UIKey = keyof typeof en;

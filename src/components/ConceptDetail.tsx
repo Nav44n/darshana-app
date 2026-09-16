@@ -9,7 +9,8 @@ import { getSystemDisplay } from '../i18n/systems';
 import RichText from './RichText';
 import ReadingControls from './ReadingControls';
 import { usePagerKeys } from '../utils/pagerKeys';
-import { BottomBar, Notice, Card, CardBody, Breadcrumb, PageShell, SectionTitle } from './Primitives';
+import { SWIPE_SURFACE_STYLE, useSwipeNav } from '../utils/useSwipeNav';
+import { BottomBar, Notice, Card, CardBody, Breadcrumb, PageShell, SectionTitle, SwipeHint } from './Primitives';
 import {
   RelatedConceptsSection,
   RelatedVersesSection,
@@ -46,6 +47,16 @@ export default function ConceptDetail() {
 
   const navigate = useNavigate();
   usePagerKeys(
+    nav.next && system && text
+      ? () => navigate(`/system/${system.id}/text/${text.id}/concept/${nav.next?.id}`)
+      : null,
+    nav.prev && system && text
+      ? () => navigate(`/system/${system.id}/text/${text.id}/concept/${nav.prev?.id}`)
+      : null,
+  );
+  // Phone-friendly paging: swipe left for the next concept, right for the
+  // previous one. Mirrors the BottomBar; vertical scroll never pages.
+  const swipeRef = useSwipeNav(
     nav.next && system && text
       ? () => navigate(`/system/${system.id}/text/${text.id}/concept/${nav.next?.id}`)
       : null,
@@ -101,6 +112,7 @@ export default function ConceptDetail() {
         <ReadingControls />
       </div>
 
+      <div ref={swipeRef} style={SWIPE_SURFACE_STYLE}>
       <Card>
         {isMlFallback && (
           <div className="mx-8 mt-8 md:mx-10">
@@ -173,6 +185,8 @@ export default function ConceptDetail() {
           <CrossSystemSection items={crossSystem} />
         </CardBody>
       </Card>
+      </div>
+      {(nav.prev || nav.next) && <SwipeHint text={t(language, 'swipeHint')} />}
 
       <BottomBar>
         {nav.prev ? (

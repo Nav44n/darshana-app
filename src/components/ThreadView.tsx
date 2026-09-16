@@ -5,7 +5,7 @@ import { getSystem } from '../content';
 import { ChevronRight, ChevronLeft, ArrowLeft, List as ListIcon, X as CloseIcon } from 'lucide-react';
 import RichText from './RichText';
 import ReadingControls from './ReadingControls';
-import { BottomBar, Notice, Card, CardBody, ChipLink, PageShell, SectionTitle, Breadcrumb, CountBadge, accentTint } from './Primitives';
+import { BottomBar, Notice, Card, CardBody, ChipLink, PageShell, SectionTitle, Breadcrumb, CountBadge, SwipeHint, accentTint } from './Primitives';
 import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
@@ -14,6 +14,7 @@ import { getSystemAccent } from '../utils/theme';
 import { getThreadStepTitle } from '../utils/references';
 import { getThreadProgress, setThreadProgress } from '../utils/threadProgress';
 import { usePagerKeys } from '../utils/pagerKeys';
+import { SWIPE_SURFACE_STYLE, useDismissSwipe, useSwipeNav } from '../utils/useSwipeNav';
 
 export default function ThreadView() {
   const { systemId } = useParams();
@@ -106,6 +107,46 @@ export default function ThreadView() {
     };
   }, [drawerOpen]);
 
+  // Phone-friendly paging lives before the missing-thread early return so
+  // hook order stays stable when hopping between systems. Guards return
+  // null when there is nothing to page through; the real step handlers
+  // below reuse the same clamped index once the thread resolves.
+  const clampedSafe = totalSteps > 0 ? Math.min(stepIndex, totalSteps - 1) : 0;
+  const goToStepSafe = (next: number) => {
+    if (totalSteps === 0) return;
+    const clamped = Math.min(Math.max(next, 0), totalSteps - 1);
+    setStepIndex(clamped);
+    setSearchParams({ step: String(clamped + 1) });
+  };
+  const canPrevSafe = totalSteps > 0 && clampedSafe > 0;
+  const canNextSafe = totalSteps > 0 && clampedSafe < totalSteps - 1;
+  usePagerKeys(
+    canNextSafe ? () => goToStepSafe(clampedSafe + 1) : null,
+    canPrevSafe ? () => goToStepSafe(clampedSafe - 1) : null,
+  );
+  // Swipe left for the next step, right for the previous one. Vertical
+  // reading scroll never pages; the BottomBar stays canonical.
+  const swipeRef = useSwipeNav(
+    canNextSafe ? () => goToStepSafe(clampedSafe + 1) : null,
+    canPrevSafe ? () => goToStepSafe(clampedSafe - 1) : null,
+  );
+  // Phone-friendly dismiss: swipe down on the contents card to close.
+  // List scrolling stays intact — only a clearly vertical downward fling
+  // dismisses, and Escape plus the close button stay canonical.
+  const dismissRef = useDismissSwipe(
+    drawerOpen
+      ? () => {
+          setDrawerOpen(false);
+          triggerRef.current?.focus();
+        }
+      : null,
+    drawerOpen,
+  );
+  const setDialogRefs = (node: HTMLDivElement | null) => {
+    dialogRef.current = node;
+    (dismissRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
+  };
+
   if (!system || !system.thread || system.thread.length === 0) {
     return <div className="text-center py-12">{t(language, 'threadNotFound')}</div>;
   }
@@ -123,10 +164,6 @@ export default function ThreadView() {
   };
   const handleNext = () => goToStep(clampedIndex + 1);
   const handlePrev = () => goToStep(clampedIndex - 1);
-  usePagerKeys(
-    clampedIndex < totalSteps - 1 ? handleNext : null,
-    clampedIndex > 0 ? handlePrev : null,
-  );
 
   const content = step.content[language] ?? step.content.en;
   const isFallback = language === 'ml' && !step.content.ml;
@@ -194,6 +231,7 @@ export default function ThreadView() {
         <Notice tone="amber">{t(language, 'mlFallbackThread')}</Notice>
       )}
 
+      <div ref={swipeRef} style={SWIPE_SURFACE_STYLE}>
       <Card>
         {/* Progress bar doubles as the accessible progress indicator. */}
         <div
@@ -301,6 +339,8 @@ export default function ThreadView() {
           )}
         </CardBody>
       </Card>
+      </div>
+      <SwipeHint text={t(language, 'swipeHint')} />
 
       {drawerOpen &&
         createPortal(
@@ -317,7 +357,8 @@ export default function ThreadView() {
             />
             <div className="relative max-w-lg mx-auto mt-[8vh] px-4">
               <div
-                ref={dialogRef}
+                ref={setDialogRefs}
+                style={{ touchAction: 'pan-y' }}
                 className="bg-avyakta-2 border border-tamas-deep rounded-2xl shadow-lg overflow-hidden animate-fade-in"
               >
                 <div className="flex items-center gap-2 px-4 py-3 border-b border-tamas-deep">

@@ -5,7 +5,7 @@ import { ChevronRight, ChevronLeft, ArrowLeft, Share2, Check, Bookmark } from 'l
 import Markdown from 'react-markdown';
 import RichText from './RichText';
 import ReadingControls from './ReadingControls';
-import { Breadcrumb, BottomBar, Notice, CollapsibleSection, Card, CardBody, PageShell } from './Primitives';
+import { Breadcrumb, BottomBar, Notice, CollapsibleSection, Card, CardBody, PageShell, SwipeHint } from './Primitives';
 import {
   RelatedConceptsSection,
   RelatedVersesSection,
@@ -17,6 +17,7 @@ import {
   getThreadStepsForVerse,
 } from '../utils/references';
 import { usePagerKeys } from '../utils/pagerKeys';
+import { SWIPE_SURFACE_STYLE, useSwipeNav } from '../utils/useSwipeNav';
 import { recordVerseVisit } from '../utils/readingHistory';
 import { isBookmarked, toggleBookmark } from '../utils/bookmarks';
 import { useLanguage } from '../context/LanguageContext';
@@ -54,6 +55,13 @@ export default function VerseDetail() {
     ? `/system/${system.id}/text/${text.id}/verse/${prevVerse.id}`
     : null;
   usePagerKeys(
+    nextHref ? () => navigate(nextHref) : null,
+    prevHref ? () => navigate(prevHref) : null,
+  );
+  // Phone-friendly paging: swipe left for the next verse, right for the
+  // previous one. Progressive enhancement over the BottomBar and arrow
+  // keys; vertical reading scroll and text selection never trigger it.
+  const swipeRef = useSwipeNav(
     nextHref ? () => navigate(nextHref) : null,
     prevHref ? () => navigate(prevHref) : null,
   );
@@ -276,6 +284,7 @@ export default function VerseDetail() {
         <Notice tone="amber">{t(language, 'mlFallbackVerse')}</Notice>
       )}
 
+      <div ref={swipeRef} style={SWIPE_SURFACE_STYLE}>
       <Card>
         <CardBody>
           <div className="text-center space-y-6">
@@ -406,6 +415,8 @@ export default function VerseDetail() {
           <ThreadMentionsSection steps={threadSteps} />
         </CardBody>
       </Card>
+      </div>
+      {(prevHref || nextHref) && <SwipeHint text={t(language, 'swipeHint')} />}
 
       <BottomBar>
         {prevVerse ? (

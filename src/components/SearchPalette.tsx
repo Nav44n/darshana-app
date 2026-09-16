@@ -342,6 +342,11 @@ export default function SearchPalette() {
                   <input
                     ref={inputRef}
                     value={query}
+                    inputMode="search"
+                    enterKeyHint="search"
+                    autoComplete="off"
+                    autoCapitalize="off"
+                    autoCorrect="off"
                     onChange={(e) => {
                       setQuery(e.target.value);
                       setActive(0);
