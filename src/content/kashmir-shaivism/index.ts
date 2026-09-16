@@ -8,6 +8,8 @@ import { tantralokaConceptsMl } from './tantraloka-concepts-ml';
 import { tantralokaThreadMl } from './tantraloka-thread-ml';
 import { tantralokaVersesEn } from './tantraloka-verses-en';
 import { tantralokaVersesMl } from './tantraloka-verses-ml';
+import { tantralokaLinksEn } from './tantraloka-links-en';
+import { tantralokaRelatedAliasEn } from './tantraloka-related-alias-en';
 import { mishraTrikaConceptsEn } from './mishra-trika-concepts-en';
 import { mishraTrikaConceptsMl } from './mishra-trika-concepts-ml';
 import { mishraTrikaThreadEn } from './mishra-trika-thread-en';
@@ -18,7 +20,12 @@ const mappedConceptsEn = tantralokaConceptsEn.map((c: TantralokaConcept) => ({
   title: `${c.sanskrit} (${c.iast}) - ${c.english}`,
   category: c.category,
   summary: c.definition + "\n\nSignificance: " + c.significance + (c.forBeginners ? "\n\nFor Beginners: " + c.forBeginners : ""),
-  relatedConceptIds: c.relatedConcepts
+  relatedConceptIds: [...new Set([...(c.relatedConcepts || []), ...(tantralokaRelatedAliasEn[c.id] || [])])]
+}));
+
+const mappedVersesEn = (tantralokaVersesEn as { id: string; conceptIds?: string[] }[]).map((v) => ({
+  ...v,
+  conceptIds: [...new Set([...(v.conceptIds || []), ...(tantralokaLinksEn[v.id] || [])])]
 }));
 
 const mappedConceptsMl = Object.entries({ ...tantralokaConceptsMl, ...mishraTrikaConceptsMl }).map(([id, c]) => ({
@@ -59,7 +66,7 @@ export const tantralokaText: ClassicalText = buildClassicalText(
     verseTerm: 'Śloka'
   },
   {
-    en: tantralokaVersesEn,
+    en: mappedVersesEn,
     ml: tantralokaVersesMl
   },
   {

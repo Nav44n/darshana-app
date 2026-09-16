@@ -5,6 +5,7 @@ import { vaisesikaSutrasBooks4To8 } from './vaisesika-sutras-en-books4-8';
 import { vaisesikaSutrasBooks9And10 } from './vaisesika-sutras-en-books9-10';
 import { vaisesikaSutrasBook8 } from './vaisesika-sutras-en-book8';
 import { vaisesikaKeyPointsEn } from './vaisesika-sutras-keypoints-en';
+import { vaisesikaLinksEn } from './vaisesika-sutras-links-en';
 import { vaisesikaSutrasMl } from './vaisesika-sutras-ml';
 import { vaisesikaConceptsEn } from './vaisesika-sutras-concepts-en';
 import { vaisesikaConceptsMl } from './vaisesika-sutras-concepts-ml';
@@ -19,7 +20,7 @@ const mappedVaisesikaEn = allVaisesikaVersesEn.map((v: any) => ({
   devanagari: v.sanskrit,
   iast: '',
   diagramId: v.diagramId,
-  conceptIds: v.conceptIds,
+  conceptIds: vaisesikaLinksEn[v.id] ?? v.conceptIds,
   translation: v.text,
   commentary: v.commentary,
   keyPoints: vaisesikaKeyPointsEn[v.id]

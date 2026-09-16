@@ -1,5 +1,5 @@
 import { canonIndic, getOrBuildSearchIndex, searchVerses } from '../searchIndex';
-import { matchesSanskritQuery } from '../sanskrit';
+import { matchesSanskritQuery, normalizeSanskrit } from '../sanskrit';
 import { getRecentSearches, recordSearch, clearSearches } from '../searchHistory';
 
 describe('canonIndic', () => {
@@ -61,6 +61,39 @@ describe('matchesSanskritQuery (palette behaviour)', () => {
     expect(matchesSanskritQuery('puruṣa', 'prakriti')).toBe(false);
     expect(matchesSanskritQuery('', 'dharma')).toBe(false);
     expect(matchesSanskritQuery('dharma', '')).toBe(true);
+  });
+
+  it('tolerates surrounding whitespace in palette queries', () => {
+    expect(matchesSanskritQuery('Puruṣa', '  purusa  ')).toBe(true);
+    expect(matchesSanskritQuery('dharma', '   ')).toBe(true);
+  });
+});
+
+describe('normalizeSanskrit', () => {
+  it('folds the full IAST diacritic range to ASCII bases', () => {
+    expect(normalizeSanskrit('śṣṇñṅṛṝḷṭḍṃḥ')).toBe('ssnnnrrltdmh');
+    expect(normalizeSanskrit('Sāṃkhya')).toBe('samkhya');
+    expect(normalizeSanskrit('')).toBe('');
+  });
+});
+
+describe('searchVerses ranking determinism', () => {
+  it('returns identical order on repeated head queries', () => {
+    const first = searchVerses('karma').map((h) => `${h.item.systemId}/${h.item.textId}/${h.item.verse.id}`);
+    const second = searchVerses('karma').map((h) => `${h.item.systemId}/${h.item.textId}/${h.item.verse.id}`);
+    expect(first).toEqual(second);
+  });
+
+  it('breaks score ties on stable id order, not corpus insertion order', () => {
+    const hits = searchVerses('karma');
+    expect(hits.length).toBeGreaterThan(1);
+    for (let i = 1; i < hits.length; i++) {
+      if (hits[i].score === hits[i - 1].score) {
+        const prev = `${hits[i - 1].item.systemId}/${hits[i - 1].item.textId}/${hits[i - 1].item.verse.id}`;
+        const curr = `${hits[i].item.systemId}/${hits[i].item.textId}/${hits[i].item.verse.id}`;
+        expect(prev.localeCompare(curr)).toBeLessThanOrEqual(0);
+      }
+    }
   });
 });
 

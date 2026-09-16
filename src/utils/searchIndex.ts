@@ -168,7 +168,14 @@ export function searchVerses(
   }
 
   // Sort descending by score, cap so callers (TextIndex live search)
-  // never render an unbounded list.
-  results.sort((a, b) => b.score - a.score);
+  // never render an unbounded list. Ties break on stable id order so
+  // head queries with flat scores (e.g. karma/yoga/dharma) realise a
+  // deterministic ranking instead of corpus insertion order.
+  results.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    const ak = `${a.item.systemId}/${a.item.textId}/${a.item.verse.id}`;
+    const bk = `${b.item.systemId}/${b.item.textId}/${b.item.verse.id}`;
+    return ak < bk ? -1 : ak > bk ? 1 : 0;
+  });
   return results.slice(0, 200);
 }

@@ -10,6 +10,7 @@ import { brahmaSutrasConceptsEn } from './brahma-sutras-concepts-en';
 import { brahmaSutrasConceptsMl } from './brahma-sutras-concepts-ml';
 import { brahmaSutrasThreadEn } from './brahma-sutras-thread-en';
 import { brahmaSutrasKeyPointsEn } from './brahma-sutras-keypoints-en';
+import { brahmaSutrasLinksEn } from './brahma-sutras-links-en';
 
 // The Brahma Sūtra source files use a compact legacy shape
 // ({ id: "1.1.1", sanskrit, adhyaya, pada, translation }) which does not
@@ -32,6 +33,7 @@ function normalizeSutra(raw: any) {
     id,
     number: raw.number ?? id,
     keyPoints: brahmaSutrasKeyPointsEn[id],
+    conceptIds: brahmaSutrasLinksEn[id] ?? raw.conceptIds,
     section,
     devanagari: raw.devanagari ?? raw.sanskrit,
     // No IAST source for this text; keep empty string (never undefined)
