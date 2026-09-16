@@ -4,6 +4,8 @@ import { vsStotraA } from './vs-stotra-a';
 import { vsStotraB } from './vs-stotra-b';
 import { vsStotraC } from './vs-stotra-c';
 import { vsFrameEn } from './frame/vs-frame-verses-en';
+import { vsFrameMl } from './frame/vs-frame-verses-ml';
+import { vsStotraMlA } from './vs-stotra-ml-a';
 import { vishnuSahasranamaConceptsEn } from './vishnu-sahasranama-concepts-en';
 import { vishnuSahasranamaThreadEn } from './vishnu-sahasranama-thread-en';
 import { vishnuSahasranamaThreadMl } from './vishnu-sahasranama-thread-ml';
@@ -28,6 +30,7 @@ export const vishnuSahasranamaText: ClassicalText = buildClassicalText(
   },
   {
     en: [...vsFrameEn.slice(0, 14), ...vsStotraA, ...vsStotraB, ...vsStotraC, ...vsFrameEn.slice(14)],
+    ml: [...vsFrameMl.slice(0, 14), ...vsStotraMlA, ...vsFrameMl.slice(14)],
   },
   {
     en: vishnuSahasranamaConceptsEn,

@@ -236,3 +236,29 @@ credentials in this environment). Push + Pages deploy left for next session.
   clean (pre-existing chunk-size warning only).
 - Left for later: stotra verse/concept ML (479 + 2000 entries), Kashmir
   EN-only decision, American-token bulk pass (still unapproved).
+
+## 2026-09-16 (later) — Content: stotra ML infinite batches, Batches 1–2 (verified)
+
+- Census (esbuild-bundled probe, `/tmp/opencode/`, not committed):
+  every text is ML-complete except the two stotras — vishnu 144
+  verses + 1000 concepts, lalita 335 + 1000 (479 + 2000 total).
+  Minor: nyaya 2.1.67 ML commentary missing (1 verse); brahma ML
+  is translation-only by design (comm 0/552). Integrity suite is
+  202/202 (was 193 — new search/bookmark tests landed meanwhile).
+- Batch 1: new `vishnu-sahasranama/frame/vs-frame-verses-ml.ts`
+  (37 frame verses: 13 purva + dhyana + raksha + 22 phala, genuine
+  Malayalam, IAST byte-identical to EN), wired as `ml:` overlay in
+  `vishnu-sahasranama.ts` (frame slices; stotra ids fall back to EN
+  until their batches land — factory behaviour, UI-safe).
+- Batch 2: new `vishnu-sahasranama/vs-stotra-ml-a.ts` (vs-001…036,
+  names 1–335, same conventions), wired between the frame slices.
+  Vishnu verse ML now 73/144 by source-file count.
+- Script hygiene: two Tamil-lookalike homoglyphs caught by a
+  Tamil-block probe (U+0BC6, U+0B9F/0xB99 family) and repaired to
+  Malayalam codepoints; probe is clean (zero Tamil-block chars).
+- Verified per batch: id-sync (0 missing/extra, 0 IAST mismatches),
+  `tsc --noEmit` clean, 202/202 tests, `vite build` clean.
+- Queue: Batch 3 vs-037…072, Batch 4 vs-073…107, Batches 5–14
+  Vishnu concepts ML (10×100, mirroring `concepts/` split), then
+  Lalita verses (335) + concepts (10×100). Say "continue" for the
+  next batch. Left uncommitted in working tree.
