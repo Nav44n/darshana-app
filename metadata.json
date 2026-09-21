@@ -1,0 +1,6 @@
+{
+  "name": "Darśana",
+  "description": "An exploration of classical Indian philosophical systems (Darśanas), their foundational texts, and core concepts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

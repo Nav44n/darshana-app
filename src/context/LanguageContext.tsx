@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext } from 'react';
 import { SupportedLanguage } from '../types/i18n';
+import { usePreferences } from './PreferencesContext';
 
 interface LanguageContextType {
   language: SupportedLanguage;
@@ -8,33 +9,21 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType>({
-  language: 'en',
+  language: 'ml',
   setLanguage: () => {},
   toggleLanguage: () => {},
 });
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<SupportedLanguage>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('darsana_language');
-      if (saved === 'en' || saved === 'ml') return saved;
-    }
-    return 'en';
-  });
-
-  const setLanguage = (lang: SupportedLanguage) => {
-    setLanguageState(lang);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('darsana_language', lang);
-    }
-  };
-
-  const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'ml' : 'en');
-  };
-
+  const prefs = usePreferences();
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>
+    <LanguageContext.Provider
+      value={{
+        language: prefs.language,
+        setLanguage: prefs.setLanguage,
+        toggleLanguage: prefs.toggleLanguage,
+      }}
+    >
       {children}
     </LanguageContext.Provider>
   );

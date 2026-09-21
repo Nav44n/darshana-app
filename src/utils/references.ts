@@ -227,7 +227,8 @@ export function getRelatedConcepts(
   limit = 12,
 ): ConceptHit[] {
   const text = getText(systemId, textId);
-  const concept = text?.concepts.find((c) => (c.id as string) === conceptId);
+  if (!text) return [];
+  const concept = text.concepts.find((c) => (c.id as string) === conceptId);
   if (!concept) return [];
 
   const seen = new Set<string>([`${systemId}:${textId}:${conceptId}`]);

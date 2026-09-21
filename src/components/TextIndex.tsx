@@ -29,7 +29,7 @@ export default function TextIndex() {
   const [openSections, setOpenSections] = useState<string[]>([]);
 
   const threadSteps = useMemo(() => {
-    if (!system || !text) return [] as { step: (typeof system.thread)[number]; globalIndex: number }[];
+    if (!system || !text) return [] as { step: NonNullable<typeof system>['thread'][number]; globalIndex: number }[];
     return system.thread
       .map((step, globalIndex) => ({ step, globalIndex }))
       .filter(({ step }) => (step.textId || system.texts[0]?.id) === text.id);

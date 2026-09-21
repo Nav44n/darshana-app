@@ -3,18 +3,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { Suspense, lazy } from 'react';
-import { HashRouter, Routes, Route, Link, useLocation, useNavigate } from 'react-router';
-import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import React, { Suspense, lazy, useEffect } from 'react';
+import { HashRouter, Routes, Route, useParams, Navigate } from 'react-router';
+import { PreferencesProvider, usePreferences } from './context/PreferencesContext';
+import { LanguageProvider } from './context/LanguageContext';
 import { ReadingProvider } from './context/ReadingContext';
 import { systems } from './content';
 import { t } from './i18n/ui';
-import { getSystemDisplay } from './i18n/systems';
 import ErrorBoundary from './components/ErrorBoundary';
 import ScrollToTop from './components/ScrollToTop';
-import SearchPalette from './components/SearchPalette';
+import { AppShell } from './components/shell/AppShell';
+import { HomeView } from './components/pillars/HomeView';
+import { SystemsView } from './components/pillars/SystemsView';
+import { InquiriesView } from './components/pillars/InquiriesView';
+import { LibraryView } from './components/pillars/LibraryView';
+import { SupportedLanguage } from './types/preferences';
 
-const Home = lazy(() => import('./components/Home'));
+// Lazy-loaded detailed and reader views
 const Intro = lazy(() => import('./components/Intro'));
 const SystemDetail = lazy(() => import('./components/SystemDetail'));
 const TextIndex = lazy(() => import('./components/TextIndex'));
@@ -23,134 +28,218 @@ const ConceptDetail = lazy(() => import('./components/ConceptDetail'));
 const ThreadView = lazy(() => import('./components/ThreadView'));
 
 function ScreenFallback() {
+  const { language } = usePreferences();
   return (
-    <div className="py-16 text-center text-tamas text-sm animate-pulse">
-      <FallbackText />
+    <div className="py-20 text-center text-sattva-dim text-sm animate-pulse">
+      {t(language, 'loading')}
     </div>
   );
 }
 
-function FallbackText() {
-  const { language } = useLanguage();
-  return <>{t(language, 'loading')}</>;
+/** Synchronizes the URL language prefix (if present) with global PreferencesContext */
+function RouteLanguageSync() {
+  const { lang } = useParams();
+  const { language, setLanguage } = usePreferences();
+
+  useEffect(() => {
+    if (lang && (lang === 'ml' || lang === 'en') && lang !== language) {
+      setLanguage(lang as SupportedLanguage);
+    }
+  }, [lang, language, setLanguage]);
+
+  return null;
 }
 
-function SkipLink() {
-  const { language } = useLanguage();
-  return (
-    <a
-      href="#main-content"
-      className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-2 focus:rounded-lg focus:bg-avyakta-2 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-sattva focus:outline-none focus-visible:outline-2 focus-visible:outline-sattva"
-    >
-      {t(language, 'skipToContent')}
-    </a>
-  );
-}
+/** Resolves shorthand text URLs (e.g. /text/:textId) to canonical system routes */
+function TextRouteResolver({ type }: { type: 'index' | 'verse' | 'concept' }) {
+  const { textId, verseId, conceptId } = useParams();
+  const system = systems.find((s) => s.texts.some((t) => t.id === textId));
 
+  if (!system) {
+    return <Navigate to="/library" replace />;
+  }
 
-function HeaderNav() {
-  const { language, setLanguage } = useLanguage();
-  const location = useLocation();
-  const navigate = useNavigate();
-  // Current system from the route (works for system/text/verse/concept/thread
-  // paths alike) so the jump control always reflects where the reader is.
-  const segments = location.pathname.split('/');
-  const currentSystemId = segments[1] === 'system' ? (segments[2] ?? '') : '';
-
-  return (
-    <header className="bg-avyakta-2 border-b border-tamas-deep sticky top-0 z-10 pt-[env(safe-area-inset-top)]">
-      <div className="max-w-4xl mx-auto px-4 py-3 flex flex-wrap items-center gap-x-3 gap-y-2">
-        <Link to="/" className="mr-auto text-xl font-serif font-bold tracking-tight text-sattva hover:text-sattva-dim transition-colors motion-reduce:transition-none">
-          {language === 'ml' ? 'ദർശന' : 'Darśana'}
-        </Link>
-        {/* Row 2 on phones (search + system jump side by side); dissolves
-            into the header row on wider screens. */}
-        <div className="order-3 basis-full flex min-w-0 gap-2 sm:contents">
-          <SearchPalette />
-          <label htmlFor="system-jump" className="sr-only">
-            {t(language, 'systemsLabel')}
-          </label>
-          <select
-            id="system-jump"
-            value={currentSystemId}
-            onChange={(e) => {
-              if (e.target.value) navigate(`/system/${e.target.value}`);
-            }}
-            className="flex-1 min-w-0 sm:w-44 sm:flex-none min-h-11 rounded-lg bg-avyakta-3 border border-tamas-deep px-2.5 text-sm text-sattva-dim hover:text-sattva transition-colors motion-reduce:transition-none"
-          >
-          <option value="">{t(language, 'systemsLabel')}…</option>
-          {systems.map((s) => (
-            <option key={s.id} value={s.id}>
-              {getSystemDisplay(s, language).title}
-            </option>
-          ))}
-          </select>
-        </div>
-        <div className="flex items-center space-x-3">
-          <Link
-            to="/intro"
-            className="text-sm font-medium text-sattva-dim hover:text-sattva transition-colors motion-reduce:transition-none"
-          >
-            {t(language, 'introTab')}
-          </Link>
-        <div className="flex items-center space-x-1 bg-avyakta-3 p-1 rounded-lg border border-tamas-deep text-xs font-medium">
-          <button
-            onClick={() => setLanguage('en')}
-            aria-pressed={language === 'en'}
-            className={`px-2.5 py-1 rounded transition-colors motion-reduce:transition-none ${
-              language === 'en'
-                ? 'bg-avyakta-4 text-sattva shadow-xs font-semibold'
-                : 'text-sattva-dim hover:text-sattva'
-            }`}
-          >
-            English
-          </button>
-          <button
-            onClick={() => setLanguage('ml')}
-            aria-pressed={language === 'ml'}
-            className={`px-2.5 py-1 rounded transition-colors motion-reduce:transition-none ${
-              language === 'ml'
-                ? 'bg-avyakta-4 text-sattva shadow-xs font-semibold'
-                : 'text-sattva-dim hover:text-sattva'
-            }`}
-          >
-            മലയാളം
-          </button>
-        </div>
-        </div>
-      </div>
-    </header>
-  );
+  if (type === 'verse' && verseId) {
+    return <Navigate to={`/system/${system.id}/text/${textId}/verse/${verseId}`} replace />;
+  }
+  if (type === 'concept' && conceptId) {
+    return <Navigate to={`/system/${system.id}/text/${textId}/concept/${conceptId}`} replace />;
+  }
+  return <Navigate to={`/system/${system.id}/text/${textId}`} replace />;
 }
 
 export default function App() {
   return (
-    <LanguageProvider>
-      <ReadingProvider>
-      <HashRouter>
-        <ScrollToTop />
-        <div className="min-h-screen bg-avyakta text-sattva font-sans">
-          <SkipLink />
-          <HeaderNav />
-          <main id="main-content" tabIndex={-1} className="max-w-4xl mx-auto px-4 py-8 focus:outline-none">
-            <ErrorBoundary>
-            <Suspense fallback={<ScreenFallback />}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/intro" element={<Intro />} />
-                <Route path="/system/:systemId" element={<SystemDetail />} />
-                <Route path="/system/:systemId/thread" element={<ThreadView />} />
-                <Route path="/system/:systemId/text/:textId" element={<TextIndex />} />
-                <Route path="/system/:systemId/text/:textId/verse/:verseId" element={<VerseDetail />} />
-                <Route path="/system/:systemId/text/:textId/concept/:conceptId" element={<ConceptDetail />} />
-              </Routes>
-            </Suspense>
-            </ErrorBoundary>
-          </main>
-        </div>
-      </HashRouter>
-      </ReadingProvider>
-    </LanguageProvider>
+    <PreferencesProvider>
+      <LanguageProvider>
+        <ReadingProvider>
+          <HashRouter>
+            <ScrollToTop />
+            <AppShell>
+              <ErrorBoundary>
+                <Suspense fallback={<ScreenFallback />}>
+                  <Routes>
+                    {/* ── 4 Pillars (Canonical & Default Routes) ───────── */}
+                    <Route path="/" element={<HomeView />} />
+                    <Route path="/systems" element={<SystemsView />} />
+                    <Route path="/inquiries" element={<InquiriesView />} />
+                    <Route path="/library" element={<LibraryView />} />
+                    <Route path="/intro" element={<Intro />} />
+
+                    {/* ── Language-Prefixed 4 Pillars ──────────────────── */}
+                    <Route
+                      path="/:lang"
+                      element={
+                        <>
+                          <RouteLanguageSync />
+                          <HomeView />
+                        </>
+                      }
+                    />
+                    <Route
+                      path="/:lang/systems"
+                      element={
+                        <>
+                          <RouteLanguageSync />
+                          <SystemsView />
+                        </>
+                      }
+                    />
+                    <Route
+                      path="/:lang/inquiries"
+                      element={
+                        <>
+                          <RouteLanguageSync />
+                          <InquiriesView />
+                        </>
+                      }
+                    />
+                    <Route
+                      path="/:lang/library"
+                      element={
+                        <>
+                          <RouteLanguageSync />
+                          <LibraryView />
+                        </>
+                      }
+                    />
+                    <Route
+                      path="/:lang/intro"
+                      element={
+                        <>
+                          <RouteLanguageSync />
+                          <Intro />
+                        </>
+                      }
+                    />
+
+                    {/* ── System Details & Exploration ─────────────────── */}
+                    <Route path="/system/:systemId" element={<SystemDetail />} />
+                    <Route path="/system/:systemId/thread" element={<ThreadView />} />
+                    <Route path="/system/:systemId/explore" element={<ThreadView />} />
+                    <Route
+                      path="/:lang/system/:systemId"
+                      element={
+                        <>
+                          <RouteLanguageSync />
+                          <SystemDetail />
+                        </>
+                      }
+                    />
+                    <Route
+                      path="/:lang/system/:systemId/thread"
+                      element={
+                        <>
+                          <RouteLanguageSync />
+                          <ThreadView />
+                        </>
+                      }
+                    />
+                    <Route
+                      path="/:lang/system/:systemId/explore"
+                      element={
+                        <>
+                          <RouteLanguageSync />
+                          <ThreadView />
+                        </>
+                      }
+                    />
+
+                    {/* ── Text Index & Corpus Reading ─────────────────── */}
+                    <Route path="/system/:systemId/text/:textId" element={<TextIndex />} />
+                    <Route path="/system/:systemId/text/:textId/verse/:verseId" element={<VerseDetail />} />
+                    <Route path="/system/:systemId/text/:textId/concept/:conceptId" element={<ConceptDetail />} />
+
+                    <Route
+                      path="/:lang/system/:systemId/text/:textId"
+                      element={
+                        <>
+                          <RouteLanguageSync />
+                          <TextIndex />
+                        </>
+                      }
+                    />
+                    <Route
+                      path="/:lang/system/:systemId/text/:textId/verse/:verseId"
+                      element={
+                        <>
+                          <RouteLanguageSync />
+                          <VerseDetail />
+                        </>
+                      }
+                    />
+                    <Route
+                      path="/:lang/system/:systemId/text/:textId/concept/:conceptId"
+                      element={
+                        <>
+                          <RouteLanguageSync />
+                          <ConceptDetail />
+                        </>
+                      }
+                    />
+
+                    {/* ── Shorthand Canonical Text & Verse Routes ─────── */}
+                    <Route path="/text/:textId" element={<TextRouteResolver type="index" />} />
+                    <Route path="/text/:textId/verse/:verseId" element={<TextRouteResolver type="verse" />} />
+                    <Route path="/text/:textId/concept/:conceptId" element={<TextRouteResolver type="concept" />} />
+
+                    <Route
+                      path="/:lang/text/:textId"
+                      element={
+                        <>
+                          <RouteLanguageSync />
+                          <TextRouteResolver type="index" />
+                        </>
+                      }
+                    />
+                    <Route
+                      path="/:lang/text/:textId/verse/:verseId"
+                      element={
+                        <>
+                          <RouteLanguageSync />
+                          <TextRouteResolver type="verse" />
+                        </>
+                      }
+                    />
+                    <Route
+                      path="/:lang/text/:textId/concept/:conceptId"
+                      element={
+                        <>
+                          <RouteLanguageSync />
+                          <TextRouteResolver type="concept" />
+                        </>
+                      }
+                    />
+
+                    {/* Fallback to Home */}
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                  </Routes>
+                </Suspense>
+              </ErrorBoundary>
+            </AppShell>
+          </HashRouter>
+        </ReadingProvider>
+      </LanguageProvider>
+    </PreferencesProvider>
   );
 }
-

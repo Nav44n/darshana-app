@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
-@theme {
-  /* Fonts */
-  --font-serif: "Cormorant Garamond", serif;
-  --font-display: "Fraunces", serif;
-  --font-sans: "Inter", sans-serif;
-  --font-sanskrit: "Noto Serif Devanagari", serif;
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-avyakta: #141420;
+  --color-avyakta-2: #1c1d2c;
+  --color-avyakta-3: #242538;
+  --color-avyakta-4: #2b2d42;
 
-  /* Sāṃkhya principles (The Guṇas) */
   --color-sattva: #f4ecd8;
   --color-sattva-dim: #c4baa6;
   --color-sattva-bright: #f5e9c8;
@@ -20,18 +20,10 @@
   --color-tamas: #62687a;
   --color-tamas-deep: #494d5a;
 
-  /* The Ground (Prakṛti/Avyakta) */
-  --color-avyakta: #141420;
-  --color-avyakta-2: #1c1d2c;
-  --color-avyakta-3: #242538;
-  --color-avyakta-4: #2b2d42;
-
-  /* Purusha */
   --color-purusha: #a48ce8;
   --color-purusha-dim: #7c68b8;
   --color-purusha-glow: rgba(164, 140, 232, 0.22);
 
-  /* System Accents */
   --color-amber: #e8a23d;
   --color-amber-dim: #b97a24;
   --color-teal: #4fb3a3;
@@ -47,34 +39,130 @@
   --color-shakti: #d14e7e;
   --color-shakti-dim: #96355a;
 
-  /* Ink */
   --color-ink: #eae7de;
   --color-ink-dim: #9b9cad;
-
-  /* Additional */
   --color-hair: #2c2f40;
   --color-bg: #05060a;
   --color-overlay: rgba(5, 6, 10, 0.72);
   --color-shadow: rgba(0, 0, 0, 0.45);
+}
 
-  /* Spacing — mirrors tokens.ts spacing. Additive only: enables
-     p-xs, m-xs, gap-xs etc. without altering existing p-4, gap-6. */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 0.75rem;
-  --spacing-lg: 1rem;
-  --spacing-xl: 1.375rem;
-  --spacing-xxl: 1.75rem;
-  --spacing-xxxl: 2.25rem;
+[data-theme="light"],
+.theme-light {
+  color-scheme: light;
+  --color-avyakta: #fbf9f4;
+  --color-avyakta-2: #f3eee4;
+  --color-avyakta-3: #eae2d3;
+  --color-avyakta-4: #dfd5c2;
 
-  /* Shape — tokens.ts radius sm 8 / md 12 / lg 16 already map to
-     Tailwind rounded-lg / rounded-xl / rounded-2xl via defaults,
-     so do not override those. Pill alias is additive only. */
-  --radius-pill: 999px;
+  --color-sattva: #2a2825;
+  --color-sattva-dim: #5c564d;
+  --color-sattva-bright: #121110;
+  --color-sattva-glow: rgba(42, 40, 37, 0.08);
 
-  /* Motion — mirrors tokens.ts motion. Enables duration-fast/base/slow
-     and ease-standard/spring utilities. Serious tone: gentle settle,
-     no bounce. */
+  --color-rajas: #a64b35;
+  --color-rajas-dim: #823420;
+  --color-rajas-glow: rgba(166, 75, 53, 0.15);
+
+  --color-tamas: #7d776b;
+  --color-tamas-deep: #d8d2c5;
+
+  --color-purusha: #654ca8;
+  --color-purusha-dim: #4c3783;
+  --color-purusha-glow: rgba(101, 76, 168, 0.15);
+
+  --color-amber: #b97a24;
+  --color-amber-dim: #8f5a13;
+  --color-teal: #2d7a6e;
+  --color-teal-dim: #1e554d;
+  --color-cerulean: #2d5f9e;
+  --color-cerulean-dim: #1d416f;
+  --color-sage: #456c52;
+  --color-sage-dim: #304d3a;
+  --color-crimson: #a32a35;
+  --color-crimson-dim: #791a22;
+  --color-indigo: #48488e;
+  --color-indigo-dim: #32326b;
+  --color-shakti: #b03463;
+  --color-shakti-dim: #842146;
+
+  --color-ink: #2a2825;
+  --color-ink-dim: #5c564d;
+  --color-hair: #e5ded0;
+  --color-bg: #f5f0e6;
+  --color-overlay: rgba(240, 235, 224, 0.78);
+  --color-shadow: rgba(60, 50, 40, 0.12);
+}
+
+@theme {
+  --color-avyakta: var(--color-avyakta);
+  --color-avyakta-2: var(--color-avyakta-2);
+  --color-avyakta-3: var(--color-avyakta-3);
+  --color-avyakta-4: var(--color-avyakta-4);
+
+  --color-sattva: var(--color-sattva);
+  --color-sattva-dim: var(--color-sattva-dim);
+  --color-sattva-bright: var(--color-sattva-bright);
+  --color-sattva-glow: var(--color-sattva-glow);
+
+  --color-rajas: var(--color-rajas);
+  --color-rajas-dim: var(--color-rajas-dim);
+  --color-rajas-glow: var(--color-rajas-glow);
+
+  --color-tamas: var(--color-tamas);
+  --color-tamas-deep: var(--color-tamas-deep);
+
+  --color-purusha: var(--color-purusha);
+  --color-purusha-dim: var(--color-purusha-dim);
+  --color-purusha-glow: var(--color-purusha-glow);
+
+  --color-amber: var(--color-amber);
+  --color-amber-dim: var(--color-amber-dim);
+  --color-teal: var(--color-teal);
+  --color-teal-dim: var(--color-teal-dim);
+  --color-cerulean: var(--color-cerulean);
+  --color-cerulean-dim: var(--color-cerulean-dim);
+  --color-sage: var(--color-sage);
+  --color-sage-dim: var(--color-sage-dim);
+  --color-crimson: var(--color-crimson);
+  --color-crimson-dim: var(--color-crimson-dim);
+  --color-indigo: var(--color-indigo);
+  --color-indigo-dim: var(--color-indigo-dim);
+  --color-shakti: var(--color-shakti);
+  --color-shakti-dim: var(--color-shakti-dim);
+
+  --color-ink: var(--color-ink);
+  --color-ink-dim: var(--color-ink-dim);
+  --color-hair: var(--color-hair);
+  --color-bg: var(--color-bg);
+
+  /* Fonts */
+  --font-serif: "Cormorant Garamond", serif;
+  --font-display: "Fraunces", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-sanskrit: "Noto Serif Devanagari", serif;
+  --font-malayalam-body: "Noto Serif Malayalam", system-ui, -apple-system, "Manjari", "Kartika", serif;
+  --font-malayalam-display: "Gayathri", "Noto Serif Malayalam", system-ui, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Spacing */
+  --spacing-2xs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1.0rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2.25rem;
+  --spacing-2xl: 3.0rem;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 9999px;
+
+  /* Motion */
+  --duration-instant: 0ms;
   --duration-fast: 140ms;
   --duration-base: 220ms;
   --duration-slow: 340ms;
@@ -88,37 +176,23 @@ body {
   font-family: var(--font-sans);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  transition: background-color var(--duration-base) var(--ease-standard), color var(--duration-base) var(--ease-standard);
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-/* ── Phone ergonomics (touch batch) ─────────────────────────────
-   The app is read one-handed on phones: honour the notch/home
-   indicator, keep vertical scroll and pinch-zoom native, and remove
-   tap delays without ever disabling zoom (WCAG 1.4.4). Swipe surfaces
-   opt into `pan-y` inline so horizontal paging never fights the
-   browser; buttons and links use `manipulation` so taps feel instant.
-   Horizontal overscroll chaining is contained so a reading swipe never
-   triggers browser back/forward by accident. Indian English: behaviour. */
-html,
-body {
   overscroll-behavior-x: none;
 }
 
 body {
+  overscroll-behavior-x: none;
   -webkit-tap-highlight-color: transparent;
 }
 
-button,
-a {
+button, a {
   touch-action: manipulation;
 }
 
-/* Honour reduced-motion requests: non-essential motion collapses to
-   near-zero whilst keeping state changes functional. Infinite loops
-   must still offer a visible pause where used. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -132,10 +206,6 @@ a {
   }
 }
 
-/* ── Global keyboard focus (0.5) ──────────────────────────────
-   Meets WCAG 2.4.7 Visible and aims for 2.4.13 Appearance:
-   2px perimeter with 3:1 change via sattva on avyakta ground.
-   Mouse focus stays clean; keyboard focus is unmistakable. */
 :focus:not(:focus-visible) {
   outline: none;
 }
@@ -145,7 +215,6 @@ a {
   outline-offset: 2px;
 }
 
-/* Keep anchored sections clear of the sticky header. */
 :target {
   scroll-margin-top: 5rem;
 }
@@ -156,9 +225,6 @@ a {
   }
 }
 
-/* ── Entrance motion ──────────────────────────────────────────
-   Single fade-rise used by shells. Global reduced-motion guard
-   collapses it; keep duration/ease tokenised. */
 @keyframes darshana-fade-in {
   from {
     opacity: 0;
@@ -174,17 +240,41 @@ a {
   animation: var(--duration-slow) var(--ease-standard) both darshana-fade-in;
 }
 
+/* Indic and Malayalam Typography Foundation */
 .font-sanskrit {
   font-family: var(--font-sanskrit);
   line-height: 1.9;
 }
 
-/* ── Centralised type scale (0.2) ─────────────────────────────
-   Web truth for roles. Serif (Cormorant) for text to be read,
-   display (Fraunces) for titles, sans (Inter) for chrome.
-   Fluid sizes minimise reflow on small screens; Malayalam and
-   Devanagari favour taller leading and no tight tracking. */
+.font-malayalam-body {
+  font-family: var(--font-malayalam-body);
+  line-height: 1.95;
+}
 
+.font-malayalam-display {
+  font-family: var(--font-malayalam-display);
+  line-height: 1.8;
+}
+
+:lang(ml) {
+  font-family: var(--font-malayalam-body);
+}
+
+:lang(ml) .font-sans {
+  font-family: var(--font-malayalam-body);
+}
+
+:lang(ml) .font-serif {
+  font-family: var(--font-malayalam-body);
+}
+
+:lang(ml) .font-display,
+:lang(ml) h1,
+:lang(ml) h2 {
+  font-family: var(--font-malayalam-display);
+}
+
+/* Centralized type scale */
 .t-display1 {
   font-family: var(--font-display);
   font-weight: 500;
@@ -264,12 +354,10 @@ a {
   line-height: 1.9;
 }
 
-/* Malayalam and Devanagari need taller leading and open tracking
-   to keep conjuncts legible; never apply tight tracking there. */
 :lang(ml) .t-display1,
 :lang(ml) .t-display2,
 :lang(ml) .t-body-serif,
 :lang(ml) .t-body-sans {
-  line-height: 1.85;
+  line-height: 1.95;
   letter-spacing: 0;
 }
